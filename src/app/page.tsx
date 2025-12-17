@@ -197,8 +197,23 @@ export default function HomePage() {
           HERO SECTION (PREMIUM REDESIGN)
           ============================================ */}
       <section className="relative min-h-screen flex items-center bg-[#0a0f1c] overflow-hidden">
-        {/* Abstract Background Elements */}
-        <div className="absolute inset-0 z-0">
+        {/* Video Background (Mobile/Tablet) */}
+        <div className="absolute inset-0 z-0 lg:hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            poster="/images/rawaj-gate-printing-workshop-team-at-work.webp"
+          >
+            <source src="/Digital-printing-video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[#0a0f1c]/80 backdrop-blur-[2px]" />
+        </div>
+
+        {/* Abstract Background Elements (Desktop) */}
+        <div className="absolute inset-0 z-0 hidden lg:block">
           <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-indigo-900/10 rounded-full blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[100px]" />
           <div className="absolute inset-0" style={{
@@ -331,14 +346,20 @@ export default function HomePage() {
                 {/* Main Image Card */}
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 p-2 rounded-2xl shadow-2xl"
+                  className="bg-white/5 backdrop-blur-md border border-white/10 p-2 rounded-2xl shadow-2xl relative overflow-hidden"
                 >
-                  <GeoImage
-                    src="/images/rawaj-gate-printing-workshop-team-at-work.webp"
-                    alt="ورشة بوابة الرواج"
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     className="rounded-xl w-full aspect-[4/3] object-cover"
-                    priority
-                  />
+                    poster="/images/rawaj-gate-printing-workshop-team-at-work.webp"
+                  >
+                    <source src="/Digital-printing-video.mp4" type="video/mp4" />
+                  </video>
+                  {/* Overlay gradient for better integration */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c]/40 to-transparent rounded-xl pointer-events-none" />
                 </motion.div>
 
                 {/* Floating Info Card */}
