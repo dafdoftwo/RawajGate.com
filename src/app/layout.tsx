@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic, Cairo } from "next/font/google";
+import Script from "next/script";
 import { Header } from "@/components/mega-menu";
 import { Footer } from "@/components/footer";
 import { generateLocalBusinessSchema, generateFAQSchema, DEFAULT_FAQS } from "@/lib/schema";
@@ -108,6 +109,21 @@ export default function RootLayout({
         <Header />
         <main className="pt-16 lg:pt-20">{children}</main>
         <Footer />
+
+        {/* Google Analytics Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-862403831"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-862403831');
+          `}
+        </Script>
       </body>
     </html>
   );
