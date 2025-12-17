@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { GeoImage } from "@/components/geo-image";
@@ -98,7 +99,95 @@ const STATS = [
   { value: "جدة", label: "توصيل مجاني", icon: Truck },
 ];
 
+// Reviews data for slider
+const REVIEWS = [
+  {
+    id: 1,
+    name: "أ. أحمد العتيبي",
+    role: "صاحب شركة تقنية",
+    image: "/images/reviews/ahmed.webp",
+    rating: 5.0,
+    text: "احتجت لطباعة هوية بصرية كاملة لشركتي الجديدة. الفريق كان دقيقاً جداً في التعامل مع التفاصيل وتنفيذها بطريقة احترافية. وصلت جميع المطبوعات بجودة ممتازة وفي الوقت المحدد. خدمة لا غبار عليها.",
+    services: ["بطاقات أعمال", "بروشورات", "هوية بصرية"],
+    location: "جدة",
+    date: "منذ أسبوع",
+    category: "مطبوعات تجارية",
+  },
+  {
+    id: 2,
+    name: "م. فاطمة الزهراني",
+    role: "مديرة تسويق",
+    image: "/images/reviews/faten.webp",
+    rating: 5.0,
+    text: "تعاملت معهم لتجهيز جناح شركتنا في معرض جيتكس. التصميم كان مبهراً والتنفيذ احترافي جداً. حصلنا على إشادة كبيرة من الزوار والمنافسين!",
+    services: ["جناح معرض", "ستاندات", "بنرات"],
+    location: "جدة",
+    date: "منذ أسبوعين",
+    category: "معارض وفعاليات",
+  },
+  {
+    id: 3,
+    name: "أ. محمد الغامدي",
+    role: "صاحب مطعم",
+    image: "/images/reviews/mohamed.jpg",
+    rating: 5.0,
+    text: "طلبت منيوهات لمطعمي الجديد. الجودة رائعة والتصميم أنيق جداً. التسليم كان في الوقت المحدد. سأتعامل معهم دائماً.",
+    services: ["منيوهات", "كروت زيارة", "ملصقات"],
+    location: "جدة",
+    date: "منذ شهر",
+    category: "مطبوعات تجارية",
+  },
+  {
+    id: 4,
+    name: "د. عبدالله السالم",
+    role: "طبيب أسنان",
+    image: "/images/reviews/abdallah.jpg",
+    rating: 5.0,
+    text: "صممولي هوية بصرية كاملة لعيادتي. الشعار والألوان والمطبوعات كلها متناسقة واحترافية. أنصح بهم بشدة!",
+    services: ["شعار", "هوية بصرية", "لوحة عيادة"],
+    location: "جدة",
+    date: "منذ شهر",
+    category: "خدمات التصميم",
+  },
+  {
+    id: 5,
+    name: "أ. مصطفى الحربي",
+    role: "مدير شركة مقاولات",
+    image: "/images/reviews/mostafa.webp",
+    rating: 5.0,
+    text: "غلفنا أسطول سياراتنا بالكامل. العمل ممتاز والألوان ثابتة حتى بعد أشهر من الاستخدام في شمس جدة الحارة.",
+    services: ["تغليف سيارات", "ستيكرات", "لوحات"],
+    location: "جدة",
+    date: "منذ شهرين",
+    category: "لوحات وملصقات",
+  },
+  {
+    id: 6,
+    name: "أ. بوجا راني",
+    role: "صاحبة بوتيك",
+    image: "/images/reviews/pouja.webp",
+    rating: 5.0,
+    text: "أكياس التغليف اللي صمموها لمحلي راقية جداً. العملاء يمدحون فيها دائماً. سعيدة جداً بالتعامل معهم.",
+    services: ["أكياس ورقية", "صناديق", "ستيكرات"],
+    location: "جدة",
+    date: "منذ شهرين",
+    category: "هدايا دعائية",
+  },
+];
+
 export default function HomePage() {
+  const [currentReview, setCurrentReview] = useState(0);
+
+  const nextReview = () => {
+    setCurrentReview((prev) => (prev + 1) % REVIEWS.length);
+  };
+
+  const prevReview = () => {
+    setCurrentReview((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
+  };
+
+  const review = REVIEWS[currentReview];
+
   return (
     <>
       {/* ============================================
@@ -174,30 +263,58 @@ export default function HomePage() {
               {/* Authority Badges */}
               <motion.div
                 variants={fadeInUp}
-                className="mt-12 flex items-center justify-center lg:justify-start gap-8 border-t border-white/5 pt-8"
+                className="mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 border-t border-white/5 pt-8"
               >
-                <div className="flex items-center gap-4 group cursor-default">
-                  <div className="flex -space-x-4 space-x-reverse transition-transform group-hover:scale-105">
-                    <div className="w-12 h-12 rounded-full border-2 border-[#0a0f1c] bg-gray-600 flex items-center justify-center text-xs font-bold text-white">SA</div>
-                    <div className="w-12 h-12 rounded-full border-2 border-[#0a0f1c] bg-gray-500 flex items-center justify-center text-xs font-bold text-white">AR</div>
-                    <div className="w-12 h-12 rounded-full border-2 border-[#0a0f1c] bg-gray-400 flex items-center justify-center text-xs font-bold text-white">MA</div>
+                {/* Customer Reviews Badge */}
+                <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-2xl px-5 py-3 border border-white/10">
+                  <div className="flex -space-x-2 space-x-reverse">
+                    {[
+                      "/images/reviews/ahmed.webp",
+                      "/images/reviews/faten.webp",
+                      "/images/reviews/mohamed.jpg",
+                      "/images/reviews/mostafa.webp",
+                    ].map((src, i) => (
+                      <div key={i} className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#0a0f1c] flex-shrink-0">
+                        <img
+                          src={src}
+                          alt={`عميل ${i + 1}`}
+                          width={36}
+                          height={36}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                    ))}
+                    <div className="w-9 h-9 rounded-full ring-2 ring-[#0a0f1c] bg-amber-500 flex items-center justify-center text-xs font-bold text-gray-900 flex-shrink-0">
+                      +5K
+                    </div>
                   </div>
                   <div className="text-right">
                     <div className="flex items-center gap-1">
-                      <span className="text-white font-bold text-xl">5000+</span>
-                      <span className="flex text-amber-500"><Award className="w-3 h-3 fill-current" /><Award className="w-3 h-3 fill-current" /><Award className="w-3 h-3 fill-current" /><Award className="w-3 h-3 fill-current" /><Award className="w-3 h-3 fill-current" /></span>
+                      <span className="text-white font-bold text-lg">4.9</span>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-3.5 h-3.5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                          </svg>
+                        ))}
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-400 font-medium">عميل يثق في جودتنا</div>
+                    <div className="text-xs text-gray-400">عميل راضٍ</div>
                   </div>
                 </div>
-                <div className="h-10 w-px bg-white/10" />
-                <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400/20 to-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(245,158,11,0.1)]">
-                    <Award className="w-6 h-6" />
+
+                {/* Divider */}
+                <div className="hidden sm:block h-10 w-px bg-white/10" />
+
+                {/* Experience Badge */}
+                <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-2xl px-5 py-3 border border-white/10">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+                    <Award className="w-5 h-5" />
                   </div>
                   <div className="text-right">
-                    <div className="text-white font-bold text-xl">15 عاماً</div>
-                    <div className="text-sm text-gray-400 font-medium">من الخبرة والتميز</div>
+                    <div className="text-white font-bold text-lg">15 عاماً</div>
+                    <div className="text-xs text-gray-400">من الخبرة والتميز</div>
                   </div>
                 </div>
               </motion.div>
@@ -300,10 +417,11 @@ export default function HomePage() {
                   <div className="bg-gray-50 h-full rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:border-amber-200 group-hover:-translate-y-2">
                     {/* Image Area */}
                     <div className="relative h-64 overflow-hidden">
-                      <GeoImage
+                      <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        loading="lazy"
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                       />
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
 
@@ -492,6 +610,233 @@ export default function HomePage() {
       </section>
 
       {/* ============================================
+          CUSTOMER REVIEWS SECTION - CAROUSEL STYLE
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-12"
+          >
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+              قصص نجاح من عملائنا الكرام
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
+              تجارب حقيقية وآراء صادقة من عملاء وثقوا بنا في تنفيذ أعمالهم. كل قصة تحكي عن التزامنا بالتميز.
+            </motion.p>
+          </motion.div>
+
+          {/* Main Review Card with Navigation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative max-w-4xl mx-auto mb-12"
+          >
+            {/* Navigation Arrows */}
+            <button
+              onClick={nextReview}
+              className="absolute right-0 top-1/2 -translate-y-1/2 -translate-x-4 md:translate-x-8 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-amber-500 hover:shadow-xl transition-all z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button
+              onClick={prevReview}
+              className="absolute left-0 top-1/2 -translate-y-1/2 translate-x-4 md:-translate-x-8 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-amber-500 hover:shadow-xl transition-all z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Review Card */}
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-gray-100">
+              <div className="flex flex-col md:flex-row gap-8">
+                {/* Review Content - Right Side */}
+                <div className="flex-1 order-2 md:order-1">
+                  {/* Rating */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-lg font-bold text-gray-900">{review.rating}</span>
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                    {review.text}
+                  </p>
+
+                  {/* Service Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {review.services.map((service, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Reviewer Info - Left Side */}
+                <div className="flex flex-col items-center md:items-end text-center md:text-right order-1 md:order-2 md:w-48">
+                  <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-amber-100 mb-4 flex-shrink-0">
+                    <img
+                      src={review.image}
+                      alt={review.name}
+                      width={96}
+                      height={96}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <h4 className="font-bold text-gray-900 text-lg">{review.name}</h4>
+                  <p className="text-sm text-gray-500 mb-2">{review.role}</p>
+                  <span className="inline-flex items-center gap-1 text-green-600 text-xs mb-3">
+                    <CheckCircle className="w-4 h-4" />
+                    عميل موثق
+                  </span>
+                  <div className="flex items-center gap-1 text-gray-400 text-xs mb-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {review.location}
+                  </div>
+                  <div className="flex items-center gap-1 text-gray-400 text-xs mb-3">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {review.date}
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs">
+                    <Printer className="w-3 h-3" />
+                    {review.category}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mb-16">
+            {REVIEWS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentReview(i)}
+                className={`h-3 rounded-full transition-all ${i === currentReview ? 'bg-amber-500 w-6' : 'bg-gray-300 hover:bg-gray-400 w-3'}`}
+              />
+            ))}
+          </div>
+
+          {/* Statistics Row */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          >
+            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100">
+              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Clock className="w-6 h-6 text-amber-600" />
+              </div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">24/7</div>
+              <div className="text-gray-600 font-medium">خدمة العملاء</div>
+              <div className="text-gray-400 text-xs mt-1">دعم متواصل طوال الأسبوع</div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-green-600" />
+              </div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">100%</div>
+              <div className="text-gray-600 font-medium">ضمان الجودة</div>
+              <div className="text-gray-400 text-xs mt-1">إعادة الطباعة مجاناً</div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Award className="w-6 h-6 text-blue-600" />
+              </div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">4.9/5</div>
+              <div className="text-gray-600 font-medium">تقييم العملاء</div>
+              <div className="text-gray-400 text-xs mt-1">بناءً على +500 تقييم</div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Users className="w-6 h-6 text-purple-600" />
+              </div>
+              <div className="text-3xl font-bold text-gray-900 mb-1">+5,000</div>
+              <div className="text-gray-600 font-medium">عميل سعيد</div>
+              <div className="text-gray-400 text-xs mt-1">في جميع أنحاء المملكة</div>
+            </motion.div>
+          </motion.div>
+
+          {/* Customer Avatars Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h3 className="text-xl font-bold text-gray-900 mb-6">انضم إلى آلاف العملاء السعداء</h3>
+
+            {/* Avatar Row */}
+            <div className="flex flex-wrap justify-center gap-3 mb-4">
+              {[
+                "/images/reviews/ahmed.webp",
+                "/images/reviews/faten.webp",
+                "/images/reviews/fahd.jpg",
+                "/images/reviews/abdallah.jpg",
+                "/images/reviews/mostafa.webp",
+                "/images/reviews/mohamed.jpg",
+                "/images/reviews/omran.jpg",
+                "/images/reviews/mahdy.jpg",
+                "/images/reviews/pouja.webp",
+                "/images/reviews/ibtsam.jpg",
+              ].map((src, i) => (
+                <div key={i} className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-white shadow-md flex-shrink-0">
+                  <img
+                    src={src}
+                    alt={`عميل ${i + 1}`}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* More Customers Indicator */}
+            <div className="flex justify-center gap-2 mb-4">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-lg font-bold">
+                  +
+                </div>
+              ))}
+            </div>
+
+            <p className="text-gray-500 text-sm">
+              أكثر من 5,000 عميل راضٍ وثقوا بنا في تنفيذ مشاريعهم الإعلانية
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ============================================
           GEO MAP SECTION
           ============================================ */}
       <section className="py-20 bg-gradient-to-br from-[#1a365d] to-[#2d4a7c] text-white">
@@ -577,255 +922,6 @@ export default function HomePage() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          CUSTOMER REVIEWS SECTION
-          ============================================ */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-16"
-          >
-            <motion.span
-              variants={fadeInUp}
-              className="inline-block px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-sm font-bold mb-4"
-            >
-              آراء العملاء
-            </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-              ماذا يقول عملاؤنا عنا؟
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
-              نفخر بثقة أكثر من 5000 عميل في خدماتنا. إليك بعض آرائهم
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {/* Review 1 */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "تعاملت مع بوابة الرواج لطباعة بطاقات العمل والبروشورات لشركتي. الجودة ممتازة والتسليم كان قبل الموعد المحدد. أنصح بهم بشدة!"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <GeoImage
-                    src="/images/reviews/ahmed.webp"
-                    alt="أحمد العتيبي"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">أحمد العتيبي</h4>
-                  <p className="text-sm text-gray-500">صاحب شركة تقنية</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Review 2 */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "جهزوا لنا جناح معرض احترافي في وقت قياسي. التصميم كان مبهر وجذب انتباه جميع الزوار. شكراً لفريق بوابة الرواج!"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <GeoImage
-                    src="/images/reviews/faten.webp"
-                    alt="فاطن المالكي"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">فاطن المالكي</h4>
-                  <p className="text-sm text-gray-500">مديرة تسويق</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Review 3 */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "صمموا لي هوية بصرية كاملة لمطعمي الجديد. من الشعار إلى المنيوهات والأكياس. عمل متكامل ومحترف جداً."
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <GeoImage
-                    src="/images/reviews/fahd.jpg"
-                    alt="فهد الشمري"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">فهد الشمري</h4>
-                  <p className="text-sm text-gray-500">صاحب مطعم</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Review 4 */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "لافتة المحل 3D التي صنعوها لي غيرت شكل واجهة متجري بالكامل. جودة عالية وتركيب احترافي. شكراً جزيلاً!"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <GeoImage
-                    src="/images/reviews/abdallah.jpg"
-                    alt="عبدالله القحطاني"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">عبدالله القحطاني</h4>
-                  <p className="text-sm text-gray-500">صاحب محل تجاري</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Review 5 */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "طلبنا هدايا دعائية لموظفينا وكانت النتيجة رائعة. الطباعة واضحة والمنتجات ذات جودة عالية. سنتعامل معهم مرة أخرى."
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <GeoImage
-                    src="/images/reviews/mostafa.webp"
-                    alt="مصطفى السلمي"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">مصطفى السلمي</h4>
-                  <p className="text-sm text-gray-500">مدير موارد بشرية</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Review 6 */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "تغليف سيارات الشركة تم بشكل احترافي ودقيق. الألوان زاهية والتصميم يعكس هوية شركتنا بشكل مثالي. ممتازون!"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <GeoImage
-                    src="/images/reviews/mohamed.jpg"
-                    alt="محمد الغامدي"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">محمد الغامدي</h4>
-                  <p className="text-sm text-gray-500">مدير عمليات</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Google Reviews Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-12 text-center"
-          >
-            <div className="inline-flex items-center gap-3 bg-gray-100 px-6 py-3 rounded-full">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="font-bold text-gray-900">4.9</span>
-              <span className="text-gray-500">من 5 | +200 تقييم على Google</span>
-            </div>
-          </motion.div>
         </div>
       </section>
 
