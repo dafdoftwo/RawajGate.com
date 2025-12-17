@@ -216,7 +216,7 @@ export default function AboutPage() {
                                     <Phone className="w-5 h-5 text-amber-500 mt-1 shrink-0" />
                                     <div>
                                         <div className="font-bold text-gray-900">الهاتف</div>
-                                        <div className="text-gray-600" dir="ltr">+966 55 555 5555</div>
+                                        <div className="text-gray-600" dir="ltr">+966 54 892 3300</div>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">

@@ -29,7 +29,7 @@ export function generateLocalBusinessSchema(data: Partial<LocalBusinessSchema> =
         name: data.name || "بوابة الرواج - Rawaj Gate",
         description: data.description || "شريكك الاستراتيجي في الطباعة التجارية وتجهيز المعارض في جدة - خدمات طباعة احترافية، أجنحة معارض، لافتات، وهدايا دعائية",
         image: data.image || "https://rawajgate.com/images/rawaj-gate-printing-workshop-team-at-work.webp",
-        telephone: data.telephone || "+966-55-555-5555",
+        telephone: data.telephone || "+966-54-892-3300",
         address: {
             "@type": "PostalAddress",
             streetAddress: data.address?.streetAddress || "شارع التحلية",

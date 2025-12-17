@@ -341,6 +341,15 @@ export function Header() {
                     {/* Navigation */}
                     <MegaMenu />
 
+                    {/* Mobile Call Icon */}
+                    <a
+                        href="tel:+966548923300"
+                        className="md:hidden p-2 text-white hover:text-amber-400 transition-colors"
+                        aria-label="Call Us"
+                    >
+                        <Phone className="w-6 h-6" />
+                    </a>
+
                     {/* CTA Button */}
                     <div className="hidden md:flex items-center gap-3">
                         <a

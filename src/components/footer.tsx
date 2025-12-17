@@ -135,7 +135,7 @@ export function Footer() {
                                     className="flex items-center gap-3 text-white/70 hover:text-amber-400 transition-colors text-sm"
                                 >
                                     <Phone className="w-5 h-5 text-amber-400" />
-                                    <span dir="ltr">+966 55 555 5555</span>
+                                    <span dir="ltr">+966 54 892 3300</span>
                                 </a>
                             </li>
                             <li>
