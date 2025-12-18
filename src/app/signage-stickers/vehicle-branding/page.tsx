@@ -44,21 +44,21 @@ const WRAP_SERVICES = [
     {
         name: "تغليف كامل Full Wrap",
         description: "تغطية كاملة 100% للسيارة بتصميم موحد. الحل الأمثل للتحويل الكامل للمظهر أو البراندينج الشامل. يشمل جميع الأسطح والحواف.",
-        price: "من 3,500 ريال",
+        price: "اطلب عرضك المخصص",
         duration: "3-5 أيام",
         icon: Car,
     },
     {
         name: "تغليف جزئي Partial Wrap",
         description: "تغطية أجزاء محددة: الأبواب، الغطاء، المؤخرة. مثالي للميزانيات المحدودة مع تأثير بصري قوي.",
-        price: "من 1,500 ريال",
+        price: "سعر منافس",
         duration: "1-2 يوم",
         icon: Shield,
     },
     {
         name: "تغليف شاحنات Van Wrap",
         description: "شاحنات التوصيل والنقل الخفيف. حوّل أسطولك لإعلانات متحركة تجوب شوارع جدة يومياً.",
-        price: "من 5,000 ريال",
+        price: "تواصل للسعر",
         duration: "5-7 أيام",
         icon: Truck,
     },
@@ -94,8 +94,8 @@ const VINYL_TYPES = [
 
 const FAQS = [
     {
-        question: "كم يكلف تغليف سيارة كامل في جدة؟",
-        answer: "يعتمد السعر على نوع السيارة وحجمها ونوع الفينيل. سيارة سيدان متوسطة (كامري، أكورد) من 3,500 ريال، SUV من 4,500 ريال، شاحنات التوصيل من 5,000 ريال. نقدم تصميم 3D مجاني قبل التنفيذ.",
+        question: "كيف أحصل على عرض لتغليف سيارتي في جدة؟",
+        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب نوع السيارة وحجمها ونوع الفينيل. نقدم تصميم 3D مجاني قبل التنفيذ. أسعار تنافسية للأساطيل!",
     },
     {
         question: "هل تغليف السيارة يضر بالدهان الأصلي؟",
@@ -186,8 +186,8 @@ export default function VehicleBrandingPage() {
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-amber-400">3,500</div>
-                                    <div className="text-xs text-white/60">ريال تغليف كامل</div>
+                                    <div className="text-3xl font-bold text-amber-400">500+</div>
+                                    <div className="text-xs text-white/60">سيارة تم تغليفها</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">3</div>

@@ -42,7 +42,7 @@ const SIGN_TYPES = [
         name: "حروف أكريليك مضيئة",
         nameEn: "Illuminated Acrylic Letters",
         description: "حروف من الأكريليك الشفاف أو الملون بإضاءة LED داخلية. الأكثر شيوعاً للمحلات التجارية والمطاعم.",
-        price: "من 150 ريال/حرف",
+        price: "اطلب عرضك",
         features: ["إضاءة LED موفرة", "ألوان متعددة", "سهلة الصيانة"],
         icon: Lightbulb,
     },
@@ -50,7 +50,7 @@ const SIGN_TYPES = [
         name: "حروف ستانلس ستيل",
         nameEn: "Stainless Steel Letters",
         description: "حروف معدنية فاخرة من الستانلس ستيل المصقول أو المطفي. الاختيار الأول للبنوك والفنادق والعلامات الفاخرة.",
-        price: "من 200 ريال/حرف",
+        price: "سعر فاخر",
         features: ["متانة عالية", "مقاوم للصدأ", "مظهر فاخر"],
         icon: Layers,
     },
@@ -58,7 +58,7 @@ const SIGN_TYPES = [
         name: "نيون فلكس Neon Flex",
         nameEn: "LED Neon Flex",
         description: "تقنية LED حديثة بمظهر النيون الكلاسيكي الجذاب. مثالي للمطاعم والكافيهات والأماكن الترفيهية.",
-        price: "من 180 ريال/حرف",
+        price: "عرض مميز",
         features: ["مظهر عصري", "استهلاك منخفض", "ألوان زاهية"],
         icon: Zap,
     },
@@ -66,7 +66,7 @@ const SIGN_TYPES = [
         name: "لوحة كومبوزيت كاملة",
         nameEn: "Complete Composite Board",
         description: "لوحة خلفية من الكومبوزيت الألمنيوم مع حروف بارزة أو طباعة. حل اقتصادي متكامل.",
-        price: "من 2,000 ريال",
+        price: "تواصل معنا",
         features: ["تكلفة أقل", "تركيب سريع", "صيانة سهلة"],
         icon: Box,
     },
@@ -83,8 +83,8 @@ const TECH_SPECS = [
 
 const FAQS = [
     {
-        question: "كم تكلفة لافتة محل 3D في جدة؟",
-        answer: "تعتمد التكلفة على نوع الخامة والحجم وعدد الحروف. حروف أكريليك مضيئة تبدأ من 150 ريال/حرف، ستانلس ستيل من 200 ريال/حرف. لافتة كاملة 2 متر تتراوح بين 2,000-5,000 ريال حسب التصميم. التركيب والمحول مشمول في السعر.",
+        question: "كيف أحصل على عرض للافتة محلي 3D في جدة؟",
+        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب نوع الخامة والحجم وعدد الحروف. التركيب والمحول مشمول. احصل على تصميم 3D مجاني!",
     },
     {
         question: "كم يستغرق تنفيذ اللافتة؟",
@@ -175,8 +175,8 @@ export default function ShopSignage3DPage() {
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-amber-400">150</div>
-                                    <div className="text-xs text-white/60">ريال/حرف (أكريليك)</div>
+                                    <div className="text-3xl font-bold text-amber-400">3</div>
+                                    <div className="text-xs text-white/60">سنوات ضمان</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">3</div>

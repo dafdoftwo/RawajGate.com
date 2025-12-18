@@ -42,7 +42,7 @@ const STAND_SIZES = [
         nameEn: "Standard Roll-up",
         width: "85 سم",
         height: "200 سم",
-        price: "180 ريال",
+        price: "اطلب عرضك",
         popular: true,
         description: "الحجم الأكثر شيوعاً والأنسب لمعظم الاستخدامات. سهل النقل ومثالي للمعارض والمؤتمرات.",
     },
@@ -51,7 +51,7 @@ const STAND_SIZES = [
         nameEn: "Wide Roll-up",
         width: "100 سم",
         height: "200 سم",
-        price: "220 ريال",
+        price: "سعر مميز",
         popular: false,
         description: "عرض أكبر للتصاميم التفصيلية. مثالي عند وجود نصوص كثيرة أو صور متعددة.",
     },
@@ -60,7 +60,7 @@ const STAND_SIZES = [
         nameEn: "Extra Wide Roll-up",
         width: "120 سم",
         height: "200 سم",
-        price: "280 ريال",
+        price: "عرض تنافسي",
         popular: false,
         description: "الحجم الكبير للتأثير البصري القوي. مناسب للممرات الواسعة واستقبال الشركات.",
     },
@@ -69,7 +69,7 @@ const STAND_SIZES = [
         nameEn: "Premium Wide",
         width: "150 سم",
         height: "200 سم",
-        price: "350 ريال",
+        price: "تواصل معنا",
         popular: false,
         description: "أعرض حجم متوفر. مثالي للخلفيات وكبديل اقتصادي للميديا وول.",
     },
@@ -86,8 +86,8 @@ const TECH_SPECS = [
 
 const FAQS = [
     {
-        question: "كم سعر رول أب ستاند في جدة؟",
-        answer: "يبدأ سعر رول أب 85×200 سم من 180 ريال شاملاً الطباعة والهيكل وحقيبة الحمل. الحجم 100 سم بـ 220 ريال، و120 سم بـ 280 ريال. نقدم خصم 15% عند طلب 3 قطع فأكثر.",
+        question: "كيف أحصل على أفضل سعر لرول أب ستاند في جدة؟",
+        answer: "نقدم أسعاراً تنافسية لجميع الأحجام شاملة الطباعة والهيكل وحقيبة الحمل. تواصل معنا للحصول على عرض سعر مخصص! خصومات مميزة للكميات الكبيرة.",
     },
     {
         question: "كم تستغرق طباعة الرول أب؟",
@@ -95,7 +95,7 @@ const FAQS = [
     },
     {
         question: "هل يمكن تغيير البانر مع الاحتفاظ بالهيكل؟",
-        answer: "نعم! هياكلنا مصممة لإعادة الاستخدام. يمكنك طلب طباعة بانر بديل فقط بسعر 80 ريال (85 سم) مع الاحتفاظ بالهيكل نفسه.",
+        answer: "نعم! هياكلنا مصممة لإعادة الاستخدام. يمكنك طلب طباعة بانر بديل فقط بسعر منافس مع الاحتفاظ بالهيكل نفسه. تواصل معنا للتفاصيل!",
     },
     {
         question: "ما الفرق بين رول أب ورول أب ديلوكس؟",
@@ -178,8 +178,8 @@ export default function RollUpStandsPage() {
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-amber-400">180</div>
-                                    <div className="text-xs text-white/60">ريال (85 سم)</div>
+                                    <div className="text-3xl font-bold text-amber-400">4</div>
+                                    <div className="text-xs text-white/60">أحجام مختلفة</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">24</div>
@@ -252,10 +252,10 @@ export default function RollUpStandsPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-                            الأحجام المتوفرة والأسعار
+                            الأحجام المتوفرة
                         </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            جميع الأسعار تشمل: الطباعة + الهيكل الألمنيوم + حقيبة الحمل
+                            جميع الباقات تشمل: الطباعة + الهيكل الألمنيوم + حقيبة الحمل
                         </p>
                     </div>
 

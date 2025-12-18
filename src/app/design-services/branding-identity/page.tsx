@@ -19,7 +19,7 @@ import {
 
 export const metadata: Metadata = {
     title: "تصميم هوية بصرية للشركات في جدة | براندينج متكامل | بوابة الرواج",
-    description: "تصميم هوية بصرية متكاملة للشركات في جدة: شعار، ألوان، خطوط، دليل الهوية، وتطبيقات على جميع المطبوعات. باقات تبدأ من 2,500 ريال. خبرة 15 عام مع +300 علامة تجارية.",
+    description: "تصميم هوية بصرية متكاملة للشركات في جدة: شعار، ألوان، خطوط، دليل الهوية، وتطبيقات على جميع المطبوعات. خبرة 15 عام مع +300 علامة تجارية.",
     keywords: [
         "هوية بصرية",
         "براندينج",
@@ -41,7 +41,7 @@ const BRANDING_PACKAGES = [
     {
         name: "الباقة الأساسية",
         nameEn: "Basic Package",
-        price: "2,500 ريال",
+        price: "اطلب عرضك",
         description: "مثالية للمشاريع الناشئة والمحلات الصغيرة",
         deliverables: [
             "تصميم شعار رئيسي",
@@ -56,7 +56,7 @@ const BRANDING_PACKAGES = [
     {
         name: "الباقة المتقدمة",
         nameEn: "Advanced Package",
-        price: "5,000 ريال",
+        price: "سعر مميز",
         description: "الأكثر طلباً للشركات المتوسطة",
         deliverables: [
             "كل ما في الباقة الأساسية",
@@ -73,7 +73,7 @@ const BRANDING_PACKAGES = [
     {
         name: "الباقة الشاملة",
         nameEn: "Premium Package",
-        price: "10,000 ريال",
+        price: "تواصل معنا",
         description: "للشركات الكبرى والعلامات الفاخرة",
         deliverables: [
             "كل ما في الباقة المتقدمة",
@@ -192,8 +192,8 @@ export default function BrandingIdentityPage() {
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-amber-400">2,500</div>
-                                    <div className="text-xs text-white/60">ريال الباقة الأساسية</div>
+                                    <div className="text-3xl font-bold text-amber-400">15</div>
+                                    <div className="text-xs text-white/60">سنة خبرة</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">300+</div>

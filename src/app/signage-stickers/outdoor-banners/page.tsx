@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const BANNER_SIZES = [
-    { size: "1 × 2 متر", price: "50 ريال", use: "واجهات المحلات الصغيرة" },
-    { size: "1 × 3 متر", price: "75 ريال", use: "الأكثر شيوعاً للمحلات" },
-    { size: "2 × 3 متر", price: "150 ريال", use: "الفعاليات والمعارض" },
-    { size: "3 × 5 متر", price: "375 ريال", use: "الإعلانات الكبيرة" },
+    { size: "1 × 2 متر", price: "اطلب عرضك", use: "واجهات المحلات الصغيرة" },
+    { size: "1 × 3 متر", price: "سعر مميز", use: "الأكثر شيوعاً للمحلات" },
+    { size: "2 × 3 متر", price: "عرض خاص", use: "الفعاليات والمعارض" },
+    { size: "3 × 5 متر", price: "تواصل معنا", use: "الإعلانات الكبيرة" },
 ];
 
 const FAQS = [
@@ -120,7 +120,7 @@ export default function OutdoorBannersPage() {
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
-                        الأحجام والأسعار
+                        الأحجام المتوفرة
                     </h2>
                     <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                         {BANNER_SIZES.map((banner) => (
@@ -132,7 +132,7 @@ export default function OutdoorBannersPage() {
                             </div>
                         ))}
                     </div>
-                    <p className="text-center text-gray-500 mt-6">* السعر يشمل الطباعة والحلقات المعدنية</p>
+                    <p className="text-center text-gray-500 mt-6">* الباقة تشمل الطباعة والحلقات المعدنية</p>
                 </div>
             </section>
 

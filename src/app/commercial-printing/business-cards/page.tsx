@@ -19,7 +19,7 @@ import {
 
 export const metadata: Metadata = {
     title: "طباعة بطاقات عمل فاخرة في جدة | تشطيبات مخملية وذهبية | بوابة الرواج",
-    description: "طباعة بطاقات عمل احترافية في جدة بتشطيبات فاخرة: مخملي Soft Touch، رقائق ذهبية وفضية، ورق 350 جرام. تصميم مجاني، تسليم خلال 24 ساعة، خبرة 15 عام. أسعار تبدأ من 150 ريال لـ 500 بطاقة.",
+    description: "طباعة بطاقات عمل احترافية في جدة بتشطيبات فاخرة: مخملي Soft Touch، رقائق ذهبية وفضية، ورق 350 جرام. تصميم مجاني، تسليم خلال 24 ساعة، خبرة 15 عام.",
     keywords: [
         "بطاقات عمل جدة",
         "طباعة كروت شخصية",
@@ -44,7 +44,7 @@ const CARD_FINISHES = [
         name: "تشطيب لامع Glossy",
         nameEn: "Glossy Lamination",
         description: "طبقة لامعة تعكس الضوء بشكل أنيق، تبرز الألوان الزاهية والصور بوضوح استثنائي. مثالية للتصاميم الملونة والحيوية.",
-        price: "من 150 ريال / 500 بطاقة",
+        price: "اطلب عرضك",
         gsm: "350 جرام كوشيه",
         icon: Sparkles,
     },
@@ -52,7 +52,7 @@ const CARD_FINISHES = [
         name: "تشطيب مطفي Matte",
         nameEn: "Matte Lamination",
         description: "سطح ناعم بدون انعكاسات، يعطي إحساساً راقياً ومهنياً. الاختيار الأول للمحامين والأطباء والاستشاريين.",
-        price: "من 175 ريال / 500 بطاقة",
+        price: "سعر مميز",
         gsm: "350 جرام كوشيه",
         icon: Layers,
     },
@@ -60,7 +60,7 @@ const CARD_FINISHES = [
         name: "تشطيب مخملي Soft Touch",
         nameEn: "Soft Touch Velvet",
         description: "ملمس حريري كالمخمل يترك انطباعاً لا يُنسى. التشطيب الأفخم للعلامات التجارية الراقية والفنادق.",
-        price: "من 250 ريال / 500 بطاقة",
+        price: "عرض خاص",
         gsm: "400 جرام آرت كارد",
         icon: Palette,
     },
@@ -68,7 +68,7 @@ const CARD_FINISHES = [
         name: "رقائق ذهبية/فضية Foil",
         nameEn: "Gold/Silver Foil Stamping",
         description: "طباعة بالرقائق المعدنية الذهبية أو الفضية على الشعار أو النص. تميز استثنائي للبراندات الفاخرة.",
-        price: "من 350 ريال / 500 بطاقة",
+        price: "تواصل معنا",
         gsm: "400 جرام + Foil",
         icon: CreditCard,
     },
@@ -87,8 +87,8 @@ const TECH_SPECS = [
 
 const FAQS = [
     {
-        question: "كم سعر طباعة 500 بطاقة عمل في جدة؟",
-        answer: "تبدأ أسعارنا من 150 ريال لـ 500 بطاقة بتشطيب لامع على ورق 350 جرام، شاملة التصميم والطباعة على الوجهين. التشطيب المخملي يبدأ من 250 ريال، والرقائق الذهبية من 350 ريال. نقدم خصماً 15% على الطلبات أكثر من 1000 بطاقة.",
+        question: "كيف أحصل على عرض لطباعة بطاقات العمل في جدة؟",
+        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع التشطيب (لامع/مخملي/ذهبي). التصميم مجاني والطباعة على الوجهين. خصومات مميزة للكميات الكبيرة!",
     },
     {
         question: "كم يستغرق تسليم بطاقات العمل؟",
@@ -179,8 +179,8 @@ export default function BusinessCardsPage() {
                             {/* Quick Stats */}
                             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-amber-400">150</div>
-                                    <div className="text-xs text-white/60">ريال / 500 بطاقة</div>
+                                    <div className="text-3xl font-bold text-amber-400">24</div>
+                                    <div className="text-xs text-white/60">ساعة للتسليم</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">24</div>

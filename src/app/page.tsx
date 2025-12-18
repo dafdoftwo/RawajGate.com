@@ -896,7 +896,7 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-bold mb-1">التوصيل</h3>
                     <p className="text-white/70 text-sm">
-                      توصيل مجاني داخل جدة للطلبات أكثر من 500 ريال
+                      توصيل مجاني داخل جدة للطلبات الكبيرة
                     </p>
                   </div>
                 </div>

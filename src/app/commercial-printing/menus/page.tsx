@@ -36,28 +36,28 @@ const MENU_TYPES = [
     {
         name: "منيو جلدي فاخر",
         description: "غلاف جلد صناعي مع صفحات داخلية قابلة للاستبدال. الأفخم للمطاعم الفاخرة والفنادق.",
-        price: "من 60 ريال/منيو",
+        price: "اطلب عرضك",
         icon: BookOpen,
         features: ["جلد صناعي", "صفحات قابلة للتبديل", "ختم ذهبي"],
     },
     {
         name: "منيو مغلف حرارياً",
         description: "تغليف حراري Lamination على الوجهين. مقاوم للماء والبقع، سهل التنظيف.",
-        price: "من 15 ريال/منيو",
+        price: "سعر مميز",
         icon: Shield,
         features: ["مقاوم للماء", "سهل التنظيف", "شفاف لامع/مطفي"],
     },
     {
         name: "منيو طاولة (Table Tent)",
         description: "منيو صغير يوضع على الطاولة لعرض العروض الخاصة أو الأطباق المميزة.",
-        price: "من 8 ريال/قطعة",
+        price: "عرض خاص",
         icon: UtensilsCrossed,
         features: ["حجم صغير", "مثالي للعروض", "طباعة وجهين"],
     },
     {
         name: "منيو رقمي QR",
         description: "تصميم منيو رقمي + طباعة ملصقات QR Code للطاولات. حل ذكي واقتصادي.",
-        price: "من 500 ريال/كامل",
+        price: "تواصل معنا",
         icon: Sparkles,
         features: ["بدون طباعة", "تحديث سهل", "صديق للبيئة"],
     },
@@ -65,8 +65,8 @@ const MENU_TYPES = [
 
 const FAQS = [
     {
-        question: "كم سعر طباعة 50 منيو مغلف؟",
-        answer: "منيو A4 طي (4 صفحات) مغلف حرارياً من الوجهين: 15 ريال/منيو = 750 ريال لـ 50 منيو. يشمل الطباعة والتغليف، التصميم 150 ريال إضافية أو مجاني مع طلب +100 منيو.",
+        question: "كيف أحصل على عرض لطباعة المنيوهات؟",
+        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب النوع والكمية. السعر يشمل الطباعة والتغليف. التصميم مجاني للكميات الكبيرة!",
     },
     {
         question: "هل المنيو يتحمل السوائل والزيوت؟",
@@ -155,8 +155,8 @@ export default function MenusPage() {
 
                             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-amber-400">15</div>
-                                    <div className="text-xs text-white/60">ريال/منيو مغلف</div>
+                                    <div className="text-3xl font-bold text-amber-400">48</div>
+                                    <div className="text-xs text-white/60">ساعة تسليم</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-3xl font-bold text-amber-400">48</div>

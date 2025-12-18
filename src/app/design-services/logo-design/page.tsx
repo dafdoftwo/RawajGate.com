@@ -6,14 +6,14 @@ import { Sparkles, ArrowLeft, Lightbulb, Layers, RefreshCcw, Phone } from "lucid
 
 export const metadata: Metadata = {
     title: "تصميم شعار احترافي في جدة | Logo Design | بوابة الرواج",
-    description: "تصميم شعار احترافي للشركات والمشاريع في جدة. شعارات فريدة، ملفات مصدرية، تسليم خلال 5 أيام. باقات تبدأ من 800 ريال. +500 شعار تم تصميمه.",
+    description: "تصميم شعار احترافي للشركات والمشاريع في جدة. شعارات فريدة، ملفات مصدرية، تسليم خلال 5 أيام. +500 شعار تم تصميمه.",
     keywords: ["تصميم شعار", "logo design jeddah", "شعار شركة", "تصميم لوجو", "هوية بصرية"],
 };
 
 const PACKAGES = [
-    { name: "الباقة الأساسية", concepts: "2 مفاهيم", revisions: "2 تعديلات", price: "800 ريال", files: "AI, PNG, PDF" },
-    { name: "الباقة المتقدمة", concepts: "4 مفاهيم", revisions: "∞ تعديلات", price: "1,500 ريال", files: "AI, EPS, PNG, PDF, SVG" },
-    { name: "الباقة الشاملة", concepts: "6 مفاهيم + هوية", revisions: "∞ تعديلات", price: "3,000 ريال", files: "كل الملفات + دليل" },
+    { name: "الباقة الأساسية", concepts: "2 مفاهيم", revisions: "2 تعديلات", price: "اطلب عرضك", files: "AI, PNG, PDF" },
+    { name: "الباقة المتقدمة", concepts: "4 مفاهيم", revisions: "∞ تعديلات", price: "سعر مميز", files: "AI, EPS, PNG, PDF, SVG" },
+    { name: "الباقة الشاملة", concepts: "6 مفاهيم + هوية", revisions: "∞ تعديلات", price: "تواصل معنا", files: "كل الملفات + دليل" },
 ];
 
 const PROCESS = [
@@ -26,7 +26,7 @@ const PROCESS = [
 const FAQS = [
     {
         question: "كم تستغرق عملية تصميم الشعار؟",
-        answer: "الباقة الأساسية: 3-5 أيام. المتقدمة: 5-7 أيام. الشاملة: 10-14 يوم. هذا يشمل جولات التعديلات. نوفر خدمة عاجلة في 48 ساعة مقابل 50% إضافية.",
+        answer: "الباقة الأساسية: 3-5 أيام. المتقدمة: 5-7 أيام. الشاملة: 10-14 يوم. هذا يشمل جولات التعديلات. نوفر خدمة عاجلة في 48 ساعة.",
     },
     {
         question: "ما الملفات التي أحصل عليها؟",

@@ -11,16 +11,16 @@ export const metadata: Metadata = {
 };
 
 const GADGET_TYPES = [
-    { name: "فلاش USB", sizes: "4GB - 64GB", price: "من 15 ريال/قطعة", icon: Usb },
-    { name: "باور بانك", sizes: "5000 - 20000 mAh", price: "من 35 ريال/قطعة", icon: Battery },
-    { name: "سماعات لاسلكية", sizes: "Bluetooth 5.0", price: "من 40 ريال/قطعة", icon: Headphones },
-    { name: "حوامل جوال", sizes: "متعددة الأشكال", price: "من 8 ريال/قطعة", icon: Smartphone },
+    { name: "فلاش USB", sizes: "4GB - 64GB", price: "اطلب عرضك", icon: Usb },
+    { name: "باور بانك", sizes: "5000 - 20000 mAh", price: "سعر مميز", icon: Battery },
+    { name: "سماعات لاسلكية", sizes: "Bluetooth 5.0", price: "عرض خاص", icon: Headphones },
+    { name: "حوامل جوال", sizes: "متعددة الأشكال", price: "تواصل معنا", icon: Smartphone },
 ];
 
 const FAQS = [
     {
-        question: "كم سعر 100 فلاش USB 8GB بالشعار؟",
-        answer: "فلاش USB 8GB بطباعة ليزر على الوجه: من 20 ريال/قطعة = 2,000 ريال. سعة أعلى تزيد 5-10 ريال/قطعة. العلب الفردية اختيارية.",
+        question: "كيف أحصل على عرض للهدايا التقنية بالشعار؟",
+        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع المنتج والسعة. أسعار تنافسية للكميات الكبيرة!",
     },
     {
         question: "هل الباور بانك أصلي؟",

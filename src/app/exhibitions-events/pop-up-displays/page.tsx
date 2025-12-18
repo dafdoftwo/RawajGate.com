@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const POPUP_SIZES = [
-    { name: "2.5 × 2.5 متر", panels: "3 panels", price: "من 1,800 ريال", use: "للمساحات الصغيرة" },
-    { name: "3 × 2.5 متر", panels: "4 panels", price: "من 2,200 ريال", use: "الأكثر شيوعاً" },
-    { name: "4 × 2.5 متر", panels: "5 panels", price: "من 2,800 ريال", use: "للعلامات الكبرى" },
+    { name: "2.5 × 2.5 متر", panels: "3 panels", price: "اطلب عرضك", use: "للمساحات الصغيرة" },
+    { name: "3 × 2.5 متر", panels: "4 panels", price: "الأكثر طلباً", use: "الأكثر شيوعاً" },
+    { name: "4 × 2.5 متر", panels: "5 panels", price: "عرض مميز", use: "للعلامات الكبرى" },
 ];
 
 const FAQS = [
@@ -23,7 +23,7 @@ const FAQS = [
     },
     {
         question: "هل يمكن تغيير الجرافيك فقط؟",
-        answer: "نعم! الهيكل المعدني يُعاد استخدامه. يمكنك طلب طباعة جرافيك جديد فقط بسعر 800-1200 ريال حسب الحجم.",
+        answer: "نعم! الهيكل المعدني يُعاد استخدامه. يمكنك طلب طباعة جرافيك جديد بأسعار منافسة حسب الحجم - تواصل معنا للتفاصيل!",
     },
 ];
 
@@ -112,7 +112,7 @@ export default function PopUpDisplaysPage() {
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
-                        الأحجام والأسعار
+                        الأحجام المتوفرة
                     </h2>
                     <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                         {POPUP_SIZES.map((size) => (

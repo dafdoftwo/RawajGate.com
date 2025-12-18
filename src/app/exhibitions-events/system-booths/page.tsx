@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const BOOTH_SIZES = [
-    { name: "3 × 3 م", area: "9 م²", price: "من 2,000 ريال", desc: "الحجم الأساسي" },
-    { name: "3 × 4 م", area: "12 م²", price: "من 2,500 ريال", desc: "مساحة أكبر قليلاً" },
-    { name: "3 × 6 م", area: "18 م²", price: "من 3,500 ريال", desc: "للشركات المتوسطة" },
-    { name: "6 × 6 م", area: "36 م²", price: "من 6,000 ريال", desc: "جناح زاوية كبير" },
+    { name: "3 × 3 م", area: "9 م²", price: "اطلب عرضك", desc: "الحجم الأساسي" },
+    { name: "3 × 4 م", area: "12 م²", price: "سعر مميز", desc: "مساحة أكبر قليلاً" },
+    { name: "3 × 6 م", area: "18 م²", price: "عرض خاص", desc: "للشركات المتوسطة" },
+    { name: "6 × 6 م", area: "36 م²", price: "تواصل معنا", desc: "جناح زاوية كبير" },
 ];
 
 const INCLUDES = [
@@ -79,7 +79,7 @@ export default function SystemBoothsPage() {
                             </p>
 
                             <p className="text-lg text-white/70 mb-8">
-                                نوفر أحجاماً من 9 م² حتى 36 م². السعر يشمل: الهيكل، الجدران، الإضاءة،
+                                نوفر أحجاماً من 9 م² حتى 36 م². الباقة تشمل: الهيكل، الجدران، الإضاءة،
                                 الكهرباء، السجاد، طاولة وكرسيين.
                             </p>
 
@@ -118,7 +118,7 @@ export default function SystemBoothsPage() {
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
-                        الأحجام والأسعار
+                        الأحجام المتوفرة
                     </h2>
                     <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                         {BOOTH_SIZES.map((booth) => (
@@ -137,7 +137,7 @@ export default function SystemBoothsPage() {
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
-                        ماذا يشمل السعر؟
+                        ماذا تشمل الباقة؟
                     </h2>
                     <div className="flex flex-wrap justify-center gap-3">
                         {INCLUDES.map((item) => (
