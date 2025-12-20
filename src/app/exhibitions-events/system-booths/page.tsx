@@ -2,7 +2,17 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { Grid3X3, ArrowLeft, Repeat, Clock, Coins, Phone } from "lucide-react";
+import {
+    Grid3X3,
+    ArrowLeft,
+    Repeat,
+    Clock,
+    Coins,
+    Building2,
+    Briefcase,
+    GraduationCap,
+    Stethoscope,
+} from "lucide-react";
 
 export const metadata: Metadata = {
     title: "أجنحة أوكتانورم وشل سكيم في جدة | تأجير أجنحة نظامية | بوابة الرواج",
@@ -22,14 +32,46 @@ const INCLUDES = [
     "سجادة", "طاولة + كرسيين", "كهرباء (مخرج واحد)"
 ];
 
+const TECH_SPECS = [
+    { spec: "الهيكل", value: "ألومنيوم أوكتانورم" },
+    { spec: "الجدران", value: "بيضاء معيارية" },
+    { spec: "الإضاءة", value: "سبوت لايت" },
+    { spec: "الأرضية", value: "سجاد" },
+    { spec: "الكهرباء", value: "مخرج واحد" },
+    { spec: "الأثاث", value: "طاولة + كرسيين" },
+];
+
+const USE_CASES = [
+    { icon: Building2, title: "المعارض التجارية", desc: "حل اقتصادي للمشاركة" },
+    { icon: GraduationCap, title: "المعارض التعليمية", desc: "الجامعات والمدارس" },
+    { icon: Stethoscope, title: "المعارض الطبية", desc: "المستشفيات والعيادات" },
+    { icon: Briefcase, title: "معارض التوظيف", desc: "الشركات والباحثين" },
+];
+
 const FAQS = [
     {
         question: "ما الفرق بين الجناح النظامي والمخصص؟",
-        answer: "الجناح النظامي (Shell Scheme) هيكل جاهز معياري، تركيب سريع، تكلفة أقل، مناسب للمعارض قصيرة المدة. المخصص يُصمم من الصفر بالخشب حسب رؤيتك، تكلفة أعلى، تأثير بصري أقوى.",
+        answer: "الجناح النظامي (Shell Scheme) هيكل جاهز معياري، تركيب سريع في ساعات، تكلفة أقل 50-70%، مناسب للمعارض قصيرة المدة. المخصص يُصمم من الصفر بالخشب حسب رؤيتك، تكلفة أعلى، تأثير بصري أقوى.",
     },
     {
         question: "هل يمكن تخصيص الجناح النظامي؟",
-        answer: "نعم! نضيف: جرافيك مطبوع على الجدران، رفوف زجاجية، شاشات، كاونتر استقبال. هذه الإضافات تحوّل الجناح البسيط لمظهر احترافي.",
+        answer: "نعم! نضيف إضافات تحوّل الجناح البسيط لمظهر احترافي: جرافيك مطبوع على الجدران، رفوف زجاجية، شاشات عرض، كاونتر استقبال، إضاءة إضافية.",
+    },
+    {
+        question: "كم يستغرق التركيب؟",
+        answer: "تركيب الجناح النظامي يستغرق 2-4 ساعات فقط. فريقنا يصل قبل المعرض بيوم واحد للتركيب. التفكيك بعد المعرض مباشرة.",
+    },
+    {
+        question: "ماذا تشمل الباقة الأساسية؟",
+        answer: "الباقة تشمل: هيكل ألومنيوم أوكتانورم، جدران بيضاء، فاصيا (لوحة اسم الشركة)، إضاءة سبوت، سجادة، طاولة مع كرسيين، مخرج كهرباء.",
+    },
+    {
+        question: "هل توفرون خدمة التصميم؟",
+        answer: "نعم، فريق التصميم لدينا يصمم الجرافيك واللوحات التي تُركب على الجناح. نراعي هويتك البصرية ورسالتك التسويقية. التصميم مجاني للأجنحة الكبيرة (+18 متر).",
+    },
+    {
+        question: "هل التركيب والتفكيك مشمول؟",
+        answer: "نعم، السعر يشمل التركيب والتفكيك. فريقنا يتواجد في موقع المعرض للتركيب قبل الافتتاح وللتفكيك بعد الإغلاق مباشرة.",
     },
 ];
 
@@ -149,14 +191,141 @@ export default function SystemBoothsPage() {
                 </div>
             </section>
 
-            <section className="py-20 bg-gray-50">
+            {/* Use Cases */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
+                        أنواع المعارض التي نخدمها
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {USE_CASES.map((useCase) => (
+                            <div key={useCase.title} className="card p-6 text-center card-hover">
+                                <useCase.icon className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
+                                <h3 className="font-bold text-gray-900 mb-2">{useCase.title}</h3>
+                                <p className="text-gray-600 text-sm">{useCase.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Tech Specs */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+                                المواصفات الفنية
+                            </h2>
+                            <p className="text-gray-600 mb-8">
+                                أجنحة نظامية معيارية بمواصفات عالمية
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                {TECH_SPECS.map((item) => (
+                                    <div key={item.spec} className="bg-gray-50 p-4 rounded-lg">
+                                        <div className="text-sm text-gray-500 mb-1">{item.spec}</div>
+                                        <div className="font-bold text-gray-900">{item.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <GeoImage
+                            src="/images/octanorm-system-booth-shell-scheme.webp"
+                            alt="جناح نظامي أوكتانورم في معرض بجدة"
+                            caption="جناح Shell Scheme مع جرافيك"
+                            district="مركز جدة للمعارض"
+                            className="rounded-2xl shadow-xl"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Extended SEO Content */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
+                            دليلك الشامل للأجنحة النظامية في جدة
+                        </h2>
+
+                        <div className="prose prose-lg max-w-none text-gray-700">
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">ما هي الأجنحة النظامية (Shell Scheme)؟</h3>
+                            <p>
+                                الأجنحة النظامية (Shell Scheme أو Octanorm) هي نظام معياري لإنشاء أجنحة المعارض بسرعة واقتصادية.
+                                تتكون من هيكل ألومنيوم خفيف وجدران بيضاء قياسية. في معارض جدة مثل معرض البناء السعودي ومعرض الغذاء،
+                                ستجد أن غالبية الأجنحة الصغيرة والمتوسطة تستخدم هذا النظام. الميزة الرئيسية أنه يُركب ويُفكك في ساعات،
+                                مما يوفر الوقت والتكلفة مقارنة بالأجنحة الخشبية المخصصة.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">مميزات الأجنحة النظامية</h3>
+                            <p>
+                                <strong>التكلفة الاقتصادية</strong> - أقل بـ 50-70% من الأجنحة المخصصة.
+                                <strong>التركيب السريع</strong> - 2-4 ساعات فقط مقارنة بأيام للأجنحة الخشبية.
+                                <strong>المعيارية</strong> - أحجام قياسية تناسب معظم مساحات المعارض.
+                                <strong>إعادة الاستخدام</strong> - الهيكل يُستخدم مئات المرات.
+                                <strong>الباقة الشاملة</strong> - السعر يشمل كل شيء (هيكل، جدران، إضاءة، سجاد، أثاث).
+                            </p>
+
+                            <div className="my-8 grid md:grid-cols-2 gap-6">
+                                <GeoImage
+                                    src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
+                                    alt="جناح نظامي مع جرافيك مخصص"
+                                    caption="جناح Shell Scheme محسّن"
+                                    district="مركز جدة للمعارض"
+                                    className="rounded-xl shadow-lg"
+                                />
+                                <GeoImage
+                                    src="/images/pop-up-display-media-wall-background.webp"
+                                    alt="تجهيز جناح معرض"
+                                    caption="إضافة Pop-up للجناح"
+                                    district="مركز المعارض"
+                                    className="rounded-xl shadow-lg"
+                                />
+                            </div>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">متى تختار الجناح النظامي؟</h3>
+                            <p>
+                                الجناح النظامي مثالي في الحالات التالية:
+                                <strong>المعارض قصيرة المدة</strong> (3-5 أيام) حيث لا يستحق الاستثمار الكبير.
+                                <strong>الميزانية المحدودة</strong> للشركات الصغيرة والمتوسطة.
+                                <strong>المشاركة الأولى</strong> لاختبار السوق قبل الاستثمار أكثر.
+                                <strong>المعارض المتكررة</strong> حيث تحتاج حلاً سريعاً ومتكرراً.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">كيف تحسّن مظهر الجناح النظامي؟</h3>
+                            <ul className="list-disc pr-6 space-y-2">
+                                <li>أضف جرافيك مطبوع على الجدران بألوان هويتك</li>
+                                <li>استخدم رول أب ستاند أو Pop-up كخلفية إضافية</li>
+                                <li>أضف رفوف زجاجية لعرض المنتجات</li>
+                                <li>استخدم إضاءة إضافية لإبراز المنتجات</li>
+                                <li>أضف كاونتر استقبال بتصميم احترافي</li>
+                                <li>ضع شاشة عرض للفيديوهات والعروض</li>
+                            </ul>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">لماذا بوابة الرواج للأجنحة النظامية؟</h3>
+                            <p>
+                                في بوابة الرواج، نوفر أجنحة نظامية للشركات في جدة منذ أكثر من 15 عاماً.
+                                نستخدم هياكل أوكتانورم عالية الجودة. الباقة تشمل كل شيء (هيكل، جدران، إضاءة، سجاد، أثاث، كهرباء).
+                                فريقنا يتولى التركيب والتفكيك. نوفر إضافات لتحسين المظهر (جرافيك، رفوف، شاشات).
+                                فريق التصميم لدينا يصمم الجرافيك المناسب. أسعار تنافسية وخدمة موثوقة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 max-w-3xl">
-                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">الأسئلة الشائعة</h2>
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4 text-center">الأسئلة الشائعة</h2>
+                    <p className="text-gray-600 text-center mb-12">
+                        كل ما تريد معرفته عن الأجنحة النظامية في جدة
+                    </p>
                     <div className="space-y-6">
                         {FAQS.map((faq, i) => (
                             <div key={i} className="card p-6">
-                                <h3 className="font-bold text-gray-900 mb-3">{faq.question}</h3>
-                                <p className="text-gray-600">{faq.answer}</p>
+                                <h3 className="font-bold text-gray-900 mb-3 text-lg">{faq.question}</h3>
+                                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
                         ))}
                     </div>
@@ -166,9 +335,20 @@ export default function SystemBoothsPage() {
             <section className="py-20 bg-gradient-to-r from-emerald-500 to-emerald-600">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold text-white mb-6">جاهز لمعرضك؟</h2>
-                    <Link href="/quote" className="px-8 py-4 bg-white text-emerald-600 font-bold rounded-lg inline-flex items-center">
-                        احجز الآن <ArrowLeft className="mr-2 w-5 h-5" />
-                    </Link>
+                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        احصل على جناح نظامي بسعر تنافسي. تركيب وتفكيك سريع وخدمة موثوقة.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/quote" className="px-8 py-4 bg-white text-emerald-600 font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-100 transition-all">
+                            احجز جناحك <ArrowLeft className="mr-2 w-5 h-5" />
+                        </Link>
+                        <a
+                            href="https://wa.me/966548923300?text=أريد حجز جناح نظامي للمعرض"
+                            className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-800 transition-all"
+                        >
+                            واتساب الآن
+                        </a>
+                    </div>
                 </div>
             </section>
         </>

@@ -2,7 +2,17 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { Smartphone, ArrowLeft, Headphones, Battery, Usb, Phone } from "lucide-react";
+import {
+    Smartphone,
+    ArrowLeft,
+    Headphones,
+    Battery,
+    Usb,
+    Building2,
+    Users,
+    GraduationCap,
+    Briefcase,
+} from "lucide-react";
 
 export const metadata: Metadata = {
     title: "هدايا تقنية دعائية في جدة | USB وباور بانك بالشعار | بوابة الرواج",
@@ -17,14 +27,46 @@ const GADGET_TYPES = [
     { name: "حوامل جوال", sizes: "متعددة الأشكال", price: "تواصل معنا", icon: Smartphone },
 ];
 
+const TECH_SPECS = [
+    { spec: "الطباعة", value: "ليزر / حفر / UV" },
+    { spec: "الضمان", value: "6 أشهر - سنة" },
+    { spec: "الشهادات", value: "CE / FCC" },
+    { spec: "USB السعة", value: "4GB - 64GB" },
+    { spec: "باور بانك", value: "5000 - 20000 mAh" },
+    { spec: "وقت الإنتاج", value: "10-14 يوم" },
+];
+
+const USE_CASES = [
+    { icon: Building2, title: "الشركات", desc: "هدايا للموظفين والعملاء" },
+    { icon: Users, title: "المؤتمرات", desc: "هدايا للمتحدثين والحضور" },
+    { icon: GraduationCap, title: "الجامعات", desc: "هدايا للخريجين" },
+    { icon: Briefcase, title: "البنوك", desc: "هدايا للعملاء VIP" },
+];
+
 const FAQS = [
     {
         question: "كيف أحصل على عرض للهدايا التقنية بالشعار؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع المنتج والسعة. أسعار تنافسية للكميات الكبيرة!",
+        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع المنتج والسعة. أسعار تنافسية جداً للكميات الكبيرة (+100 قطعة)!",
     },
     {
         question: "هل الباور بانك أصلي؟",
-        answer: "نوفر باور بانك من علامات موثوقة (Anker, Xiaomi) أو موديلات عامة بجودة جيدة. جميعها بشهادة CE/FCC والسعة الحقيقية مكتوبة.",
+        answer: "نوفر باور بانك من علامات موثوقة (Anker, Xiaomi, Baseus) أو موديلات عامة بجودة جيدة وسعر أقل. جميعها بشهادة CE/FCC والسعة الحقيقية مكتوبة.",
+    },
+    {
+        question: "ما أنواع الطباعة المتوفرة؟",
+        answer: "نوفر عدة أنواع: طباعة ليزر (دقة عالية)، حفر على المعدن (دائم لا يمحى)، UV ملون (للشعارات الملونة). الحفر الأفضل للمتانة.",
+    },
+    {
+        question: "ما الحد الأدنى للطلب؟",
+        answer: "USB: 50 قطعة. باور بانك: 50 قطعة. سماعات: 100 قطعة. للكميات الأقل، نوفر موديلات جاهزة من المخزون.",
+    },
+    {
+        question: "كم يستغرق الإنتاج؟",
+        answer: "الهدايا التقنية بالشعار تستغرق 10-14 يوم عمل. الموديلات الجاهزة من المخزون 3-5 أيام. لدينا خدمة سريعة للطلبات العاجلة.",
+    },
+    {
+        question: "هل الهدايا تأتي بعلبة؟",
+        answer: "نعم، جميع الهدايا تأتي بعلبة عادية مجانية. نوفر أيضاً علب هدايا فاخرة بشعارك (خدمة إضافية) لهدايا العملاء VIP.",
     },
 ];
 
@@ -112,14 +154,128 @@ export default function TechGadgetsPage() {
                 </div>
             </section>
 
-            <section className="py-20 bg-white">
+            {/* Use Cases */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
+                        من يستخدم الهدايا التقنية؟
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {USE_CASES.map((useCase) => (
+                            <div key={useCase.title} className="card p-6 text-center card-hover">
+                                <useCase.icon className="w-10 h-10 text-cyan-600 mx-auto mb-4" />
+                                <h3 className="font-bold text-gray-900 mb-2">{useCase.title}</h3>
+                                <p className="text-gray-600 text-sm">{useCase.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Tech Specs */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <GeoImage
+                            src="/images/tech-gifts-powerbank-usb-branding.webp"
+                            alt="هدايا تقنية بالشعار في جدة"
+                            caption="USB وباور بانك بالحفر"
+                            district="الأندلس"
+                            className="rounded-2xl shadow-xl"
+                        />
+                        <div>
+                            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+                                المواصفات الفنية
+                            </h2>
+                            <p className="text-gray-600 mb-8">
+                                منتجات أصلية بشهادات جودة وضمان
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                {TECH_SPECS.map((item) => (
+                                    <div key={item.spec} className="bg-white p-4 rounded-lg shadow-sm">
+                                        <div className="text-sm text-gray-500 mb-1">{item.spec}</div>
+                                        <div className="font-bold text-gray-900">{item.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Extended SEO Content */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
+                            دليلك الشامل للهدايا التقنية الدعائية في جدة
+                        </h2>
+
+                        <div className="prose prose-lg max-w-none text-gray-700">
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">لماذا الهدايا التقنية أذكى خيار؟</h3>
+                            <p>
+                                الهدايا التقنية من أكثر الهدايا الترويجية فعالية لأنها تُستخدم يومياً!
+                                USB يحمله العميل معه دائماً، باور بانك ينقذه عند نفاد البطارية، سماعات ترافقه في التمارين.
+                                كل استخدام يعني رؤية شعارك. دراسات التسويق تظهر أن الهدايا التقنية تحقق أعلى نسبة احتفاظ
+                                وأطول فترة استخدام بين جميع أنواع الهدايا الترويجية.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">أنواع الهدايا التقنية</h3>
+                            <p>
+                                <strong>فلاش USB:</strong> الكلاسيكية التي لا تموت، بسعات من 4GB إلى 64GB، أشكال متنوعة (معدني، جلد، بلاستيك).
+                                <strong>باور بانك:</strong> الأكثر طلباً حالياً، بسعات من 5000 إلى 20000 mAh، نوفر ماركات أصلية أو جنريك.
+                                <strong>سماعات لاسلكية:</strong> Bluetooth 5.0، علبة شحن، جودة صوت ممتازة.
+                                <strong>حوامل جوال:</strong> للمكتب أو السيارة، عملية ومفيدة يومياً.
+                            </p>
+
+                            <div className="my-8 grid md:grid-cols-2 gap-6">
+                                <GeoImage
+                                    src="/images/promotional-gifts-corporate-giveaways.webp"
+                                    alt="هدايا دعائية للشركات"
+                                    caption="مجموعة هدايا تقنية"
+                                    district="حي الأعمال"
+                                    className="rounded-xl shadow-lg"
+                                />
+                                <GeoImage
+                                    src="/images/client-meeting-office-al-rawaj-jeddah.webp"
+                                    alt="اجتماع تسليم هدايا"
+                                    caption="تسليم هدايا VIP"
+                                    district="الروضة"
+                                    className="rounded-xl shadow-lg"
+                                />
+                            </div>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">نصائح اختيار الهدية المناسبة</h3>
+                            <ul className="list-disc pr-6 space-y-2">
+                                <li><strong>للموظفين:</strong> باور بانك 10000mAh أو سماعات، هدايا عملية يستخدمونها يومياً</li>
+                                <li><strong>للعملاء VIP:</strong> باور بانك ماركة + علبة فاخرة، انطباع قوي ودائم</li>
+                                <li><strong>للمؤتمرات:</strong> USB 8GB أو 16GB، سعر اقتصادي للكميات الكبيرة</li>
+                                <li><strong>للخريجين:</strong> حامل جوال أو USB بتصميم أنيق</li>
+                            </ul>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">لماذا بوابة الرواج للهدايا التقنية؟</h3>
+                            <p>
+                                في بوابة الرواج، نوفر هدايا تقنية للشركات في جدة منذ أكثر من 15 عاماً.
+                                نختار منتجات بجودة مضمونة وضمان حقيقي. طباعة بالحفر أو الليزر تدوم سنوات.
+                                أسعار تنافسية للكميات. نخدم البنوك والشركات الكبرى والجامعات في جدة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 max-w-3xl">
-                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">الأسئلة الشائعة</h2>
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4 text-center">الأسئلة الشائعة</h2>
+                    <p className="text-gray-600 text-center mb-12">
+                        كل ما تريد معرفته عن الهدايا التقنية الدعائية
+                    </p>
                     <div className="space-y-6">
                         {FAQS.map((faq, i) => (
                             <div key={i} className="card p-6">
-                                <h3 className="font-bold text-gray-900 mb-3">{faq.question}</h3>
-                                <p className="text-gray-600">{faq.answer}</p>
+                                <h3 className="font-bold text-gray-900 mb-3 text-lg">{faq.question}</h3>
+                                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
                         ))}
                     </div>
@@ -129,9 +285,20 @@ export default function TechGadgetsPage() {
             <section className="py-20 bg-gradient-to-r from-cyan-500 to-cyan-600">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold text-white mb-6">هدايا تبقى مستخدمة!</h2>
-                    <Link href="/quote" className="px-8 py-4 bg-white text-cyan-600 font-bold rounded-lg inline-flex items-center">
-                        اطلب الآن <ArrowLeft className="mr-2 w-5 h-5" />
-                    </Link>
+                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        هدايا تقنية بشعارك ترافق عميلك أينما ذهب
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/quote" className="px-8 py-4 bg-white text-cyan-600 font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-100 transition-all">
+                            اطلب عرض سعر <ArrowLeft className="mr-2 w-5 h-5" />
+                        </Link>
+                        <a
+                            href="https://wa.me/966548923300?text=أريد هدايا تقنية بالشعار"
+                            className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-800 transition-all"
+                        >
+                            واتساب الآن
+                        </a>
+                    </div>
                 </div>
             </section>
         </>
