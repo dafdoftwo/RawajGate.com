@@ -127,7 +127,7 @@ export default function PopUpDisplaysPage() {
                         <GeoImage
                             src="/images/pop-up-display-media-wall-background.webp"
                             alt="ستاند بوب أب للمعارض في جدة"
-                            district="مركز المعارض"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -211,8 +211,8 @@ export default function PopUpDisplaysPage() {
                         <GeoImage
                             src="/images/pop-up-display-media-wall-background.webp"
                             alt="ستاند بوب أب للمعارض والفعاليات في جدة"
-                            caption="Pop-up Display مع إضاءة LED"
-                            district="مركز جدة للمعارض"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>
@@ -249,15 +249,15 @@ export default function PopUpDisplaysPage() {
                                 <GeoImage
                                     src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
                                     alt="Pop-up Display في معرض تجاري بجدة"
-                                    caption="Pop-up كخلفية لجناح معرض"
-                                    district="مركز جدة للمعارض"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="Media Wall للمؤتمرات والتصوير"
-                                    caption="جدار تصوير Media Wall"
-                                    district="فندق الريتز"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

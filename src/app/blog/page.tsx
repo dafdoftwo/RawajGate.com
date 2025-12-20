@@ -4,15 +4,6 @@ import { Calendar, Clock, ArrowLeft, Tag, BookOpen, TrendingUp, Lightbulb, PenTo
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { GeoImage } from "@/components/geo-image";
 
-// District mapping for blog categories
-const CATEGORY_DISTRICTS: Record<string, string> = {
-    "مطبوعات": "الروضة",
-    "لوحات": "الكورنيش",
-    "معارض": "سوبر دوم",
-    "تصميم": "التحلية",
-    "هدايا": "الأندلس",
-};
-
 export const metadata: Metadata = {
     title: "مدونة الطباعة والتصميم | نصائح احترافية للشركات | بوابة الرواج",
     description: "مقالات متخصصة في الطباعة التجارية، تصميم الهوية البصرية، تجهيز المعارض، والهدايا الدعائية. نصائح من خبراء بخبرة 15+ عاماً في سوق جدة والمملكة.",
@@ -219,9 +210,7 @@ export default function BlogPage() {
                                         <div className="relative aspect-[16/9] overflow-hidden">
                                             <GeoImage
                                                 src={post.image}
-                                                alt={`${post.title} - مقال من بوابة الرواج`}
-                                                district={CATEGORY_DISTRICTS[post.category] || "الروضة"}
-                                                caption={`${post.title} - ${post.category}`}
+                                                alt={post.title}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 !rounded-none"
                                             />
                                             <div className="absolute top-4 right-4 z-10">

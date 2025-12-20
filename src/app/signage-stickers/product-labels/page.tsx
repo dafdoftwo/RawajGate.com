@@ -131,7 +131,7 @@ export default function ProductLabelsPage() {
                         <GeoImage
                             src="/images/custom-product-labels-roll-stickers-jeddah.webp"
                             alt="ملصقات منتجات على عبوات في جدة"
-                            district="المنطقة الصناعية"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -197,8 +197,8 @@ export default function ProductLabelsPage() {
                         <GeoImage
                             src="/images/custom-product-labels-roll-stickers-jeddah.webp"
                             alt="ملصقات منتجات على رول في جدة"
-                            caption="ملصقات رول للمنتجات"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -250,15 +250,15 @@ export default function ProductLabelsPage() {
                                 <GeoImage
                                     src="/images/luxury-business-cards-printing-jeddah.webp"
                                     alt="ملصقات منتجات غذائية في جدة"
-                                    caption="ملصقات عسل ومنتجات محلية"
-                                    district="المنطقة الصناعية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/printing-machines-digital-offset-equipment.webp"
                                     alt="طباعة ملصقات منتجات عالية الدقة"
-                                    caption="طباعة بدقة 1200 DPI"
-                                    district="المنطقة الصناعية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

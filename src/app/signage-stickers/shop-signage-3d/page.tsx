@@ -193,9 +193,9 @@ export default function ShopSignage3DPage() {
                             <GeoImage
                                 src="/images/3d-shop-signage-letters-acrylic-jeddah.webp"
                                 alt="لافتة محل حروف بارزة مضيئة أكريليك في جدة - بوابة الرواج"
-                                caption="لافتة حروف أكريليك مضيئة - مطعم في التحلية"
-                                district="التحلية"
-                                cameraModel="Nikon D850 (24mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -290,8 +290,8 @@ export default function ShopSignage3DPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات تصنيع اللافتات في بوابة الرواج"
-                            caption="ورشة تصنيع اللافتات - ماكينات CNC Router"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>

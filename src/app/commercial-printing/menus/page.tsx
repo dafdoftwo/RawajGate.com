@@ -194,9 +194,9 @@ export default function MenusPage() {
                             <GeoImage
                                 src="/images/restaurant-menu-design-leather-cover.webp"
                                 alt="منيوهات مطاعم مغلفة مقاومة للماء في جدة"
-                                caption="منيوهات مغلفة لمطعم في التحلية - جدة"
-                                district="التحلية"
-                                cameraModel="Canon EOS R5 (35mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -282,8 +282,8 @@ export default function MenusPage() {
                         <GeoImage
                             src="/images/luxury-business-cards-printing-jeddah.webp"
                             alt="منيوهات مطاعم فاخرة في جدة"
-                            caption="منيو جلدي فاخر لمطعم"
-                            district="التحلية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -335,15 +335,15 @@ export default function MenusPage() {
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="تصميم منيوهات مطاعم في جدة"
-                                    caption="جلسة تصميم منيو مطعم"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/printing-machines-digital-offset-equipment.webp"
                                     alt="طباعة منيوهات عالية الجودة"
-                                    caption="طباعة بألوان زاهية"
-                                    district="المنطقة الصناعية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

@@ -127,7 +127,7 @@ export default function BagsPackagingPage() {
                         <GeoImage
                             src="/images/custom-paper-bags-shopping-packaging.webp"
                             alt="أكياس ورقية وعلب تغليف دعائية في جدة"
-                            district="التحلية"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -178,8 +178,8 @@ export default function BagsPackagingPage() {
                         <GeoImage
                             src="/images/custom-paper-bags-shopping-packaging.webp"
                             alt="أكياس ورقية وقماشية بالشعار في جدة"
-                            caption="أكياس كرافت وكوشيه بالشعار"
-                            district="التحلية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -231,15 +231,15 @@ export default function BagsPackagingPage() {
                                 <GeoImage
                                     src="/images/promotional-gifts-corporate-giveaways.webp"
                                     alt="هدايا دعائية وأكياس بالشعار"
-                                    caption="تغليف هدايا دعائية"
-                                    district="حي الأعمال"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="جلسة تصميم تغليف"
-                                    caption="تصميم أكياس مخصصة"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

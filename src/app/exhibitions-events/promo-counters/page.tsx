@@ -126,7 +126,7 @@ export default function PromoCountersPage() {
                         <GeoImage
                             src="/images/promotion-counter-table-portable-kiosk.webp"
                             alt="كاونتر ترويجي للتذوق في جدة"
-                            district="رد سي مول"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -177,8 +177,8 @@ export default function PromoCountersPage() {
                         <GeoImage
                             src="/images/promotion-counter-table-portable-kiosk.webp"
                             alt="كاونتر ترويجي للمعارض والتذوق في جدة"
-                            caption="كاونتر قابل للطي مع جرافيك"
-                            district="رد سي مول"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -230,15 +230,15 @@ export default function PromoCountersPage() {
                                 <GeoImage
                                     src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
                                     alt="كاونتر ترويجي في معرض تجاري"
-                                    caption="كاونتر استقبال في معرض"
-                                    district="مركز جدة للمعارض"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="تصميم كاونترات ترويجية"
-                                    caption="جلسة تصميم كاونتر"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

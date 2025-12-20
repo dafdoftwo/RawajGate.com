@@ -132,7 +132,7 @@ export default function OutdoorBannersPage() {
                         <GeoImage
                             src="/images/outdoor-flex-banner-printing-large-format.webp"
                             alt="بنرات خارجية مطبوعة في جدة"
-                            district="الكورنيش"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -218,8 +218,8 @@ export default function OutdoorBannersPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات طباعة البنرات الخارجية في بوابة الرواج جدة"
-                            caption="طابعات Large Format بدقة 1440 DPI"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>
@@ -254,15 +254,15 @@ export default function OutdoorBannersPage() {
                                 <GeoImage
                                     src="/images/outdoor-flex-banner-printing-large-format.webp"
                                     alt="بنرات خارجية مطبوعة لمحلات في جدة"
-                                    caption="بنر خارجي لمحل تجاري"
-                                    district="الكورنيش"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
                                     alt="بنرات للفعاليات والمعارض في جدة"
-                                    caption="بنرات للفعاليات الخارجية"
-                                    district="سوبر دوم"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

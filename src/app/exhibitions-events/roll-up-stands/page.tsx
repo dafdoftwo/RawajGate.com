@@ -196,9 +196,9 @@ export default function RollUpStandsPage() {
                             <GeoImage
                                 src="/images/roll-up-stand-banner-85x200.webp"
                                 alt="رول أب ستاند 85×200 سم للمعارض - بوابة الرواج جدة"
-                                caption="رول أب ستاند بتصميم جذاب - معرض في هيلتون جدة"
-                                district="هيلتون جدة"
-                                cameraModel="Canon EOS R5 (35mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -315,8 +315,8 @@ export default function RollUpStandsPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="طابعات رول أب عالية الدقة في بوابة الرواج"
-                            caption="طابعات Eco-Solvent بدقة 1440 DPI"
-                            district="ورشة الإنتاج"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>

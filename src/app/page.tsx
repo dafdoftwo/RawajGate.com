@@ -440,9 +440,7 @@ export default function HomePage() {
                     <div className="relative h-64 overflow-hidden">
                       <GeoImage
                         src={service.image}
-                        alt={`${service.title} - ${service.titleEn} - بوابة الرواج جدة`}
-                        district={service.title === "معارض وفعاليات" ? "سوبر دوم" : service.title === "لوحات وملصقات" ? "الكورنيش" : "الروضة"}
-                        caption={service.description}
+                        alt={service.title}
                         className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 !rounded-none"
                       />
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />

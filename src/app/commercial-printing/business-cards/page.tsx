@@ -197,9 +197,9 @@ export default function BusinessCardsPage() {
                             <GeoImage
                                 src="/images/luxury-business-cards-printing-jeddah.webp"
                                 alt="طباعة بطاقات عمل فاخرة بتشطيب مخملي وذهبي في جدة - بوابة الرواج"
-                                caption="بطاقات عمل بتشطيب مخملي Soft Touch من إنتاج بوابة الرواج - جدة"
-                                district="الروضة"
-                                cameraModel="Sony A7R IV (85mm f/1.4)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -313,9 +313,9 @@ export default function BusinessCardsPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات طباعة رقمية وأوفست حديثة في مطبعة بوابة الرواج - جدة"
-                            caption="ماكينات Heidelberg الألمانية في ورشة بوابة الرواج"
-                            district="المنطقة الصناعية"
-                            cameraModel="Canon EOS R5 (24mm)"
+                            
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>

@@ -141,8 +141,8 @@ export default function FoldersPage() {
                         <GeoImage
                             src="/images/presentation-folder-files-holder.webp"
                             alt="ملفات عروض احترافية للشركات في جدة"
-                            caption="ملفات عروض بتشطيب مخملي - بوابة الرواج"
-                            district="الروضة"
+                            
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -234,8 +234,8 @@ export default function FoldersPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات طباعة ملفات العروض في بوابة الرواج جدة"
-                            caption="ماكينات طباعة احترافية لإنتاج الفولدرات"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>
@@ -277,15 +277,15 @@ export default function FoldersPage() {
                                 <GeoImage
                                     src="/images/luxury-business-cards-printing-jeddah.webp"
                                     alt="ملفات عروض فاخرة بتشطيب مخملي في جدة"
-                                    caption="ملفات عروض بتشطيب مخملي Soft Touch"
-                                    district="الأندلس"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="استخدام ملفات العروض في اجتماعات الأعمال بجدة"
-                                    caption="اجتماع عمل مع ملفات عروض احترافية"
-                                    district="التحلية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

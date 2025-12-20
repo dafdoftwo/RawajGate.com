@@ -5,15 +5,6 @@ import { notFound } from "next/navigation";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { GeoImage } from "@/components/geo-image";
 
-// District mapping for blog categories
-const CATEGORY_DISTRICTS: Record<string, string> = {
-    "مطبوعات": "الروضة",
-    "لوحات": "الكورنيش",
-    "معارض": "سوبر دوم",
-    "تصميم": "التحلية",
-    "هدايا": "الأندلس",
-};
-
 // Blog posts data
 const BLOG_POSTS = {
     "how-to-choose-business-card-paper": {
@@ -607,9 +598,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="max-w-4xl mx-auto">
                     <GeoImage
                         src={post.image}
-                        alt={`${post.title} - مقال من بوابة الرواج`}
-                        district={CATEGORY_DISTRICTS[post.category] || "الروضة"}
-                        caption={`${post.title} - ${post.category}`}
+                        alt={post.title}
                         className="w-full aspect-[16/9] object-cover rounded-2xl shadow-xl"
                         priority
                     />
@@ -766,8 +755,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                         <div className="aspect-[16/9] overflow-hidden">
                                             <GeoImage
                                                 src={relatedPost.image}
-                                                alt={`${relatedPost.title} - مقال ذو صلة`}
-                                                district={CATEGORY_DISTRICTS[relatedPost.category] || "الروضة"}
+                                                alt={relatedPost.title}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform !rounded-none"
                                             />
                                         </div>

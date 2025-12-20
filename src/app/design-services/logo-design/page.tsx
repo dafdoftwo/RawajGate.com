@@ -125,7 +125,7 @@ export default function LogoDesignPage() {
                         <GeoImage
                             src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                             alt="تصميم شعارات احترافية في جدة"
-                            district="الروضة"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -222,15 +222,15 @@ export default function LogoDesignPage() {
                                 <GeoImage
                                     src="/images/design-team-creative-studio-jeddah.webp"
                                     alt="فريق تصميم الشعارات في جدة"
-                                    caption="جلسة عصف ذهني للتصميم"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="عرض تصاميم الشعار على العميل"
-                                    caption="مراجعة المفاهيم مع العميل"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

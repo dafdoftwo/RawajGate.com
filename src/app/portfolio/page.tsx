@@ -118,9 +118,7 @@ export default function PortfolioPage() {
                                 <div className="relative aspect-[4/3] overflow-hidden">
                                     <GeoImage
                                         src={project.image}
-                                        alt={`${project.title} - ${project.client} - بوابة الرواج جدة`}
-                                        district={project.category === "exhibitions" ? "سوبر دوم" : project.category === "signage" ? "الكورنيش" : project.category === "branding" ? "التحلية" : "الروضة"}
-                                        caption={`${project.title} - ${project.description}`}
+                                        alt={project.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 !rounded-none"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 z-10">

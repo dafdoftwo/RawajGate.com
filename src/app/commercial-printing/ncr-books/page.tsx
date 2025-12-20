@@ -131,7 +131,7 @@ export default function NCRBooksPage() {
                         <GeoImage
                             src="/images/luxury-business-cards-printing-jeddah.webp"
                             alt="دفاتر NCR كربونية للفواتير في جدة"
-                            district="المنطقة الصناعية"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -232,8 +232,8 @@ export default function NCRBooksPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات طباعة دفاتر NCR في بوابة الرواج جدة"
-                            caption="طباعة دفاتر NCR بترقيم تسلسلي"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>
@@ -269,15 +269,15 @@ export default function NCRBooksPage() {
                                 <GeoImage
                                     src="/images/luxury-business-cards-printing-jeddah.webp"
                                     alt="دفاتر NCR للفواتير والإيصالات في جدة"
-                                    caption="دفاتر NCR بترقيم تسلسلي"
-                                    district="المنطقة الصناعية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="استخدام دفاتر NCR في المحلات التجارية"
-                                    caption="فاتورة NCR في محل تجاري"
-                                    district="البلد"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

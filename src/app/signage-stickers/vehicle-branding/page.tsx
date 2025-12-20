@@ -204,9 +204,9 @@ export default function VehicleBrandingPage() {
                             <GeoImage
                                 src="/images/commercial-vehicle-branding-car-wrapping-jeddah.webp"
                                 alt="تغليف سيارة تجارية بالكامل بفينيل 3M في جدة - بوابة الرواج"
-                                caption="شاحنة توصيل بتغليف كامل - تنفيذ بوابة الرواج بفينيل 3M"
-                                district="المنطقة الصناعية"
-                                cameraModel="DJI Mavic 3 Pro (Drone Shot)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -359,8 +359,8 @@ export default function VehicleBrandingPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="طباعة فينيل سيارات عالي الجودة في جدة"
-                            caption="طابعات إيكو سولفنت لطباعة الفينيل بدقة عالية"
-                            district="ورشة الإنتاج"
+                            
+                            
                             className="rounded-2xl shadow-2xl"
                         />
                     </div>

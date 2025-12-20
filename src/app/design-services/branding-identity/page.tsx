@@ -210,9 +210,9 @@ export default function BrandingIdentityPage() {
                             <GeoImage
                                 src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                 alt="جلسة تصميم هوية بصرية مع العميل في مكتب بوابة الرواج - جدة"
-                                caption="جلسة استكشاف Brand Discovery مع عميل في مكتبنا بحي الروضة"
-                                district="الروضة"
-                                cameraModel="Sony A7 III (35mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />

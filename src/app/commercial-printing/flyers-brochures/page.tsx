@@ -186,9 +186,9 @@ export default function FlyersBrochuresPage() {
                             <GeoImage
                                 src="/images/advertising-flyers-brochures-tri-fold.webp"
                                 alt="طباعة فلايرات وبروشورات احترافية في جدة - بوابة الرواج"
-                                caption="بروشورات وفلايرات مطبوعة لشركات في جدة"
-                                district="الروضة"
-                                cameraModel="Canon EOS R5 (50mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -300,8 +300,8 @@ export default function FlyersBrochuresPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات طباعة أوفست ورقمية في بوابة الرواج جدة"
-                            caption="ماكينات طباعة Heidelberg الألمانية"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>

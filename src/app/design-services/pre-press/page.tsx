@@ -128,7 +128,7 @@ export default function PrePressPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="خدمات ما قبل الطباعة في جدة"
-                            district="المنطقة الصناعية"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -197,8 +197,8 @@ export default function PrePressPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="معدات الطباعة وخدمات Pre-Press"
-                            caption="تجهيز الملفات للطباعة"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -250,15 +250,15 @@ export default function PrePressPage() {
                                 <GeoImage
                                     src="/images/design-team-creative-studio-jeddah.webp"
                                     alt="فريق تجهيز الملفات للطباعة"
-                                    caption="فحص الملفات قبل الطباعة"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="مراجعة البروفة مع العميل"
-                                    caption="اعتماد البروفة"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

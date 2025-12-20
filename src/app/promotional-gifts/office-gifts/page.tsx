@@ -189,9 +189,9 @@ export default function OfficeGiftsPage() {
                             <GeoImage
                                 src="/images/branded-notebooks-diaries-calendar-gift-sets.webp"
                                 alt="هدايا مكتبية للشركات - دفاتر وأجندات ومجموعات هدايا في جدة"
-                                caption="مجموعات هدايا مكتبية فاخرة للشركات"
-                                district="الأندلس"
-                                cameraModel="Sony A7 III (85mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />

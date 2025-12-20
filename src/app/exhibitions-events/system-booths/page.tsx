@@ -133,7 +133,7 @@ export default function SystemBoothsPage() {
                         <GeoImage
                             src="/images/octanorm-system-booth-shell-scheme.webp"
                             alt="جناح نظامي أوكتانورم للمعارض في جدة"
-                            district="مركز المعارض"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -232,8 +232,8 @@ export default function SystemBoothsPage() {
                         <GeoImage
                             src="/images/octanorm-system-booth-shell-scheme.webp"
                             alt="جناح نظامي أوكتانورم في معرض بجدة"
-                            caption="جناح Shell Scheme مع جرافيك"
-                            district="مركز جدة للمعارض"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>
@@ -270,15 +270,15 @@ export default function SystemBoothsPage() {
                                 <GeoImage
                                     src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
                                     alt="جناح نظامي مع جرافيك مخصص"
-                                    caption="جناح Shell Scheme محسّن"
-                                    district="مركز جدة للمعارض"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/pop-up-display-media-wall-background.webp"
                                     alt="تجهيز جناح معرض"
-                                    caption="إضافة Pop-up للجناح"
-                                    district="مركز المعارض"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

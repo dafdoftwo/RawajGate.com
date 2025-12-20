@@ -124,7 +124,7 @@ export default function LetterheadsPage() {
                         <GeoImage
                             src="/images/luxury-business-cards-printing-jeddah.webp"
                             alt="ورق رسمي احترافي للشركات في جدة"
-                            district="الروضة"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -215,8 +215,8 @@ export default function LetterheadsPage() {
                         <GeoImage
                             src="/images/printing-machines-digital-offset-equipment.webp"
                             alt="ماكينات طباعة الورق الرسمي في بوابة الرواج جدة"
-                            caption="ماكينات طباعة أوفست عالية الدقة"
-                            district="المنطقة الصناعية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                     </div>
@@ -251,15 +251,15 @@ export default function LetterheadsPage() {
                                 <GeoImage
                                     src="/images/luxury-business-cards-printing-jeddah.webp"
                                     alt="ورق رسمي فاخر للشركات في جدة"
-                                    caption="ورق رسمي بتصميم احترافي"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="استخدام الورق الرسمي في بيئة العمل بجدة"
-                                    caption="مراسلات رسمية في بيئة عمل احترافية"
-                                    district="التحلية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

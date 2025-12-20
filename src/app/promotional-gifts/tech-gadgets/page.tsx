@@ -128,7 +128,7 @@ export default function TechGadgetsPage() {
                         <GeoImage
                             src="/images/tech-gifts-powerbank-usb-branding.webp"
                             alt="هدايا تقنية USB وباور بانك بالشعار في جدة"
-                            district="الأندلس"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -179,8 +179,8 @@ export default function TechGadgetsPage() {
                         <GeoImage
                             src="/images/tech-gifts-powerbank-usb-branding.webp"
                             alt="هدايا تقنية بالشعار في جدة"
-                            caption="USB وباور بانك بالحفر"
-                            district="الأندلس"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -232,15 +232,15 @@ export default function TechGadgetsPage() {
                                 <GeoImage
                                     src="/images/promotional-gifts-corporate-giveaways.webp"
                                     alt="هدايا دعائية للشركات"
-                                    caption="مجموعة هدايا تقنية"
-                                    district="حي الأعمال"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="اجتماع تسليم هدايا"
-                                    caption="تسليم هدايا VIP"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

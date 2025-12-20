@@ -131,7 +131,7 @@ export default function WallDecalsPage() {
                         <GeoImage
                             src="/images/glass-window-frosted-sticker-branding.webp"
                             alt="ملصقات جدارية للمكاتب في جدة"
-                            district="حي الأعمال"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -197,8 +197,8 @@ export default function WallDecalsPage() {
                         <GeoImage
                             src="/images/glass-window-frosted-sticker-branding.webp"
                             alt="ملصقات جدارية للمكاتب والشركات في جدة"
-                            caption="ملصق شعار في منطقة الاستقبال"
-                            district="التحلية"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -249,15 +249,15 @@ export default function WallDecalsPage() {
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="ملصقات جدارية في مكاتب الشركات بجدة"
-                                    caption="شعار شركة في منطقة الاستقبال"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/printing-machines-digital-offset-equipment.webp"
                                     alt="طباعة ملصقات جدارية عالية الدقة"
-                                    caption="طباعة بدقة 1440 DPI"
-                                    district="المنطقة الصناعية"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

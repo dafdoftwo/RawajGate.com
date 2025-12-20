@@ -189,9 +189,9 @@ export default function CustomWoodBoothsPage() {
                             <GeoImage
                                 src="/images/custom-wooden-stand-jeddah-super-dome.webp"
                                 alt="جناح معرض خشبي مخصص في سوبر دوم جدة - تصميم وتنفيذ بوابة الرواج"
-                                caption="جناح 36 م² بتصميم مخصص - معرض البناء السعودي 2024"
-                                district="سوبر دوم جدة"
-                                cameraModel="Canon EOS R5 (16-35mm)"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -335,9 +335,9 @@ export default function CustomWoodBoothsPage() {
                         <GeoImage
                             src="/images/exhibition-booth-fabrication-design-jeddah.webp"
                             alt="ورشة تصنيع أجنحة المعارض في جدة - بوابة الرواج"
-                            caption="ورشة التصنيع الخاصة بنا في المنطقة الصناعية"
-                            district="المنطقة الصناعية"
-                            cameraModel="Sony A7R IV (24mm)"
+                            
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>

@@ -130,7 +130,7 @@ export default function WearablesPage() {
                         <GeoImage
                             src="/images/logo-printed-tshirts-embroidery-polo.webp"
                             alt="تيشرتات وكابات بالشعار للشركات في جدة"
-                            district="الروضة"
+                            
                             className="rounded-2xl shadow-2xl"
                             priority
                         />
@@ -197,8 +197,8 @@ export default function WearablesPage() {
                         <GeoImage
                             src="/images/logo-printed-tshirts-embroidery-polo.webp"
                             alt="تيشيرتات وبولو بالتطريز في جدة"
-                            caption="تطريز شعار على البولو"
-                            district="الروضة"
+                            
+                            
                             className="rounded-2xl shadow-xl"
                         />
                         <div>
@@ -250,15 +250,15 @@ export default function WearablesPage() {
                                 <GeoImage
                                     src="/images/promotional-gifts-corporate-giveaways.webp"
                                     alt="ملابس دعائية للشركات"
-                                    caption="تيشيرتات للفعاليات"
-                                    district="حي الأعمال"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
                                     src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                     alt="اجتماع تسليم ملابس موحدة"
-                                    caption="تسليم زي موحد"
-                                    district="الروضة"
+                                    
+                                    
                                     className="rounded-xl shadow-lg"
                                 />
                             </div>

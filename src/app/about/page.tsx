@@ -94,9 +94,9 @@ export default function AboutPage() {
                             <GeoImage
                                 src="/images/client-meeting-office-al-rawaj-jeddah.webp"
                                 alt="مكتب بوابة الرواج في جدة"
-                                caption="مقر بوابة الرواج - حي الروضة، جدة"
-                                district="الروضة"
-                                cameraModel="Sony A7 III"
+                                
+                                
+                                
                                 className="rounded-2xl shadow-2xl"
                                 priority
                             />
@@ -234,7 +234,7 @@ export default function AboutPage() {
                                 src="/images/rawaj-gate-printing-workshop-team-at-work.webp"
                                 alt="خريطة موقع بوابة الرواج في حي الروضة جدة"
                                 className="w-full h-full object-cover"
-                                district="الروضة"
+                                
                             />
                             <div className="absolute inset-0 bg-black/10 pointer-events-none" />
                             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-bold shadow-sm">
