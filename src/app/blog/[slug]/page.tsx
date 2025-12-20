@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, User } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, User, Facebook, Twitter, MessageCircle, Bookmark, ThumbsUp } from "lucide-react";
 import { notFound } from "next/navigation";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 
 // Blog posts data
 const BLOG_POSTS = {
@@ -441,6 +442,36 @@ AI, PSD, INDD - في حال احتاجت المطبعة تعديلات
     },
 };
 
+// Generate Article Schema for SEO
+const generateArticleSchema = (post: typeof BLOG_POSTS[keyof typeof BLOG_POSTS], slug: string) => ({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": `https://rawajgate.com${post.image}`,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+        "@type": "Organization",
+        "name": "بوابة الرواج",
+        "url": "https://rawajgate.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "بوابة الرواج",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://rawajgate.com/logo.png"
+        }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://rawajgate.com/blog/${slug}`
+    },
+    "articleSection": post.category,
+    "inLanguage": "ar"
+});
+
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
@@ -453,12 +484,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${post.title} | مدونة بوابة الرواج`,
         description: post.excerpt,
+        keywords: [
+            post.category,
+            "طباعة جدة",
+            "تصميم",
+            "بوابة الرواج",
+            "نصائح طباعة",
+        ],
         openGraph: {
             title: post.title,
             description: post.excerpt,
-            images: [post.image],
+            images: [{
+                url: post.image,
+                width: 1200,
+                height: 630,
+                alt: post.title,
+            }],
             type: "article",
             locale: "ar_SA",
+            publishedTime: post.date,
+            authors: ["بوابة الرواج"],
+            section: post.category,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
+        alternates: {
+            canonical: `https://rawajgate.com/blog/${slug}`,
         },
     };
 }
@@ -481,8 +536,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         .filter(([key, p]) => p.category === post.category && key !== slug)
         .slice(0, 2);
 
+    // Generate schemas
+    const articleSchema = generateArticleSchema(post, slug);
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "الرئيسية", url: "https://rawajgate.com" },
+        { name: "المدونة", url: "https://rawajgate.com/blog" },
+        { name: post.title, url: `https://rawajgate.com/blog/${slug}` },
+    ]);
+
     return (
         <>
+            {/* JSON-LD Schemas */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+
             {/* Hero */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16">
                 <div className="container mx-auto px-4">
@@ -596,20 +669,69 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             })}
                         </div>
 
-                        {/* Share */}
+                        {/* Share & Actions */}
                         <div className="mt-16 pt-8 border-t border-gray-100">
-                            <div className="flex items-center justify-between">
-                                <span className="font-bold text-gray-900">شارك المقال:</span>
+                            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                                <div>
+                                    <span className="font-bold text-gray-900 block mb-3">شارك المقال:</span>
+                                    <div className="flex gap-3">
+                                        <a
+                                            href={`https://www.facebook.com/sharer/sharer.php?u=https://rawajgate.com/blog/${slug}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 bg-[#1877f2] text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+                                            aria-label="شارك على فيسبوك"
+                                        >
+                                            <Facebook className="w-5 h-5" />
+                                        </a>
+                                        <a
+                                            href={`https://twitter.com/intent/tweet?url=https://rawajgate.com/blog/${slug}&text=${encodeURIComponent(post.title)}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 bg-[#1da1f2] text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+                                            aria-label="شارك على تويتر"
+                                        >
+                                            <Twitter className="w-5 h-5" />
+                                        </a>
+                                        <a
+                                            href={`https://wa.me/?text=${encodeURIComponent(post.title + ' - https://rawajgate.com/blog/' + slug)}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 bg-[#25d366] text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+                                            aria-label="شارك على واتساب"
+                                        >
+                                            <MessageCircle className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+                                
                                 <div className="flex gap-3">
-                                    <button className="w-10 h-10 bg-[#1877f2] text-white rounded-full flex items-center justify-center hover:opacity-80">
-                                        <Share2 className="w-5 h-5" />
+                                    <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                                        <Bookmark className="w-4 h-4" />
+                                        <span className="text-sm">حفظ المقال</span>
                                     </button>
-                                    <button className="w-10 h-10 bg-[#1da1f2] text-white rounded-full flex items-center justify-center hover:opacity-80">
-                                        <Share2 className="w-5 h-5" />
+                                    <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                                        <ThumbsUp className="w-4 h-4" />
+                                        <span className="text-sm">مفيد</span>
                                     </button>
-                                    <button className="w-10 h-10 bg-[#25d366] text-white rounded-full flex items-center justify-center hover:opacity-80">
-                                        <Share2 className="w-5 h-5" />
-                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Author Box */}
+                            <div className="mt-8 p-6 bg-gray-50 rounded-xl">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center">
+                                        <User className="w-8 h-8 text-white" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h4 className="font-bold text-gray-900 mb-1">{post.author}</h4>
+                                        <p className="text-gray-600 text-sm mb-3">
+                                            فريق من المتخصصين في الطباعة والتصميم بخبرة تتجاوز 15 عاماً في سوق جدة والمملكة العربية السعودية. نسعى لمشاركة خبراتنا مع الشركات ورواد الأعمال.
+                                        </p>
+                                        <Link href="/about" className="text-amber-600 text-sm font-medium hover:text-amber-700">
+                                            تعرف على فريقنا ←
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,11 +1,31 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Tag, BookOpen, TrendingUp, Lightbulb, PenTool } from "lucide-react";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-    title: "المدونة | نصائح الطباعة والتسويق | بوابة الرواج",
-    description: "مقالات ونصائح في الطباعة، التصميم، التسويق، والعلامات التجارية. تعلم كيف تختار أفضل الخامات وتصمم هوية ناجحة لمشروعك.",
-    keywords: ["مدونة طباعة", "نصائح تصميم", "تسويق", "علامة تجارية", "بوابة الرواج"],
+    title: "مدونة الطباعة والتصميم | نصائح احترافية للشركات | بوابة الرواج",
+    description: "مقالات متخصصة في الطباعة التجارية، تصميم الهوية البصرية، تجهيز المعارض، والهدايا الدعائية. نصائح من خبراء بخبرة 15+ عاماً في سوق جدة والمملكة.",
+    keywords: [
+        "مدونة طباعة",
+        "نصائح تصميم شعار",
+        "دليل بطاقات العمل",
+        "تغليف سيارات",
+        "أجنحة معارض",
+        "هدايا دعائية",
+        "طباعة جدة",
+        "تصميم هوية بصرية",
+    ],
+    openGraph: {
+        title: "مدونة بوابة الرواج | نصائح الطباعة والتصميم",
+        description: "تعلم من خبراء الطباعة والتصميم. مقالات عملية تساعدك في تطوير علامتك التجارية.",
+        images: ["/images/luxury-business-cards-printing-jeddah.webp"],
+        locale: "ar_SA",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://rawajgate.com/blog",
+    },
 };
 
 const BLOG_POSTS = [
@@ -72,17 +92,57 @@ const BLOG_POSTS = [
 ];
 
 const CATEGORIES = [
-    { name: "الكل", count: 6 },
-    { name: "مطبوعات", count: 2 },
-    { name: "لوحات", count: 1 },
-    { name: "معارض", count: 1 },
-    { name: "تصميم", count: 1 },
-    { name: "هدايا", count: 1 },
+    { name: "الكل", count: 6, icon: BookOpen },
+    { name: "مطبوعات", count: 2, icon: PenTool },
+    { name: "لوحات", count: 1, icon: TrendingUp },
+    { name: "معارض", count: 1, icon: Lightbulb },
+    { name: "تصميم", count: 1, icon: PenTool },
+    { name: "هدايا", count: 1, icon: Tag },
 ];
 
+// Blog Collection Schema for SEO
+const generateBlogCollectionSchema = () => ({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "مدونة بوابة الرواج",
+    "description": "مقالات متخصصة في الطباعة والتصميم والتسويق",
+    "url": "https://rawajgate.com/blog",
+    "publisher": {
+        "@type": "Organization",
+        "name": "بوابة الرواج",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://rawajgate.com/logo.png"
+        }
+    },
+    "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": BLOG_POSTS.map((post, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://rawajgate.com/blog/${post.slug}`,
+            "name": post.title
+        }))
+    }
+});
+
 export default function BlogPage() {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "الرئيسية", url: "https://rawajgate.com" },
+        { name: "المدونة", url: "https://rawajgate.com/blog" },
+    ]);
+    const blogCollectionSchema = generateBlogCollectionSchema();
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCollectionSchema) }}
+            />
             {/* Hero Section */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
                 <div className="container mx-auto px-4 text-center">
@@ -96,9 +156,25 @@ export default function BlogPage() {
                         <span className="text-gradient">المدونة</span>
                     </h1>
 
-                    <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                        مقالات ونصائح من خبراء الطباعة والتصميم. تعلم واستفد من خبرتنا!
+                    <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
+                        مقالات ونصائح من خبراء الطباعة والتصميم بخبرة 15+ عاماً في سوق جدة. تعلم كيف تختار الخامات، تصمم هويتك، وتسوّق علامتك التجارية باحترافية.
                     </p>
+
+                    {/* Stats */}
+                    <div className="flex justify-center gap-8 pt-6">
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-amber-400">6+</div>
+                            <div className="text-sm text-white/60">مقالات متخصصة</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-amber-400">15+</div>
+                            <div className="text-sm text-white/60">سنة خبرة</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-amber-400">5</div>
+                            <div className="text-sm text-white/60">تخصصات</div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
