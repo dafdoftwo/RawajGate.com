@@ -2,7 +2,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { Tag, ArrowLeft, Package, Droplets, Barcode, Phone } from "lucide-react";
+import {
+    Tag,
+    ArrowLeft,
+    Package,
+    Droplets,
+    Apple,
+    Sparkles,
+    Pill,
+    Leaf,
+} from "lucide-react";
 
 export const metadata: Metadata = {
     title: "طباعة ملصقات منتجات ولصق عبوات في جدة | بوابة الرواج",
@@ -21,14 +30,46 @@ const INDUSTRIES = [
     "عسل وزيوت", "عطور", "صابون يدوي"
 ];
 
+const TECH_SPECS = [
+    { spec: "نوع الخامة", value: "ورقي / شفاف / مقاوم للماء" },
+    { spec: "دقة الطباعة", value: "1200 DPI" },
+    { spec: "الأشكال", value: "دائري / مستطيل / مخصص" },
+    { spec: "التغليف", value: "لامع / مطفي" },
+    { spec: "الحد الأدنى", value: "500 ملصق" },
+    { spec: "وقت الإنتاج", value: "3-5 أيام" },
+];
+
+const USE_CASES_DETAILED = [
+    { icon: Apple, title: "أغذية ومشروبات", desc: "ملصقات متوافقة مع اشتراطات SFDA" },
+    { icon: Sparkles, title: "مستحضرات تجميل", desc: "تصاميم أنيقة مقاومة للماء" },
+    { icon: Pill, title: "أدوية ومكملات", desc: "ملصقات طبية مع باركود" },
+    { icon: Leaf, title: "منتجات عضوية", desc: "عسل، زيوت، منتجات محلية" },
+];
+
 const FAQS = [
     {
-        question: "كيف أحصل على عرض لملصقات منتجاتي؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الحجم والخامة والكمية. التصميم مجاني للطلبات الكبيرة. أسعار تنافسية للكميات!",
+        question: "كيف أحصل على عرض سعر لملصقات منتجاتي؟",
+        answer: "تواصل معنا عبر الواتساب أو الهاتف للحصول على عرض سعر مخصص حسب الحجم والخامة والكمية. التصميم مجاني للطلبات الكبيرة (+5000 ملصق). أسعار تنافسية للكميات!",
     },
     {
         question: "هل تطبعون ملصقات غذائية مع جدول القيم الغذائية؟",
-        answer: "نعم، نصمم ونطبع ملصقات غذائية متوافقة مع اشتراطات هيئة الغذاء والدواء السعودية. نضيف جدول القيم الغذائية، المكونات، تاريخ الإنتاج/الانتهاء، والباركود.",
+        answer: "نعم، نصمم ونطبع ملصقات غذائية متوافقة مع اشتراطات هيئة الغذاء والدواء السعودية (SFDA). نضيف جدول القيم الغذائية، المكونات، تاريخ الإنتاج/الانتهاء، الباركود، وتحذيرات الحساسية.",
+    },
+    {
+        question: "ما الفرق بين الملصقات الورقية والمقاومة للماء؟",
+        answer: "الملصقات الورقية اقتصادية ومناسبة للمنتجات الجافة والتغليف الداخلي. الملصقات المقاومة للماء (BOPP/Vinyl) ضرورية للمشروبات، المنظفات، ومستحضرات التجميل التي تتعرض للرطوبة.",
+    },
+    {
+        question: "هل يمكن طباعة ملصقات بشكل مخصص؟",
+        answer: "نعم، نوفر قص مخصص بأي شكل (دائري، بيضاوي، شكل المنتج). القص بماكينة ديجيتال لحواف نظيفة ودقيقة. الحد الأدنى للأشكال المخصصة 1000 ملصق.",
+    },
+    {
+        question: "هل توفرون خدمة التصميم؟",
+        answer: "نعم، فريق التصميم لدينا يصمم ملصقات احترافية تتوافق مع هويتك البصرية. نراعي توزيع العناصر بشكل جذاب مع التأكد من وضوح المعلومات الإلزامية. التصميم مجاني للكميات الكبيرة.",
+    },
+    {
+        question: "كم يستغرق الإنتاج؟",
+        answer: "الملصقات القياسية (Roll Labels) تستغرق 3-5 أيام عمل. الملصقات بشكل مخصص 5-7 أيام. التصميم يستغرق 2-3 أيام إضافية. لدينا خدمة سريعة للطلبات العاجلة.",
     },
 ];
 
@@ -116,14 +157,32 @@ export default function ProductLabelsPage() {
                 </div>
             </section>
 
+            {/* Use Cases Detailed */}
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
                         القطاعات التي نخدمها
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {USE_CASES_DETAILED.map((useCase) => (
+                            <div key={useCase.title} className="card p-6 text-center card-hover">
+                                <useCase.icon className="w-10 h-10 text-teal-600 mx-auto mb-4" />
+                                <h3 className="font-bold text-gray-900 mb-2">{useCase.title}</h3>
+                                <p className="text-gray-600 text-sm">{useCase.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
+                        منتجات نخدمها
                     </h2>
                     <div className="flex flex-wrap justify-center gap-3">
                         {INDUSTRIES.map((ind) => (
-                            <span key={ind} className="bg-gray-100 px-4 py-2 rounded-full text-gray-700">
+                            <span key={ind} className="bg-white px-4 py-2 rounded-full text-gray-700 shadow-sm hover:bg-teal-100 transition-colors">
                                 {ind}
                             </span>
                         ))}
@@ -131,14 +190,130 @@ export default function ProductLabelsPage() {
                 </div>
             </section>
 
-            <section className="py-20 bg-gray-50">
+            {/* Tech Specs */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <GeoImage
+                            src="/images/custom-product-labels-roll-stickers-jeddah.webp"
+                            alt="ملصقات منتجات على رول في جدة"
+                            caption="ملصقات رول للمنتجات"
+                            district="المنطقة الصناعية"
+                            className="rounded-2xl shadow-xl"
+                        />
+                        <div>
+                            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+                                المواصفات الفنية
+                            </h2>
+                            <p className="text-gray-600 mb-8">
+                                نستخدم أفضل الخامات والتقنيات لضمان ملصقات جميلة ومتينة
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                {TECH_SPECS.map((item) => (
+                                    <div key={item.spec} className="bg-gray-50 p-4 rounded-lg">
+                                        <div className="text-sm text-gray-500 mb-1">{item.spec}</div>
+                                        <div className="font-bold text-gray-900">{item.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Extended SEO Content */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
+                            دليلك الشامل لملصقات المنتجات في جدة
+                        </h2>
+
+                        <div className="prose prose-lg max-w-none text-gray-700">
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">أهمية ملصق المنتج في نجاح مبيعاتك</h3>
+                            <p>
+                                ملصق المنتج (Product Label) هو أول ما يراه العميل على الرف! في سوق جدة التنافسي، الملصق الجذاب يصنع فارقاً كبيراً في قرار الشراء.
+                                دراسات السلوك الاستهلاكي تظهر أن 70% من قرارات الشراء تُتخذ أمام الرف. ملصق احترافي بألوان جذابة ومعلومات واضحة
+                                يميز منتجك عن المنافسين ويبني الثقة مع العميل.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">المتطلبات القانونية لملصقات المنتجات في السعودية</h3>
+                            <p>
+                                هيئة الغذاء والدواء السعودية (SFDA) تفرض اشتراطات صارمة على ملصقات المنتجات الغذائية والتجميلية.
+                                يجب أن يتضمن الملصق: <strong>اسم المنتج</strong> بالعربية والإنجليزية، <strong>قائمة المكونات</strong> مرتبة تنازلياً،
+                                <strong>جدول القيم الغذائية</strong> للمنتجات الغذائية، <strong>تاريخ الإنتاج والانتهاء</strong>،
+                                <strong>اسم وعنوان المصنع/المستورد</strong>، <strong>الباركود</strong>، وتحذيرات الحساسية.
+                                في بوابة الرواج، نساعدك في تصميم ملصقات متوافقة 100% مع هذه الاشتراطات.
+                            </p>
+
+                            <div className="my-8 grid md:grid-cols-2 gap-6">
+                                <GeoImage
+                                    src="/images/luxury-business-cards-printing-jeddah.webp"
+                                    alt="ملصقات منتجات غذائية في جدة"
+                                    caption="ملصقات عسل ومنتجات محلية"
+                                    district="المنطقة الصناعية"
+                                    className="rounded-xl shadow-lg"
+                                />
+                                <GeoImage
+                                    src="/images/printing-machines-digital-offset-equipment.webp"
+                                    alt="طباعة ملصقات منتجات عالية الدقة"
+                                    caption="طباعة بدقة 1200 DPI"
+                                    district="المنطقة الصناعية"
+                                    className="rounded-xl shadow-lg"
+                                />
+                            </div>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">أنواع خامات ملصقات المنتجات</h3>
+                            <p>
+                                نوفر في بوابة الرواج ثلاثة أنواع رئيسية من الخامات. <strong>الملصقات الورقية</strong> اقتصادية ومناسبة
+                                للمنتجات الجافة (بهارات، حبوب، مكسرات) والتغليف الداخلي. <strong>الملصقات الشفافة</strong> تظهر لون المنتج
+                                تحتها وتعطي مظهراً فاخراً، مثالية للعسل والزيوت. <strong>الملصقات المقاومة للماء (BOPP/Vinyl)</strong>
+                                ضرورية للمشروبات والعصائر والمنظفات ومستحضرات التجميل التي تتعرض للرطوبة.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">تطبيقات ملصقات المنتجات</h3>
+                            <p>
+                                <strong>الأغذية والمشروبات</strong>: ملصقات مع جدول قيم غذائية وباركود متوافقة مع SFDA.
+                                <strong>مستحضرات التجميل</strong>: ملصقات أنيقة مقاومة للماء والزيوت.
+                                <strong>الأدوية والمكملات</strong>: ملصقات طبية بمعلومات دوائية واضحة.
+                                <strong>المنتجات المحلية</strong>: عسل، زيت زيتون، تمور - ملصقات تعكس جودة المنتج السعودي.
+                                <strong>الصابون والعناية الشخصية</strong>: ملصقات تتحمل الرطوبة مع تصميم جذاب.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">نصائح لتصميم ملصق منتج ناجح</h3>
+                            <ul className="list-disc pr-6 space-y-2">
+                                <li>اجعل اسم المنتج واضحاً وبارزاً</li>
+                                <li>استخدم صورة عالية الجودة للمنتج إن أمكن</li>
+                                <li>اختر ألواناً تتناسب مع طبيعة المنتج</li>
+                                <li>تأكد من وضوح جميع المعلومات الإلزامية</li>
+                                <li>اترك مساحة كافية للباركود</li>
+                                <li>اختر خامة تناسب ظروف استخدام المنتج</li>
+                            </ul>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">لماذا بوابة الرواج لطباعة ملصقات المنتجات؟</h3>
+                            <p>
+                                في بوابة الرواج، نطبع ملصقات منتجات للمصانع والمنتجين في جدة منذ أكثر من 15 عاماً.
+                                نفهم اشتراطات SFDA ونصمم ملصقات متوافقة معها. طباعتنا بدقة 1200 DPI تضمن وضوح النصوص والصور.
+                                نوفر جميع الخامات (ورقية، شفافة، مقاومة للماء) وجميع الأشكال (دائري، مستطيل، مخصص).
+                                فريق التصميم لدينا يساعدك في إخراج ملصق يعكس جودة منتجك ويجذب العملاء.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 max-w-3xl">
-                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">الأسئلة الشائعة</h2>
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4 text-center">الأسئلة الشائعة</h2>
+                    <p className="text-gray-600 text-center mb-12">
+                        كل ما تريد معرفته عن طباعة ملصقات المنتجات في جدة
+                    </p>
                     <div className="space-y-6">
                         {FAQS.map((faq, i) => (
                             <div key={i} className="card p-6">
-                                <h3 className="font-bold text-gray-900 mb-3">{faq.question}</h3>
-                                <p className="text-gray-600">{faq.answer}</p>
+                                <h3 className="font-bold text-gray-900 mb-3 text-lg">{faq.question}</h3>
+                                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
                         ))}
                     </div>
@@ -148,9 +323,20 @@ export default function ProductLabelsPage() {
             <section className="py-20 bg-gradient-to-r from-teal-500 to-teal-600">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold text-white mb-6">جاهز لملصقات منتجك؟</h2>
-                    <Link href="/quote" className="px-8 py-4 bg-white text-teal-600 font-bold rounded-lg inline-flex items-center">
-                        اطلب الآن <ArrowLeft className="mr-2 w-5 h-5" />
-                    </Link>
+                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        احصل على عينة مجانية وعرض سعر لملصقات منتجاتك. تصميم احترافي متوافق مع SFDA.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/quote" className="px-8 py-4 bg-white text-teal-600 font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-100 transition-all">
+                            اطلب عينة مجانية <ArrowLeft className="mr-2 w-5 h-5" />
+                        </Link>
+                        <a
+                            href="https://wa.me/966548923300?text=أريد طباعة ملصقات منتجات"
+                            className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-800 transition-all"
+                        >
+                            واتساب الآن
+                        </a>
+                    </div>
                 </div>
             </section>
         </>

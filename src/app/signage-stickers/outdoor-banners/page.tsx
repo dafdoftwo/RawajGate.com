@@ -2,7 +2,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { Flag, ArrowLeft, Ruler, Sun, Wind, Phone } from "lucide-react";
+import {
+    Flag,
+    ArrowLeft,
+    Ruler,
+    Sun,
+    Wind,
+    Zap,
+    MapPin,
+    Building2,
+} from "lucide-react";
 
 export const metadata: Metadata = {
     title: "طباعة بنرات خارجية وفلكس في جدة | لوحات إعلانية | بوابة الرواج",
@@ -17,14 +26,46 @@ const BANNER_SIZES = [
     { size: "3 × 5 متر", price: "تواصل معنا", use: "الإعلانات الكبيرة" },
 ];
 
+const TECH_SPECS = [
+    { spec: "دقة الطباعة", value: "1440 DPI" },
+    { spec: "نوع الحبر", value: "Eco-Solvent / UV" },
+    { spec: "خامة الفلكس", value: "440-550 جرام" },
+    { spec: "مقاومة الشمس", value: "3-5 سنوات" },
+    { spec: "الحد الأقصى للعرض", value: "5 متر" },
+    { spec: "وقت الإنتاج", value: "24-48 ساعة" },
+];
+
+const USE_CASES = [
+    { icon: Building2, title: "واجهات المحلات", desc: "إعلانات ترويجية وعروض موسمية" },
+    { icon: MapPin, title: "الفعاليات والمعارض", desc: "لافتات مؤقتة للمناسبات" },
+    { icon: Flag, title: "المباني والمشاريع", desc: "لافتات إنشائية وإعلانية" },
+    { icon: Zap, title: "الافتتاحات", desc: "بنرات الترحيب والتهنئة" },
+];
+
 const FAQS = [
     {
-        question: "كم تدوم البنرات الخارجية؟",
-        answer: "البنرات المطبوعة بأحبار Eco-Solvent المقاومة للأشعة UV تدوم 2-3 سنوات في الخارج. للاستخدام طويل المدة (+5 سنوات) نوفر طباعة بأحبار UV Ink على فلكس Front-lit.",
+        question: "كم تدوم البنرات الخارجية في جدة؟",
+        answer: "البنرات المطبوعة بأحبار Eco-Solvent المقاومة للأشعة UV تدوم 2-3 سنوات في الخارج تحت أشعة الشمس المباشرة. للاستخدام طويل المدة (+5 سنوات) نوفر طباعة بأحبار UV Ink على فلكس Front-lit المعالج خصيصاً لمناخ جدة الحار والرطب.",
     },
     {
-        question: "هل البنر يتحمل الرياح؟",
-        answer: "نعم، نطبع على فلكس 440-550 جرام المتين. للمناطق شديدة الرياح، نضيف ثقوب تهوية (Eyelets) وتقوية الحواف بشريط لحام.",
+        question: "هل البنر يتحمل الرياح القوية؟",
+        answer: "نعم، نطبع على فلكس 440-550 جرام المتين. للمناطق شديدة الرياح مثل الكورنيش، نضيف ثقوب تهوية (Wind Slits) وحلقات معدنية (Eyelets) مع تقوية الحواف بشريط لحام حراري لمنع التمزق.",
+    },
+    {
+        question: "ما الفرق بين فلكس Front-lit و Back-lit؟",
+        answer: "Front-lit للاستخدام العادي حيث يكون الضوء أمام البنر (الشمس أو الإضاءة). Back-lit للوحات المضيئة من الخلف (Light Boxes) حيث يكون مصدر الضوء خلف البنر ويعطي إضاءة متوهجة ليلاً.",
+    },
+    {
+        question: "هل توفرون خدمة التركيب؟",
+        answer: "نعم، نوفر خدمة التركيب داخل جدة بأسعار تنافسية. للتعليق البسيط (بالحلقات) السعر يبدأ من 50 ريال. للتركيب على هياكل معدنية أو ارتفاعات عالية، يتم تحديد السعر حسب الموقع.",
+    },
+    {
+        question: "هل يمكن طباعة بنر بشكل مخصص (غير مستطيل)؟",
+        answer: "نعم، نوفر قص مخصص للبنرات بأي شكل (دائري، مثلث، شكل الشعار). يتم القص بماكينة CNC للحصول على حواف نظيفة ودقيقة.",
+    },
+    {
+        question: "كيف أحصل على عرض سعر لبنر خارجي؟",
+        answer: "تواصل معنا بالمقاس المطلوب (العرض × الارتفاع) وسنرسل لك عرض سعر فوري. السعر يشمل الطباعة والحلقات المعدنية. التصميم متاح بسعر إضافي أو مجاناً للطلبات الكبيرة.",
     },
 ];
 
@@ -117,6 +158,24 @@ export default function OutdoorBannersPage() {
                 </div>
             </section>
 
+            {/* Use Cases Section */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
+                        استخدامات البنرات الخارجية
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {USE_CASES.map((useCase) => (
+                            <div key={useCase.title} className="card p-6 text-center card-hover">
+                                <useCase.icon className="w-10 h-10 text-orange-500 mx-auto mb-4" />
+                                <h3 className="font-bold text-gray-900 mb-2">{useCase.title}</h3>
+                                <p className="text-gray-600 text-sm">{useCase.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
@@ -124,7 +183,7 @@ export default function OutdoorBannersPage() {
                     </h2>
                     <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                         {BANNER_SIZES.map((banner) => (
-                            <div key={banner.size} className="card p-6 text-center">
+                            <div key={banner.size} className="card p-6 text-center card-hover">
                                 <Flag className="w-8 h-8 text-orange-500 mx-auto mb-3" />
                                 <h3 className="font-bold text-gray-900 mb-1">{banner.size}</h3>
                                 <div className="text-2xl font-bold text-orange-600 mb-2">{banner.price}</div>
@@ -136,14 +195,128 @@ export default function OutdoorBannersPage() {
                 </div>
             </section>
 
+            {/* Tech Specs */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+                                المواصفات الفنية
+                            </h2>
+                            <p className="text-gray-600 mb-8">
+                                نستخدم أفضل الخامات والتقنيات لضمان بنرات متينة وألوان ثابتة
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                {TECH_SPECS.map((item) => (
+                                    <div key={item.spec} className="bg-gray-50 p-4 rounded-lg">
+                                        <div className="text-sm text-gray-500 mb-1">{item.spec}</div>
+                                        <div className="font-bold text-gray-900">{item.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <GeoImage
+                            src="/images/printing-machines-digital-offset-equipment.webp"
+                            alt="ماكينات طباعة البنرات الخارجية في بوابة الرواج جدة"
+                            caption="طابعات Large Format بدقة 1440 DPI"
+                            district="المنطقة الصناعية"
+                            className="rounded-2xl shadow-xl"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Extended SEO Content */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">
+                            دليلك الشامل للبنرات الخارجية في جدة
+                        </h2>
+
+                        <div className="prose prose-lg max-w-none text-gray-700">
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">ما هي البنرات الخارجية ولماذا تحتاجها؟</h3>
+                            <p>
+                                البنرات الخارجية (Outdoor Banners) هي لوحات إعلانية مطبوعة على خامة الفلكس (Flex) أو الفينيل (Vinyl) المصممة
+                                لتتحمل الظروف الجوية القاسية. في جدة، حيث الشمس الحارقة والرطوبة العالية، تحتاج لبنرات بمواصفات خاصة تدوم طويلاً
+                                وتحافظ على ألوانها الزاهية. سواء كنت تريد الإعلان عن افتتاح محلك في حي السلامة، أو تروّج لعروض موسمية في التحلية،
+                                أو تضع لافتة مشروع في الكورنيش - البنر الخارجي هو الحل الأمثل.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">لماذا البنرات الخارجية من أفضل وسائل الإعلان؟</h3>
+                            <p>
+                                البنرات الخارجية تجمع بين <strong>التكلفة المنخفضة</strong> و<strong>التأثير العالي</strong>. مقارنة بالإعلانات الرقمية
+                                التي تختفي بمجرد انتهاء الميزانية، البنر يبقى أمام العملاء 24 ساعة يومياً لسنوات. دراسات التسويق تظهر أن الإعلانات الخارجية
+                                تحقق <strong>أعلى معدل تذكر</strong> بين جميع أنواع الإعلانات. في شوارع جدة المزدحمة، بنر واحد قد يراه آلاف الأشخاص يومياً.
+                            </p>
+
+                            <div className="my-8 grid md:grid-cols-2 gap-6">
+                                <GeoImage
+                                    src="/images/outdoor-flex-banner-printing-large-format.webp"
+                                    alt="بنرات خارجية مطبوعة لمحلات في جدة"
+                                    caption="بنر خارجي لمحل تجاري"
+                                    district="الكورنيش"
+                                    className="rounded-xl shadow-lg"
+                                />
+                                <GeoImage
+                                    src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
+                                    alt="بنرات للفعاليات والمعارض في جدة"
+                                    caption="بنرات للفعاليات الخارجية"
+                                    district="سوبر دوم"
+                                    className="rounded-xl shadow-lg"
+                                />
+                            </div>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">أنواع خامات البنرات الخارجية</h3>
+                            <p>
+                                نوفر في بوابة الرواج عدة أنواع من الخامات لتناسب مختلف الاحتياجات. <strong>فلكس Front-lit (440 جرام)</strong>
+                                هو الخيار الأكثر شيوعاً واقتصادية، مناسب للاستخدام العادي حيث يكون الضوء من الأمام.
+                                <strong>فلكس Back-lit (550 جرام)</strong> للوحات المضيئة من الخلف (Light Boxes)، يسمح بمرور الضوء ويعطي
+                                إضاءة متوهجة جميلة ليلاً. <strong>فلكس Mesh (المثقب)</strong> للبنرات الكبيرة جداً على واجهات المباني،
+                                به ثقوب صغيرة تسمح بمرور الهواء وتقلل مقاومة الرياح.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">تقنيات الطباعة المستخدمة</h3>
+                            <p>
+                                نستخدم طابعات Large Format بتقنيتين رئيسيتين. <strong>أحبار Eco-Solvent</strong> هي الأكثر شيوعاً،
+                                تعطي ألواناً زاهية وتدوم 2-3 سنوات في الخارج. <strong>أحبار UV</strong> الأحدث والأقوى، تجف فوراً
+                                بالأشعة فوق البنفسجية وتدوم 5+ سنوات، مثالية للبنرات الدائمة والمكلفة. دقة الطباعة 1440 DPI
+                                تضمن وضوح النصوص والصور حتى من مسافة قريبة.
+                            </p>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">نصائح لتصميم بنر خارجي فعّال</h3>
+                            <ul className="list-disc pr-6 space-y-2">
+                                <li>استخدم خطوطاً كبيرة وواضحة - البنر يُقرأ من مسافة</li>
+                                <li>قلل من النصوص - رسالة واحدة واضحة أفضل من عشر رسائل</li>
+                                <li>استخدم ألواناً متباينة لجذب الانتباه</li>
+                                <li>أضف معلومات الاتصال الأساسية فقط (رقم أو موقع)</li>
+                                <li>تجنب التفاصيل الصغيرة التي لا تُرى من بعيد</li>
+                                <li>راعِ موقع التعليق وزاوية الرؤية عند التصميم</li>
+                            </ul>
+
+                            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">لماذا بوابة الرواج للبنرات الخارجية؟</h3>
+                            <p>
+                                في بوابة الرواج، نملك خبرة 15+ عاماً في طباعة البنرات الخارجية لشوارع ومحلات جدة. نفهم تحديات المناخ المحلي
+                                ونختار الخامات والأحبار المناسبة. طابعاتنا الحديثة تضمن دقة عالية وألواناً ثابتة. نوفر جميع الأحجام
+                                من 1 متر حتى 5 أمتار، مع خدمة التركيب داخل جدة. التسليم خلال 24-48 ساعة للطلبات العاجلة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 max-w-3xl">
-                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">الأسئلة الشائعة</h2>
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4 text-center">الأسئلة الشائعة</h2>
+                    <p className="text-gray-600 text-center mb-12">
+                        كل ما تريد معرفته عن طباعة البنرات الخارجية في جدة
+                    </p>
                     <div className="space-y-6">
                         {FAQS.map((faq, i) => (
                             <div key={i} className="card p-6">
-                                <h3 className="font-bold text-gray-900 mb-3">{faq.question}</h3>
-                                <p className="text-gray-600">{faq.answer}</p>
+                                <h3 className="font-bold text-gray-900 mb-3 text-lg">{faq.question}</h3>
+                                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
                         ))}
                     </div>
@@ -152,10 +325,21 @@ export default function OutdoorBannersPage() {
 
             <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-6">أعلن بقوة!</h2>
-                    <Link href="/quote" className="px-8 py-4 bg-white text-orange-600 font-bold rounded-lg inline-flex items-center">
-                        اطلب الآن <ArrowLeft className="mr-2 w-5 h-5" />
-                    </Link>
+                    <h2 className="text-3xl font-bold text-white mb-6">أعلن بقوة في شوارع جدة!</h2>
+                    <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        احصل على بنر خارجي بجودة عالية وألوان ثابتة. تسليم خلال 24 ساعة.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/quote" className="px-8 py-4 bg-white text-orange-600 font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-100 transition-all">
+                            اطلب عرض سعر <ArrowLeft className="mr-2 w-5 h-5" />
+                        </Link>
+                        <a
+                            href="https://wa.me/966548923300?text=أريد طباعة بنر خارجي"
+                            className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-800 transition-all"
+                        >
+                            واتساب الآن
+                        </a>
+                    </div>
                 </div>
             </section>
         </>
