@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "أعمالنا ومشاريعنا | بوابة الرواج للدعاية والإعلان",
@@ -116,12 +116,14 @@ export default function PortfolioPage() {
                         {PROJECTS.map((project) => (
                             <div key={project.id} className="card overflow-hidden group">
                                 <div className="relative aspect-[4/3] overflow-hidden">
-                                    <img
+                                    <GeoImage
                                         src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        alt={`${project.title} - ${project.client} - بوابة الرواج جدة`}
+                                        district={project.category === "exhibitions" ? "سوبر دوم" : project.category === "signage" ? "الكورنيش" : project.category === "branding" ? "التحلية" : "الروضة"}
+                                        caption={`${project.title} - ${project.description}`}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 !rounded-none"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 z-10">
                                         <div className="text-white">
                                             <div className="text-sm text-amber-400 mb-1">{project.client}</div>
                                             <div className="font-bold text-lg">{project.title}</div>

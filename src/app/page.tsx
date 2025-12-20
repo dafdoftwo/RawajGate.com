@@ -438,13 +438,14 @@ export default function HomePage() {
                   <div className="bg-gray-50 h-full rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:border-amber-200 group-hover:-translate-y-2">
                     {/* Image Area */}
                     <div className="relative h-64 overflow-hidden">
-                      <img
+                      <GeoImage
                         src={service.image}
-                        alt={service.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        alt={`${service.title} - ${service.titleEn} - بوابة الرواج جدة`}
+                        district={service.title === "معارض وفعاليات" ? "سوبر دوم" : service.title === "لوحات وملصقات" ? "الكورنيش" : "الروضة"}
+                        caption={service.description}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 !rounded-none"
                       />
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
 
                       {/* Icon Badge */}
                       <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur rounded-xl flex items-center justify-center shadow-lg">

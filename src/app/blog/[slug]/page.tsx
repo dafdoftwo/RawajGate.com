@@ -3,6 +3,16 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, User, Facebook, Twitter, MessageCircle, Bookmark, ThumbsUp } from "lucide-react";
 import { notFound } from "next/navigation";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { GeoImage } from "@/components/geo-image";
+
+// District mapping for blog categories
+const CATEGORY_DISTRICTS: Record<string, string> = {
+    "مطبوعات": "الروضة",
+    "لوحات": "الكورنيش",
+    "معارض": "سوبر دوم",
+    "تصميم": "التحلية",
+    "هدايا": "الأندلس",
+};
 
 // Blog posts data
 const BLOG_POSTS = {
@@ -595,10 +605,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {/* Featured Image */}
             <div className="container mx-auto px-4 -mt-8">
                 <div className="max-w-4xl mx-auto">
-                    <img
+                    <GeoImage
                         src={post.image}
-                        alt={post.title}
+                        alt={`${post.title} - مقال من بوابة الرواج`}
+                        district={CATEGORY_DISTRICTS[post.category] || "الروضة"}
+                        caption={`${post.title} - ${post.category}`}
                         className="w-full aspect-[16/9] object-cover rounded-2xl shadow-xl"
+                        priority
                     />
                 </div>
             </div>
@@ -751,10 +764,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                 {relatedPosts.map(([key, relatedPost]) => (
                                     <Link key={key} href={`/blog/${key}`} className="card overflow-hidden group">
                                         <div className="aspect-[16/9] overflow-hidden">
-                                            <img
+                                            <GeoImage
                                                 src={relatedPost.image}
-                                                alt={relatedPost.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                                                alt={`${relatedPost.title} - مقال ذو صلة`}
+                                                district={CATEGORY_DISTRICTS[relatedPost.category] || "الروضة"}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform !rounded-none"
                                             />
                                         </div>
                                         <div className="p-4">

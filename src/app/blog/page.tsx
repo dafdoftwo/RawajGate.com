@@ -2,6 +2,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Tag, BookOpen, TrendingUp, Lightbulb, PenTool } from "lucide-react";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { GeoImage } from "@/components/geo-image";
+
+// District mapping for blog categories
+const CATEGORY_DISTRICTS: Record<string, string> = {
+    "مطبوعات": "الروضة",
+    "لوحات": "الكورنيش",
+    "معارض": "سوبر دوم",
+    "تصميم": "التحلية",
+    "هدايا": "الأندلس",
+};
 
 export const metadata: Metadata = {
     title: "مدونة الطباعة والتصميم | نصائح احترافية للشركات | بوابة الرواج",
@@ -207,12 +217,14 @@ export default function BlogPage() {
                                 {BLOG_POSTS.map((post) => (
                                     <article key={post.id} className="card overflow-hidden group">
                                         <div className="relative aspect-[16/9] overflow-hidden">
-                                            <img
+                                            <GeoImage
                                                 src={post.image}
-                                                alt={post.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                alt={`${post.title} - مقال من بوابة الرواج`}
+                                                district={CATEGORY_DISTRICTS[post.category] || "الروضة"}
+                                                caption={`${post.title} - ${post.category}`}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 !rounded-none"
                                             />
-                                            <div className="absolute top-4 right-4">
+                                            <div className="absolute top-4 right-4 z-10">
                                                 <span className="bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
                                                     {post.category}
                                                 </span>
