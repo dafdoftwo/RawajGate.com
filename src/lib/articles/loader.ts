@@ -32,48 +32,38 @@ import { getMeta, isPublished } from "./meta";
  * حقيقي للحزم (code-splitting).
  */
 const LOADERS: Record<string, () => Promise<Article>> = {
-    "business-cards-price-jeddah": () =>
-        import("./posts/business-cards-price-jeddah").then(
-            (m) => m.businessCardsPriceJeddah
-        ),
-    "shop-signage-municipality-rules-jeddah": () =>
-        import("./posts/shop-signage-municipality-rules").then(
-            (m) => m.shopSignageMunicipalityRules
-        ),
-    "roll-up-stand-price-jeddah": () =>
-        import("./posts/roll-up-stand-price-jeddah").then(
-            (m) => m.rollUpStandPriceJeddah
-        ),
-    "offset-vs-digital-printing": () =>
-        import("./posts/offset-vs-digital-printing").then(
-            (m) => m.offsetVsDigitalPrinting
-        ),
-    "exhibition-booth-cost-saudi": () =>
-        import("./posts/exhibition-booth-cost-saudi").then(
-            (m) => m.exhibitionBoothCostSaudi
-        ),
-    "vehicle-wrapping-price-jeddah": () =>
-        import("./posts/vehicle-wrapping-price-jeddah").then(
-            (m) => m.vehicleWrappingPriceJeddah
-        ),
-    "prepare-print-file-guide": () =>
-        import("./posts/prepare-print-file-guide").then(
-            (m) => m.preparePrintFileGuide
-        ),
-    "coated-vs-linen-paper": () =>
-        import("./posts/coated-vs-linen-paper").then((m) => m.coatedVsLinenPaper),
-    "paper-weight-size-guide": () =>
-        import("./posts/paper-weight-size-guide").then((m) => m.paperWeightSizeGuide),
-    "shop-signage-price-jeddah": () =>
-        import("./posts/shop-signage-price-jeddah").then((m) => m.shopSignagePriceJeddah),
-    "octanorm-vs-custom-booth": () =>
-        import("./posts/octanorm-vs-custom-booth").then((m) => m.octanormVsCustomBooth),
-    "choose-printing-company-jeddah": () =>
-        import("./posts/choose-printing-company-jeddah").then((m) => m.choosePrintingCompanyJeddah),
-    "saudi-exhibitions-calendar": () =>
-        import("./posts/saudi-exhibitions-calendar").then((m) => m.saudiExhibitionsCalendar),
+    "restaurant-menu-guide": () =>
+        import("./posts/restaurant-menu-guide").then((m) => m.restaurantMenuGuide),
+    "brand-identity-guide": () =>
+        import("./posts/brand-identity-guide").then((m) => m.brandIdentityGuide),
     "promotional-gifts-guide": () =>
         import("./posts/promotional-gifts-guide").then((m) => m.promotionalGiftsGuide),
+    "saudi-exhibitions-calendar": () =>
+        import("./posts/saudi-exhibitions-calendar").then((m) => m.saudiExhibitionsCalendar),
+    "choose-printing-company-jeddah": () =>
+        import("./posts/choose-printing-company-jeddah").then((m) => m.choosePrintingCompanyJeddah),
+    "octanorm-vs-custom-booth": () =>
+        import("./posts/octanorm-vs-custom-booth").then((m) => m.octanormVsCustomBooth),
+    "shop-signage-price-jeddah": () =>
+        import("./posts/shop-signage-price-jeddah").then((m) => m.shopSignagePriceJeddah),
+    "paper-weight-size-guide": () =>
+        import("./posts/paper-weight-size-guide").then((m) => m.paperWeightSizeGuide),
+    "coated-vs-linen-paper": () =>
+        import("./posts/coated-vs-linen-paper").then((m) => m.coatedVsLinenPaper),
+    "prepare-print-file-guide": () =>
+        import("./posts/prepare-print-file-guide").then((m) => m.preparePrintFileGuide),
+    "vehicle-wrapping-price-jeddah": () =>
+        import("./posts/vehicle-wrapping-price-jeddah").then((m) => m.vehicleWrappingPriceJeddah),
+    "exhibition-booth-cost-saudi": () =>
+        import("./posts/exhibition-booth-cost-saudi").then((m) => m.exhibitionBoothCostSaudi),
+    "offset-vs-digital-printing": () =>
+        import("./posts/offset-vs-digital-printing").then((m) => m.offsetVsDigitalPrinting),
+    "roll-up-stand-price-jeddah": () =>
+        import("./posts/roll-up-stand-price-jeddah").then((m) => m.rollUpStandPriceJeddah),
+    "shop-signage-municipality-rules-jeddah": () =>
+        import("./posts/shop-signage-municipality-rules").then((m) => m.shopSignageMunicipalityRules),
+    "business-cards-price-jeddah": () =>
+        import("./posts/business-cards-price-jeddah").then((m) => m.businessCardsPriceJeddah),
 };
 
 /**
