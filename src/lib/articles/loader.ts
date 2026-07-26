@@ -62,6 +62,14 @@ const LOADERS: Record<string, () => Promise<Article>> = {
         ),
     "coated-vs-linen-paper": () =>
         import("./posts/coated-vs-linen-paper").then((m) => m.coatedVsLinenPaper),
+    "paper-weight-size-guide": () =>
+        import("./posts/paper-weight-size-guide").then((m) => m.paperWeightSizeGuide),
+    "shop-signage-price-jeddah": () =>
+        import("./posts/shop-signage-price-jeddah").then((m) => m.shopSignagePriceJeddah),
+    "octanorm-vs-custom-booth": () =>
+        import("./posts/octanorm-vs-custom-booth").then((m) => m.octanormVsCustomBooth),
+    "choose-printing-company-jeddah": () =>
+        import("./posts/choose-printing-company-jeddah").then((m) => m.choosePrintingCompanyJeddah),
 };
 
 /**
