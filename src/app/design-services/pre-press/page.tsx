@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { DesignServicesFaqs } from "@/lib/faqs/design-services";
 import {
     Settings,
     ArrowLeft,
@@ -15,7 +17,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "خدمات ما قبل الطباعة في جدة | Pre-Press | بوابة الرواج",
+    openGraph: {
+        title: "خدمات ما قبل الطباعة (Pre-Press) في جدة | بوابة الرواج",
+        description: "خدمات ما قبل الطباعة (Pre-Press) في جدة: تحويل ألوان CMYK، فحص ملفات PDF، تجهيز Bleed، تصحيح الصور. ضمان طباعة مثالية بدون أخطاء.",
+        url: "https://rawajgate.com/design-services/pre-press",
+        images: [{ url: "/images/printing-machines-digital-offset-equipment.webp", width: 1200, height: 630, alt: "خدمات ما قبل الطباعة (Pre-Press) في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "خدمات ما قبل الطباعة (Pre-Press) في جدة",
+        description: "خدمات ما قبل الطباعة (Pre-Press) في جدة: تحويل ألوان CMYK، فحص ملفات PDF، تجهيز Bleed، تصحيح الصور. ضمان طباعة مثالية بدون أخطاء.",
+        images: ["/images/printing-machines-digital-offset-equipment.webp"],
+    },
+    alternates: { canonical: "/design-services/pre-press" },
+    title: "خدمات ما قبل الطباعة (Pre-Press) في جدة",
     description: "خدمات ما قبل الطباعة (Pre-Press) في جدة: تحويل ألوان CMYK، فحص ملفات PDF، تجهيز Bleed، تصحيح الصور. ضمان طباعة مثالية بدون أخطاء.",
     keywords: ["ما قبل الطباعة", "pre-press jeddah", "تجهيز ملفات طباعة", "CMYK", "تصحيح ألوان"],
 };
@@ -43,32 +60,7 @@ const USE_CASES = [
     { icon: Package, title: "التغليف", desc: "علب وأكياس" },
 ];
 
-const FAQS = [
-    {
-        question: "لماذا أحتاج خدمة Pre-Press؟",
-        answer: "الملفات المصممة للشاشة (RGB) تظهر مختلفة عند الطباعة (CMYK). خدمة Pre-Press تضمن أن ألوانك ستطبع كما تتوقع، وأن الملف خالي من الأخطاء التقنية.",
-    },
-    {
-        question: "هل الخدمة مشمولة في سعر الطباعة؟",
-        answer: "نعم، الفحص الأساسي مجاني مع أي طلب طباعة. التصحيحات المتقدمة (تحرير الصور، إعادة تصميم) تُسعّر حسب الوقت المطلوب.",
-    },
-    {
-        question: "ما الفرق بين RGB و CMYK؟",
-        answer: "RGB نظام ألوان الشاشات (أحمر، أخضر، أزرق)، يعطي ألوان زاهية على الشاشة. CMYK نظام الطباعة (سماوي، ماجنتا، أصفر، أسود)، نطاقه أضيق. التحويل الصحيح يضمن أقرب نتيجة.",
-    },
-    {
-        question: "ما هو Bleed ولماذا مهم؟",
-        answer: "Bleed هو هامش إضافي (3-5 مم) حول التصميم يُقص بعد الطباعة. بدونه، قد تظهر حواف بيضاء غير مرغوبة عند القص إذا كان التصميم يمتد للحافة.",
-    },
-    {
-        question: "ما دقة الصور المطلوبة؟",
-        answer: "للطباعة التجارية (بروشورات، بطاقات) نحتاج 300 DPI. للطباعة الكبيرة (لافتات) 150 DPI كافية. الصور من الإنترنت (72 DPI) غير صالحة للطباعة.",
-    },
-    {
-        question: "كم يستغرق فحص الملف؟",
-        answer: "الفحص الأساسي 1-2 ساعة. التصحيحات البسيطة نفس اليوم. التصحيحات المتقدمة (تحرير صور، إعادة تصميم) 1-2 يوم حسب الحجم.",
-    },
-];
+const FAQS = DesignServicesFaqs["design-services/pre-press"];
 
 export default function PrePressPage() {
     const schemas = [
@@ -321,6 +313,7 @@ export default function PrePressPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/design-services/pre-press" />
         </>
     );
 }

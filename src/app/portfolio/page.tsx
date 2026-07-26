@@ -1,186 +1,281 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft, Calendar, Layers, MessageCircle } from "lucide-react";
 import { GeoImage } from "@/components/geo-image";
-import { ArrowLeft } from "lucide-react";
+import { BUSINESS, whatsappLink } from "@/lib/business";
+import {
+    PORTFOLIO_PROJECTS,
+    PORTFOLIO_CATEGORIES,
+    getProjects,
+    getCategoryCounts,
+} from "@/lib/portfolio-data";
+import {
+    generateBreadcrumbSchema,
+    generateItemListSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
-    title: "أعمالنا ومشاريعنا | بوابة الرواج للدعاية والإعلان",
-    description: "استعرض مشاريعنا المنفذة: أجنحة معارض، لافتات محلات، هويات بصرية، ومطبوعات تجارية. +50,000 مشروع في جدة والمملكة.",
-    keywords: ["أعمالنا", "معرض أعمال", "portfolio", "مشاريع منفذة", "بوابة الرواج"],
+    title: "معرض أعمالنا في جدة والمنطقة الغربية",
+    description:
+        "نماذج من مشاريعنا المنفذة في جدة: تجهيز أجنحة المعارض، لافتات المحلات ثلاثية الأبعاد، تغليف السيارات، ملصقات المنتجات، والهدايا الدعائية.",
+    alternates: { canonical: "/portfolio" },
+    keywords: [
+        "معرض أعمال بوابة الرواج",
+        "مشاريع طباعة جدة",
+        "أجنحة معارض منفذة",
+        "لافتات محلات جدة",
+    ],
+    openGraph: {
+        title: "معرض أعمالنا في جدة والمنطقة الغربية | بوابة الرواج",
+        description:
+            "نماذج من مشاريعنا: أجنحة معارض، لافتات محلات 3D، تغليف سيارات، ومطبوعات — كلها منفذة في ورشتنا بحي الروضة.",
+        url: `${BUSINESS.url}/portfolio`,
+        images: [
+            {
+                url: "/images/print-shop-exhibition-services-saudi-arabia.webp",
+                width: 1200,
+                height: 630,
+                alt: "معرض أعمال بوابة الرواج في جدة",
+            },
+        ],
+        locale: "ar_SA",
+        type: "website",
+    },
 };
 
-const CATEGORIES = [
-    { id: "all", name: "الكل" },
-    { id: "exhibitions", name: "معارض وفعاليات" },
-    { id: "signage", name: "لافتات ولوحات" },
-    { id: "branding", name: "هوية بصرية" },
-    { id: "printing", name: "مطبوعات" },
-];
+export default async function PortfolioPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ category?: string }>;
+}) {
+    const { category } = await searchParams;
+    const activeCategory = category ?? "all";
+    const projects = getProjects(activeCategory);
+    const counts = getCategoryCounts();
 
-const PROJECTS = [
-    {
-        id: 1,
-        title: "جناح معرض جايتكس 2024",
-        client: "شركة تقنية سعودية",
-        category: "exhibitions",
-        image: "/images/exhibition-booth-fabrication-design-jeddah.webp",
-        description: "تصميم وتنفيذ جناح 36 م² بتصميم مستقبلي",
-    },
-    {
-        id: 2,
-        title: "لافتة مطعم 3D مضيئة",
-        client: "مطعم في التحلية",
-        category: "signage",
-        image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
-        description: "حروف أكريليك مضيئة LED بارتفاع 60 سم",
-    },
-    {
-        id: 3,
-        title: "هوية بصرية متكاملة",
-        client: "مكتب محاماة",
-        category: "branding",
-        image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
-        description: "شعار + دليل هوية + تطبيقات كاملة",
-    },
-    {
-        id: 4,
-        title: "تغليف سيارات أسطول",
-        client: "شركة توصيل",
-        category: "signage",
-        image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-        description: "تغليف 20 سيارة بتصميم موحد",
-    },
-    {
-        id: 5,
-        title: "مطبوعات شركة عقارية",
-        client: "شركة عقارات",
-        category: "printing",
-        image: "/images/advertising-flyers-brochures-tri-fold.webp",
-        description: "بروشورات + ملفات عروض + بطاقات عمل",
-    },
-    {
-        id: 6,
-        title: "ستاندات معرض أغذية",
-        client: "شركة أغذية",
-        category: "exhibitions",
-        image: "/images/roll-up-stand-banner-85x200.webp",
-        description: "20 رول أب + 5 بوب أب للمعرض السنوي",
-    },
-];
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "الرئيسية", url: BUSINESS.url },
+        { name: "أعمالنا", url: `${BUSINESS.url}/portfolio` },
+    ]);
 
-export default function PortfolioPage() {
+    // ItemList schema — تُعرّف Google أن هذه صفحة معرض أعمال
+    const listSchema = generateItemListSchema(
+        PORTFOLIO_PROJECTS.map((p) => ({
+            name: p.title,
+            url: `/portfolio#${p.slug}`,
+            description: p.summary,
+            image: p.image,
+        })),
+        "أعمال بوابة الرواج في جدة"
+    );
+
     return (
         <>
-            {/* Hero Section */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
+            />
+
+            {/* البطل */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
                 <div className="container mx-auto px-4 text-center">
-                    <nav className="text-sm text-white/60 mb-4 justify-center flex">
-                        <Link href="/" className="hover:text-white">الرئيسية</Link>
-                        <span className="mx-2">/</span>
-                        <span className="text-amber-400">أعمالنا</span>
+                    <nav aria-label="مسار التنقل" className="text-sm text-white/60 mb-4">
+                        <ol className="flex items-center justify-center">
+                            <li>
+                                <Link href="/" className="hover:text-white">
+                                    الرئيسية
+                                </Link>
+                            </li>
+                            <li aria-hidden="true" className="mx-2">/</li>
+                            <li>
+                                <span className="text-amber-400" aria-current="page">
+                                    أعمالنا
+                                </span>
+                            </li>
+                        </ol>
                     </nav>
 
                     <h1 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-                        <span className="text-gradient">أعمالنا</span> تتحدث عنّا
+                        معرض أعمالنا في جدة
                     </h1>
 
-                    <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                        أكثر من 50,000 مشروع منفذ بنجاح. استعرض بعض أعمالنا المميزة في مختلف المجالات.
+                    <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
+                        نماذج من مشاريع نفّذناها لعملاء في جدة والمنطقة الغربية —
+                        من تجهيز أجنحة المعارض إلى لافتات المحلات وتغليف الأساطيل
+                        والمطبوعات التجارية.
+                    </p>
+
+                    {/*
+                      تنبيه شفافية — أهم من الادعاء بأرقام مضخّمة.
+                      محركات الذكاء الاصطناعي وGoogle تكافئ الصدق: "بعض
+                      المشاريع" أقوى إشارة من "50,000 مشروع" غير موثّق.
+                    */}
+                    <p className="text-white/50 text-sm mt-4">
+                        الصور معروضة بموافقة العملاء أو بأسماء مجهّلة حفاظاً على الخصوصية.
                     </p>
                 </div>
             </section>
 
-            {/* Filter */}
-            <section className="py-8 bg-white border-b sticky top-0 z-20">
+            {/* شريط الفلترة — يعمل عبر ?category= (بدون JavaScript) */}
+            <section className="py-6 bg-white border-b border-gray-100 sticky top-16 lg:top-20 z-30">
                 <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {CATEGORIES.map((cat) => (
-                            <button
-                                key={cat.id}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${cat.id === "all"
-                                    ? "bg-amber-500 text-white"
-                                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    <nav
+                        aria-label="فلترة أعمالنا حسب القسم"
+                        className="flex flex-wrap justify-center gap-2 md:gap-3"
+                    >
+                        {PORTFOLIO_CATEGORIES
+                            // أخفِ التصنيفات الفارغة (تظهر "0" يقلل من الثقة)
+                            .filter((cat) => cat.id === "all" || (counts[cat.id] ?? 0) > 0)
+                            .map((cat) => {
+                            const isActive = activeCategory === cat.id;
+                            const href = cat.id === "all" ? "/portfolio" : `/portfolio?category=${cat.id}`;
+                            const count = counts[cat.id] ?? 0;
+                            return (
+                                <Link
+                                    key={cat.id}
+                                    href={href}
+                                    aria-current={isActive ? "page" : undefined}
+                                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                        isActive
+                                            ? "bg-amber-500 text-white"
+                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                                     }`}
-                            >
-                                {cat.name}
-                            </button>
-                        ))}
-                    </div>
+                                >
+                                    <span>{cat.label}</span>
+                                    <span
+                                        className={`text-xs ${
+                                            isActive ? "text-white/80" : "text-gray-500"
+                                        }`}
+                                    >
+                                        ({count})
+                                    </span>
+                                </Link>
+                            );
+                        })}
+                    </nav>
                 </div>
             </section>
 
-            {/* Projects Grid */}
-            <section className="py-16 bg-gray-50">
+            {/* شبكة المشاريع */}
+            <section className="py-16 bg-gray-50" aria-label="قائمة المشاريع">
                 <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {PROJECTS.map((project) => (
-                            <div key={project.id} className="card overflow-hidden group">
-                                <div className="relative aspect-[4/3] overflow-hidden">
-                                    <GeoImage
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 !rounded-none"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 z-10">
-                                        <div className="text-white">
-                                            <div className="text-sm text-amber-400 mb-1">{project.client}</div>
-                                            <div className="font-bold text-lg">{project.title}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <div className="text-xs text-amber-600 font-medium mb-2 uppercase">
-                                        {CATEGORIES.find(c => c.id === project.category)?.name}
-                                    </div>
-                                    <h3 className="font-bold text-gray-900 mb-2">{project.title}</h3>
-                                    <p className="text-gray-600 text-sm">{project.description}</p>
-                                </div>
+                    {projects.length === 0 ? (
+                        <p className="text-center text-gray-500 py-12">
+                            لا توجد مشاريع في هذا التصنيف حالياً.{" "}
+                            <Link href="/portfolio" className="text-amber-600 hover:underline">
+                                عرض كل الأعمال
+                            </Link>
+                        </p>
+                    ) : (
+                        <>
+                            <p className="text-sm text-gray-500 mb-6 text-center">
+                                عرض <strong className="text-gray-900">{projects.length}</strong>{" "}
+                                {projects.length === 1 ? "مشروع" : "مشاريع"}
+                            </p>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                                {projects.map((project) => {
+                                    const catLabel =
+                                        PORTFOLIO_CATEGORIES.find((c) => c.id === project.category)?.label ??
+                                        project.category;
+                                    return (
+                                        <article
+                                            key={project.slug}
+                                            id={project.slug}
+                                            className="scroll-mt-40 bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow group"
+                                        >
+                                            <Link
+                                                href={project.serviceUrl}
+                                                className="block relative aspect-[4/3] overflow-hidden"
+                                            >
+                                                <GeoImage
+                                                    src={project.image}
+                                                    alt={`${project.title} — ${project.clientAnonymized}`}
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 380px"
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 !rounded-none"
+                                                />
+                                                <div className="absolute top-3 right-3">
+                                                    <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gray-800">
+                                                        {catLabel}
+                                                    </span>
+                                                </div>
+                                            </Link>
+
+                                            <div className="p-6">
+                                                <h2 className="font-bold text-gray-900 mb-2 text-lg leading-relaxed">
+                                                    <Link
+                                                        href={project.serviceUrl}
+                                                        className="hover:text-amber-600 transition-colors"
+                                                    >
+                                                        {project.title}
+                                                    </Link>
+                                                </h2>
+
+                                                <p className="text-sm text-amber-600 mb-3 font-medium">
+                                                    العميل: {project.clientAnonymized}
+                                                </p>
+
+                                                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                                                    {project.summary}
+                                                </p>
+
+                                                <dl className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-gray-100">
+                                                    <div className="flex items-center gap-1">
+                                                        <Layers className="w-3.5 h-3.5" aria-hidden="true" />
+                                                        <dt className="sr-only">النطاق:</dt>
+                                                        <dd>{project.scope}</dd>
+                                                    </div>
+                                                    <div className="flex items-center gap-1">
+                                                        <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
+                                                        <dt className="sr-only">السنة:</dt>
+                                                        <dd>{project.year}</dd>
+                                                    </div>
+                                                </dl>
+                                            </div>
+                                        </article>
+                                    );
+                                })}
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Stats */}
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto text-center">
-                        <div>
-                            <div className="text-4xl font-bold text-amber-500">50,000+</div>
-                            <div className="text-gray-600">مشروع منفذ</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-bold text-amber-500">5,000+</div>
-                            <div className="text-gray-600">عميل</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-bold text-amber-500">15+</div>
-                            <div className="text-gray-600">سنة خبرة</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-bold text-amber-500">100%</div>
-                            <div className="text-gray-600">رضا العملاء</div>
-                        </div>
-                    </div>
+                        </>
+                    )}
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-20 bg-gradient-to-r from-amber-400 to-amber-500">
+            <section className="py-16 bg-gradient-to-r from-amber-400 to-amber-500">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-                        هل تريد مشروعاً مميزاً مثل هذه؟
+                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
+                        مشروعك القادم يستحق نفس العناية
                     </h2>
-                    <p className="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
-                        تواصل معنا وأخبرنا عن فكرتك. سنحولها لواقع!
+                    <p className="text-gray-800 mb-8 max-w-2xl mx-auto">
+                        سواء كان جناح معرض متكامل أو 500 بطاقة عمل، عملية العمل واحدة:
+                        عرض واضح، تصميم معتمد، تنفيذ في الموعد.
                     </p>
-                    <Link
-                        href="/quote"
-                        className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg inline-flex items-center"
-                    >
-                        ابدأ مشروعك
-                        <ArrowLeft className="mr-2 w-5 h-5" />
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link
+                            href="/quote"
+                            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-colors shadow-lg"
+                        >
+                            اطلب عرض سعر مجاني
+                            <ArrowLeft className="w-5 h-5" aria-hidden="true" />
+                        </Link>
+                        <a
+                            href={whatsappLink("مرحباً، شفت أعمالكم وأود مناقشة مشروع")}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+                        >
+                            <MessageCircle
+                                className="w-5 h-5 text-green-600"
+                                aria-hidden="true"
+                            />
+                            محادثة واتساب
+                        </a>
+                    </div>
                 </div>
             </section>
         </>

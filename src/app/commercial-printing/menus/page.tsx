@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
     UtensilsCrossed,
     ArrowLeft,
@@ -16,7 +18,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة منيوهات مطاعم فاخرة في جدة | تصميم قوائم طعام | بوابة الرواج",
+    alternates: { canonical: "/commercial-printing/menus" },
+    title: "طباعة منيو مطعم في جدة | مقاوم للماء",
     description: "تصميم وطباعة منيوهات مطاعم احترافية في جدة. ورق مقاوم للماء، تغليف حراري، تصميم مجاني. منيوهات جلدية فاخرة وأخرى اقتصادية. تسليم خلال 48 ساعة.",
     keywords: [
         "منيو مطعم جدة",
@@ -26,10 +29,18 @@ export const metadata: Metadata = {
         "تصميم منيو كافيه",
     ],
     openGraph: {
-        title: "طباعة منيوهات مطاعم في جدة | بوابة الرواج",
-        description: "منيوهات احترافية تعكس جودة مطعمك. تصميم مجاني + ورق مقاوم للبقع.",
-        images: ["/images/restaurant-menu-design-leather-cover.webp"],
+        title: "طباعة منيو مطعم في جدة | مقاوم للماء | بوابة الرواج",
+        description: "تصميم وطباعة منيوهات مطاعم احترافية في جدة. ورق مقاوم للماء، تغليف حراري، تصميم مجاني. منيوهات جلدية فاخرة وأخرى اقتصادية. تسليم خلال 48 ساعة.",
+        url: "https://rawajgate.com/commercial-printing/menus",
+        images: [{ url: "/images/restaurant-menu-design-leather-cover.webp", width: 1200, height: 630, alt: "طباعة منيو مطعم في جدة | مقاوم للماء" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة منيو مطعم في جدة | مقاوم للماء",
+        description: "تصميم وطباعة منيوهات مطاعم احترافية في جدة. ورق مقاوم للماء، تغليف حراري، تصميم مجاني. منيوهات جلدية فاخرة وأخرى اقتصادية. تسليم خلال 48 ساعة.",
+        images: ["/images/restaurant-menu-design-leather-cover.webp"],
     },
 };
 
@@ -80,32 +91,7 @@ const USE_CASES_DETAILED = [
     { icon: Building2, title: "الفنادق", desc: "منيوهات روم سيرفيس" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض سعر لطباعة منيوهات مطعمي في جدة؟",
-        answer: "تواصل معنا عبر الواتساب أو الهاتف للحصول على عرض سعر مخصص حسب النوع (مغلف/جلدي) والكمية وعدد الصفحات. السعر يشمل الطباعة والتغليف. التصميم مجاني للكميات الكبيرة (+100 منيو)!",
-    },
-    {
-        question: "هل المنيو يتحمل السوائل والزيوت؟",
-        answer: "نعم، التغليف الحراري Lamination يحمي الورق من السوائل والزيوت. يمكن مسحه بمنديل مبلل بسهولة. للحماية القصوى (مطاعم بحرية، مثلجات)، نستخدم ورق Synthetic مقاوم للماء 100%.",
-    },
-    {
-        question: "كم تستغرق طباعة المنيوهات؟",
-        answer: "المنيوهات المغلفة: 24-48 ساعة. المنيوهات الجلدية: 5-7 أيام عمل. التصميم يستغرق 2-3 أيام إضافية حسب عدد الأصناف. لدينا خدمة سريعة للطلبات العاجلة.",
-    },
-    {
-        question: "هل تصممون المنيو أم نرسل التصميم؟",
-        answer: "نقدم كلا الخيارين! فريقنا يصمم منيوهات احترافية بتصوير أطباقكم (خدمة إضافية نرسل مصوراً محترفاً) أو بصور Stock. يمكنك أيضاً إرسال ملفك الجاهز للطباعة مباشرة (PDF/AI).",
-    },
-    {
-        question: "هل تطبعون منيوهات كبيرة للحائط؟",
-        answer: "نعم، نطبع لوحات منيو كبيرة (A3, A2, A1) على فوم بورد أو أكريليك للتعليق خلف الكاشير. أيضاً منيوهات LED مضيئة (لايت بوكس) للمطاعم السريعة والكافيهات.",
-    },
-    {
-        question: "ما الفرق بين المنيو الجلدي والمغلف؟",
-        answer: "المنيو المغلف اقتصادي ومناسب للكافيهات والمطاعم السريعة. المنيو الجلدي أكثر فخامة مع صفحات قابلة للاستبدال، مثالي للمطاعم الفاخرة والفنادق حيث يمكن تغيير الأسعار بسهولة.",
-    },
-];
+const FAQS = CommercialPrintingFaqs["commercial-printing/menus"];
 
 export default function MenusPage() {
     const schemas = [
@@ -411,6 +397,7 @@ export default function MenusPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/commercial-printing/menus" />
         </>
     );
 }

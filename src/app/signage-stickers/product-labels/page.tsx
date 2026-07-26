@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
     Tag,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة ملصقات منتجات ولصق عبوات في جدة | بوابة الرواج",
+    openGraph: {
+        title: "طباعة ملصقات منتجات في جدة | بوابة الرواج",
+        description: "طباعة ملصقات منتجات (Product Labels) في جدة. ملصقات غذائية، تجميلية، دوائية. مقاومة للماء، باركود، معلومات غذائية. أحجام وأشكال مخصصة.",
+        url: "https://rawajgate.com/signage-stickers/product-labels",
+        images: [{ url: "/images/custom-product-labels-roll-stickers-jeddah.webp", width: 1200, height: 630, alt: "طباعة ملصقات منتجات في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة ملصقات منتجات في جدة",
+        description: "طباعة ملصقات منتجات (Product Labels) في جدة. ملصقات غذائية، تجميلية، دوائية. مقاومة للماء، باركود، معلومات غذائية. أحجام وأشكال مخصصة.",
+        images: ["/images/custom-product-labels-roll-stickers-jeddah.webp"],
+    },
+    alternates: { canonical: "/signage-stickers/product-labels" },
+    title: "طباعة ملصقات منتجات في جدة",
     description: "طباعة ملصقات منتجات (Product Labels) في جدة. ملصقات غذائية، تجميلية، دوائية. مقاومة للماء، باركود، معلومات غذائية. أحجام وأشكال مخصصة.",
     keywords: ["ملصقات منتجات", "لصق عبوات", "product labels jeddah", "ستيكرات غذائية", "طباعة باركود"],
 };
@@ -46,32 +63,7 @@ const USE_CASES_DETAILED = [
     { icon: Leaf, title: "منتجات عضوية", desc: "عسل، زيوت، منتجات محلية" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض سعر لملصقات منتجاتي؟",
-        answer: "تواصل معنا عبر الواتساب أو الهاتف للحصول على عرض سعر مخصص حسب الحجم والخامة والكمية. التصميم مجاني للطلبات الكبيرة (+5000 ملصق). أسعار تنافسية للكميات!",
-    },
-    {
-        question: "هل تطبعون ملصقات غذائية مع جدول القيم الغذائية؟",
-        answer: "نعم، نصمم ونطبع ملصقات غذائية متوافقة مع اشتراطات هيئة الغذاء والدواء السعودية (SFDA). نضيف جدول القيم الغذائية، المكونات، تاريخ الإنتاج/الانتهاء، الباركود، وتحذيرات الحساسية.",
-    },
-    {
-        question: "ما الفرق بين الملصقات الورقية والمقاومة للماء؟",
-        answer: "الملصقات الورقية اقتصادية ومناسبة للمنتجات الجافة والتغليف الداخلي. الملصقات المقاومة للماء (BOPP/Vinyl) ضرورية للمشروبات، المنظفات، ومستحضرات التجميل التي تتعرض للرطوبة.",
-    },
-    {
-        question: "هل يمكن طباعة ملصقات بشكل مخصص؟",
-        answer: "نعم، نوفر قص مخصص بأي شكل (دائري، بيضاوي، شكل المنتج). القص بماكينة ديجيتال لحواف نظيفة ودقيقة. الحد الأدنى للأشكال المخصصة 1000 ملصق.",
-    },
-    {
-        question: "هل توفرون خدمة التصميم؟",
-        answer: "نعم، فريق التصميم لدينا يصمم ملصقات احترافية تتوافق مع هويتك البصرية. نراعي توزيع العناصر بشكل جذاب مع التأكد من وضوح المعلومات الإلزامية. التصميم مجاني للكميات الكبيرة.",
-    },
-    {
-        question: "كم يستغرق الإنتاج؟",
-        answer: "الملصقات القياسية (Roll Labels) تستغرق 3-5 أيام عمل. الملصقات بشكل مخصص 5-7 أيام. التصميم يستغرق 2-3 أيام إضافية. لدينا خدمة سريعة للطلبات العاجلة.",
-    },
-];
+const FAQS = SignageStickersFaqs["signage-stickers/product-labels"];
 
 export default function ProductLabelsPage() {
     const schemas = [
@@ -339,6 +331,7 @@ export default function ProductLabelsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/signage-stickers/product-labels" />
         </>
     );
 }

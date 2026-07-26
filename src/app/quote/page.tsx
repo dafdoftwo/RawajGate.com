@@ -2,16 +2,42 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowLeft } from "lucide-react";
 import { QuoteForm } from "@/components/quote-form";
+import { BUSINESS } from "@/lib/business";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-    title: "تواصل معنا | طلب عرض سعر | بوابة الرواج",
+    openGraph: {
+        title: "تواصل معنا واطلب عرض سعر مجاني | بوابة الرواج",
+        description: "تواصل مع بوابة الرواج للحصول على عرض سعر مجاني. اتصل بنا أو أرسل طلبك عبر النموذج. نرد خلال ساعة واحدة.",
+        url: "https://rawajgate.com/quote",
+        images: [{ url: "/images/client-meeting-office-al-rawaj-jeddah.webp", width: 1200, height: 630, alt: "تواصل معنا واطلب عرض سعر مجاني" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "تواصل معنا واطلب عرض سعر مجاني",
+        description: "تواصل مع بوابة الرواج للحصول على عرض سعر مجاني. اتصل بنا أو أرسل طلبك عبر النموذج. نرد خلال ساعة واحدة.",
+        images: ["/images/client-meeting-office-al-rawaj-jeddah.webp"],
+    },
+    alternates: { canonical: "/quote" },
+    title: "تواصل معنا واطلب عرض سعر مجاني",
     description: "تواصل مع بوابة الرواج للحصول على عرض سعر مجاني. اتصل بنا أو أرسل طلبك عبر النموذج. نرد خلال ساعة واحدة.",
     keywords: ["تواصل معنا", "عرض سعر", "اتصل بنا", "بوابة الرواج جدة"],
 };
 
 export default function ContactPage() {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: "الرئيسية", url: BUSINESS.url },
+        { name: "تواصل معنا", url: `${BUSINESS.url}/quote` },
+    ]);
+
     return (
         <>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
             {/* Hero Section */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
                 <div className="container mx-auto px-4 text-center">
@@ -84,10 +110,12 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-gray-900 mb-1">العنوان</div>
-                                        <p className="text-gray-600">
-                                            حي الروضة، شارع الأمير سلطان<br />
-                                            جدة، المملكة العربية السعودية
-                                        </p>
+                                        {/* موحّد من lib/business.ts — كان الموقع يعرض 4 عناوين مختلفة */}
+                                        <address className="text-gray-600 not-italic">
+                                            {BUSINESS.address.street}، {BUSINESS.address.district}
+                                            <br />
+                                            {BUSINESS.address.city}، {BUSINESS.address.countryName}
+                                        </address>
                                     </div>
                                 </div>
 

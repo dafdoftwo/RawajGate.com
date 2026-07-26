@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
     CreditCard,
     Check,
@@ -18,7 +20,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة بطاقات عمل فاخرة في جدة | تشطيبات مخملية وذهبية | بوابة الرواج",
+    alternates: { canonical: "/commercial-printing/business-cards" },
+    title: "طباعة بطاقات عمل في جدة | تسليم 24 ساعة",
     description: "طباعة بطاقات عمل احترافية في جدة بتشطيبات فاخرة: مخملي Soft Touch، رقائق ذهبية وفضية، ورق 350 جرام. تصميم مجاني، تسليم خلال 24 ساعة، خبرة 15 عام.",
     keywords: [
         "بطاقات عمل جدة",
@@ -31,11 +34,18 @@ export const metadata: Metadata = {
         "كروت عمل سريعة",
     ],
     openGraph: {
-        title: "طباعة بطاقات عمل فاخرة في جدة | بوابة الرواج",
-        description: "بطاقات عمل احترافية بتشطيبات مخملية وذهبية. تسليم خلال 24 ساعة في جدة.",
-        images: ["/images/luxury-business-cards-printing-jeddah.webp"],
+        title: "طباعة بطاقات عمل في جدة | تسليم 24 ساعة | بوابة الرواج",
+        description: "طباعة بطاقات عمل احترافية في جدة بتشطيبات فاخرة: مخملي Soft Touch، رقائق ذهبية وفضية، ورق 350 جرام. تصميم مجاني، تسليم خلال 24 ساعة، خبرة 15 عام.",
+        url: "https://rawajgate.com/commercial-printing/business-cards",
+        images: [{ url: "/images/luxury-business-cards-printing-jeddah.webp", width: 1200, height: 630, alt: "طباعة بطاقات عمل في جدة | تسليم 24 ساعة" }],
         locale: "ar_SA",
         type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة بطاقات عمل في جدة | تسليم 24 ساعة",
+        description: "طباعة بطاقات عمل احترافية في جدة بتشطيبات فاخرة: مخملي Soft Touch، رقائق ذهبية وفضية، ورق 350 جرام. تصميم مجاني، تسليم خلال 24 ساعة، خبرة 15 عام.",
+        images: ["/images/luxury-business-cards-printing-jeddah.webp"],
     },
 };
 
@@ -85,28 +95,7 @@ const TECH_SPECS = [
     { spec: "الحد الأدنى", value: "100 بطاقة" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض لطباعة بطاقات العمل في جدة؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع التشطيب (لامع/مخملي/ذهبي). التصميم مجاني والطباعة على الوجهين. خصومات مميزة للكميات الكبيرة!",
-    },
-    {
-        question: "كم يستغرق تسليم بطاقات العمل؟",
-        answer: "التسليم العادي خلال 3 أيام عمل. التسليم السريع خلال 24 ساعة متوفر للطلبات داخل جدة مقابل رسوم إضافية بسيطة. للمناطق القريبة من طريق الملك (حي الروضة، التحلية، الصفا) التوصيل في نفس اليوم.",
-    },
-    {
-        question: "ما الفرق بين التشطيب اللامع والمخملي؟",
-        answer: "التشطيب اللامع (Glossy) يعكس الضوء ويبرز الألوان الزاهية، مثالي للمطاعم والمصممين. التشطيب المخملي (Soft Touch) له ملمس حريري فاخر بدون انعكاسات، مفضل للمحامين والأطباء والعلامات الفاخرة. كلاهما يحمي البطاقة من الخدوش.",
-    },
-    {
-        question: "هل تصممون البطاقات أم أحضر تصميمي؟",
-        answer: "نقدم كلا الخيارين! خدمة التصميم مجانية مع الطلبات، أو يمكنك إرسال ملفك الجاهز (PDF, AI, PSD). فريقنا يراجع جميع الملفات ويضمن جاهزيتها للطباعة بدون أخطاء.",
-    },
-    {
-        question: "ما أفضل نوع ورق لبطاقات العمل؟",
-        answer: "ننصح بورق 350 جرام كوشيه للمتانة والمظهر الاحترافي. للبطاقات الفاخرة جداً، ورق 400 جرام مع تشطيب مخملي. للمشاريع الصديقة للبيئة، نوفر ورق معاد تدويره 300 جرام.",
-    },
-];
+const FAQS = CommercialPrintingFaqs["commercial-printing/business-cards"];
 
 export default function BusinessCardsPage() {
     const serviceSchema = generateServiceSchema({
@@ -222,7 +211,7 @@ export default function BusinessCardsPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
-                            لماذا تحتاج بطاقة عمل احترافية في 2024؟
+                            لماذا تحتاج بطاقة عمل احترافية اليوم؟
                         </h2>
 
                         <div className="prose prose-lg max-w-none text-gray-700">
@@ -235,7 +224,7 @@ export default function BusinessCardsPage() {
                             <p>
                                 بطاقة العمل ليست مجرد ورقة تحمل معلومات الاتصال - إنها <strong>تجربة لمسية</strong>
                                 تخلق انطباعاً أولياً لا يُمحى. عندما تمد يدك ببطاقة ذات ملمس مخملي وحروف ذهبية
-                                بارزة، فأنت تقول لمحدثك: "أنا أهتم بالتفاصيل، وأنا جاد في عملي."
+                                بارزة، فأنت تقول لمحدثك: «أنا أهتم بالتفاصيل، وأنا جاد في عملي».
                             </p>
 
                             <p>
@@ -464,10 +453,11 @@ export default function BusinessCardsPage() {
                         </a>
                     </div>
                     <p className="text-gray-700 mt-6 text-sm">
-                        أو زُر معرضنا في حي الروضة، طريق الملك فهد - مفتوح من 9 صباحاً حتى 9 مساءً
+                        أو زُر معرضنا في حي الروضة بجدة — مفتوح من السبت إلى الخميس، 9 صباحاً حتى 9 مساءً
                     </p>
                 </div>
             </section>
+        <RelatedServices currentPath="/commercial-printing/business-cards" />
         </>
     );
 }

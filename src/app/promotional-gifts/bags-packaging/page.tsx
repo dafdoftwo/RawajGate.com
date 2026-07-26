@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
     ShoppingBag,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "أكياس وتغليف دعائي في جدة | شنط ورقية وقماشية بالشعار | بوابة الرواج",
+    openGraph: {
+        title: "أكياس وتغليف دعائي بالشعار في جدة | بوابة الرواج",
+        description: "أكياس ورقية وقماشية وعلب تغليف دعائية في جدة. طباعة شعار الشركة على الأكياس. مثالية للمحلات والهدايا والفعاليات. أحجام وخامات متنوعة.",
+        url: "https://rawajgate.com/promotional-gifts/bags-packaging",
+        images: [{ url: "/images/custom-paper-bags-shopping-packaging.webp", width: 1200, height: 630, alt: "أكياس وتغليف دعائي بالشعار في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "أكياس وتغليف دعائي بالشعار في جدة",
+        description: "أكياس ورقية وقماشية وعلب تغليف دعائية في جدة. طباعة شعار الشركة على الأكياس. مثالية للمحلات والهدايا والفعاليات. أحجام وخامات متنوعة.",
+        images: ["/images/custom-paper-bags-shopping-packaging.webp"],
+    },
+    alternates: { canonical: "/promotional-gifts/bags-packaging" },
+    title: "أكياس وتغليف دعائي بالشعار في جدة",
     description: "أكياس ورقية وقماشية وعلب تغليف دعائية في جدة. طباعة شعار الشركة على الأكياس. مثالية للمحلات والهدايا والفعاليات. أحجام وخامات متنوعة.",
     keywords: ["أكياس ورقية", "شنط قماشية", "paper bags branded", "تغليف دعائي جدة", "علب هدايا"],
 };
@@ -42,32 +59,7 @@ const USE_CASES = [
     { icon: Sparkles, title: "الفعاليات", desc: "علب هدايا للمؤتمرات" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض للأكياس بالشعار؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية والحجم والخامة. نوفر أكياس ورقية كرافت ولامعة بمقابض متنوعة. خصومات مميزة للكميات الكبيرة (+1000 كيس)!",
-    },
-    {
-        question: "ما الحد الأدنى للطلب؟",
-        answer: "أكياس ورقية بالشعار: 200 كيس. شنط قماشية: 100 شنطة. علب هدايا: 100 علبة. للكميات الأقل، نوفر موديلات جاهزة بدون طباعة بألوان متعددة.",
-    },
-    {
-        question: "ما الفرق بين ورق الكرافت والكوشيه؟",
-        answer: "الكرافت (البني) صديق للبيئة، مظهر طبيعي أنيق، مناسب للكافيهات والمطاعم العصرية. الكوشيه (الأبيض اللامع) يبرز الألوان بوضوح، مثالي للبوتيكات والماركات الفاخرة.",
-    },
-    {
-        question: "هل توفرون شنط صديقة للبيئة؟",
-        answer: "نعم! نوفر شنط قماش قطنية 100% قابلة للغسل وإعادة الاستخدام. أيضاً أكياس ورق كرافت قابلة للتدوير. خيار ممتاز للشركات الملتزمة بالاستدامة.",
-    },
-    {
-        question: "كم يستغرق الإنتاج؟",
-        answer: "الأكياس الورقية: 7-10 أيام عمل. الشنط القماشية: 10-14 يوم. علب الهدايا: 7-10 أيام. التصميم 2-3 أيام إضافية إذا لزم.",
-    },
-    {
-        question: "هل توفرون خدمة التصميم؟",
-        answer: "نعم، فريق التصميم لدينا يصمم الأكياس بما يتوافق مع هويتك البصرية. التصميم مجاني للكميات الكبيرة (+500 كيس). يمكنك أيضاً إرسال تصميمك الجاهز.",
-    },
-];
+const FAQS = PromotionalGiftsFaqs["promotional-gifts/bags-packaging"];
 
 export default function BagsPackagingPage() {
     const schemas = [
@@ -302,6 +294,7 @@ export default function BagsPackagingPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/promotional-gifts/bags-packaging" />
         </>
     );
 }

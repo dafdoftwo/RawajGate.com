@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
     Briefcase,
     ArrowLeft,
@@ -17,7 +19,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "هدايا مكتبية للشركات في جدة | أقلام ودفاتر دعائية | بوابة الرواج",
+    alternates: { canonical: "/promotional-gifts/office-gifts" },
+    title: "هدايا مكتبية للشركات في جدة",
     description: "هدايا مكتبية فاخرة للشركات في جدة: أقلام معدنية، دفاتر جلدية، أجندات، ومجموعات هدايا بشعار شركتك. طباعة ليزر وتطريز. خصومات الكميات.",
     keywords: [
         "هدايا مكتبية",
@@ -30,9 +33,17 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         title: "هدايا مكتبية للشركات في جدة | بوابة الرواج",
-        description: "أقلام، دفاتر، أجندات بشعار شركتك. هدايا تبقى على مكتب عميلك كل يوم.",
-        images: ["/images/branded-notebooks-diaries-calendar-gift-sets.webp"],
+        description: "هدايا مكتبية فاخرة للشركات في جدة: أقلام معدنية، دفاتر جلدية، أجندات، ومجموعات هدايا بشعار شركتك. طباعة ليزر وتطريز. خصومات الكميات.",
+        url: "https://rawajgate.com/promotional-gifts/office-gifts",
+        images: [{ url: "/images/branded-notebooks-diaries-calendar-gift-sets.webp", width: 1200, height: 630, alt: "هدايا مكتبية للشركات في جدة" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "هدايا مكتبية للشركات في جدة",
+        description: "هدايا مكتبية فاخرة للشركات في جدة: أقلام معدنية، دفاتر جلدية، أجندات، ومجموعات هدايا بشعار شركتك. طباعة ليزر وتطريز. خصومات الكميات.",
+        images: ["/images/branded-notebooks-diaries-calendar-gift-sets.webp"],
     },
 };
 
@@ -55,7 +66,7 @@ const PRODUCT_CATEGORIES = [
     },
     {
         name: "أجندات سنوية",
-        description: "أجندات 2025 بتصميم داخلي عربي/إنجليزي، غلاف جلدي فاخر، جيب داخلي، شريط علّام.",
+        description: "أجندات سنوية بتصميم داخلي عربي/إنجليزي، غلاف جلدي فاخر، جيب داخلي، شريط علّام.",
         priceRange: "عرض خاص",
         minOrder: "25 قطعة",
         icon: Calendar,
@@ -78,28 +89,7 @@ const BRANDING_METHODS = [
     { method: "حفر ليزر", desc: "نقش دائم على المعدن", best: "أقلام فاخرة" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض لطباعة الأقلام بالشعار في جدة؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع القلم (بلاستيك/معدني). نقدم أسعار تنافسية وخصومات مميزة للكميات الكبيرة!",
-    },
-    {
-        question: "ما أفضل الهدايا المكتبية للعملاء VIP؟",
-        answer: "ننصح بمجموعة: قلم معدني + دفتر جلدي A5 + علبة فاخرة. أو أجندة جلدية بختم ذهبي. للعملاء الأهم: مجموعة كاملة مع حقيبة. تواصل معنا للتفاصيل!",
-    },
-    {
-        question: "هل يمكن طباعة أكثر من لون على القلم؟",
-        answer: "طباعة الليزر لون واحد (الأكثر شيوعاً). للألوان المتعددة نستخدم طباعة UV (حتى 4 ألوان) أو silk printing. تواصل معنا للتفاصيل!",
-    },
-    {
-        question: "كم تستغرق مدة التجهيز والتسليم؟",
-        answer: "المنتجات المتوفرة في المخزون: 3-5 أيام عمل. المنتجات المستوردة حسب الطلب: 2-3 أسابيع. الطلبات العاجلة (+500 قطعة من المتوفر): 24-48 ساعة.",
-    },
-    {
-        question: "هل توفرون خصومات للكميات الكبيرة؟",
-        answer: "نعم! 100-499 قطعة: السعر الأساسي. 500-999: خصم 10%. 1000-4999: خصم 15%. 5000+: خصم 20% + تصميم مجاني. الشركات بعقود سنوية تحصل على أسعار خاصة.",
-    },
-];
+const FAQS = PromotionalGiftsFaqs["promotional-gifts/office-gifts"];
 
 export default function OfficeGiftsPage() {
     const schemas = [
@@ -384,6 +374,7 @@ export default function OfficeGiftsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/promotional-gifts/office-gifts" />
         </>
     );
 }

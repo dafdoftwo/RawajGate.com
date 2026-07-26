@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { AllSilosLinks } from "@/components/related-services";
 import {
     Palette,
     Fingerprint,
@@ -331,6 +332,7 @@ export default function DesignServicesPage() {
                     </Link>
                 </div>
             </section>
+        <AllSilosLinks currentSilo="design-services" />
         </>
     );
 }

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
     FolderOpen,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة ملفات العروض والفولدرات في جدة | Presentation Folders | بوابة الرواج",
+    openGraph: {
+        title: "طباعة ملفات عروض وفولدرات في جدة | بوابة الرواج",
+        description: "طباعة ملفات عروض وفولدرات احترافية في جدة. ورق 350 جرام، جيوب داخلية، تشطيب مخملي أو لامع. مثالية لاجتماعات العملاء والعروض التقديمية.",
+        url: "https://rawajgate.com/commercial-printing/folders",
+        images: [{ url: "/images/presentation-folder-files-holder.webp", width: 1200, height: 630, alt: "طباعة ملفات عروض وفولدرات في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة ملفات عروض وفولدرات في جدة",
+        description: "طباعة ملفات عروض وفولدرات احترافية في جدة. ورق 350 جرام، جيوب داخلية، تشطيب مخملي أو لامع. مثالية لاجتماعات العملاء والعروض التقديمية.",
+        images: ["/images/presentation-folder-files-holder.webp"],
+    },
+    alternates: { canonical: "/commercial-printing/folders" },
+    title: "طباعة ملفات عروض وفولدرات في جدة",
     description: "طباعة ملفات عروض وفولدرات احترافية في جدة. ورق 350 جرام، جيوب داخلية، تشطيب مخملي أو لامع. مثالية لاجتماعات العملاء والعروض التقديمية.",
     keywords: ["ملف عروض", "فولدر", "presentation folder jeddah", "ملفات شركات", "corporate folders"],
 };
@@ -56,32 +73,7 @@ const USE_CASES = [
     { icon: Award, title: "المناقصات والعطاءات", desc: "تقديم عروض المشاريع الحكومية والخاصة" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض سعر لملفات العروض في جدة؟",
-        answer: "تواصل معنا عبر الواتساب أو الهاتف للحصول على عرض سعر مخصص حسب النوع (جيب واحد/جيبين) والكمية والتشطيب المطلوب. نقدم التصميم مجاناً للكميات الكبيرة (+500 ملف) وأسعار تنافسية لجميع الكميات.",
-    },
-    {
-        question: "ما نوع الورق المستخدم في طباعة الفولدرات؟",
-        answer: "نستخدم كرتون كوشيه 350-400 جرام للغلاف الخارجي لضمان المتانة والمظهر الفاخر. الجيوب الداخلية من نفس الورق ومُلصقة بغراء صناعي عالي الجودة يتحمل الاستخدام المتكرر. التشطيب متوفر: لامع، مطفي، أو مخملي Soft Touch.",
-    },
-    {
-        question: "هل يمكن طباعة التصميم من الداخل أيضاً؟",
-        answer: "نعم، طباعة الوجه الداخلي متاحة بسعر إضافي بسيط. يمكن طباعة خريطة الموقع، قائمة الخدمات، معلومات الاتصال، أو رسالة ترحيبية. ننصح بها للشركات الكبرى والعروض المهمة لتعزيز الاحترافية.",
-    },
-    {
-        question: "كم عدد الملفات التي يمكن وضعها داخل الفولدر؟",
-        answer: "الفولدر القياسي يتسع لحوالي 20-30 ورقة A4. للملفات الأكثر سماكة، نوفر فولدرات بجيوب موسعة تتسع حتى 50 ورقة. تواصل معنا لمناقشة احتياجاتك.",
-    },
-    {
-        question: "ما الفرق بين التشطيب اللامع والمطفي والمخملي؟",
-        answer: "اللامع (Glossy) يعطي لمعاناً ويبرز الألوان، مثالي للتصاميم الملونة. المطفي (Matt) أنيق ولا يعكس الضوء، مناسب للشركات الرسمية. المخملي (Soft Touch) يعطي ملمساً ناعماً فاخراً، الاختيار الأول للعلامات الفاخرة.",
-    },
-    {
-        question: "هل تقدمون خدمة التصميم؟",
-        answer: "نعم، فريق التصميم لدينا يصمم ملفات العروض بما يتوافق مع هويتك البصرية. التصميم مجاني للكميات الكبيرة، ومتاح بسعر تنافسي للكميات الأقل. يمكنك أيضاً إرسال ملفك الجاهز للطباعة.",
-    },
-];
+const FAQS = CommercialPrintingFaqs["commercial-printing/folders"];
 
 export default function FoldersPage() {
     const schemas = [
@@ -354,6 +346,7 @@ export default function FoldersPage() {
                     </Link>
                 </div>
             </section>
+        <RelatedServices currentPath="/commercial-printing/folders" />
         </>
     );
 }

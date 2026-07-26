@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
     Box,
     ArrowLeft,
@@ -18,7 +20,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "لافتات محلات 3D وحروف بارزة مضيئة في جدة | بوابة الرواج",
+    alternates: { canonical: "/signage-stickers/shop-signage-3d" },
+    title: "لافتات محلات 3D في جدة | ضمان 3 سنوات",
     description: "تصميم وتنفيذ لافتات محلات ثلاثية الأبعاد وحروف بارزة مضيئة LED في جدة. أكريليك، ستانلس ستيل، نيون فلكس. ضمان 3 سنوات، تصميم 3D مجاني، تركيب احترافي. خبرة 15 عام.",
     keywords: [
         "لافتات محلات جدة",
@@ -30,10 +33,18 @@ export const metadata: Metadata = {
         "حروف ستانلس ستيل",
     ],
     openGraph: {
-        title: "لافتات محلات 3D وحروف بارزة في جدة | بوابة الرواج",
-        description: "لافتات ثلاثية الأبعاد تميز محلك. حروف مضيئة LED، أكريليك، ستانلس. ضمان 3 سنوات.",
-        images: ["/images/3d-shop-signage-letters-acrylic-jeddah.webp"],
+        title: "لافتات محلات 3D في جدة | ضمان 3 سنوات | بوابة الرواج",
+        description: "تصميم وتنفيذ لافتات محلات ثلاثية الأبعاد وحروف بارزة مضيئة LED في جدة. أكريليك، ستانلس ستيل، نيون فلكس. ضمان 3 سنوات، تصميم 3D مجاني، تركيب احترافي. خبرة 15 عام.",
+        url: "https://rawajgate.com/signage-stickers/shop-signage-3d",
+        images: [{ url: "/images/3d-shop-signage-letters-acrylic-jeddah.webp", width: 1200, height: 630, alt: "لافتات محلات 3D في جدة | ضمان 3 سنوات" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "لافتات محلات 3D في جدة | ضمان 3 سنوات",
+        description: "تصميم وتنفيذ لافتات محلات ثلاثية الأبعاد وحروف بارزة مضيئة LED في جدة. أكريليك، ستانلس ستيل، نيون فلكس. ضمان 3 سنوات، تصميم 3D مجاني، تركيب احترافي. خبرة 15 عام.",
+        images: ["/images/3d-shop-signage-letters-acrylic-jeddah.webp"],
     },
 };
 
@@ -81,28 +92,7 @@ const TECH_SPECS = [
     { spec: "ستانلس ستيل", value: "304 Grade" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض للافتة محلي 3D في جدة؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب نوع الخامة والحجم وعدد الحروف. التركيب والمحول مشمول. احصل على تصميم 3D مجاني!",
-    },
-    {
-        question: "كم يستغرق تنفيذ اللافتة؟",
-        answer: "التصميم والموافقة 3-5 أيام، التصنيع 5-10 أيام، والتركيب يوم واحد. إجمالي 2-3 أسابيع للطلبات العادية. نوفر خدمة عاجلة خلال أسبوع مقابل رسوم إضافية.",
-    },
-    {
-        question: "هل تحتاج اللافتة المضيئة صيانة؟",
-        answer: "اللافتات LED الحديثة لا تحتاج صيانة تقريباً. العمر الافتراضي 50,000 ساعة (حوالي 5+ سنوات تشغيل متواصل). نقدم ضمان 3 سنوات شامل الإضاءة والتركيب.",
-    },
-    {
-        question: "هل تحتاج اللافتة لتصريح بلدي؟",
-        answer: "نعم، اللافتات الخارجية تحتاج تصريح من بلدية جدة. نتولى إجراءات التصريح بالنيابة عنك ضمن خدماتنا. التصريح يستغرق عادة 5-7 أيام عمل.",
-    },
-    {
-        question: "ما الفرق بين الأكريليك والستانلس ستيل؟",
-        answer: "الأكريليك أخف وأرخص، يضيء بالكامل، مثالي للمحلات التجارية. الستانلس ستيل أثقل وأغلى، مظهر فاخر معدني، يضيء من الخلف فقط (Backlit)، مثالي للبنوك والشركات الكبرى.",
-    },
-];
+const FAQS = SignageStickersFaqs["signage-stickers/shop-signage-3d"];
 
 export default function ShopSignage3DPage() {
     const schemas = [
@@ -421,6 +411,7 @@ export default function ShopSignage3DPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/signage-stickers/shop-signage-3d" />
         </>
     );
 }

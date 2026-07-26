@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface OptimizedImageProps {
@@ -6,12 +7,27 @@ interface OptimizedImageProps {
   width?: number;
   height?: number;
   className?: string;
+  /** استخدمه للصورة الأولى فوق الطية فقط (LCP) — لا تُكثر منه */
   priority?: boolean;
+  /**
+   * وصف أحجام العرض للمتصفح ليختار المقاس الصحيح من الـ srcset.
+   * الافتراضي يناسب شبكة من عمود واحد على الجوال وعمودين/ثلاثة على الديسكتوب.
+   */
+  sizes?: string;
 }
 
 /**
- * Simple optimized image component
- * Uses standard HTML img with lazy loading and proper accessibility
+ * مكوّن الصور المُحسَّن.
+ *
+ * كان يستخدم <img> خاماً — أي صفر srcset وصفر تحويل صيغ: كان جوال بعرض 375px
+ * يُنزّل نفس ملف الديسكتوب. الآن عبر next/image نحصل على:
+ *   • AVIF/WebP تلقائياً حسب دعم المتصفح
+ *   • srcset متجاوب بمقاسات متعددة
+ *   • أبعاد جوهرية تمنع Layout Shift (CLS)
+ *   • lazy loading أصلي
+ *
+ * الواجهة (props) مطابقة للنسخة السابقة، لذا لا حاجة لتعديل أي من الـ 105
+ * استدعاءات في الموقع.
  */
 export function GeoImage({
   src,
@@ -20,24 +36,23 @@ export function GeoImage({
   height = 600,
   className,
   priority = false,
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px",
 }: OptimizedImageProps) {
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       width={width}
       height={height}
-      loading={priority ? "eager" : "lazy"}
-      decoding="async"
-      className={cn(
-        "w-full h-auto object-cover rounded-xl",
-        className
-      )}
+      priority={priority}
+      sizes={sizes}
+      quality={82}
+      className={cn("w-full h-auto object-cover rounded-xl", className)}
     />
   );
 }
 
-// Aliases for backward compatibility
+// أسماء بديلة للتوافق مع الاستدعاءات القائمة
 export const BusinessCardImage = GeoImage;
 export const OutdoorSignageImage = GeoImage;
 export const ExhibitionImage = GeoImage;

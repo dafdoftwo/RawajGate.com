@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { AllSilosLinks } from "@/components/related-services";
 import {
     CalendarDays,
     Layers,
@@ -352,6 +353,7 @@ export default function ExhibitionsEventsPage() {
                     </Link>
                 </div>
             </section>
+        <AllSilosLinks currentSilo="exhibitions-events" />
         </>
     );
 }

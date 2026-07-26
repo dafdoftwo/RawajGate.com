@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { AllSilosLinks } from "@/components/related-services";
 import {
     Gift,
     Briefcase,
@@ -353,6 +354,7 @@ export default function PromotionalGiftsPage() {
                     </Link>
                 </div>
             </section>
+        <AllSilosLinks currentSilo="promotional-gifts" />
         </>
     );
 }
