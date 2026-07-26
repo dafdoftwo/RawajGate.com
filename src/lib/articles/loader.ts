@@ -70,6 +70,10 @@ const LOADERS: Record<string, () => Promise<Article>> = {
         import("./posts/octanorm-vs-custom-booth").then((m) => m.octanormVsCustomBooth),
     "choose-printing-company-jeddah": () =>
         import("./posts/choose-printing-company-jeddah").then((m) => m.choosePrintingCompanyJeddah),
+    "saudi-exhibitions-calendar": () =>
+        import("./posts/saudi-exhibitions-calendar").then((m) => m.saudiExhibitionsCalendar),
+    "promotional-gifts-guide": () =>
+        import("./posts/promotional-gifts-guide").then((m) => m.promotionalGiftsGuide),
 };
 
 /**
