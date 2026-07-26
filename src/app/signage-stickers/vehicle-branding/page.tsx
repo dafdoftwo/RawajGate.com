@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
     Car,
     ArrowLeft,
@@ -18,7 +20,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "تغليف وبراندينج السيارات في جدة | راب فينيل 3M | بوابة الرواج",
+    alternates: { canonical: "/signage-stickers/vehicle-branding" },
+    title: "تغليف سيارات في جدة | فينيل 3M أصلي",
     description: "تغليف سيارات احترافي في جدة بفينيل 3M الأمريكي الأصلي. تغطية كاملة أو جزئية للسيارات والشاحنات وأساطيل الشركات. ضمان 3 سنوات، مقاوم لشمس جدة، تصميم 3D مجاني. خبرة 15 عام في براندينج المركبات.",
     keywords: [
         "تغليف سيارات جدة",
@@ -32,11 +35,18 @@ export const metadata: Metadata = {
         "3M wrap jeddah",
     ],
     openGraph: {
-        title: "تغليف وبراندينج السيارات في جدة | فينيل 3M | بوابة الرواج",
-        description: "حوّل سيارتك للوحة إعلانية متحركة! تغليف احترافي بفينيل 3M، ضمان 3 سنوات، مقاوم لشمس جدة.",
-        images: ["/images/commercial-vehicle-branding-car-wrapping-jeddah.webp"],
+        title: "تغليف سيارات في جدة | فينيل 3M أصلي | بوابة الرواج",
+        description: "تغليف سيارات احترافي في جدة بفينيل 3M الأمريكي الأصلي. تغطية كاملة أو جزئية للسيارات والشاحنات وأساطيل الشركات. ضمان 3 سنوات، مقاوم لشمس جدة، تصميم 3D مجاني. خبرة 15 عام في براندينج المركبات.",
+        url: "https://rawajgate.com/signage-stickers/vehicle-branding",
+        images: [{ url: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp", width: 1200, height: 630, alt: "تغليف سيارات في جدة | فينيل 3M أصلي" }],
         locale: "ar_SA",
         type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "تغليف سيارات في جدة | فينيل 3M أصلي",
+        description: "تغليف سيارات احترافي في جدة بفينيل 3M الأمريكي الأصلي. تغطية كاملة أو جزئية للسيارات والشاحنات وأساطيل الشركات. ضمان 3 سنوات، مقاوم لشمس جدة، تصميم 3D مجاني. خبرة 15 عام في براندينج المركبات.",
+        images: ["/images/commercial-vehicle-branding-car-wrapping-jeddah.webp"],
     },
 };
 
@@ -92,28 +102,7 @@ const VINYL_TYPES = [
     },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض لتغليف سيارتي في جدة؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب نوع السيارة وحجمها ونوع الفينيل. نقدم تصميم 3D مجاني قبل التنفيذ. أسعار تنافسية للأساطيل!",
-    },
-    {
-        question: "هل تغليف السيارة يضر بالدهان الأصلي؟",
-        answer: "بالعكس! الفينيل يحمي الدهان الأصلي من الخدوش والشمس. عند الإزالة بعد سنوات، يظهر الدهان بحالة ممتازة. الشرط استخدام فينيل عالي الجودة (3M, Avery) والتركيب الاحترافي.",
-    },
-    {
-        question: "كم مدة ضمان تغليف السيارة؟",
-        answer: "نقدم ضمان 3 سنوات على العمل والخامة ضد التقشير والبهتان. فينيل 3M الأصلي مضمون 5 سنوات من المصنع ضد تغير اللون تحت الشمس.",
-    },
-    {
-        question: "هل التغليف يتحمل شمس جدة الحارة؟",
-        answer: "نعم، نستخدم حصرياً فينيل مقاوم للأشعة فوق البنفسجية UV المصمم لطقس الخليج. اختباراتنا تثبت ثبات اللون حتى 65 درجة مئوية. الغسيل العادي آمن تماماً.",
-    },
-    {
-        question: "هل يمكن إزالة التغليف لاحقاً؟",
-        answer: "نعم، الفينيل عالي الجودة مصمم للإزالة النظيفة بدون آثار. عادة تستغرق الإزالة 4-6 ساعات. ننصح بالإزالة بعد 3-5 سنوات قبل تشقق المادة اللاصقة.",
-    },
-];
+const FAQS = SignageStickersFaqs["signage-stickers/vehicle-branding"];
 
 export default function VehicleBrandingPage() {
     const serviceSchema = generateServiceSchema({
@@ -476,6 +465,7 @@ export default function VehicleBrandingPage() {
                     </p>
                 </div>
             </section>
+        <RelatedServices currentPath="/signage-stickers/vehicle-branding" />
         </>
     );
 }

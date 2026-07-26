@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
     LayoutGrid,
     ArrowLeft,
@@ -15,7 +17,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "ستاند بوب أب للمعارض في جدة | Pop-up Display | بوابة الرواج",
+    openGraph: {
+        title: "ستاند بوب أب للمعارض في جدة | بوابة الرواج",
+        description: "ستاندات بوب أب (Pop-up Displays) للمعارض والفعاليات في جدة. خلفيات 3×3 و4×3 متر، تركيب سريع، جرافيك قابل للتغيير. مثالي للمؤتمرات والتصوير.",
+        url: "https://rawajgate.com/exhibitions-events/pop-up-displays",
+        images: [{ url: "/images/pop-up-display-media-wall-background.webp", width: 1200, height: 630, alt: "ستاند بوب أب للمعارض في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "ستاند بوب أب للمعارض في جدة",
+        description: "ستاندات بوب أب (Pop-up Displays) للمعارض والفعاليات في جدة. خلفيات 3×3 و4×3 متر، تركيب سريع، جرافيك قابل للتغيير. مثالي للمؤتمرات والتصوير.",
+        images: ["/images/pop-up-display-media-wall-background.webp"],
+    },
+    alternates: { canonical: "/exhibitions-events/pop-up-displays" },
+    title: "ستاند بوب أب للمعارض في جدة",
     description: "ستاندات بوب أب (Pop-up Displays) للمعارض والفعاليات في جدة. خلفيات 3×3 و4×3 متر، تركيب سريع، جرافيك قابل للتغيير. مثالي للمؤتمرات والتصوير.",
     keywords: ["بوب أب ستاند", "pop up display jeddah", "خلفية معرض", "backdrop", "جدار تصوير"],
 };
@@ -42,32 +59,7 @@ const USE_CASES = [
     { icon: Building2, title: "الشركات", desc: "خلفية لمنطقة الاستقبال" },
 ];
 
-const FAQS = [
-    {
-        question: "ما الفرق بين Pop-up و Roll-up؟",
-        answer: "Roll-up ستاند منفرد 85-150 سم عرض، يُستخدم كلوحة إعلانية منفصلة. Pop-up عبارة عن جدار كامل 2.5-4 متر، يُستخدم كخلفية للجناح أو منطقة تصوير (Media Wall). Pop-up يعطي تأثيراً أكبر وأكثر احترافية.",
-    },
-    {
-        question: "هل يمكن تغيير الجرافيك فقط؟",
-        answer: "نعم! الهيكل المعدني يُعاد استخدامه لسنوات. يمكنك طلب طباعة جرافيك جديد فقط لكل معرض أو حملة. السعر أقل بكثير من شراء Pop-up كامل جديد - تواصل معنا للتفاصيل!",
-    },
-    {
-        question: "كم يستغرق التركيب؟",
-        answer: "التركيب سهل جداً ولا يحتاج أدوات. شخص واحد يمكنه تركيب Pop-up في 10-15 دقيقة. الهيكل يفتح كالمظلة، ثم تركب ألواح الجرافيك بالمغناطيس. نوفر فيديو تعليمي مع كل طلب.",
-    },
-    {
-        question: "هل توفرون إضاءة LED؟",
-        answer: "نعم، نوفر إضاءة LED تركب أعلى الهيكل وتسلط الضوء على الجرافيك. مثالية للمعارض الداخلية والفعاليات المسائية. الإضاءة اختيارية وتُضاف بسعر إضافي.",
-    },
-    {
-        question: "كيف أنقل ال Pop-up؟",
-        answer: "يأتي مع حقيبة حمل بعجلات للنقل السهل. الوزن الكلي 15-25 كجم حسب الحجم. يمكن لشخص واحد نقله بسهولة. مثالي للشركات التي تشارك في معارض متعددة.",
-    },
-    {
-        question: "كم يستغرق الإنتاج؟",
-        answer: "إنتاج Pop-up كامل (هيكل + جرافيك) يستغرق 5-7 أيام عمل. طباعة جرافيك فقط (Replacement Graphics) 3-4 أيام. التصميم 2-3 أيام إضافية إذا لزم.",
-    },
-];
+const FAQS = ExhibitionsEventsFaqs["exhibitions-events/pop-up-displays"];
 
 export default function PopUpDisplaysPage() {
     const schemas = [
@@ -330,6 +322,7 @@ export default function PopUpDisplaysPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/exhibitions-events/pop-up-displays" />
         </>
     );
 }

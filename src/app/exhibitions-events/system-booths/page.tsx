@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
     Grid3X3,
     ArrowLeft,
@@ -15,7 +17,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "أجنحة أوكتانورم وشل سكيم في جدة | تأجير أجنحة نظامية | بوابة الرواج",
+    openGraph: {
+        title: "أجنحة أوكتانورم وشل سكيم في جدة | بوابة الرواج",
+        description: "تأجير أجنحة نظامية (أوكتانورم / شل سكيم) للمعارض في جدة. تركيب وتفكيك سريع، تكلفة اقتصادية، أحجام من 9 إلى 36 م². مثالية للمعارض قصيرة المدة.",
+        url: "https://rawajgate.com/exhibitions-events/system-booths",
+        images: [{ url: "/images/octanorm-system-booth-shell-scheme.webp", width: 1200, height: 630, alt: "أجنحة أوكتانورم وشل سكيم في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "أجنحة أوكتانورم وشل سكيم في جدة",
+        description: "تأجير أجنحة نظامية (أوكتانورم / شل سكيم) للمعارض في جدة. تركيب وتفكيك سريع، تكلفة اقتصادية، أحجام من 9 إلى 36 م². مثالية للمعارض قصيرة المدة.",
+        images: ["/images/octanorm-system-booth-shell-scheme.webp"],
+    },
+    alternates: { canonical: "/exhibitions-events/system-booths" },
+    title: "أجنحة أوكتانورم وشل سكيم في جدة",
     description: "تأجير أجنحة نظامية (أوكتانورم / شل سكيم) للمعارض في جدة. تركيب وتفكيك سريع، تكلفة اقتصادية، أحجام من 9 إلى 36 م². مثالية للمعارض قصيرة المدة.",
     keywords: ["أوكتانورم", "شل سكيم", "shell scheme", "octanorm booth", "أجنحة نظامية جدة", "تأجير جناح معرض"],
 };
@@ -48,32 +65,7 @@ const USE_CASES = [
     { icon: Briefcase, title: "معارض التوظيف", desc: "الشركات والباحثين" },
 ];
 
-const FAQS = [
-    {
-        question: "ما الفرق بين الجناح النظامي والمخصص؟",
-        answer: "الجناح النظامي (Shell Scheme) هيكل جاهز معياري، تركيب سريع في ساعات، تكلفة أقل 50-70%، مناسب للمعارض قصيرة المدة. المخصص يُصمم من الصفر بالخشب حسب رؤيتك، تكلفة أعلى، تأثير بصري أقوى.",
-    },
-    {
-        question: "هل يمكن تخصيص الجناح النظامي؟",
-        answer: "نعم! نضيف إضافات تحوّل الجناح البسيط لمظهر احترافي: جرافيك مطبوع على الجدران، رفوف زجاجية، شاشات عرض، كاونتر استقبال، إضاءة إضافية.",
-    },
-    {
-        question: "كم يستغرق التركيب؟",
-        answer: "تركيب الجناح النظامي يستغرق 2-4 ساعات فقط. فريقنا يصل قبل المعرض بيوم واحد للتركيب. التفكيك بعد المعرض مباشرة.",
-    },
-    {
-        question: "ماذا تشمل الباقة الأساسية؟",
-        answer: "الباقة تشمل: هيكل ألومنيوم أوكتانورم، جدران بيضاء، فاصيا (لوحة اسم الشركة)، إضاءة سبوت، سجادة، طاولة مع كرسيين، مخرج كهرباء.",
-    },
-    {
-        question: "هل توفرون خدمة التصميم؟",
-        answer: "نعم، فريق التصميم لدينا يصمم الجرافيك واللوحات التي تُركب على الجناح. نراعي هويتك البصرية ورسالتك التسويقية. التصميم مجاني للأجنحة الكبيرة (+18 متر).",
-    },
-    {
-        question: "هل التركيب والتفكيك مشمول؟",
-        answer: "نعم، السعر يشمل التركيب والتفكيك. فريقنا يتواجد في موقع المعرض للتركيب قبل الافتتاح وللتفكيك بعد الإغلاق مباشرة.",
-    },
-];
+const FAQS = ExhibitionsEventsFaqs["exhibitions-events/system-booths"];
 
 export default function SystemBoothsPage() {
     const schemas = [
@@ -351,6 +343,7 @@ export default function SystemBoothsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/exhibitions-events/system-booths" />
         </>
     );
 }

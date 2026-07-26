@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { DesignServicesFaqs } from "@/lib/faqs/design-services";
 import {
     Sparkles,
     ArrowLeft,
@@ -15,7 +17,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "تصميم شعار احترافي في جدة | Logo Design | بوابة الرواج",
+    openGraph: {
+        title: "تصميم شعار احترافي في جدة | تسليم 5 أيام | بوابة الرواج",
+        description: "تصميم شعار احترافي للشركات والمشاريع في جدة. شعارات فريدة، ملفات مصدرية، تسليم خلال 5 أيام. +500 شعار تم تصميمه.",
+        url: "https://rawajgate.com/design-services/logo-design",
+        images: [{ url: "/images/client-meeting-office-al-rawaj-jeddah.webp", width: 1200, height: 630, alt: "تصميم شعار احترافي في جدة | تسليم 5 أيام" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "تصميم شعار احترافي في جدة | تسليم 5 أيام",
+        description: "تصميم شعار احترافي للشركات والمشاريع في جدة. شعارات فريدة، ملفات مصدرية، تسليم خلال 5 أيام. +500 شعار تم تصميمه.",
+        images: ["/images/client-meeting-office-al-rawaj-jeddah.webp"],
+    },
+    alternates: { canonical: "/design-services/logo-design" },
+    title: "تصميم شعار احترافي في جدة | تسليم 5 أيام",
     description: "تصميم شعار احترافي للشركات والمشاريع في جدة. شعارات فريدة، ملفات مصدرية، تسليم خلال 5 أيام. +500 شعار تم تصميمه.",
     keywords: ["تصميم شعار", "logo design jeddah", "شعار شركة", "تصميم لوجو", "هوية بصرية"],
 };
@@ -40,32 +57,7 @@ const USE_CASES = [
     { icon: Briefcase, title: "المشاريع الناشئة", desc: "شعارات عصرية" },
 ];
 
-const FAQS = [
-    {
-        question: "كم تستغرق عملية تصميم الشعار؟",
-        answer: "الباقة الأساسية: 3-5 أيام. المتقدمة: 5-7 أيام. الشاملة: 10-14 يوم. هذا يشمل جولات التعديلات. نوفر خدمة عاجلة في 48 ساعة.",
-    },
-    {
-        question: "ما الملفات التي أحصل عليها؟",
-        answer: "تحصل على: ملفات vector (AI, EPS, SVG) للطباعة بأي حجم، PNG شفاف للويب، PDF للعرض. في الباقات الأعلى تحصل على دليل استخدام الشعار.",
-    },
-    {
-        question: "هل أملك حقوق الشعار بالكامل؟",
-        answer: "نعم، بعد التسليم والدفع أنت تملك جميع حقوق الشعار. يمكنك استخدامه بأي طريقة تجارياً. نقدم شهادة نقل ملكية مع الباقة الشاملة.",
-    },
-    {
-        question: "ماذا لو لم تعجبني التصاميم؟",
-        answer: "نقدم عدة مفاهيم للاختيار. إذا لم تعجبك كلها، نستكشف اتجاهات جديدة معك. التعديلات غير محدودة في الباقات المتقدمة. هدفنا رضاك التام.",
-    },
-    {
-        question: "هل تصممون الهوية الكاملة؟",
-        answer: "نعم، الباقة الشاملة تتضمن الشعار + بطاقات عمل + ورق رسمي + أظرف + توقيع إيميل + دليل الهوية. كل ما تحتاجه للانطلاق.",
-    },
-    {
-        question: "هل يمكن تعديل شعاري الحالي؟",
-        answer: "نعم، نقدم خدمة تحديث الشعارات (Logo Refresh) للحفاظ على روح الشعار مع تحديثه للعصر. تواصل معنا للتفاصيل.",
-    },
-];
+const FAQS = DesignServicesFaqs["design-services/logo-design"];
 
 export default function LogoDesignPage() {
     const schemas = [
@@ -293,6 +285,7 @@ export default function LogoDesignPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/design-services/logo-design" />
         </>
     );
 }

@@ -2,318 +2,315 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
-import {
-    Printer,
-    Signpost,
-    CalendarDays,
-    Gift,
-    Palette,
-    Menu,
-    X,
-    Phone,
-    ChevronDown,
-} from "lucide-react";
+import { telLink } from "@/lib/business";
+import { NAVIGATION } from "@/components/navigation-data";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
-// Navigation structure matching the silo architecture
-const NAVIGATION = [
-    {
-        title: "مطبوعات تجارية",
-        titleEn: "Commercial Printing",
-        href: "/commercial-printing",
-        icon: Printer,
-        description: "بطاقات العمل، البروشورات، والمطبوعات الرسمية",
-        items: [
-            { title: "بطاقات العمل", href: "/commercial-printing/business-cards" },
-            { title: "فلايرات وبروشورات", href: "/commercial-printing/flyers-brochures" },
-            { title: "ملفات العروض", href: "/commercial-printing/folders" },
-            { title: "ورق رسمي وظروف", href: "/commercial-printing/letterheads" },
-            { title: "دفاتر فواتير NCR", href: "/commercial-printing/ncr-books" },
-            { title: "قوائم الطعام", href: "/commercial-printing/menus" },
-        ],
-    },
-    {
-        title: "لوحات وملصقات",
-        titleEn: "Signage & Stickers",
-        href: "/signage-stickers",
-        icon: Signpost,
-        description: "لافتات المحلات، الملصقات، وتغليف السيارات",
-        items: [
-            { title: "ملصقات المنتجات", href: "/signage-stickers/product-labels" },
-            { title: "تغليف السيارات", href: "/signage-stickers/vehicle-branding" },
-            { title: "ستيكرات الجدران", href: "/signage-stickers/wall-decals" },
-            { title: "بانرات خارجية", href: "/signage-stickers/outdoor-banners" },
-            { title: "لافتات 3D", href: "/signage-stickers/shop-signage-3d" },
-        ],
-    },
-    {
-        title: "معارض وفعاليات",
-        titleEn: "Exhibitions & Events",
-        href: "/exhibitions-events",
-        icon: CalendarDays,
-        description: "أجنحة المعارض، الستاندات، والخلفيات",
-        items: [
-            { title: "رول أب ستاند", href: "/exhibitions-events/roll-up-stands" },
-            { title: "بوب أب ديسبلاي", href: "/exhibitions-events/pop-up-displays" },
-            { title: "أجنحة خشبية مخصصة", href: "/exhibitions-events/custom-wood-booths" },
-            { title: "نظام أوكتانورم", href: "/exhibitions-events/system-booths" },
-            { title: "كاونترات ترويجية", href: "/exhibitions-events/promo-counters" },
-        ],
-    },
-    {
-        title: "هدايا دعائية",
-        titleEn: "Promotional Gifts",
-        href: "/promotional-gifts",
-        icon: Gift,
-        description: "أقلام، دفاتر، هدايا تقنية، وملابس مطبوعة",
-        items: [
-            { title: "هدايا مكتبية", href: "/promotional-gifts/office-gifts" },
-            { title: "هدايا تقنية", href: "/promotional-gifts/tech-gadgets" },
-            { title: "ملابس مطبوعة", href: "/promotional-gifts/wearables" },
-            { title: "أكياس وتغليف", href: "/promotional-gifts/bags-packaging" },
-        ],
-    },
-    {
-        title: "خدمات التصميم",
-        titleEn: "Design Services",
-        href: "/design-services",
-        icon: Palette,
-        description: "تصميم الهوية البصرية والشعارات",
-        items: [
-            { title: "هوية بصرية", href: "/design-services/branding-identity" },
-            { title: "تصميم شعارات", href: "/design-services/logo-design" },
-            { title: "تجهيز ملفات الطباعة", href: "/design-services/pre-press" },
-        ],
-    },
-];
+/**
+ * ⚡ ملاحظة أداء:
+ * تمّت إزالة framer-motion بالكامل من هذا المكوّن. framer-motion كانت تُضخّم
+ * الـ bundle بحوالي 100 KB وتُحمَّل على كل صفحة في الموقع لأن Header جزء من
+ * الـ layout. الأنيميشن مستبدلة بـ CSS transitions أخف بمئات المرات — نفس
+ * التأثير البصري وزمن استجابة أفضل خصوصاً على الجوال.
+ */
+
+
 
 export function MegaMenu() {
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
 
+    // منع تمرير الصفحة عند فتح قائمة الجوال
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [mobileMenuOpen]);
+
     return (
         <nav className="relative z-50">
-            {/* Desktop Navigation */}
+            {/* تنقل الديسكتوب */}
             <div className="hidden lg:flex items-center gap-1">
-                {NAVIGATION.map((item) => (
-                    <div
-                        key={item.href}
-                        className="relative"
-                        onMouseEnter={() => setActiveMenu(item.href)}
-                        onMouseLeave={() => setActiveMenu(null)}
-                    >
-                        <Link
-                            href={item.href}
-                            className={cn(
-                                "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                                "hover:bg-white/10 text-white/90 hover:text-white",
-                                activeMenu === item.href && "bg-white/10 text-white"
-                            )}
+                {NAVIGATION.map((item) => {
+                    const isOpen = activeMenu === item.href;
+                    return (
+                        <div
+                            key={item.href}
+                            className="relative"
+                            onMouseEnter={() => setActiveMenu(item.href)}
+                            onMouseLeave={() => setActiveMenu(null)}
                         >
-                            <item.icon className="w-4 h-4" />
-                            <span>{item.title}</span>
-                            <ChevronDown
+                            <Link
+                                href={item.href}
                                 className={cn(
-                                    "w-3 h-3 transition-transform",
-                                    activeMenu === item.href && "rotate-180"
+                                    "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                                    "hover:bg-white/10 text-white/90 hover:text-white",
+                                    isOpen && "bg-white/10 text-white"
                                 )}
-                            />
-                        </Link>
+                            >
+                                <item.icon className="w-4 h-4" aria-hidden="true" />
+                                <span>{item.title}</span>
+                                <ChevronDown
+                                    className={cn(
+                                        "w-3 h-3 transition-transform",
+                                        isOpen && "rotate-180"
+                                    )}
+                                    aria-hidden="true"
+                                />
+                            </Link>
 
-                        {/* Mega Menu Dropdown */}
-                        <AnimatePresence>
-                            {activeMenu === item.href && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
-                                >
-                                    <div className="p-4 bg-gradient-to-br from-primary/5 to-secondary/5 border-b">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 rounded-lg bg-primary/10">
-                                                <item.icon className="w-5 h-5 text-primary" />
-                                            </div>
-                                            <div>
-                                                <h3 className="font-bold text-gray-900">{item.title}</h3>
-                                                <p className="text-xs text-gray-500">{item.description}</p>
-                                            </div>
+                            {/*
+                              القائمة المنسدلة — CSS-only بدل framer-motion.
+                              التأثير: تلاشي وانزلاق 8px من الأعلى في 180ms.
+                              حالة الإخفاء: pointer-events-none تمنع الالتقاط بينما الظهور مطفأ.
+                            */}
+                            <div
+                                className={cn(
+                                    "absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden",
+                                    "transition-all duration-200 origin-top",
+                                    isOpen
+                                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                                        : "opacity-0 -translate-y-2 pointer-events-none"
+                                )}
+                            >
+                                <div className="p-4 bg-gradient-to-br from-primary/5 to-secondary/5 border-b">
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 rounded-lg bg-primary/10">
+                                            <item.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-gray-900">{item.title}</div>
+                                            <p className="text-xs text-gray-500">{item.description}</p>
                                         </div>
                                     </div>
-                                    <div className="p-2">
-                                        {item.items.map((subItem) => (
-                                            <Link
-                                                key={subItem.href}
-                                                href={subItem.href}
-                                                className="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors text-sm"
-                                            >
-                                                {subItem.title}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                    <div className="p-3 bg-gray-50 border-t">
+                                </div>
+                                <div className="p-2">
+                                    {item.items.map((subItem) => (
                                         <Link
-                                            href={item.href}
-                                            className="text-xs text-primary font-medium hover:underline"
+                                            key={subItem.href}
+                                            href={subItem.href}
+                                            className="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors text-sm"
                                         >
-                                            عرض جميع {item.title} ←
+                                            {subItem.title}
                                         </Link>
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                ))}
+                                    ))}
+                                </div>
+                                <div className="p-3 bg-gray-50 border-t">
+                                    <Link
+                                        href={item.href}
+                                        className="text-xs text-primary font-medium hover:underline"
+                                    >
+                                        عرض جميع {item.title} ←
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* زر قائمة الجوال */}
             <button
                 onClick={() => setMobileMenuOpen(true)}
                 className="lg:hidden p-2 rounded-lg hover:bg-white/10 text-white transition-colors"
-                aria-label="Open menu"
+                aria-label="فتح القائمة"
+                aria-expanded={mobileMenuOpen}
             >
-                <Menu className="w-7 h-7" />
+                <Menu className="w-7 h-7" aria-hidden="true" />
             </button>
 
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <>
-                        {/* Backdrop */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
+            {/*
+              قائمة الجوال — CSS-only بدل framer-motion.
+              الحاوية دائماً في الـ DOM لكن مخفية بـ pointer-events-none،
+              فتنزلق الـ drawer عند التفعيل. لا JS إضافي، لا مكتبة أنيميشن.
+            */}
+            <div
+                className={cn(
+                    "fixed inset-0 z-[60] transition-opacity duration-300 lg:hidden",
+                    mobileMenuOpen
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                )}
+                aria-hidden={!mobileMenuOpen}
+            >
+                {/* الخلفية */}
+                <button
+                    type="button"
+                    tabIndex={mobileMenuOpen ? 0 : -1}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="absolute inset-0 bg-black/60 backdrop-blur-sm w-full h-full"
+                    aria-label="إغلاق القائمة"
+                />
+
+                {/* الدرج المنزلق */}
+                <div
+                    className={cn(
+                        "absolute inset-y-0 right-0 w-[85%] max-w-sm bg-white shadow-2xl z-[70] flex flex-col",
+                        "transition-transform duration-300 ease-out",
+                        mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    )}
+                    dir="rtl"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="القائمة الرئيسية"
+                >
+                    <div className="flex items-center justify-between p-5 border-b border-gray-100">
+                        <span className="text-lg font-bold text-gray-900">القائمة الرئيسية</span>
+                        <button
                             onClick={() => setMobileMenuOpen(false)}
-                            className="bg-black/60 backdrop-blur-sm fixed inset-0 z-[60]"
-                        />
-
-                        {/* Drawer */}
-                        <motion.div
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
-                            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                            className="fixed inset-y-0 right-0 w-[85%] max-w-sm bg-white shadow-2xl z-[70] overflow-hidden flex flex-col"
-                            dir="rtl"
+                            className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition-colors"
+                            aria-label="إغلاق"
                         >
-                            {/* Drawer Header */}
-                            <div className="flex items-center justify-between p-5 border-b border-gray-100">
-                                <span className="text-lg font-bold text-gray-900">القائمة الرئيسية</span>
-                                <button
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition-colors"
-                                >
-                                    <X className="w-6 h-6" />
-                                </button>
-                            </div>
+                            <X className="w-6 h-6" aria-hidden="true" />
+                        </button>
+                    </div>
 
-                            {/* Scrollable Content */}
-                            <div className="flex-1 overflow-y-auto p-4 space-y-2">
-                                <Link
-                                    href="/"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50 mb-2"
-                                >
-                                    الرئيسية
-                                </Link>
+                    <div className="flex-1 overflow-y-auto p-4 space-y-2">
+                        <Link
+                            href="/"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50 mb-2"
+                        >
+                            الرئيسية
+                        </Link>
 
-                                {NAVIGATION.map((item) => {
-                                    const isExpanded = expandedMobileItem === item.href;
-                                    return (
-                                        <div key={item.href} className="border border-gray-100 rounded-xl overflow-hidden mb-3">
-                                            {/* Accordion Header */}
-                                            <button
-                                                onClick={() => setExpandedMobileItem(isExpanded ? null : item.href)}
+                        {NAVIGATION.map((item) => {
+                            const isExpanded = expandedMobileItem === item.href;
+                            return (
+                                <div
+                                    key={item.href}
+                                    className="border border-gray-100 rounded-xl overflow-hidden mb-3"
+                                >
+                                    <button
+                                        onClick={() =>
+                                            setExpandedMobileItem(isExpanded ? null : item.href)
+                                        }
+                                        aria-expanded={isExpanded}
+                                        className={cn(
+                                            "w-full flex items-center justify-between p-4 transition-colors",
+                                            isExpanded ? "bg-gray-50" : "bg-white hover:bg-gray-50"
+                                        )}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <item.icon
                                                 className={cn(
-                                                    "w-full flex items-center justify-between p-4 transition-colors",
-                                                    isExpanded ? "bg-gray-50" : "bg-white hover:bg-gray-50"
+                                                    "w-5 h-5",
+                                                    isExpanded ? "text-amber-500" : "text-gray-400"
+                                                )}
+                                                aria-hidden="true"
+                                            />
+                                            <span
+                                                className={cn(
+                                                    "font-medium",
+                                                    isExpanded ? "text-amber-600" : "text-gray-700"
                                                 )}
                                             >
-                                                <div className="flex items-center gap-3">
-                                                    <item.icon className={cn("w-5 h-5", isExpanded ? "text-amber-500" : "text-gray-400")} />
-                                                    <span className={cn("font-medium", isExpanded ? "text-amber-600" : "text-gray-700")}>
-                                                        {item.title}
-                                                    </span>
-                                                </div>
-                                                <ChevronDown className={cn("w-5 h-5 text-gray-400 transition-transform", isExpanded && "rotate-180")} />
-                                            </button>
-
-                                            {/* Accordion Body */}
-                                            <AnimatePresence>
-                                                {isExpanded && (
-                                                    <motion.div
-                                                        initial={{ height: 0, opacity: 0 }}
-                                                        animate={{ height: "auto", opacity: 1 }}
-                                                        exit={{ height: 0, opacity: 0 }}
-                                                        className="overflow-hidden bg-gray-50/50"
-                                                    >
-                                                        <div className="p-2 space-y-1">
-                                                            {item.items.map((subItem) => (
-                                                                <Link
-                                                                    key={subItem.href}
-                                                                    href={subItem.href}
-                                                                    onClick={() => setMobileMenuOpen(false)}
-                                                                    className="block p-3 rounded-lg text-sm text-gray-600 hover:text-amber-600 hover:bg-amber-50 transition-colors mr-4 border-r-2 border-transparent hover:border-amber-400"
-                                                                >
-                                                                    {subItem.title}
-                                                                </Link>
-                                                            ))}
-                                                            <Link
-                                                                href={item.href}
-                                                                onClick={() => setMobileMenuOpen(false)}
-                                                                className="block p-3 text-xs font-bold text-amber-600 text-center border-t border-gray-100 mt-2"
-                                                            >
-                                                                عرض كل خدمات {item.title}
-                                                            </Link>
-                                                        </div>
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
+                                                {item.title}
+                                            </span>
                                         </div>
-                                    );
-                                })}
+                                        <ChevronDown
+                                            className={cn(
+                                                "w-5 h-5 text-gray-400 transition-transform",
+                                                isExpanded && "rotate-180"
+                                            )}
+                                            aria-hidden="true"
+                                        />
+                                    </button>
 
-                                <Link
-                                    href="/about"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50 mt-2"
-                                >
-                                    عن الشركة
-                                </Link>
-                                <Link
-                                    href="/portfolio"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50"
-                                >
-                                    معرض الأعمال
-                                </Link>
-                            </div>
+                                    {/*
+                                      الأكورديون — grid rows technique بدل قياس ارتفاع.
+                                      يعمل نظيفاً في CSS الحديث، وأخف من animate height.
+                                    */}
+                                    <div
+                                        className={cn(
+                                            "grid transition-all duration-300 ease-out bg-gray-50/50",
+                                            isExpanded
+                                                ? "grid-rows-[1fr] opacity-100"
+                                                : "grid-rows-[0fr] opacity-0"
+                                        )}
+                                    >
+                                        <div className="overflow-hidden">
+                                            <div className="p-2 space-y-1">
+                                                {item.items.map((subItem) => (
+                                                    <Link
+                                                        key={subItem.href}
+                                                        href={subItem.href}
+                                                        onClick={() => setMobileMenuOpen(false)}
+                                                        className="block p-3 rounded-lg text-sm text-gray-600 hover:text-amber-600 hover:bg-amber-50 transition-colors mr-4 border-r-2 border-transparent hover:border-amber-400"
+                                                    >
+                                                        {subItem.title}
+                                                    </Link>
+                                                ))}
+                                                <Link
+                                                    href={item.href}
+                                                    onClick={() => setMobileMenuOpen(false)}
+                                                    className="block p-3 text-xs font-bold text-amber-600 text-center border-t border-gray-100 mt-2"
+                                                >
+                                                    عرض كل خدمات {item.title}
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
 
-                            {/* Drawer Footer (CTAs) */}
-                            <div className="p-5 border-t border-gray-100 bg-gray-50 space-y-3">
-                                <Link
-                                    href="/quote"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-center w-full py-3.5 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-lg"
-                                >
-                                    اطلب عرض سعر
-                                </Link>
-                                <a
-                                    href="tel:+966548923300"
-                                    className="flex items-center justify-center w-full py-3.5 bg-white border border-gray-200 text-gray-900 rounded-xl font-bold hover:bg-gray-50 transition-colors"
-                                >
-                                    <Phone className="w-5 h-5 ml-2 text-gray-400" />
-                                    اتصل بنا
-                                </a>
-                            </div>
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
+                        <Link
+                            href="/prices"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50 mt-2"
+                        >
+                            الأسعار
+                        </Link>
+                        <Link
+                            href="/portfolio"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50"
+                        >
+                            معرض الأعمال
+                        </Link>
+                        <Link
+                            href="/faq"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50"
+                        >
+                            الأسئلة الشائعة
+                        </Link>
+                        <Link
+                            href="/about"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block p-4 rounded-xl font-bold text-gray-900 hover:bg-gray-50"
+                        >
+                            عن الشركة
+                        </Link>
+                    </div>
+
+                    <div className="p-5 border-t border-gray-100 bg-gray-50 space-y-3">
+                        <Link
+                            href="/quote"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-center w-full py-3.5 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-lg"
+                        >
+                            اطلب عرض سعر
+                        </Link>
+                        <a
+                            href={telLink}
+                            className="flex items-center justify-center w-full py-3.5 bg-white border border-gray-200 text-gray-900 rounded-xl font-bold hover:bg-gray-50 transition-colors"
+                        >
+                            <Phone className="w-5 h-5 ml-2 text-gray-400" aria-hidden="true" />
+                            اتصل بنا
+                        </a>
+                    </div>
+                </div>
+            </div>
         </nav>
     );
 }
@@ -325,7 +322,8 @@ export function Header() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
         };
-        window.addEventListener("scroll", handleScroll);
+        // passive listener للسرعة
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -340,37 +338,42 @@ export function Header() {
         >
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16 lg:h-20">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3">
+                    <Link
+                        href="/"
+                        className="flex items-center gap-3"
+                        aria-label="بوابة الرواج - الصفحة الرئيسية"
+                    >
                         <div className="w-16 h-16 rounded-xl overflow-hidden border border-white/10 shadow-lg transition-transform hover:scale-105">
-                            <img
+                            <Image
                                 src="/images/logo-rg.png"
-                                alt="Rawaj Gate Logo"
+                                alt="شعار بوابة الرواج - مطبعة في جدة"
+                                width={64}
+                                height={64}
+                                priority
                                 className="w-full h-full object-cover"
                             />
                         </div>
                         <div className="hidden sm:block">
-                            <h1 className="text-lg font-bold text-white">بوابة الرواج</h1>
-                            <p className="text-xs text-white/70">Rawaj Gate</p>
+                            <span className="block text-lg font-bold text-white">
+                                بوابة الرواج
+                            </span>
+                            <span className="block text-xs text-white/70">Rawaj Gate</span>
                         </div>
                     </Link>
 
-                    {/* Navigation */}
                     <MegaMenu />
 
-                    {/* Mobile Call Icon */}
                     <a
-                        href="tel:+966548923300"
+                        href={telLink}
                         className="md:hidden p-2 text-white hover:text-amber-400 transition-colors"
-                        aria-label="Call Us"
+                        aria-label="اتصل بنا"
                     >
-                        <Phone className="w-6 h-6" />
+                        <Phone className="w-6 h-6" aria-hidden="true" />
                     </a>
 
-                    {/* CTA Button */}
                     <div className="hidden md:flex items-center gap-3">
                         <a
-                            href="tel:+966548923300"
+                            href={telLink}
                             className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-bold text-sm transition-colors"
                         >
                             اتصل بنا

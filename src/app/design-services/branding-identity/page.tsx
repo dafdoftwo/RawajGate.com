@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { DesignServicesFaqs } from "@/lib/faqs/design-services";
 import {
     Fingerprint,
     ArrowLeft,
@@ -18,7 +20,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "تصميم هوية بصرية للشركات في جدة | براندينج متكامل | بوابة الرواج",
+    alternates: { canonical: "/design-services/branding-identity" },
+    title: "تصميم هوية بصرية للشركات في جدة",
     description: "تصميم هوية بصرية متكاملة للشركات في جدة: شعار، ألوان، خطوط، دليل الهوية، وتطبيقات على جميع المطبوعات. خبرة 15 عام مع +300 علامة تجارية.",
     keywords: [
         "هوية بصرية",
@@ -31,9 +34,17 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         title: "تصميم هوية بصرية للشركات في جدة | بوابة الرواج",
-        description: "هوية بصرية احترافية تميز علامتك التجارية. شعار + ألوان + تطبيقات كاملة.",
-        images: ["/images/client-meeting-office-al-rawaj-jeddah.webp"],
+        description: "تصميم هوية بصرية متكاملة للشركات في جدة: شعار، ألوان، خطوط، دليل الهوية، وتطبيقات على جميع المطبوعات. خبرة 15 عام مع +300 علامة تجارية.",
+        url: "https://rawajgate.com/design-services/branding-identity",
+        images: [{ url: "/images/client-meeting-office-al-rawaj-jeddah.webp", width: 1200, height: 630, alt: "تصميم هوية بصرية للشركات في جدة" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "تصميم هوية بصرية للشركات في جدة",
+        description: "تصميم هوية بصرية متكاملة للشركات في جدة: شعار، ألوان، خطوط، دليل الهوية، وتطبيقات على جميع المطبوعات. خبرة 15 عام مع +300 علامة تجارية.",
+        images: ["/images/client-meeting-office-al-rawaj-jeddah.webp"],
     },
 };
 
@@ -98,28 +109,7 @@ const IDENTITY_ELEMENTS = [
     { icon: Target, name: "الرسالة", desc: "النبرة والشخصية" },
 ];
 
-const FAQS = [
-    {
-        question: "ما الفرق بين الشعار والهوية البصرية؟",
-        answer: "الشعار (Logo) هو رمز أو علامة واحدة، بينما الهوية البصرية (Visual Identity) هي منظومة متكاملة تشمل: الشعار، الألوان الرسمية، الخطوط، نمط الصور، وقواعد استخدامها على جميع نقاط الاتصال من بطاقات العمل حتى اللافتات والموقع الإلكتروني.",
-    },
-    {
-        question: "كم تستغرق عملية تصميم الهوية البصرية؟",
-        answer: "الباقة الأساسية 2-3 أسابيع، المتقدمة 4-5 أسابيع، الشاملة 6-8 أسابيع. تشمل المدة جلسات الاستكشاف، التصميم، التعديلات، وإعداد الملفات النهائية. نلتزم بالجدول الزمني المتفق عليه.",
-    },
-    {
-        question: "هل يمكن تعديل الهوية لاحقاً؟",
-        answer: "نعم، نقدم تعديلات ضمن المشروع حتى الرضا التام. بعد التسليم النهائي، تحصل على جميع الملفات المصدرية للتعديل لاحقاً. كما نوفر خدمة 'تحديث الهوية' للعملاء السابقين بأسعار مخفضة.",
-    },
-    {
-        question: "ما الملفات التي سأحصل عليها؟",
-        answer: "تحصل على: ملفات مصدرية (AI, EPS, PSD)، ملفات للطباعة (PDF عالي الجودة)، ملفات للويب (PNG, JPG, SVG)، دليل الهوية PDF، وملف خطوط الهوية. كل شيء منظم في مجلدات واضحة.",
-    },
-    {
-        question: "هل تقدمون خدمة للشركات خارج جدة؟",
-        answer: "نعم، نخدم عملاء في جميع مدن المملكة والخليج. العمل يتم عن بُعد عبر اجتماعات Zoom وتبادل الملفات. للعملاء في جدة، نوفر جلسات حضورية في مكتبنا بحي الروضة.",
-    },
-];
+const FAQS = DesignServicesFaqs["design-services/branding-identity"];
 
 export default function BrandingIdentityPage() {
     const schemas = [
@@ -246,7 +236,7 @@ export default function BrandingIdentityPage() {
                             </p>
 
                             <p>
-                                الهوية البصرية ليست مجرد "شكل جميل" - إنها <strong>أداة استراتيجية للعمل</strong>.
+                                الهوية البصرية ليست مجرد «شكل جميل» — إنها <strong>أداة استراتيجية للعمل</strong>.
                                 عندما تكون هويتك متسقة ومميزة، يتذكرك العملاء بسهولة، يثقون بك أسرع،
                                 ويدفعون أكثر. الأبحاث تثبت أن العلامات ذات الهوية القوية تزيد إيراداتها بنسبة 23%.
                             </p>
@@ -403,6 +393,7 @@ export default function BrandingIdentityPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/design-services/branding-identity" />
         </>
     );
 }

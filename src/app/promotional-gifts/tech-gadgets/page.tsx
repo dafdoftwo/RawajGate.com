@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
     Smartphone,
     ArrowLeft,
@@ -15,7 +17,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "هدايا تقنية دعائية في جدة | USB وباور بانك بالشعار | بوابة الرواج",
+    openGraph: {
+        title: "هدايا تقنية دعائية بالشعار في جدة | بوابة الرواج",
+        description: "هدايا تقنية دعائية في جدة: فلاشات USB، باور بانك، سماعات، حوامل جوال بشعار شركتك. طباعة ليزر وحفر. هدايا عملية تبقى مستخدمة يومياً.",
+        url: "https://rawajgate.com/promotional-gifts/tech-gadgets",
+        images: [{ url: "/images/tech-gifts-powerbank-usb-branding.webp", width: 1200, height: 630, alt: "هدايا تقنية دعائية بالشعار في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "هدايا تقنية دعائية بالشعار في جدة",
+        description: "هدايا تقنية دعائية في جدة: فلاشات USB، باور بانك، سماعات، حوامل جوال بشعار شركتك. طباعة ليزر وحفر. هدايا عملية تبقى مستخدمة يومياً.",
+        images: ["/images/tech-gifts-powerbank-usb-branding.webp"],
+    },
+    alternates: { canonical: "/promotional-gifts/tech-gadgets" },
+    title: "هدايا تقنية دعائية بالشعار في جدة",
     description: "هدايا تقنية دعائية في جدة: فلاشات USB، باور بانك، سماعات، حوامل جوال بشعار شركتك. طباعة ليزر وحفر. هدايا عملية تبقى مستخدمة يومياً.",
     keywords: ["هدايا تقنية", "USB دعائي", "باور بانك شعار", "tech gadgets branded", "gadget promotional jeddah"],
 };
@@ -43,32 +60,7 @@ const USE_CASES = [
     { icon: Briefcase, title: "البنوك", desc: "هدايا للعملاء VIP" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض للهدايا التقنية بالشعار؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع المنتج والسعة. أسعار تنافسية جداً للكميات الكبيرة (+100 قطعة)!",
-    },
-    {
-        question: "هل الباور بانك أصلي؟",
-        answer: "نوفر باور بانك من علامات موثوقة (Anker, Xiaomi, Baseus) أو موديلات عامة بجودة جيدة وسعر أقل. جميعها بشهادة CE/FCC والسعة الحقيقية مكتوبة.",
-    },
-    {
-        question: "ما أنواع الطباعة المتوفرة؟",
-        answer: "نوفر عدة أنواع: طباعة ليزر (دقة عالية)، حفر على المعدن (دائم لا يمحى)، UV ملون (للشعارات الملونة). الحفر الأفضل للمتانة.",
-    },
-    {
-        question: "ما الحد الأدنى للطلب؟",
-        answer: "USB: 50 قطعة. باور بانك: 50 قطعة. سماعات: 100 قطعة. للكميات الأقل، نوفر موديلات جاهزة من المخزون.",
-    },
-    {
-        question: "كم يستغرق الإنتاج؟",
-        answer: "الهدايا التقنية بالشعار تستغرق 10-14 يوم عمل. الموديلات الجاهزة من المخزون 3-5 أيام. لدينا خدمة سريعة للطلبات العاجلة.",
-    },
-    {
-        question: "هل الهدايا تأتي بعلبة؟",
-        answer: "نعم، جميع الهدايا تأتي بعلبة عادية مجانية. نوفر أيضاً علب هدايا فاخرة بشعارك (خدمة إضافية) لهدايا العملاء VIP.",
-    },
-];
+const FAQS = PromotionalGiftsFaqs["promotional-gifts/tech-gadgets"];
 
 export default function TechGadgetsPage() {
     const schemas = [
@@ -301,6 +293,7 @@ export default function TechGadgetsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/promotional-gifts/tech-gadgets" />
         </>
     );
 }

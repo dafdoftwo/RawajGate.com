@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
     Trees,
     ArrowLeft,
@@ -17,7 +19,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "تصميم وتنفيذ أجنحة معارض خشبية في جدة | ستاندات مخصصة | بوابة الرواج",
+    alternates: { canonical: "/exhibitions-events/custom-wood-booths" },
+    title: "تجهيز أجنحة معارض خشبية في جدة",
     description: "تصميم وتنفيذ أجنحة معارض خشبية مخصصة في جدة. ستاندات فاخرة للمعارض الكبرى في سوبر دوم ومركز جدة للمناسبات. تصميم 3D مجاني، تنفيذ متكامل، وضمان الجودة. خبرة 15 عام.",
     keywords: [
         "أجنحة معارض جدة",
@@ -29,10 +32,18 @@ export const metadata: Metadata = {
         "سوبر دوم جدة",
     ],
     openGraph: {
-        title: "أجنحة معارض خشبية مخصصة في جدة | بوابة الرواج",
-        description: "تصميم وتنفيذ أجنحة معارض تميزك عن المنافسين. تصميم 3D مجاني وتنفيذ متكامل.",
-        images: ["/images/custom-wooden-stand-jeddah-super-dome.webp"],
+        title: "تجهيز أجنحة معارض خشبية في جدة | بوابة الرواج",
+        description: "تصميم وتنفيذ أجنحة معارض خشبية مخصصة في جدة. ستاندات فاخرة للمعارض الكبرى في سوبر دوم ومركز جدة للمناسبات. تصميم 3D مجاني، تنفيذ متكامل، وضمان الجودة. خبرة 15 عام.",
+        url: "https://rawajgate.com/exhibitions-events/custom-wood-booths",
+        images: [{ url: "/images/custom-wooden-stand-jeddah-super-dome.webp", width: 1200, height: 630, alt: "تجهيز أجنحة معارض خشبية في جدة" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "تجهيز أجنحة معارض خشبية في جدة",
+        description: "تصميم وتنفيذ أجنحة معارض خشبية مخصصة في جدة. ستاندات فاخرة للمعارض الكبرى في سوبر دوم ومركز جدة للمناسبات. تصميم 3D مجاني، تنفيذ متكامل، وضمان الجودة. خبرة 15 عام.",
+        images: ["/images/custom-wooden-stand-jeddah-super-dome.webp"],
     },
 };
 
@@ -76,28 +87,7 @@ const MATERIALS = [
     { name: "موكيت معارض", use: "الأرضيات", quality: "4 مم مقاوم" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض سعر لجناح معرض مخصص؟",
-        answer: "تواصل معنا لتحصل على عرض سعر مخصص يناسب احتياجاتك! نقدم أسعار تنافسية تعتمد على المساحة والتصميم المطلوب. السعر يشمل التصميم والتنفيذ والتركيب والتفكيك. احصل على استشارة مجانية الآن!",
-    },
-    {
-        question: "كم يستغرق تنفيذ جناح المعرض؟",
-        answer: "مرحلة التصميم 5-7 أيام، التصنيع 7-14 يوم حسب التعقيد، التركيب في الموقع 1-2 يوم. ننصح بالتواصل قبل المعرض بشهر على الأقل للمشاريع الكبيرة.",
-    },
-    {
-        question: "هل تقدمون خدمة تأجير الأجنحة؟",
-        answer: "نعم، نوفر أجنحة جاهزة للتأجير بتكلفة أقل. كما نقدم خيار 'التأجير مع التحديث' حيث يمكنك استئجار جناح قائم مع تغيير الجرافيك والألوان.",
-    },
-    {
-        question: "هل تركبون في جميع قاعات المعارض في جدة؟",
-        answer: "نعم، نركب في: سوبر دوم جدة، مركز جدة للمعارض والمناسبات، فندق هيلتون، انتركونتيننتال، الهيلتون، وجميع الفنادق والقاعات. لدينا تصاريح رسمية من جميع الجهات.",
-    },
-    {
-        question: "ماذا يحدث للجناح بعد المعرض؟",
-        answer: "نتولى التفكيك والتخزين. تستطيع إعادة استخدام الجناح في معرض آخر (بخصم 50% على التركيب)، بيعه لنا، أو الاحتفاظ به في مستودعاتنا مقابل رسوم تخزين شهرية.",
-    },
-];
+const FAQS = ExhibitionsEventsFaqs["exhibitions-events/custom-wood-booths"];
 
 export default function CustomWoodBoothsPage() {
     const schemas = [
@@ -437,6 +427,7 @@ export default function CustomWoodBoothsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/exhibitions-events/custom-wood-booths" />
         </>
     );
 }

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
     FileText,
     ArrowLeft,
@@ -17,7 +19,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة فلايرات وبروشورات في جدة | تصميم ورقي احترافي | بوابة الرواج",
+    alternates: { canonical: "/commercial-printing/flyers-brochures" },
+    title: "طباعة فلايرات وبروشورات في جدة",
     description: "طباعة فلايرات وبروشورات احترافية في جدة. ورق كوشيه 130-200 جرام، طباعة أوفست ورقمية، تشطيب لامع ومطفي. تصميم مجاني، تسليم خلال 48 ساعة.",
     keywords: [
         "طباعة فلايرات جدة",
@@ -29,9 +32,17 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         title: "طباعة فلايرات وبروشورات في جدة | بوابة الرواج",
-        description: "فلايرات وبروشورات بجودة عالية. تصميم مجاني + تسليم سريع في جدة.",
-        images: ["/images/advertising-flyers-brochures-tri-fold.webp"],
+        description: "طباعة فلايرات وبروشورات احترافية في جدة. ورق كوشيه 130-200 جرام، طباعة أوفست ورقمية، تشطيب لامع ومطفي. تصميم مجاني، تسليم خلال 48 ساعة.",
+        url: "https://rawajgate.com/commercial-printing/flyers-brochures",
+        images: [{ url: "/images/advertising-flyers-brochures-tri-fold.webp", width: 1200, height: 630, alt: "طباعة فلايرات وبروشورات في جدة" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة فلايرات وبروشورات في جدة",
+        description: "طباعة فلايرات وبروشورات احترافية في جدة. ورق كوشيه 130-200 جرام، طباعة أوفست ورقمية، تشطيب لامع ومطفي. تصميم مجاني، تسليم خلال 48 ساعة.",
+        images: ["/images/advertising-flyers-brochures-tri-fold.webp"],
     },
 };
 
@@ -75,28 +86,7 @@ const TECH_SPECS = [
     { spec: "وقت الإنتاج", value: "24-72 ساعة" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض لطباعة فلايرات في جدة؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الحجم والكمية ونوع الورق. التصميم مجاني للكميات الكبيرة. أسعار تنافسية!",
-    },
-    {
-        question: "هل تقدمون خدمة التصميم؟",
-        answer: "نعم، نوفر تصميم احترافي مجاني مع الكميات الكبيرة. للطلبات الأقل نقدم تصميم بأسعار منافسة. يمكنك أيضاً إرسال ملفك الجاهز.",
-    },
-    {
-        question: "ما الفرق بين الطباعة الرقمية والأوفست؟",
-        answer: "الطباعة الرقمية سريعة ومناسبة للكميات الصغيرة (حتى 1000 نسخة). الأوفست أجود وأرخص للكميات الكبيرة (+3000 نسخة). ننصح بالأوفست للفلايرات الدورية والبروشورات الرسمية.",
-    },
-    {
-        question: "متى يتم تسليم الطلب؟",
-        answer: "الطباعة الرقمية: 24-48 ساعة. الأوفست: 3-5 أيام عمل. نوفر خدمة عاجلة في نفس اليوم للطباعة الرقمية مقابل رسوم إضافية.",
-    },
-    {
-        question: "ما نوع الورق الأفضل للفلايرات؟",
-        answer: "للتوزيع العادي: كوشيه 130 جرام (اقتصادي). للمظهر الاحترافي: كوشيه 170 جرام. للبروشورات الفاخرة: كوشيه 200 جرام مع تشطيب مطفي أو UV موضعي.",
-    },
-];
+const FAQS = CommercialPrintingFaqs["commercial-printing/flyers-brochures"];
 
 export default function FlyersBrochuresPage() {
     const schemas = [
@@ -211,7 +201,7 @@ export default function FlyersBrochuresPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
-                            لماذا لا زالت الفلايرات فعّالة في 2024؟
+                            لماذا لا تزال الفلايرات فعّالة اليوم؟
                         </h2>
 
                         <div className="prose prose-lg max-w-none text-gray-700">
@@ -378,6 +368,7 @@ export default function FlyersBrochuresPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/commercial-printing/flyers-brochures" />
         </>
     );
 }

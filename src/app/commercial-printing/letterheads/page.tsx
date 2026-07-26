@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
     FileText,
     ArrowLeft,
@@ -12,7 +14,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة ورق رسمي وليترهيد في جدة | Letterhead | بوابة الرواج",
+    openGraph: {
+        title: "طباعة ورق رسمي (ليترهيد) في جدة | بوابة الرواج",
+        description: "طباعة ورق رسمي احترافي في جدة. ورق 100-120 جرام، ألوان زاهية، تصميم مجاني. ليترهيد للشركات والمؤسسات بأسعار منافسة وجودة عالية.",
+        url: "https://rawajgate.com/commercial-printing/letterheads",
+        images: [{ url: "/images/corporate-letterhead-envelope-branding.webp", width: 1200, height: 630, alt: "طباعة ورق رسمي (ليترهيد) في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة ورق رسمي (ليترهيد) في جدة",
+        description: "طباعة ورق رسمي احترافي في جدة. ورق 100-120 جرام، ألوان زاهية، تصميم مجاني. ليترهيد للشركات والمؤسسات بأسعار منافسة وجودة عالية.",
+        images: ["/images/corporate-letterhead-envelope-branding.webp"],
+    },
+    alternates: { canonical: "/commercial-printing/letterheads" },
+    title: "طباعة ورق رسمي (ليترهيد) في جدة",
     description: "طباعة ورق رسمي احترافي في جدة. ورق 100-120 جرام، ألوان زاهية، تصميم مجاني. ليترهيد للشركات والمؤسسات بأسعار منافسة وجودة عالية.",
     keywords: ["ورق رسمي", "ليترهيد", "letterhead jeddah", "طباعة ورق مراسلات", "corporate stationery"],
 };
@@ -39,32 +56,7 @@ const USE_CASES = [
     { icon: FileCheck, title: "شهادات وخطابات التوصية", desc: "مستندات رسمية للموظفين" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض سعر لطباعة الورق الرسمي في جدة؟",
-        answer: "تواصل معنا عبر الواتساب أو الهاتف للحصول على عرض سعر مخصص حسب نوع الورق (عادي/كتان/كونكرر) والكمية المطلوبة. السعر يشمل الطباعة وجه واحد ملون، والتصميم مجاني للكميات الكبيرة!",
-    },
-    {
-        question: "هل تطبعون على وجهين؟",
-        answer: "نعم، طباعة الوجه الثاني متاحة بسعر إضافي بسيط. يمكن طباعة معلومات الاتصال التفصيلية، الشروط والأحكام، خريطة الموقع، أو أي محتوى آخر. ننصح بها بشدة للعقود والفواتير لإضفاء طابع احترافي متكامل.",
-    },
-    {
-        question: "ما الفرق بين أنواع الورق المتاحة؟",
-        answer: "الورق العادي (أوفست) اقتصادي ومناسب للمراسلات اليومية. ورق الكتان (Linen) له ملمس مميز وفاخر، مثالي للشركات الراقية. ورق الكونكرر (Conqueror) الأفخم على الإطلاق، يستخدمه البنوك والفنادق الكبرى.",
-    },
-    {
-        question: "ما المعلومات التي يجب أن تكون على الورق الرسمي؟",
-        answer: "المعلومات الأساسية: اسم الشركة، الشعار، العنوان، أرقام التواصل. المعلومات القانونية المطلوبة: السجل التجاري، الرقم الضريبي (VAT). يمكن إضافة: الموقع الإلكتروني، حسابات التواصل الاجتماعي، وشعار رؤية 2030 إن كان مناسباً.",
-    },
-    {
-        question: "هل يمكن طباعة كميات صغيرة؟",
-        answer: "الحد الأدنى للطباعة الأوفست 500 ورقة. للكميات الأقل، نوفر طباعة رقمية بجودة عالية تبدأ من 100 ورقة. تواصل معنا لمناقشة احتياجاتك.",
-    },
-    {
-        question: "هل تقدمون خدمة التصميم؟",
-        answer: "نعم، فريق التصميم لدينا يصمم الورق الرسمي بما يتوافق مع هويتك البصرية. نراعي توزيع العناصر بشكل متوازن ونضمن وضوح المعلومات القانونية. التصميم مجاني للكميات الكبيرة.",
-    },
-];
+const FAQS = CommercialPrintingFaqs["commercial-printing/letterheads"];
 
 export default function LetterheadsPage() {
     const schemas = [
@@ -348,6 +340,7 @@ export default function LetterheadsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/commercial-printing/letterheads" />
         </>
     );
 }

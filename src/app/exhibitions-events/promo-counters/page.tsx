@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
     Store,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "كاونترات ترويجية للمعارض في جدة | Promo Counters | بوابة الرواج",
+    openGraph: {
+        title: "كاونترات ترويجية للمعارض في جدة | بوابة الرواج",
+        description: "كاونترات ترويجية (Promo Counters) للمعارض والتذوق في جدة. قابلة للطي، خفيفة، جرافيك قابل للتغيير. مثالية للتسويق المباشر وتوزيع العينات.",
+        url: "https://rawajgate.com/exhibitions-events/promo-counters",
+        images: [{ url: "/images/promotion-counter-table-portable-kiosk.webp", width: 1200, height: 630, alt: "كاونترات ترويجية للمعارض في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "كاونترات ترويجية للمعارض في جدة",
+        description: "كاونترات ترويجية (Promo Counters) للمعارض والتذوق في جدة. قابلة للطي، خفيفة، جرافيك قابل للتغيير. مثالية للتسويق المباشر وتوزيع العينات.",
+        images: ["/images/promotion-counter-table-portable-kiosk.webp"],
+    },
+    alternates: { canonical: "/exhibitions-events/promo-counters" },
+    title: "كاونترات ترويجية للمعارض في جدة",
     description: "كاونترات ترويجية (Promo Counters) للمعارض والتذوق في جدة. قابلة للطي، خفيفة، جرافيك قابل للتغيير. مثالية للتسويق المباشر وتوزيع العينات.",
     keywords: ["كاونتر ترويجي", "promo counter jeddah", "طاولة معرض", "عربة تذوق", "كاونتر توزيع"],
 };
@@ -41,32 +58,7 @@ const USE_CASES = [
     { icon: Users, title: "الفعاليات", desc: "التسجيل والاستقبال" },
 ];
 
-const FAQS = [
-    {
-        question: "ما وزن الكاونتر القابل للطي؟",
-        answer: "كاونتر الفابريك أو الببلستيك يزن 5-8 كجم فقط، يأتي مع حقيبة حمل سهلة النقل. شخص واحد يمكنه حمله وتركيبه بسهولة. الكاونتر الخشبي أثقل (15-20 كجم) لكنه أكثر متانة.",
-    },
-    {
-        question: "هل يمكن تغيير الجرافيك لاحقاً؟",
-        answer: "نعم للكاونترات القماشية (Fabric) والبلاستيكية. يمكنك طلب طباعة جرافيك جديد لكل حملة أو منتج جديد. السعر أقل بكثير من شراء كاونتر جديد - تواصل معنا للتفاصيل!",
-    },
-    {
-        question: "كم يستغرق التركيب؟",
-        answer: "التركيب سهل جداً ولا يحتاج أدوات. الكاونتر القابل للطي يركب في 3-5 دقائق. يفتح كالمظلة ثم تثبت الرفوف وتركب الجرافيك. نوفر فيديو تعليمي مع كل طلب.",
-    },
-    {
-        question: "هل الكاونتر يتحمل الأوزان؟",
-        answer: "نعم، السطح العلوي يتحمل 10-15 كجم للكاونتر القابل للطي، وحتى 30 كجم للكاونتر الخشبي. مناسب لوضع عينات المنتجات والأكواب والبروشورات.",
-    },
-    {
-        question: "هل توفرون كاونتر مضيء LED؟",
-        answer: "نعم، نوفر كاونترات مضيئة بإضاءة LED داخلية. تعطي تأثيراً فاخراً خاصة في الفعاليات المسائية والمعارض الداخلية. الإضاءة تعمل بالكهرباء (فيشة عادية).",
-    },
-    {
-        question: "كم يستغرق الإنتاج؟",
-        answer: "إنتاج كاونتر كامل (هيكل + جرافيك) يستغرق 5-7 أيام عمل. طباعة جرافيك فقط 3-4 أيام. التصميم 2-3 أيام إضافية إذا لزم.",
-    },
-];
+const FAQS = ExhibitionsEventsFaqs["exhibitions-events/promo-counters"];
 
 export default function PromoCountersPage() {
     const schemas = [
@@ -311,6 +303,7 @@ export default function PromoCountersPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/exhibitions-events/promo-counters" />
         </>
     );
 }

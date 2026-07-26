@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { AllSilosLinks } from "@/components/related-services";
 import {
     Printer,
     CreditCard,
@@ -299,6 +300,7 @@ export default function CommercialPrintingPage() {
                     </Link>
                 </div>
             </section>
+        <AllSilosLinks currentSilo="commercial-printing" />
         </>
     );
 }

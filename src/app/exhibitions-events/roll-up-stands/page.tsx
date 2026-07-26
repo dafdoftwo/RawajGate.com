@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
     Layers,
     ArrowLeft,
@@ -17,7 +19,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "رول أب ستاند للمعارض والفعاليات في جدة | بانر ستاند | بوابة الرواج",
+    alternates: { canonical: "/exhibitions-events/roll-up-stands" },
+    title: "رول أب ستاند في جدة | مقاسات وأسعار",
     description: "رول أب ستاند Roll-up Stand بأحجام متعددة (85×200, 100×200, 120×200 سم) للمعارض والمؤتمرات في جدة. طباعة 1440 DPI، هيكل ألمنيوم متين، حقيبة حمل، ضمان سنة. التسليم خلال 24 ساعة.",
     keywords: [
         "رول أب جدة",
@@ -29,10 +32,18 @@ export const metadata: Metadata = {
         "لوحات معارض",
     ],
     openGraph: {
-        title: "رول أب ستاند للمعارض في جدة | بوابة الرواج",
-        description: "رول أب بجودة عالية 1440 DPI + هيكل ألمنيوم + حقيبة حمل. تسليم 24 ساعة.",
-        images: ["/images/roll-up-stand-banner-85x200.webp"],
+        title: "رول أب ستاند في جدة | مقاسات وأسعار | بوابة الرواج",
+        description: "رول أب ستاند Roll-up Stand بأحجام متعددة (85×200, 100×200, 120×200 سم) للمعارض والمؤتمرات في جدة. طباعة 1440 DPI، هيكل ألمنيوم متين، حقيبة حمل، ضمان سنة. التسليم خلال 24 ساعة.",
+        url: "https://rawajgate.com/exhibitions-events/roll-up-stands",
+        images: [{ url: "/images/roll-up-stand-banner-85x200.webp", width: 1200, height: 630, alt: "رول أب ستاند في جدة | مقاسات وأسعار" }],
         locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "رول أب ستاند في جدة | مقاسات وأسعار",
+        description: "رول أب ستاند Roll-up Stand بأحجام متعددة (85×200, 100×200, 120×200 سم) للمعارض والمؤتمرات في جدة. طباعة 1440 DPI، هيكل ألمنيوم متين، حقيبة حمل، ضمان سنة. التسليم خلال 24 ساعة.",
+        images: ["/images/roll-up-stand-banner-85x200.webp"],
     },
 };
 
@@ -84,28 +95,7 @@ const TECH_SPECS = [
     { spec: "وقت التركيب", value: "30 ثانية" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على أفضل سعر لرول أب ستاند في جدة؟",
-        answer: "نقدم أسعاراً تنافسية لجميع الأحجام شاملة الطباعة والهيكل وحقيبة الحمل. تواصل معنا للحصول على عرض سعر مخصص! خصومات مميزة للكميات الكبيرة.",
-    },
-    {
-        question: "كم تستغرق طباعة الرول أب؟",
-        answer: "الطباعة تستغرق 4-6 ساعات. للطلبات العاجلة، نوفر خدمة التسليم في نفس اليوم داخل جدة. للكميات الكبيرة (+10 قطع) يُحسب يوم عمل إضافي.",
-    },
-    {
-        question: "هل يمكن تغيير البانر مع الاحتفاظ بالهيكل؟",
-        answer: "نعم! هياكلنا مصممة لإعادة الاستخدام. يمكنك طلب طباعة بانر بديل فقط بسعر منافس مع الاحتفاظ بالهيكل نفسه. تواصل معنا للتفاصيل!",
-    },
-    {
-        question: "ما الفرق بين رول أب ورول أب ديلوكس؟",
-        answer: "رول أب ديلوكس يأتي بهيكل أعرض وأثقل (ألمنيوم مزدوج)، قاعدة معدنية أثقل للثبات، وحقيبة حمل صلبة. مثالي للاستخدام المتكرر والمعارض طويلة المدة.",
-    },
-    {
-        question: "هل الرول أب مناسب للاستخدام الخارجي؟",
-        answer: "الهيكل العادي مناسب للداخل فقط. للاستخدام الخارجي، نوفر رول أب خارجي بقاعدة ثقيلة قابلة للتعبئة بالماء، ومقاومة للرياح الخفيفة.",
-    },
-];
+const FAQS = ExhibitionsEventsFaqs["exhibitions-events/roll-up-stands"];
 
 export default function RollUpStandsPage() {
     const schemas = [
@@ -232,7 +222,7 @@ export default function RollUpStandsPage() {
                             </p>
 
                             <p>
-                                الاسم "Roll-up" يأتي من آلية اللف: البانر يُخزن ملفوفاً داخل القاعدة، مما يحميه
+                                الاسم «Roll-up» يأتي من آلية اللف: البانر يُخزن ملفوفاً داخل القاعدة، مما يحميه
                                 من الخدوش والأوساخ أثناء النقل. هذا التصميم الذكي جعله <strong>الخيار الأول
                                     للشركات السعودية</strong> في المعارض والمؤتمرات.
                             </p>
@@ -420,6 +410,7 @@ export default function RollUpStandsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/exhibitions-events/roll-up-stands" />
         </>
     );
 }

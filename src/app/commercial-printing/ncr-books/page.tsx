@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
     BookCopy,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة دفاتر NCR كربونية في جدة | فواتير وإيصالات | بوابة الرواج",
+    openGraph: {
+        title: "طباعة دفاتر NCR وفواتير في جدة | بوابة الرواج",
+        description: "طباعة دفاتر NCR كربونية (نسخ ذاتية) في جدة: فواتير، إيصالات، طلبات، وسندات قبض. 2-4 نسخ بألوان مختلفة. ترقيم وتثقيب.",
+        url: "https://rawajgate.com/commercial-printing/ncr-books",
+        images: [{ url: "/images/ncr-invoice-books-receipts-printing.webp", width: 1200, height: 630, alt: "طباعة دفاتر NCR وفواتير في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة دفاتر NCR وفواتير في جدة",
+        description: "طباعة دفاتر NCR كربونية (نسخ ذاتية) في جدة: فواتير، إيصالات، طلبات، وسندات قبض. 2-4 نسخ بألوان مختلفة. ترقيم وتثقيب.",
+        images: ["/images/ncr-invoice-books-receipts-printing.webp"],
+    },
+    alternates: { canonical: "/commercial-printing/ncr-books" },
+    title: "طباعة دفاتر NCR وفواتير في جدة",
     description: "طباعة دفاتر NCR كربونية (نسخ ذاتية) في جدة: فواتير، إيصالات، طلبات، وسندات قبض. 2-4 نسخ بألوان مختلفة. ترقيم وتثقيب.",
     keywords: ["دفاتر NCR", "فواتير كربونية", "إيصالات", "سندات قبض", "NCR books jeddah", "طباعة نسخ ذاتية"],
 };
@@ -46,32 +63,7 @@ const USE_CASES_DETAILED = [
     { icon: Building2, title: "المقاولات", desc: "أوامر توريد ومحاضر" },
 ];
 
-const FAQS = [
-    {
-        question: "ما هي دفاتر NCR وكيف تعمل؟",
-        answer: "NCR (No Carbon Required) هي دفاتر نسخ ذاتية بدون ورق كربون. تستخدم أوراقاً مطلية بمواد كيميائية خاصة. عند الكتابة على الورقة الأولى، تتفاعل المواد وتنتقل الكتابة تلقائياً للنسخ التالية. تُستخدم للفواتير والإيصالات حيث تحتاج نسخة للعميل وأخرى للملف.",
-    },
-    {
-        question: "كيف أحصل على عرض سعر لدفاتر NCR في جدة؟",
-        answer: "تواصل معنا عبر الواتساب أو الهاتف للحصول على عرض سعر مخصص حسب عدد النسخ (2/3/4) والكمية والحجم المطلوب. السعر يشمل الطباعة والترقيم التسلسلي والتثقيب والغلاف الكرتوني. أسعار تنافسية للكميات!",
-    },
-    {
-        question: "هل تطبعون دفاتر بحجم مخصص؟",
-        answer: "نعم، نطبع جميع الأحجام القياسية: A4 (الأكبر)، A5 (المتوسط)، A6 (الصغير). ونوفر أيضاً أحجاماً مخصصة حسب احتياجك بحد أدنى 200 دفتر.",
-    },
-    {
-        question: "ما الفرق بين دفتر نسختين وثلاث وأربع؟",
-        answer: "دفتر نسختين (أبيض+أصفر): للاستخدام البسيط - نسخة للعميل ونسخة للملف. دفتر 3 نسخ (أبيض+أصفر+وردي): الأكثر شيوعاً - للعميل، للحسابات، للملف. دفتر 4 نسخ: للشركات الكبيرة التي تحتاج نسخة إضافية للمستودع أو المحاسبة.",
-    },
-    {
-        question: "هل الترقيم التسلسلي متوفر؟",
-        answer: "نعم، الترقيم التسلسلي متوفر ومشمول في السعر. يبدأ من أي رقم تختاره (0001، 1000، إلخ). الترقيم يمنع التلاعب ويسهل المراجعة المحاسبية.",
-    },
-    {
-        question: "هل توفرون خدمة التصميم؟",
-        answer: "نعم، فريق التصميم لدينا يصمم الدفتر بما يتوافق مع هويتك البصرية ويتضمن جميع المعلومات المطلوبة (الشعار، معلومات الاتصال، الرقم الضريبي). التصميم مجاني للكميات الكبيرة.",
-    },
-];
+const FAQS = CommercialPrintingFaqs["commercial-printing/ncr-books"];
 
 export default function NCRBooksPage() {
     const schemas = [
@@ -357,6 +349,7 @@ export default function NCRBooksPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/commercial-printing/ncr-books" />
         </>
     );
 }

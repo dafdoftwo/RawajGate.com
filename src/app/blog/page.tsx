@@ -1,138 +1,93 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, Tag, BookOpen, TrendingUp, Lightbulb, PenTool } from "lucide-react";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { Calendar, Clock, ArrowLeft, BookOpen } from "lucide-react";
+
 import { GeoImage } from "@/components/geo-image";
+import { BUSINESS } from "@/lib/business";
+import {
+    getPublishedMeta,
+    getActiveCategories,
+    getBlogStats,
+} from "@/lib/articles/meta";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
+
+/**
+ * ⚡ هذه الصفحة تستورد meta.ts فقط — بيانات خفيفة بلا أي محتوى مقالات.
+ * حتى مع 90 مقالاً، الحمل هنا يبقى بضعة كيلوبايتات.
+ *
+ * revalidate كل ساعة حتى تظهر المقالات المجدولة في موعدها.
+ */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
-    title: "مدونة الطباعة والتصميم | نصائح احترافية للشركات | بوابة الرواج",
-    description: "مقالات متخصصة في الطباعة التجارية، تصميم الهوية البصرية، تجهيز المعارض، والهدايا الدعائية. نصائح من خبراء بخبرة 15+ عاماً في سوق جدة والمملكة.",
+    title: "مدونة الطباعة والتصميم وتجهيز المعارض",
+    description:
+        "أدلة عملية بأرقام حقيقية في الطباعة التجارية، أسعار الخدمات، لافتات المحلات، تجهيز أجنحة المعارض، والتصميم — من واقع عملنا في سوق جدة.",
+    alternates: { canonical: "/blog" },
     keywords: [
         "مدونة طباعة",
-        "نصائح تصميم شعار",
-        "دليل بطاقات العمل",
-        "تغليف سيارات",
-        "أجنحة معارض",
-        "هدايا دعائية",
-        "طباعة جدة",
-        "تصميم هوية بصرية",
+        "أسعار الطباعة جدة",
+        "دليل تجهيز معارض",
+        "نصائح تصميم",
+        "اشتراطات لوحات المحلات",
     ],
     openGraph: {
-        title: "مدونة بوابة الرواج | نصائح الطباعة والتصميم",
-        description: "تعلم من خبراء الطباعة والتصميم. مقالات عملية تساعدك في تطوير علامتك التجارية.",
-        images: ["/images/luxury-business-cards-printing-jeddah.webp"],
+        title: "مدونة بوابة الرواج | أدلة الطباعة وتجهيز المعارض",
+        description:
+            "أدلة عملية بأرقام حقيقية من واقع سوق جدة — الأسعار، الخامات، الاشتراطات، والمقارنات.",
+        url: `${BUSINESS.url}/blog`,
+        images: [
+            {
+                url: "/images/luxury-business-cards-printing-jeddah.webp",
+                width: 1200,
+                height: 630,
+                alt: "مدونة بوابة الرواج",
+            },
+        ],
         locale: "ar_SA",
         type: "website",
     },
-    alternates: {
-        canonical: "https://rawajgate.com/blog",
-    },
 };
 
-const BLOG_POSTS = [
-    {
-        id: 1,
-        slug: "how-to-choose-business-card-paper",
-        title: "كيف تختار ورق بطاقة العمل المناسب؟",
-        excerpt: "دليل شامل لأنواع الورق والتشطيبات المتوفرة لبطاقات العمل. تعرف على الفرق بين الكوشيه والكتان والمخمل.",
-        category: "مطبوعات",
-        date: "2024-12-10",
-        readTime: "5 دقائق",
-        image: "/images/luxury-business-cards-printing-jeddah.webp",
-    },
-    {
-        id: 2,
-        slug: "vehicle-branding-tips",
-        title: "5 نصائح قبل تغليف سيارتك",
-        excerpt: "ما يجب معرفته قبل تغليف سيارتك: اختيار الفينيل، التصميم الفعال، العناية والصيانة.",
-        category: "لوحات",
-        date: "2024-12-05",
-        readTime: "4 دقائق",
-        image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-    },
-    {
-        id: 3,
-        slug: "exhibition-booth-mistakes",
-        title: "7 أخطاء شائعة في تصميم أجنحة المعارض",
-        excerpt: "تجنب هذه الأخطاء لتحقيق أقصى استفادة من مشاركتك في المعارض والفعاليات.",
-        category: "معارض",
-        date: "2024-11-28",
-        readTime: "6 دقائق",
-        image: "/images/exhibition-booth-fabrication-design-jeddah.webp",
-    },
-    {
-        id: 4,
-        slug: "logo-design-process",
-        title: "رحلة تصميم الشعار: من الفكرة للتنفيذ",
-        excerpt: "كيف يعمل المصممون المحترفون على تصميم شعار ناجح؟ تعرف على المراحل والأدوات.",
-        category: "تصميم",
-        date: "2024-11-20",
-        readTime: "7 دقائق",
-        image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
-    },
-    {
-        id: 5,
-        slug: "promotional-gifts-guide",
-        title: "دليل اختيار الهدايا الدعائية للشركات",
-        excerpt: "كيف تختار الهدية المناسبة لعملائك؟ معايير الاختيار والميزانية المناسبة.",
-        category: "هدايا",
-        date: "2024-11-15",
-        readTime: "5 دقائق",
-        image: "/images/branded-notebooks-diaries-calendar-gift-sets.webp",
-    },
-    {
-        id: 6,
-        slug: "print-file-preparation",
-        title: "كيف تجهز ملفك للطباعة بشكل صحيح؟",
-        excerpt: "دليل Pre-Press: الدقة، الألوان، الخطوط، وBleed. تجنب أخطاء الطباعة الشائعة.",
-        category: "مطبوعات",
-        date: "2024-11-08",
-        readTime: "6 دقائق",
-        image: "/images/printing-machines-digital-offset-equipment.webp",
-    },
-];
+const arDate = (iso: string) =>
+    new Date(iso).toLocaleDateString("ar-SA-u-ca-gregory", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
 
-const CATEGORIES = [
-    { name: "الكل", count: 6, icon: BookOpen },
-    { name: "مطبوعات", count: 2, icon: PenTool },
-    { name: "لوحات", count: 1, icon: TrendingUp },
-    { name: "معارض", count: 1, icon: Lightbulb },
-    { name: "تصميم", count: 1, icon: PenTool },
-    { name: "هدايا", count: 1, icon: Tag },
-];
+export default async function BlogPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ category?: string }>;
+}) {
+    const { category } = await searchParams;
 
-// Blog Collection Schema for SEO
-const generateBlogCollectionSchema = () => ({
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "مدونة بوابة الرواج",
-    "description": "مقالات متخصصة في الطباعة والتصميم والتسويق",
-    "url": "https://rawajgate.com/blog",
-    "publisher": {
-        "@type": "Organization",
-        "name": "بوابة الرواج",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://rawajgate.com/logo.png"
-        }
-    },
-    "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": BLOG_POSTS.map((post, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "url": `https://rawajgate.com/blog/${post.slug}`,
-            "name": post.title
-        }))
-    }
-});
+    const all = getPublishedMeta();
+    const categories = getActiveCategories();
+    const stats = getBlogStats();
 
-export default function BlogPage() {
+    const active =
+        category && categories.some((c) => c.category === category)
+            ? category
+            : null;
+
+    const posts = active ? all.filter((p) => p.category === active) : all;
+
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: "الرئيسية", url: "https://rawajgate.com" },
-        { name: "المدونة", url: "https://rawajgate.com/blog" },
+        { name: "الرئيسية", url: BUSINESS.url },
+        { name: "المدونة", url: `${BUSINESS.url}/blog` },
     ]);
-    const blogCollectionSchema = generateBlogCollectionSchema();
+
+    const listSchema = generateItemListSchema(
+        all.map((p) => ({
+            name: p.title,
+            url: `/blog/${p.slug}`,
+            description: p.excerpt,
+            image: p.image,
+        })),
+        "مقالات مدونة بوابة الرواج"
+    );
 
     return (
         <>
@@ -142,144 +97,175 @@ export default function BlogPage() {
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCollectionSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
             />
-            {/* Hero Section */}
+
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
                 <div className="container mx-auto px-4 text-center">
-                    <nav className="text-sm text-white/60 mb-4 justify-center flex">
-                        <Link href="/" className="hover:text-white">الرئيسية</Link>
-                        <span className="mx-2">/</span>
-                        <span className="text-amber-400">المدونة</span>
+                    <nav aria-label="مسار التنقل" className="text-sm text-white/60 mb-4">
+                        <ol className="flex items-center justify-center">
+                            <li><Link href="/" className="hover:text-white">الرئيسية</Link></li>
+                            <li aria-hidden="true" className="mx-2">/</li>
+                            <li><span className="text-amber-400" aria-current="page">المدونة</span></li>
+                        </ol>
                     </nav>
 
                     <h1 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-                        <span className="text-gradient">المدونة</span>
+                        مدونة الطباعة وتجهيز المعارض
                     </h1>
 
-                    <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
-                        مقالات ونصائح من خبراء الطباعة والتصميم بخبرة 15+ عاماً في سوق جدة. تعلم كيف تختار الخامات، تصمم هويتك، وتسوّق علامتك التجارية باحترافية.
+                    <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
+                        أدلة عملية بأرقام حقيقية: أسعار الخدمات في السوق السعودي، مقارنات
+                        الخامات، اشتراطات البلدية، وتجهيز ملفات الطباعة — من واقع عملنا
+                        في جدة منذ 2009.
                     </p>
 
-                    {/* Stats */}
-                    <div className="flex justify-center gap-8 pt-6">
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-amber-400">6+</div>
-                            <div className="text-sm text-white/60">مقالات متخصصة</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-amber-400">15+</div>
-                            <div className="text-sm text-white/60">سنة خبرة</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-amber-400">5</div>
-                            <div className="text-sm text-white/60">تخصصات</div>
-                        </div>
-                    </div>
+                    <p className="text-white/50 text-sm mt-6">
+                        {stats.published} {stats.published === 1 ? "مقال منشور" : "مقالاً منشوراً"}
+                        {stats.upcoming > 0 && ` · ${stats.upcoming} قيد الجدولة`}
+                    </p>
                 </div>
             </section>
 
-            {/* Blog Content */}
+            {/* فلترة التصنيفات — تعمل عبر URL بلا JavaScript */}
+            {categories.length > 1 && (
+                <section className="py-6 bg-white border-b border-gray-100 sticky top-16 lg:top-20 z-30">
+                    <div className="container mx-auto px-4">
+                        <nav
+                            aria-label="فلترة المقالات حسب التصنيف"
+                            className="flex flex-wrap justify-center gap-2 md:gap-3"
+                        >
+                            <Link
+                                href="/blog"
+                                aria-current={!active ? "page" : undefined}
+                                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                    !active
+                                        ? "bg-amber-500 text-white"
+                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                }`}
+                            >
+                                <BookOpen className="w-4 h-4" aria-hidden="true" />
+                                الكل ({all.length})
+                            </Link>
+                            {categories.map((c) => (
+                                <Link
+                                    key={c.category}
+                                    href={`/blog?category=${encodeURIComponent(c.category)}`}
+                                    aria-current={active === c.category ? "page" : undefined}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                        active === c.category
+                                            ? "bg-amber-500 text-white"
+                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                    }`}
+                                >
+                                    {c.category} ({c.count})
+                                </Link>
+                            ))}
+                        </nav>
+                    </div>
+                </section>
+            )}
+
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-4 gap-8">
-                        {/* Sidebar */}
-                        <aside className="lg:col-span-1">
-                            <div className="card p-6 sticky top-24">
-                                <h3 className="font-bold text-gray-900 mb-4">التصنيفات</h3>
-                                <ul className="space-y-2">
-                                    {CATEGORIES.map((cat) => (
-                                        <li key={cat.name}>
-                                            <button className="flex items-center justify-between w-full text-gray-600 hover:text-amber-600 transition-colors">
-                                                <span>{cat.name}</span>
-                                                <span className="bg-gray-100 text-gray-500 text-xs px-2 py-0.5 rounded-full">
-                                                    {cat.count}
-                                                </span>
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </aside>
-
-                        {/* Posts Grid */}
-                        <div className="lg:col-span-3">
-                            <div className="grid md:grid-cols-2 gap-8">
-                                {BLOG_POSTS.map((post) => (
-                                    <article key={post.id} className="card overflow-hidden group">
-                                        <div className="relative aspect-[16/9] overflow-hidden">
+                    <div className="max-w-6xl mx-auto">
+                        {posts.length === 0 ? (
+                            <p className="text-center text-gray-500 py-12">
+                                لا توجد مقالات في هذا التصنيف بعد.{" "}
+                                <Link href="/blog" className="text-amber-600 hover:underline">
+                                    عرض كل المقالات
+                                </Link>
+                            </p>
+                        ) : (
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {posts.map((post, i) => (
+                                    <article
+                                        key={post.slug}
+                                        className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow group flex flex-col"
+                                    >
+                                        <Link
+                                            href={`/blog/${post.slug}`}
+                                            className="block relative aspect-[16/9] overflow-hidden"
+                                        >
                                             <GeoImage
                                                 src={post.image}
-                                                alt={post.title}
+                                                alt={post.imageAlt}
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 380px"
+                                                priority={i < 3}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 !rounded-none"
                                             />
-                                            <div className="absolute top-4 right-4 z-10">
-                                                <span className="bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
-                                                    {post.category}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div className="p-6">
+                                            <span className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                                                {post.category}
+                                            </span>
+                                        </Link>
+
+                                        <div className="p-6 flex flex-col flex-1">
                                             <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
                                                 <span className="flex items-center gap-1">
-                                                    <Calendar className="w-4 h-4" />
-                                                    {new Date(post.date).toLocaleDateString('ar-SA')}
+                                                    <Calendar className="w-4 h-4" aria-hidden="true" />
+                                                    <time dateTime={post.publishAt}>
+                                                        {arDate(post.publishAt)}
+                                                    </time>
                                                 </span>
                                                 <span className="flex items-center gap-1">
-                                                    <Clock className="w-4 h-4" />
+                                                    <Clock className="w-4 h-4" aria-hidden="true" />
                                                     {post.readTime}
                                                 </span>
                                             </div>
-                                            <h2 className="font-bold text-gray-900 text-lg mb-3 group-hover:text-amber-600 transition-colors">
-                                                {post.title}
+
+                                            <h2 className="font-bold text-gray-900 text-lg mb-3 leading-relaxed">
+                                                <Link
+                                                    href={`/blog/${post.slug}`}
+                                                    className="group-hover:text-amber-600 transition-colors"
+                                                >
+                                                    {post.title}
+                                                </Link>
                                             </h2>
-                                            <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
+
+                                            <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-1">
+                                                {post.excerpt}
+                                            </p>
+
                                             <Link
                                                 href={`/blog/${post.slug}`}
                                                 className="text-amber-600 font-medium text-sm inline-flex items-center hover:text-amber-700"
+                                                aria-label={`اقرأ المقال: ${post.title}`}
                                             >
-                                                اقرأ المزيد
-                                                <ArrowLeft className="mr-1 w-4 h-4" />
+                                                اقرأ المقال
+                                                <ArrowLeft className="mr-1 w-4 h-4" aria-hidden="true" />
                                             </Link>
                                         </div>
                                     </article>
                                 ))}
                             </div>
-
-                            {/* Load More */}
-                            <div className="text-center mt-12">
-                                <button className="px-8 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
-                                    عرض المزيد
-                                </button>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </section>
 
-            {/* Newsletter */}
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="max-w-xl mx-auto text-center">
+                    <div className="max-w-2xl mx-auto text-center">
                         <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4">
-                            اشترك في نشرتنا البريدية
+                            عندك مشروع طباعة أو معرض؟
                         </h2>
-                        <p className="text-gray-600 mb-6">
-                            احصل على آخر المقالات والنصائح مباشرة في بريدك الإلكتروني.
+                        <p className="text-gray-600 mb-8">
+                            فريقنا في جدة جاهز لمناقشة تفاصيل مشروعك وتقديم عرض سعر مجاني.
                         </p>
-                        <form className="flex gap-3">
-                            <input
-                                type="email"
-                                placeholder="بريدك الإلكتروني"
-                                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none"
-                            />
-                            <button
-                                type="submit"
-                                className="px-6 py-3 bg-amber-500 text-white font-medium rounded-lg hover:bg-amber-600 transition-colors"
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link
+                                href="/quote"
+                                className="px-8 py-3 bg-amber-500 text-white font-bold rounded-lg hover:bg-amber-600 transition-colors"
                             >
-                                اشترك
-                            </button>
-                        </form>
+                                اطلب عرض سعر
+                            </Link>
+                            <Link
+                                href="/prices"
+                                className="px-8 py-3 border border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-colors"
+                            >
+                                تصفّح الأسعار
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>

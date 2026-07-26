@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
     Sticker,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "ملصقات جدارية وديكال في جدة | Wall Decals | بوابة الرواج",
+    openGraph: {
+        title: "ملصقات جدارية وستيكرات ديكور في جدة | بوابة الرواج",
+        description: "ملصقات جدارية (Wall Decals) للمكاتب والمحلات في جدة. تصاميم مخصصة، سهلة التركيب والإزالة، لا تضر الدهان. مثالية للديكور الداخلي والشعارات.",
+        url: "https://rawajgate.com/signage-stickers/wall-decals",
+        images: [{ url: "/images/die-cut-vinyl-stickers-waterproof.webp", width: 1200, height: 630, alt: "ملصقات جدارية وستيكرات ديكور في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "ملصقات جدارية وستيكرات ديكور في جدة",
+        description: "ملصقات جدارية (Wall Decals) للمكاتب والمحلات في جدة. تصاميم مخصصة، سهلة التركيب والإزالة، لا تضر الدهان. مثالية للديكور الداخلي والشعارات.",
+        images: ["/images/die-cut-vinyl-stickers-waterproof.webp"],
+    },
+    alternates: { canonical: "/signage-stickers/wall-decals" },
+    title: "ملصقات جدارية وستيكرات ديكور في جدة",
     description: "ملصقات جدارية (Wall Decals) للمكاتب والمحلات في جدة. تصاميم مخصصة، سهلة التركيب والإزالة، لا تضر الدهان. مثالية للديكور الداخلي والشعارات.",
     keywords: ["ملصقات جدارية", "ديكال", "wall decals jeddah", "ستيكرات حائط", "ديكور مكاتب"],
 };
@@ -46,32 +63,7 @@ const USE_CASES_DETAILED = [
     { icon: Paintbrush, title: "التصميم الداخلي", desc: "لمسات جمالية للمساحات المختلفة" },
 ];
 
-const FAQS = [
-    {
-        question: "هل تضر الملصقات الجدارية بالدهان؟",
-        answer: "لا، نستخدم فينيل لاصق منخفض التلاصق (Low-Tack) مصمم خصيصاً للإزالة النظيفة. عند الإزالة بعد سنوات، لا يترك أي أثر على الدهان العادي. ننصح بالتأكد من جفاف الدهان تماماً (30 يوم على الأقل) قبل التركيب.",
-    },
-    {
-        question: "هل يمكن تركيب الملصق بنفسي؟",
-        answer: "نعم للأحجام الصغيرة (أقل من 1 متر) مع إرشادات بسيطة نوفرها لك. الملصقات الكبيرة تحتاج فني تركيب لضمان عدم وجود فقاعات هوائية واستواء الملصق. نوفر خدمة التركيب داخل جدة بدءاً من 50 ريال.",
-    },
-    {
-        question: "ما الفرق بين الملصق المقصوص والمطبوع؟",
-        answer: "الملصق المقصوص (Cut Vinyl) عبارة عن حروف أو أشكال منفصلة بلون واحد، مثالي للشعارات والنصوص. الملصق المطبوع (Printed) يسمح بألوان متعددة وصور، مناسب للتصاميم المعقدة والصور الفوتوغرافية.",
-    },
-    {
-        question: "كم تدوم الملصقات الجدارية؟",
-        answer: "الملصقات الداخلية تدوم 5-7 سنوات أو أكثر لأنها بعيدة عن الشمس المباشرة. الألوان تبقى زاهية واللاصق يحافظ على قوته. التنظيف بقطعة قماش رطبة فقط - لا تستخدم منظفات كيميائية.",
-    },
-    {
-        question: "هل يمكن تركيب الملصقات على أي نوع من الجدران؟",
-        answer: "الملصقات تعمل بشكل أفضل على الأسطح الملساء (دهان عادي، زجاج، أسطح معدنية). للجدران الخشنة أو المحببة، نوفر حلول بديلة مثل الطباعة على ألواح أكريليك أو فوم بورد.",
-    },
-    {
-        question: "كيف أحصل على عرض سعر لملصق جداري؟",
-        answer: "تواصل معنا بالمقاس المطلوب ونوع الملصق (مقصوص/مطبوع) وسنرسل لك عرض سعر فوري. التصميم متاح بسعر إضافي أو مجاناً للطلبات الكبيرة. يمكنك إرسال صورة للجدار لنساعدك في التصور.",
-    },
-];
+const FAQS = SignageStickersFaqs["signage-stickers/wall-decals"];
 
 export default function WallDecalsPage() {
     const schemas = [
@@ -338,6 +330,7 @@ export default function WallDecalsPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/signage-stickers/wall-decals" />
         </>
     );
 }

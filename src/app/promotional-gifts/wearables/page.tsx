@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
     Shirt,
     ArrowLeft,
@@ -13,7 +15,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "ملابس دعائية موحدة في جدة | تيشرتات وكابات بالشعار | بوابة الرواج",
+    openGraph: {
+        title: "ملابس دعائية وتيشرتات بالشعار في جدة | بوابة الرواج",
+        description: "ملابس دعائية موحدة في جدة: تيشرتات، بولو، كابات، جاكيتات بشعار شركتك. تطريز وطباعة حرارية. زي موحد للموظفين وهدايا للفعاليات.",
+        url: "https://rawajgate.com/promotional-gifts/wearables",
+        images: [{ url: "/images/logo-printed-tshirts-embroidery-polo.webp", width: 1200, height: 630, alt: "ملابس دعائية وتيشرتات بالشعار في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "ملابس دعائية وتيشرتات بالشعار في جدة",
+        description: "ملابس دعائية موحدة في جدة: تيشرتات، بولو، كابات، جاكيتات بشعار شركتك. تطريز وطباعة حرارية. زي موحد للموظفين وهدايا للفعاليات.",
+        images: ["/images/logo-printed-tshirts-embroidery-polo.webp"],
+    },
+    alternates: { canonical: "/promotional-gifts/wearables" },
+    title: "ملابس دعائية وتيشرتات بالشعار في جدة",
     description: "ملابس دعائية موحدة في جدة: تيشرتات، بولو، كابات، جاكيتات بشعار شركتك. تطريز وطباعة حرارية. زي موحد للموظفين وهدايا للفعاليات.",
     keywords: ["ملابس دعائية", "تيشرتات شركات", "كابات بالشعار", "زي موحد جدة", "t-shirts branded jeddah"],
 };
@@ -46,32 +63,7 @@ const USE_CASES = [
     { icon: Wrench, title: "الصيانة", desc: "ملابس عمل متينة" },
 ];
 
-const FAQS = [
-    {
-        question: "كيف أحصل على عرض للتيشيرتات بالشعار؟",
-        answer: "تواصل معنا للحصول على عرض سعر مخصص حسب الكمية ونوع القماش وطريقة الطباعة. نقدم أسعار تنافسية للكميات الكبيرة (+100 قطعة)!",
-    },
-    {
-        question: "ما الأفضل: التطريز أم الطباعة؟",
-        answer: "التطريز أفخم وأمتن (يدوم سنوات)، مثالي للشعارات الصغيرة (الصدر أو الكم). الطباعة الحرارية أرخص وتتيح تصاميم ملونة كبيرة.",
-    },
-    {
-        question: "ما الحد الأدنى للطلب؟",
-        answer: "تيشيرتات بالشعار: 50 قطعة. كابات: 50 قطعة. جاكيتات: 30 قطعة. للكميات الأقل، نوفر موديلات جاهزة من المخزون.",
-    },
-    {
-        question: "كم يستغرق الإنتاج؟",
-        answer: "الملابس بالتطريز: 7-10 أيام عمل. بالطباعة: 5-7 أيام. لدينا خدمة سريعة (3 أيام) للطلبات العاجلة برسوم إضافية.",
-    },
-    {
-        question: "هل توفرون مقاسات كبيرة؟",
-        answer: "نعم، نوفر مقاسات من S حتى 4XL. يمكن طلب مقاسات مخصصة للكميات الكبيرة. ننصح بطلب عينات مقاسات قبل الطلب الكبير.",
-    },
-    {
-        question: "هل الألوان ثابتة مع الغسيل؟",
-        answer: "التطريز ثابت 100% لا يتأثر بالغسيل. الطباعة الحرارية تدوم 50+ غسلة بالعناية الصحيحة (غسيل بارد، بدون مبيض).",
-    },
-];
+const FAQS = PromotionalGiftsFaqs["promotional-gifts/wearables"];
 
 export default function WearablesPage() {
     const schemas = [
@@ -319,6 +311,7 @@ export default function WearablesPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/promotional-gifts/wearables" />
         </>
     );
 }

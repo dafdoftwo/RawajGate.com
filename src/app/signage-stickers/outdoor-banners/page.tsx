@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { RelatedServices } from "@/components/related-services";
+import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
     Flag,
     ArrowLeft,
@@ -14,7 +16,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "طباعة بنرات خارجية وفلكس في جدة | لوحات إعلانية | بوابة الرواج",
+    openGraph: {
+        title: "طباعة بنرات خارجية وفلكس في جدة | بوابة الرواج",
+        description: "طباعة بنرات خارجية وفلكس في جدة. مقاومة للشمس والرياح، ألوان ثابتة، أحجام حتى 5 متر. مثالية للمحلات والفعاليات والإعلانات الخارجية.",
+        url: "https://rawajgate.com/signage-stickers/outdoor-banners",
+        images: [{ url: "/images/outdoor-flex-banner-printing-large-format.webp", width: 1200, height: 630, alt: "طباعة بنرات خارجية وفلكس في جدة" }],
+        locale: "ar_SA",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "طباعة بنرات خارجية وفلكس في جدة",
+        description: "طباعة بنرات خارجية وفلكس في جدة. مقاومة للشمس والرياح، ألوان ثابتة، أحجام حتى 5 متر. مثالية للمحلات والفعاليات والإعلانات الخارجية.",
+        images: ["/images/outdoor-flex-banner-printing-large-format.webp"],
+    },
+    alternates: { canonical: "/signage-stickers/outdoor-banners" },
+    title: "طباعة بنرات خارجية وفلكس في جدة",
     description: "طباعة بنرات خارجية وفلكس في جدة. مقاومة للشمس والرياح، ألوان ثابتة، أحجام حتى 5 متر. مثالية للمحلات والفعاليات والإعلانات الخارجية.",
     keywords: ["بنرات خارجية", "طباعة فلكس", "outdoor banners jeddah", "لوحات إعلانية", "بانر مقاوم"],
 };
@@ -42,32 +59,7 @@ const USE_CASES = [
     { icon: Zap, title: "الافتتاحات", desc: "بنرات الترحيب والتهنئة" },
 ];
 
-const FAQS = [
-    {
-        question: "كم تدوم البنرات الخارجية في جدة؟",
-        answer: "البنرات المطبوعة بأحبار Eco-Solvent المقاومة للأشعة UV تدوم 2-3 سنوات في الخارج تحت أشعة الشمس المباشرة. للاستخدام طويل المدة (+5 سنوات) نوفر طباعة بأحبار UV Ink على فلكس Front-lit المعالج خصيصاً لمناخ جدة الحار والرطب.",
-    },
-    {
-        question: "هل البنر يتحمل الرياح القوية؟",
-        answer: "نعم، نطبع على فلكس 440-550 جرام المتين. للمناطق شديدة الرياح مثل الكورنيش، نضيف ثقوب تهوية (Wind Slits) وحلقات معدنية (Eyelets) مع تقوية الحواف بشريط لحام حراري لمنع التمزق.",
-    },
-    {
-        question: "ما الفرق بين فلكس Front-lit و Back-lit؟",
-        answer: "Front-lit للاستخدام العادي حيث يكون الضوء أمام البنر (الشمس أو الإضاءة). Back-lit للوحات المضيئة من الخلف (Light Boxes) حيث يكون مصدر الضوء خلف البنر ويعطي إضاءة متوهجة ليلاً.",
-    },
-    {
-        question: "هل توفرون خدمة التركيب؟",
-        answer: "نعم، نوفر خدمة التركيب داخل جدة بأسعار تنافسية. للتعليق البسيط (بالحلقات) السعر يبدأ من 50 ريال. للتركيب على هياكل معدنية أو ارتفاعات عالية، يتم تحديد السعر حسب الموقع.",
-    },
-    {
-        question: "هل يمكن طباعة بنر بشكل مخصص (غير مستطيل)؟",
-        answer: "نعم، نوفر قص مخصص للبنرات بأي شكل (دائري، مثلث، شكل الشعار). يتم القص بماكينة CNC للحصول على حواف نظيفة ودقيقة.",
-    },
-    {
-        question: "كيف أحصل على عرض سعر لبنر خارجي؟",
-        answer: "تواصل معنا بالمقاس المطلوب (العرض × الارتفاع) وسنرسل لك عرض سعر فوري. السعر يشمل الطباعة والحلقات المعدنية. التصميم متاح بسعر إضافي أو مجاناً للطلبات الكبيرة.",
-    },
-];
+const FAQS = SignageStickersFaqs["signage-stickers/outdoor-banners"];
 
 export default function OutdoorBannersPage() {
     const schemas = [
@@ -342,6 +334,7 @@ export default function OutdoorBannersPage() {
                     </div>
                 </div>
             </section>
+        <RelatedServices currentPath="/signage-stickers/outdoor-banners" />
         </>
     );
 }
