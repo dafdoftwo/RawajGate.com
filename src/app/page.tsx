@@ -148,7 +148,15 @@ export default function HomePage() {
                 <span className="block text-2xl md:text-3xl text-amber-400 font-bold mb-3">
                   مطبعة في جدة · طباعة تجارية وتجهيز معارض
                 </span>
-                <span className="block text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.15] tracking-tight">
+                {/*
+                  font-bold (700) لا font-black (900).
+                  كان هذا السطر هو الاستخدام **الوحيد** للوزن 900 في المشروع
+                  كله، وكان يكلّف ملفَّي خط (عربي ~٣٢ KB + لاتيني ~١٤ KB)
+                  محمَّلين مسبقاً — يزاحمان المسار الحرج لعنصر LCP نفسه.
+                  الفرق البصري بين 700 و900 عند حجم ٧٢px طفيف؛ الفرق في
+                  السرعة ليس كذلك.
+                */}
+                <span className="block text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] tracking-tight">
                   نصنع{" "}
                   <span className="text-amber-500 relative inline-block">
                     الفرق
