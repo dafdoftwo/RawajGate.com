@@ -18,7 +18,7 @@ export const sustainablePrinting: Article = {
     image: "/images/eco-recycled-kraft-sustainable-printing.webp",
     imageAlt: "مطبوعات صديقة للبيئة من ورق كرافت معاد تدويره مع أوراق بذور ومغلف قابل للتحلل",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "الطباعة المستدامة",

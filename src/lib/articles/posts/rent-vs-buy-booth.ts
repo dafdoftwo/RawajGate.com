@@ -18,7 +18,7 @@ export const rentVsBuyBooth: Article = {
     image: "/images/exhibition-booth-storage-warehouse-modular.webp",
     imageAlt: "تخزين مكوّنات جناح معرض معياري في مستودع مقابل فريق يركّب الجناح",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تأجير أم شراء جناح المعرض",

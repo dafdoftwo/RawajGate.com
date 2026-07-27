@@ -18,7 +18,7 @@ export const eidCorporateGifts: Article = {
     image: "/images/eid-corporate-gift-box-luxury.webp",
     imageAlt: "صندوق هدايا العيد للشركات: كوب مذهّب، دفتر جلدي، تمر وبطاقة بشريط على مخمل أخضر",
 
-    readTime: "13 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "هدايا العيد للشركات",

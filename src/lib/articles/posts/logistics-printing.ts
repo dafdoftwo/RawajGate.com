@@ -18,7 +18,7 @@ export const logisticsPrinting: Article = {
     image: "/images/logistics-fleet-vans-warehouse-branding.webp",
     imageAlt: "أسطول شاحنات وسيارات توزيع بيضاء جاهزة للتغليف الدعائي أمام مستودع لوجستي",
 
-    readTime: "14 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "مطبوعات شركات الشحن",

@@ -18,7 +18,7 @@ export const saudiExhibitionsCalendar: Article = {
     image: "/images/exhibition-booth-fabrication-design-jeddah.webp",
     imageAlt: "جناح معرض تجاري في السعودية",
 
-    readTime: "12 دقيقة",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "المعارض التجارية في السعودية",

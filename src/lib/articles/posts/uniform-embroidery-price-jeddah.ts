@@ -19,7 +19,7 @@ export const uniformEmbroideryPriceJeddah: Article = {
     imageAlt:
         "تيشيرتات وبولو مطبوعة ومطرّزة بشعار شركة جاهزة للتسليم في جدة",
 
-    readTime: "11 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "أسعار الملابس الدعائية في جدة",

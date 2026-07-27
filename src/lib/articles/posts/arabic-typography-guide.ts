@@ -18,7 +18,7 @@ export const arabicTypographyGuide: Article = {
     image: "/images/arabic-calligraphy-typography-craft.webp",
     imageAlt: "الخط العربي: أقلام قصب، محبرة نحاسية وأوراق بضربات خطية زخرفية بجوار تابلت",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "الخط العربي في التصميم",

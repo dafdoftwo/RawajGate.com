@@ -19,7 +19,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم الملصقات والتغليف",
         image: "/images/product-label-compliance-inspection.webp",
         imageAlt: "فحص مطابقة ملصق منتج بعدسة مكبرة على برطمان مع باركود وجدول بيانات",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "اشتراطات ملصقات المنتجات",
     },
     {
@@ -35,7 +35,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم التصميم والمطبوعات التجارية",
         image: "/images/brochure-layout-design-trifold-grid.webp",
         imageAlt: "تصميم بروشور ثلاثي الطي بشبكة تحريرية منظمة مع مسطرة وتابلت يعرض أعمدة التصميم",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "كيف تصمم بروشور احترافي",
     },
     {
@@ -51,7 +51,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/exhibition-floor-plan-booth-selection.webp",
         imageAlt: "اختيار موقع الجناح على مخطط أرضية معرض تجاري بوضع علامة على جناح ركني",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "اختيار موقع جناح المعرض",
     },
     {
@@ -67,7 +67,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم التصميم والهوية البصرية",
         image: "/images/creative-agency-team-design-review.webp",
         imageAlt: "فريق وكالة إبداعية يراجع تصاميم مطبوعة وشرائح ألوان حول طاولة عمل",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "فريق تصميم داخلي أم وكالة",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم الملصقات والستيكرات",
         image: "/images/custom-product-labels-roll-stickers.webp",
         imageAlt: "ملصقات منتجات مخصصة على رول وأفرخ مطبوعة بشعارات وباركود في مطبعة بجدة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "ملصقات رول أم شيت",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم اللافتات وبراندينج المركبات",
         image: "/images/vehicle-wrap-vinyl-installation-squeegee.webp",
         imageAlt: "تركيب فينيل تغليف السيارة بالسكويجي مع ظهور خط الفصل بين الجزء المغلّف والأصلي",
-        readTime: "10 دقائق",
+        readTime: "15 دقيقة",
         primaryKeyword: "تغليف كامل أم جزئي",
     },
     {
@@ -115,7 +115,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم اللافتات والواجهات",
         image: "/images/led-backlit-vs-neon-flex-signage-dusk.webp",
         imageAlt: "مقارنة إضاءة LED الخلفية الهالة وأنبوب النيون فلكس على واجهة محل وقت الغروب",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "LED أم نيون فلكس",
     },
     {
@@ -131,7 +131,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/glossy-vs-matte-lamination-comparison.webp",
         imageAlt: "مقارنة السلوفان اللامع والمطفي على بطاقتين متطابقتين تحت إضاءة جانبية",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "سلوفان لامع أم مطفي",
     },
     {
@@ -147,7 +147,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم الهدايا الترويجية والتخصيص",
         image: "/images/custom-printed-metal-plastic-pens.webp",
         imageAlt: "أقلام معدنية وبلاستيكية مخصصة بشعارات شركات بالحفر بالليزر والطباعة في مطبعة بجدة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "حفر ليزر أم طباعة",
     },
     {
@@ -163,7 +163,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/rollup-vs-xbanner-stand-comparison.webp",
         imageAlt: "مقارنة رول أب ستاند بقاعدة ألومنيوم مع إكس بانر بقوائم متقاطعة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "رول أب أم إكس بانر",
     },
     {
@@ -179,7 +179,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم اللافتات والملصقات",
         image: "/images/glass-window-frosted-sticker-branding.webp",
         imageAlt: "ستيكر زجاج ساتيه (فروست) مع شعار مقصوص على واجهة مكتب زجاجية في جدة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "أسعار الملصقات الجدارية في جدة",
     },
     {
@@ -195,7 +195,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية والتغليف",
         image: "/images/custom-paper-bags-shopping-packaging.webp",
         imageAlt: "أكياس ورقية مطبوعة بشعارات تجارية بمقاسات وخامات مختلفة للتغليف الدعائي في جدة",
-        readTime: "14 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "أسعار الأكياس الورقية في جدة",
     },
     {
@@ -211,7 +211,7 @@ export const META_2026_11: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية وخدمة المطاعم",
         image: "/images/restaurant-menu-formats-comparison.webp",
         imageAlt: "مقارنة صيغ المنيو: غلاف جلدي، كرت مغلّف، ثلاثي الطي، كليب بورد وتنت كارد",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "سعر طباعة منيو مطعم في جدة",
     },
 ];

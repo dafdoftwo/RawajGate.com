@@ -19,7 +19,7 @@ export const popupVsMediawall: Article = {
     imageAlt:
         "خلفية بوب أب وميديا وول مطبوعة داخل قاعة فعاليات في جدة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "بوب أب أم ميديا وول",

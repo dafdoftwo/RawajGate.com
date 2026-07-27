@@ -19,7 +19,7 @@ export const logoDesignPriceSaudi: Article = {
     imageAlt:
         "اجتماع مناقشة مقترحات تصميم شعار مع عميل في مكتب بوابة الرواج بحي الروضة في جدة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "سعر تصميم شعار في السعودية",

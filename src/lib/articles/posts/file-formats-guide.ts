@@ -18,7 +18,7 @@ export const fileFormatsGuide: Article = {
     image: "/images/vector-file-formats-print-workflow.webp",
     imageAlt: "ملف فيكتور على الشاشة بنقاط تحكم ومنحنيات بيزييه مع وسائط تخزين وبروفات مطبوعة",
 
-    readTime: "12 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "صيغ ملفات الطباعة",

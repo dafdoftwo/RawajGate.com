@@ -18,7 +18,7 @@ export const glossyVsMatteLamination: Article = {
     image: "/images/glossy-vs-matte-lamination-comparison.webp",
     imageAlt: "مقارنة السلوفان اللامع والمطفي على بطاقتين متطابقتين تحت إضاءة جانبية",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "سلوفان لامع أم مطفي",

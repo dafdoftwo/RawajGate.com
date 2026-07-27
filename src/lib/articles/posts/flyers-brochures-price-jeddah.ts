@@ -19,7 +19,7 @@ export const flyersBrochuresPriceJeddah: Article = {
     imageAlt:
         "فلايرات ومطويات ثلاثية الطي مطبوعة بألوان كاملة داخل مطبعة في جدة",
 
-    readTime: "13 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "أسعار طباعة الفلايرات في جدة",

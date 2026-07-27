@@ -18,7 +18,7 @@ export const businessCardsPriceJeddah: Article = {
     image: "/images/luxury-business-cards-printing-jeddah.webp",
     imageAlt: "بطاقات عمل مطبوعة بتشطيبات مختلفة في جدة",
 
-    readTime: "9 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "سعر طباعة كروت شخصية في جدة",

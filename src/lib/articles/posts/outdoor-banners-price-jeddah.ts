@@ -18,7 +18,7 @@ export const outdoorBannersPriceJeddah: Article = {
     image: "/images/outdoor-flex-banner-printing-large-format.webp",
     imageAlt: "طباعة بنر فلكس خارجي كبير المقاس على ماكينة سولفنت في جدة",
 
-    readTime: "12 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "أسعار البنرات الخارجية في جدة",

@@ -19,7 +19,7 @@ export const paperBagsPriceJeddah: Article = {
     imageAlt:
         "أكياس ورقية مطبوعة بشعارات تجارية بمقاسات وخامات مختلفة للتغليف الدعائي في جدة",
 
-    readTime: "14 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "أسعار الأكياس الورقية في جدة",

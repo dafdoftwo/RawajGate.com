@@ -18,7 +18,7 @@ export const brandIdentityGuide: Article = {
     image: "/images/complete-brand-identity-system-spread.webp",
     imageAlt: "نظام هوية بصرية متكامل: دليل الهوية مفتوحاً مع مطبوعات ومنتجات موحّدة اللون",
 
-    readTime: "11 دقيقة",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "الهوية البصرية للشركات",

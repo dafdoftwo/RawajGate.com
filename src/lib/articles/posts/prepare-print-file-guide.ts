@@ -18,7 +18,7 @@ export const preparePrintFileGuide: Article = {
     image: "/images/print-file-prep-bleed-trim-marks.webp",
     imageAlt: "تجهيز ملف الطباعة على الشاشة مع خطوط الحد الآمن وعلامات القص والـ bleed",
 
-    readTime: "10 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "كيف أجهز ملف الطباعة",

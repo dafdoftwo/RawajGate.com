@@ -18,7 +18,7 @@ export const offsetVsDigitalPrinting: Article = {
     image: "/images/printing-machines-digital-offset-equipment.webp",
     imageAlt: "ماكينات الطباعة الرقمية والأوفست في ورشة بجدة",
 
-    readTime: "9 دقائق",
+    readTime: "3 دقائق",
 
     keywords: {
         primary: "الفرق بين الطباعة الأوفست والرقمية",

@@ -18,7 +18,7 @@ export const kraftVsCoatedPackaging: Article = {
     image: "/images/kraft-vs-coated-paper-bag-comparison.webp",
     imageAlt: "مقارنة كيس ورقي كرافت بني بمقبض مجدول وكيس كوشيه أبيض لامع بشريط ساتان",
 
-    readTime: "11 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "ورق كرافت أم كوشيه للتغليف",

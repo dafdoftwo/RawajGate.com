@@ -18,7 +18,7 @@ export const gymFitnessPrinting: Article = {
     image: "/images/gym-fitness-branding-apparel-interior.webp",
     imageAlt: "صالة رياضية: تيشرتات تدريب مطوية، مناشف، زجاجة ماء ولوحة جدارية تحفيزية",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مطبوعات الصالات الرياضية",

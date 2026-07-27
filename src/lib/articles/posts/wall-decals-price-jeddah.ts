@@ -19,7 +19,7 @@ export const wallDecalsPriceJeddah: Article = {
     imageAlt:
         "ستيكر زجاج ساتيه (فروست) مع شعار مقصوص على واجهة مكتب زجاجية في جدة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "أسعار الملصقات الجدارية في جدة",

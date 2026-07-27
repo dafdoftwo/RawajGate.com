@@ -18,7 +18,7 @@ export const printTroubleshooting: Article = {
     image: "/images/print-quality-control-loupe-cmyk-inspection.webp",
     imageAlt: "فحص جودة الطباعة بعدسة مكبرة على شريط ألوان CMYK وعلامات التسجيل فوق طاولة إضاءة",
 
-    readTime: "12 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "حل مشاكل الطباعة",

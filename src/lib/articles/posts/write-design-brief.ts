@@ -18,7 +18,7 @@ export const writeDesignBrief: Article = {
     image: "/images/writing-design-brief-form-moodboard.webp",
     imageAlt: "تعبئة نموذج بريف تصميم بقلم حبر مع مود بورد قصاصات ألوان وبطاقات مرجعية",
 
-    readTime: "12 دقيقة",
+    readTime: "16 دقيقة",
 
     keywords: {
         primary: "كيف تكتب بريف تصميم",

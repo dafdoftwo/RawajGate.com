@@ -19,7 +19,7 @@ export const boothStaffTraining: Article = {
     imageAlt:
         "كاونتر ترويجي متنقل داخل جناح معرض في جدة، يمثّل نقطة عمل فريق الاستقبال",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تدريب فريق جناح المعرض",

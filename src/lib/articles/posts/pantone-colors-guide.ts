@@ -18,7 +18,7 @@ export const pantoneColorsGuide: Article = {
     image: "/images/pantone-color-swatch-fan-deck-selection.webp",
     imageAlt: "مروحة عيّنات ألوان بانتون مفتوحة على مكتب مصمم واختيار شريحة لون",
 
-    readTime: "12 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "دليل ألوان Pantone",

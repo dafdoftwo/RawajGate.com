@@ -18,7 +18,7 @@ export const hotelHospitalityPrinting: Article = {
     image: "/images/hotel-guest-room-print-collateral.webp",
     imageAlt: "مطبوعات غرفة فندقية: دليل النزيل الجلدي، معلّقة الباب، غلاف بطاقة الغرفة وبطاقة السبا",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مطبوعات الفنادق",

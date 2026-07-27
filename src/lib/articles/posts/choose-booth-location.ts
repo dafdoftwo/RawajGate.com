@@ -18,7 +18,7 @@ export const chooseBoothLocation: Article = {
     image: "/images/exhibition-floor-plan-booth-selection.webp",
     imageAlt: "اختيار موقع الجناح على مخطط أرضية معرض تجاري بوضع علامة على جناح ركني",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "اختيار موقع جناح المعرض",

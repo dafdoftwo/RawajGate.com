@@ -18,7 +18,7 @@ export const productLabelCompliance: Article = {
     image: "/images/product-label-compliance-inspection.webp",
     imageAlt: "فحص مطابقة ملصق منتج بعدسة مكبرة على برطمان مع باركود وجدول بيانات",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "اشتراطات ملصقات المنتجات",

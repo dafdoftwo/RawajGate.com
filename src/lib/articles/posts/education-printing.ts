@@ -18,7 +18,7 @@ export const educationPrinting: Article = {
     image: "/images/school-administration-print-materials.webp",
     imageAlt: "مطبوعات إدارة مدرسية: بطاقات طلاب، شهادات، بروشورات ولوحات إرشادية",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مطبوعات المدارس",

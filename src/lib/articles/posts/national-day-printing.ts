@@ -18,7 +18,7 @@ export const nationalDayPrinting: Article = {
     image: "/images/saudi-national-day-merchandise.webp",
     imageAlt: "مطبوعات وهدايا اليوم الوطني السعودي بالأخضر والأبيض: كابات، أوشحة، تيشرتات وأعلام",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مطبوعات اليوم الوطني",

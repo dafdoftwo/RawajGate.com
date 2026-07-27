@@ -18,7 +18,7 @@ export const paperWeightSizeGuide: Article = {
     image: "/images/paper-stock-weights-sizes-samples.webp",
     imageAlt: "عيّنات ورق بأوزان وملامس مختلفة مع مقاسات متدرجة من البوستر إلى الكرت",
 
-    readTime: "11 دقيقة",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "مقاسات الورق وأوزانه",

@@ -18,7 +18,7 @@ export const lawFirmPrinting: Article = {
     image: "/images/law-firm-letterhead-folder-desk.webp",
     imageAlt: "مكتب محاماة: فولدر بارز، ورق رسمي قطني، قلم حبر ومحفظة جلدية",
 
-    readTime: "12 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "مطبوعات مكاتب المحاماة",

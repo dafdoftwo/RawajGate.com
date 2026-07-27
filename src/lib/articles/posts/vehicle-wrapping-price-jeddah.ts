@@ -18,7 +18,7 @@ export const vehicleWrappingPriceJeddah: Article = {
     image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
     imageAlt: "سيارة تجارية مغلّفة بالفينيل في جدة",
 
-    readTime: "10 دقائق",
+    readTime: "3 دقائق",
 
     keywords: {
         primary: "أسعار تغليف السيارات في جدة",

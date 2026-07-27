@@ -18,7 +18,7 @@ export const vehicleWrapDesignGuide: Article = {
     image: "/images/vehicle-wrap-design-template-workstation.webp",
     imageAlt: "تصميم تغليف سيارة على قالب جانبي ثلاثي الأبعاد مع خطوط إرشاد للأبواب وأقواس العجلات",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تصميم تغليف السيارات",

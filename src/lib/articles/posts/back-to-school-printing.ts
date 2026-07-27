@@ -18,7 +18,7 @@ export const backToSchoolPrinting: Article = {
     image: "/images/back-to-school-notebooks-supplies.webp",
     imageAlt: "مستلزمات العودة للمدارس: دفاتر ملوّنة، حقيبة، مقلمة وكراسات مطبوعة",
 
-    readTime: "14 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "مطبوعات العودة للمدارس",

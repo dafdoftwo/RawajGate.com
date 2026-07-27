@@ -18,7 +18,7 @@ export const shopSignagePriceJeddah: Article = {
     image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
     imageAlt: "لافتة محل بحروف أكريليك مضيئة في جدة",
 
-    readTime: "10 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "سعر لافتة محل في جدة",

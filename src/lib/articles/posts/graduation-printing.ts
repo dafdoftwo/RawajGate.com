@@ -18,7 +18,7 @@ export const graduationPrinting: Article = {
     image: "/images/graduation-diploma-cap-invitations.webp",
     imageAlt: "مطبوعات التخرج: شهادة ملفوفة بشريط ذهبي، قبعة تخرج، دعوات وميدالية",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مطبوعات حفلات التخرج",

@@ -18,7 +18,7 @@ export const signageMaterialsComparison: Article = {
     image: "/images/acrylic-steel-aluminium-3d-letters-comparison.webp",
     imageAlt: "مقارنة حروف بارزة بثلاث خامات: أكريليك شفاف سميك، ستانلس مشكّل وألوكوبوند خفيف",
 
-    readTime: "12 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "مقارنة خامات اللافتات",

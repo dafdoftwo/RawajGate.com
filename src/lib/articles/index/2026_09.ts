@@ -19,7 +19,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم إدارة المشاريع",
         image: "/images/print-shop-exhibition-services-saudi-arabia.webp",
         imageAlt: "مطبوعات دعائية متكاملة لحملة تسويقية واحدة معروضة داخل مطبعة في جدة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تخطيط حملة مطبوعات",
     },
     {
@@ -51,7 +51,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم التصميم والهوية البصرية",
         image: "/images/writing-design-brief-form-moodboard.webp",
         imageAlt: "تعبئة نموذج بريف تصميم بقلم حبر مع مود بورد قصاصات ألوان وبطاقات مرجعية",
-        readTime: "12 دقيقة",
+        readTime: "16 دقيقة",
         primaryKeyword: "كيف تكتب بريف تصميم",
     },
     {
@@ -67,7 +67,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم التصميم وبراندينج المركبات",
         image: "/images/vehicle-wrap-design-template-workstation.webp",
         imageAlt: "تصميم تغليف سيارة على قالب جانبي ثلاثي الأبعاد مع خطوط إرشاد للأبواب وأقواس العجلات",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تصميم تغليف السيارات",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية والمناسبات",
         image: "/images/corporate-gift-selection-consultation.webp",
         imageAlt: "اختيار الهدية الدعائية من صينية عيّنات على طاولة اجتماعات مع عرض خيارات على تابلت",
-        readTime: "11 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "اختيار الهدية الدعائية للمناسبات",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم التصميم والتجهيز الطباعي",
         image: "/images/business-card-design-sketches-process.webp",
         imageAlt: "عملية تصميم بطاقة عمل: اسكتشات على ورق شفاف، تابلت وموك أب مطبوع للمقارنة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "كيف تصمم بطاقة عمل احترافية",
     },
     {
@@ -115,7 +115,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية والتغليف",
         image: "/images/kraft-vs-coated-paper-bag-comparison.webp",
         imageAlt: "مقارنة كيس ورقي كرافت بني بمقبض مجدول وكيس كوشيه أبيض لامع بشريط ساتان",
-        readTime: "11 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "ورق كرافت أم كوشيه للتغليف",
     },
     {
@@ -131,7 +131,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/exhibition-booth-storage-warehouse-modular.webp",
         imageAlt: "تخزين مكوّنات جناح معرض معياري في مستودع مقابل فريق يركّب الجناح",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تأجير أم شراء جناح المعرض",
     },
     {
@@ -147,7 +147,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتغليف",
         image: "/images/cast-vinyl-film-rolls-swatches.webp",
         imageAlt: "بكرات فينيل مصبوب بألوان وتشطيبات مختلفة مع مروحة عيّنات لامع ومطفي وملمسي",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مقارنة أنواع الفينيل",
     },
     {
@@ -163,7 +163,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم اللافتات والواجهات",
         image: "/images/acrylic-steel-aluminium-3d-letters-comparison.webp",
         imageAlt: "مقارنة حروف بارزة بثلاث خامات: أكريليك شفاف سميك، ستانلس مشكّل وألوكوبوند خفيف",
-        readTime: "12 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "مقارنة خامات اللافتات",
     },
     {
@@ -179,7 +179,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم الهدايا الترويجية والملابس",
         image: "/images/embroidery-vs-heat-transfer-machines.webp",
         imageAlt: "مقارنة التطريز الآلي والطباعة الحرارية على بولو وتيشرت داخل ورشة إنتاج",
-        readTime: "10 دقائق",
+        readTime: "14 دقيقة",
         primaryKeyword: "تطريز أم طباعة حرارية",
     },
     {
@@ -195,7 +195,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/pop-up-display-media-wall-background.webp",
         imageAlt: "خلفية بوب أب وميديا وول مطبوعة داخل قاعة فعاليات في جدة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "بوب أب أم ميديا وول",
     },
     {
@@ -211,7 +211,7 @@ export const META_2026_09: ArticleMeta[] = [
         authorRole: "قسم التصميم والهوية البصرية",
         image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
         imageAlt: "اجتماع مناقشة مقترحات تصميم شعار مع عميل في مكتب بوابة الرواج بحي الروضة في جدة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "سعر تصميم شعار في السعودية",
     },
 ];

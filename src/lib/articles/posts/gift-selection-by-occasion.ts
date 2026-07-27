@@ -18,7 +18,7 @@ export const giftSelectionByOccasion: Article = {
     image: "/images/corporate-gift-selection-consultation.webp",
     imageAlt: "اختيار الهدية الدعائية من صينية عيّنات على طاولة اجتماعات مع عرض خيارات على تابلت",
 
-    readTime: "11 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "اختيار الهدية الدعائية للمناسبات",

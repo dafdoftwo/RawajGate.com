@@ -18,7 +18,7 @@ export const productLabelsPriceJeddah: Article = {
     image: "/images/custom-product-labels-roll-stickers-jeddah.webp",
     imageAlt: "ملصقات منتجات مطبوعة على رول بمقاسات وخامات مختلفة في مطبعة بجدة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "أسعار ملصقات المنتجات في جدة",

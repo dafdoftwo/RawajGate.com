@@ -18,7 +18,7 @@ export const embroideryVsHeatTransfer: Article = {
     image: "/images/embroidery-vs-heat-transfer-machines.webp",
     imageAlt: "مقارنة التطريز الآلي والطباعة الحرارية على بولو وتيشرت داخل ورشة إنتاج",
 
-    readTime: "10 دقائق",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تطريز أم طباعة حرارية",

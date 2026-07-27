@@ -18,7 +18,7 @@ export const restaurantMenuGuide: Article = {
     image: "/images/restaurant-menu-design-leather-cover.webp",
     imageAlt: "منيو مطعم بغلاف جلدي فاخر في جدة",
 
-    readTime: "10 دقائق",
+    readTime: "5 دقائق",
 
     keywords: {
         primary: "تصميم وطباعة منيو المطعم",

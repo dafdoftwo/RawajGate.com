@@ -19,7 +19,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم الطباعة الكبيرة واللافتات الخارجية",
         image: "/images/outdoor-flex-banner-printing-large-format.webp",
         imageAlt: "طباعة بنر فلكس خارجي كبير المقاس على ماكينة سولفنت في جدة",
-        readTime: "12 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "أسعار البنرات الخارجية في جدة",
     },
     {
@@ -35,7 +35,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم الملصقات والتغليف",
         image: "/images/custom-product-labels-roll-stickers-jeddah.webp",
         imageAlt: "ملصقات منتجات مطبوعة على رول بمقاسات وخامات مختلفة في مطبعة بجدة",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "أسعار ملصقات المنتجات في جدة",
     },
     {
@@ -51,7 +51,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية والملابس",
         image: "/images/logo-printed-tshirts-embroidery-polo.webp",
         imageAlt: "تيشيرتات وبولو مطبوعة ومطرّزة بشعار شركة جاهزة للتسليم في جدة",
-        readTime: "11 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "أسعار الملابس الدعائية في جدة",
     },
     {
@@ -67,7 +67,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية والإدارية",
         image: "/images/ncr-invoice-books-receipts-printing.webp",
         imageAlt: "دفاتر NCR كربونية للفواتير والإيصالات بنسخ ملوّنة وترقيم تسلسلي مطبوعة في جدة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "أسعار دفاتر NCR في جدة",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/advertising-flyers-brochures-tri-fold.webp",
         imageAlt: "فلايرات ومطويات ثلاثية الطي مطبوعة بألوان كاملة داخل مطبعة في جدة",
-        readTime: "13 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "أسعار طباعة الفلايرات في جدة",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/restaurant-menu-design-leather-cover.webp",
         imageAlt: "منيو مطعم بغلاف جلدي فاخر في جدة",
-        readTime: "10 دقائق",
+        readTime: "5 دقائق",
         primaryKeyword: "تصميم وطباعة منيو المطعم",
     },
     {
@@ -115,7 +115,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم التصميم",
         image: "/images/complete-brand-identity-system-spread.webp",
         imageAlt: "نظام هوية بصرية متكامل: دليل الهوية مفتوحاً مع مطبوعات ومنتجات موحّدة اللون",
-        readTime: "11 دقيقة",
+        readTime: "4 دقائق",
         primaryKeyword: "الهوية البصرية للشركات",
     },
     {
@@ -131,7 +131,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية",
         image: "/images/corporate-promotional-gifts-jeddah-items.webp",
         imageAlt: "مجموعة هدايا دعائية للشركات في جدة",
-        readTime: "10 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "اختيار الهدايا الدعائية للشركات",
     },
     {
@@ -147,7 +147,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/exhibition-booth-fabrication-design-jeddah.webp",
         imageAlt: "جناح معرض تجاري في السعودية",
-        readTime: "12 دقيقة",
+        readTime: "4 دقائق",
         primaryKeyword: "المعارض التجارية في السعودية",
     },
     {
@@ -163,7 +163,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم خدمة العملاء",
         image: "/images/rawaj-gate-printing-workshop-team-at-work.webp",
         imageAlt: "ورشة طباعة في جدة أثناء العمل",
-        readTime: "11 دقيقة",
+        readTime: "4 دقائق",
         primaryKeyword: "كيف تختار مطبعة في جدة",
     },
     {
@@ -179,7 +179,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/octanorm-system-booth-shell-scheme.webp",
         imageAlt: "جناح أوكتانورم نظامي في معرض بجدة",
-        readTime: "10 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "أوكتانورم أم جناح مخصص",
     },
     {
@@ -195,7 +195,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتركيب",
         image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
         imageAlt: "لافتة محل بحروف أكريليك مضيئة في جدة",
-        readTime: "10 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "سعر لافتة محل في جدة",
     },
     {
@@ -211,7 +211,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة",
         image: "/images/paper-stock-weights-sizes-samples.webp",
         imageAlt: "عيّنات ورق بأوزان وملامس مختلفة مع مقاسات متدرجة من البوستر إلى الكرت",
-        readTime: "11 دقيقة",
+        readTime: "4 دقائق",
         primaryKeyword: "مقاسات الورق وأوزانه",
     },
     {
@@ -227,7 +227,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/coated-vs-linen-paper-texture-macro.webp",
         imageAlt: "مقارنة ماكرو بين ورق كوشيه ناعم وورق كتان بملمس منسوج تحت ضوء جانبي",
-        readTime: "8 دقائق",
+        readTime: "3 دقائق",
         primaryKeyword: "ورق كوشيه أم كتان لبطاقات العمل",
     },
 ];

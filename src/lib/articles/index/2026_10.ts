@@ -35,7 +35,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية والتشطيبات",
         image: "/images/presentation-folder-files-holder.webp",
         imageAlt: "فولدر عروض تقديمي بمقاس A4 من كرتون مقوّى بجيب داخلي وشق بطاقة عمل مطبوع في جدة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "أسعار ملفات العروض في جدة",
     },
     {
@@ -67,7 +67,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم الحملات الموسمية والهدايا الدعائية",
         image: "/images/saudi-national-day-merchandise.webp",
         imageAlt: "مطبوعات وهدايا اليوم الوطني السعودي بالأخضر والأبيض: كابات، أوشحة، تيشرتات وأعلام",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مطبوعات اليوم الوطني",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية والمناسبات",
         image: "/images/ramadan-corporate-gifts-lantern-dates.webp",
         imageAlt: "هدايا رمضان للشركات: فانوس نحاسي، علبة تمر فاخرة، دلة قهوة وسجادة صلاة",
-        readTime: "12 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "هدايا رمضان للشركات",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية والمؤسسية",
         image: "/images/school-administration-print-materials.webp",
         imageAlt: "مطبوعات إدارة مدرسية: بطاقات طلاب، شهادات، بروشورات ولوحات إرشادية",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مطبوعات المدارس",
     },
     {
@@ -147,7 +147,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية والمؤسسية",
         image: "/images/medical-clinic-reception-print-materials.webp",
         imageAlt: "استقبال عيادة: بطاقات مواعيد، وصفات، منشورات توعوية وبطاقات تعريف",
-        readTime: "12 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "مطبوعات العيادات الطبية",
     },
     {
@@ -163,7 +163,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم ما بعد الطباعة والتشطيبات",
         image: "/images/foil-stamping-deboss-spot-uv-finishes.webp",
         imageAlt: "تشطيبات فاخرة: ختم ذهبي حراري، غائر أعمى، سبوت يو في بارز وطلاء حواف",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تشطيبات الطباعة",
     },
     {
@@ -179,7 +179,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/exhibition-display-sizes-lineup.webp",
         imageAlt: "تدرّج مقاسات معدات العرض: ستاند طاولة، رول أب، بوب أب منحنٍ وميديا وول",
-        readTime: "12 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "مقاسات ستاندات المعارض",
     },
     {
@@ -195,7 +195,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم التجهيز قبل الطباعة وإدارة الألوان",
         image: "/images/pantone-color-swatch-fan-deck-selection.webp",
         imageAlt: "مروحة عيّنات ألوان بانتون مفتوحة على مكتب مصمم واختيار شريحة لون",
-        readTime: "12 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "دليل ألوان Pantone",
     },
     {
@@ -211,7 +211,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة",
         image: "/images/print-production-tools-flat-lay.webp",
         imageAlt: "أدوات الإنتاج الطباعي: عدسة، مسطرة، ميكرومتر ورق، شرائح ألوان وعيّنات مطبوعة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مصطلحات الطباعة",
     },
     {
@@ -227,7 +227,7 @@ export const META_2026_10: ArticleMeta[] = [
         authorRole: "قسم اللافتات والواجهات",
         image: "/images/signage-material-swatch-library-board.webp",
         imageAlt: "لوحة عيّنات خامات اللافتات: ستانلس مصقول ومفروش، أكريليك، ألوكوبوند ومعدن مطلي",
-        readTime: "16 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "دليل خامات اللافتات",
     },
 ];

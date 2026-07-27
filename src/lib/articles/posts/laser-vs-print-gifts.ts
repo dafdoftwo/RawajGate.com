@@ -19,7 +19,7 @@ export const laserVsPrintGifts: Article = {
     imageAlt:
         "أقلام معدنية وبلاستيكية مخصصة بشعارات شركات بالحفر بالليزر والطباعة في مطبعة بجدة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "حفر ليزر أم طباعة",

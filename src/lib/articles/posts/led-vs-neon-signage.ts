@@ -18,7 +18,7 @@ export const ledVsNeonSignage: Article = {
     image: "/images/led-backlit-vs-neon-flex-signage-dusk.webp",
     imageAlt: "مقارنة إضاءة LED الخلفية الهالة وأنبوب النيون فلكس على واجهة محل وقت الغروب",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "LED أم نيون فلكس",

@@ -19,7 +19,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة وضبط الجودة",
         image: "/images/print-quality-control-loupe-cmyk-inspection.webp",
         imageAlt: "فحص جودة الطباعة بعدسة مكبرة على شريط ألوان CMYK وعلامات التسجيل فوق طاولة إضاءة",
-        readTime: "12 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "حل مشاكل الطباعة",
     },
     {
@@ -51,7 +51,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم الحملات الموسمية والهدايا التذكارية",
         image: "/images/graduation-diploma-cap-invitations.webp",
         imageAlt: "مطبوعات التخرج: شهادة ملفوفة بشريط ذهبي، قبعة تخرج، دعوات وميدالية",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مطبوعات حفلات التخرج",
     },
     {
@@ -67,7 +67,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/winter-outdoor-event-stage-signage-dusk.webp",
         imageAlt: "فعالية شتوية مسائية: مسرح بخلفية قماشية، إنارة معلّقة ولوحات إرشادية",
-        readTime: "13 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "مطبوعات الفعاليات الموسمية",
     },
     {
@@ -99,7 +99,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم الهدايا الدعائية والمناسبات",
         image: "/images/eid-corporate-gift-box-luxury.webp",
         imageAlt: "صندوق هدايا العيد للشركات: كوب مذهّب، دفتر جلدي، تمر وبطاقة بشريط على مخمل أخضر",
-        readTime: "13 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "هدايا العيد للشركات",
     },
     {
@@ -115,7 +115,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم الحملات الموسمية والمطبوعات التجارية",
         image: "/images/back-to-school-notebooks-supplies.webp",
         imageAlt: "مستلزمات العودة للمدارس: دفاتر ملوّنة، حقيبة، مقلمة وكراسات مطبوعة",
-        readTime: "14 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "مطبوعات العودة للمدارس",
     },
     {
@@ -131,7 +131,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم التغليف والمطبوعات التجارية",
         image: "/images/ecommerce-unboxing-branded-packaging.webp",
         imageAlt: "تجربة فتح طرد متجر إلكتروني: صندوق شحن، ورق حريري، بطاقة شكر وستيكر ختم",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تغليف المتاجر الإلكترونية",
     },
     {
@@ -163,7 +163,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم مطبوعات الضيافة والمنشآت",
         image: "/images/hotel-guest-room-print-collateral.webp",
         imageAlt: "مطبوعات غرفة فندقية: دليل النزيل الجلدي، معلّقة الباب، غلاف بطاقة الغرفة وبطاقة السبا",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مطبوعات الفنادق",
     },
     {
@@ -179,7 +179,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التشغيلية وهوية الأساطيل",
         image: "/images/logistics-fleet-vans-warehouse-branding.webp",
         imageAlt: "أسطول شاحنات وسيارات توزيع بيضاء جاهزة للتغليف الدعائي أمام مستودع لوجستي",
-        readTime: "14 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "مطبوعات شركات الشحن",
     },
     {
@@ -211,7 +211,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية واللافتات",
         image: "/images/retail-boutique-counter-print-materials.webp",
         imageAlt: "كاونتر متجر تجزئة بأكياس مطوية، بكرة تكتات أسعار، ستيكرات ختم وبطاقات رفوف",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مطبوعات محلات التجزئة",
     },
     {
@@ -227,7 +227,7 @@ export const META_2027_01: ArticleMeta[] = [
         authorRole: "قسم المطبوعات المؤسسية والهوية البصرية",
         image: "/images/law-firm-letterhead-folder-desk.webp",
         imageAlt: "مكتب محاماة: فولدر بارز، ورق رسمي قطني، قلم حبر ومحفظة جلدية",
-        readTime: "12 دقيقة",
+        readTime: "15 دقيقة",
         primaryKeyword: "مطبوعات مكاتب المحاماة",
     },
 ];

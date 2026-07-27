@@ -19,7 +19,7 @@ export const foldersPriceJeddah: Article = {
     imageAlt:
         "فولدر عروض تقديمي بمقاس A4 من كرتون مقوّى بجيب داخلي وشق بطاقة عمل مطبوع في جدة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "أسعار ملفات العروض في جدة",

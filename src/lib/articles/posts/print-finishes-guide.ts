@@ -18,7 +18,7 @@ export const printFinishesGuide: Article = {
     image: "/images/foil-stamping-deboss-spot-uv-finishes.webp",
     imageAlt: "تشطيبات فاخرة: ختم ذهبي حراري، غائر أعمى، سبوت يو في بارز وطلاء حواف",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تشطيبات الطباعة",

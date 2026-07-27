@@ -19,7 +19,7 @@ export const stageBackdropGuide: Article = {
     imageAlt:
         "تجهيز خلفية مسرح مطبوعة على هيكل تراس داخل قاعة فعاليات في جدة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تجهيز خلفية مسرح",

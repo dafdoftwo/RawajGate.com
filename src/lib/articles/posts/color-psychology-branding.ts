@@ -18,7 +18,7 @@ export const colorPsychologyBranding: Article = {
     image: "/images/color-psychology-branding-palette-cards.webp",
     imageAlt: "بطاقات ألوان كبيرة بقوس متدرّج مع مطبوعات هوية موضوعة على الألوان المطابقة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "سيكولوجيا الألوان في الهوية",

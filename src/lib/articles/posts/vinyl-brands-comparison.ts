@@ -18,7 +18,7 @@ export const vinylBrandsComparison: Article = {
     image: "/images/cast-vinyl-film-rolls-swatches.webp",
     imageAlt: "بكرات فينيل مصبوب بألوان وتشطيبات مختلفة مع مروحة عيّنات لامع ومطفي وملمسي",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مقارنة أنواع الفينيل",

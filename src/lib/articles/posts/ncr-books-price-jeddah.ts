@@ -19,7 +19,7 @@ export const ncrBooksPriceJeddah: Article = {
     imageAlt:
         "دفاتر NCR كربونية للفواتير والإيصالات بنسخ ملوّنة وترقيم تسلسلي مطبوعة في جدة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "أسعار دفاتر NCR في جدة",

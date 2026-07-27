@@ -19,7 +19,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة",
         image: "/images/print-file-prep-bleed-trim-marks.webp",
         imageAlt: "تجهيز ملف الطباعة على الشاشة مع خطوط الحد الآمن وعلامات القص والـ bleed",
-        readTime: "10 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "كيف أجهز ملف الطباعة",
     },
     {
@@ -35,7 +35,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتغليف",
         image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
         imageAlt: "سيارة تجارية مغلّفة بالفينيل في جدة",
-        readTime: "10 دقائق",
+        readTime: "3 دقائق",
         primaryKeyword: "أسعار تغليف السيارات في جدة",
     },
     {
@@ -51,7 +51,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/custom-wooden-stand-jeddah-super-dome.webp",
         imageAlt: "جناح معرض خشبي مخصص في جدة سوبر دوم",
-        readTime: "12 دقيقة",
+        readTime: "4 دقائق",
         primaryKeyword: "تكلفة تجهيز جناح معرض في السعودية",
     },
     {
@@ -67,7 +67,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم الإنتاج",
         image: "/images/printing-machines-digital-offset-equipment.webp",
         imageAlt: "ماكينات الطباعة الرقمية والأوفست في ورشة بجدة",
-        readTime: "9 دقائق",
+        readTime: "3 دقائق",
         primaryKeyword: "الفرق بين الطباعة الأوفست والرقمية",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/roll-up-stand-banner-85x200.webp",
         imageAlt: "رول أب ستاند بمقاس 85×200 سم جاهز للمعرض",
-        readTime: "8 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "أسعار رول أب ستاند في جدة",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتركيب",
         image: "/images/jeddah-commercial-street-uniform-shopfronts.webp",
         imageAlt: "شارع تجاري في جدة بواجهات محلات ولوحات موحّدة وفق اشتراطات الأمانة",
-        readTime: "11 دقيقة",
+        readTime: "4 دقائق",
         primaryKeyword: "اشتراطات لوحات المحلات في جدة",
     },
     {
@@ -115,7 +115,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/luxury-business-cards-printing-jeddah.webp",
         imageAlt: "بطاقات عمل مطبوعة بتشطيبات مختلفة في جدة",
-        readTime: "9 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "سعر طباعة كروت شخصية في جدة",
     },
 ];

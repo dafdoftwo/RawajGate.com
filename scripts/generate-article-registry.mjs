@@ -51,12 +51,62 @@ const files = fs
     .filter((f) => f.endsWith(".ts"))
     .sort();
 
+/**
+ * زمن القراءة محسوباً من المحتوى الفعلي.
+ *
+ * ⚠️ كان هذا الحقل يُكتب يدوياً في كل مقال، فانحرف عن الواقع: أربعة
+ * وعشرون مقالاً من تسعين كانت تُعلن زمناً يزيد ٣ دقائق أو أكثر عن
+ * الحقيقي — أحدها يقول «١٢ دقيقة» لنص يُقرأ في أربع. ورقم كهذا لا
+ * يبقى في الصفحة وحدها؛ يدخل بيانات BlogPosting المنظّمة، فيصير
+ * ادّعاءً غير صحيح تقرؤه محركات البحث ووكلاء الذكاء الاصطناعي.
+ *
+ * ١٨٠ كلمة/دقيقة — المعدّل المتعارف عليه للنثر العربي.
+ */
+const WPM = 180;
+
+function readingTime(content) {
+    const plain = content
+        .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1") // روابط ماركداون → نصّها
+        .replace(/[#*|>`_-]/g, " ");
+    const words = plain.split(/\s+/).filter((w) => w.length > 1).length;
+    const mins = Math.max(1, Math.round(words / WPM));
+
+    // تصريف العدد في العربية: ١ مفرد · ٢ مثنى · ٣-١٠ جمع · ١١+ مفرد
+    if (mins === 1) return "دقيقة واحدة";
+    if (mins === 2) return "دقيقتان";
+    if (mins <= 10) return `${mins} دقائق`;
+    return `${mins} دقيقة`;
+}
+
+/** يستخرج جسم حقل content المحاط بعلامات backtick */
+function extractContent(src) {
+    const m =
+        src.match(/content:\s*`([\s\S]*?)`\s*,?\s*\n\};/) ||
+        src.match(/content:\s*`([\s\S]*?)`/);
+    return m ? m[1] : "";
+}
+
 const articles = [];
+let retimed = 0;
 
 for (const file of files) {
-    const src = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
+    let src = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
     const exportName = extractExportName(src);
     const slug = extractString(src, "slug");
+
+    /*
+      يُصحَّح readTime في ملف المقال نفسه لا في الفهرس فقط.
+      السبب: صفحة المقال تقرأ الكائن الكامل عبر loader.ts، بينما القوائم
+      تقرأ الفهرس. تصحيح أحدهما دون الآخر يُنتج رقمين مختلفين للمقال
+      الواحد حسب مكان عرضه.
+    */
+    const computed = readingTime(extractContent(src));
+    const currentRT = extractString(src, "readTime");
+    if (currentRT && JSON.parse(currentRT) !== computed) {
+        src = src.replace(/^    readTime:\s*"[^"]*",$/m, `    readTime: "${computed}",`);
+        fs.writeFileSync(path.join(POSTS_DIR, file), src, "utf8");
+        retimed++;
+    }
 
     if (!exportName || !slug) {
         console.warn(`⚠️  تخطّي ${file} — لا يحتوي export أو slug صالح`);
@@ -182,6 +232,7 @@ const published = articles.filter(
     (a) => new Date(JSON.parse(a.meta.publishAt)) <= now
 );
 
+if (retimed) console.log(`✓ readTime  — صُحِّح في ${retimed} مقالاً`);
 console.log(`✓ meta.ts   — ${articles.length} مقالاً`);
 console.log(`✓ loader.ts — ${articles.length} محمّلاً`);
 console.log(`\n📊 منشور الآن: ${published.length} · مجدول: ${articles.length - published.length}`);

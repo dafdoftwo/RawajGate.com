@@ -18,7 +18,7 @@ export const printBudgetPlanning: Article = {
     image: "/images/annual-print-budget-planning-desk.webp",
     imageAlt: "تخطيط ميزانية المطبوعات: جدول أرقام مطبوع، آلة حاسبة ورسم بياني وعيّنات مصنّفة",
 
-    readTime: "14 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "ميزانية المطبوعات السنوية",

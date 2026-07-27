@@ -18,7 +18,7 @@ export const printingGlossaryArabic: Article = {
     image: "/images/print-production-tools-flat-lay.webp",
     imageAlt: "أدوات الإنتاج الطباعي: عدسة، مسطرة، ميكرومتر ورق، شرائح ألوان وعيّنات مطبوعة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مصطلحات الطباعة",

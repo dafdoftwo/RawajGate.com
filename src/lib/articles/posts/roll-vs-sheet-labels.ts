@@ -19,7 +19,7 @@ export const rollVsSheetLabels: Article = {
     imageAlt:
         "ملصقات منتجات مخصصة على رول وأفرخ مطبوعة بشعارات وباركود في مطبعة بجدة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "ملصقات رول أم شيت",

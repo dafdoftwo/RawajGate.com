@@ -18,7 +18,7 @@ export const shopSignageMunicipalityRules: Article = {
     image: "/images/jeddah-commercial-street-uniform-shopfronts.webp",
     imageAlt: "شارع تجاري في جدة بواجهات محلات ولوحات موحّدة وفق اشتراطات الأمانة",
 
-    readTime: "11 دقيقة",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "اشتراطات لوحات المحلات في جدة",

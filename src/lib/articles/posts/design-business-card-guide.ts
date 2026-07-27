@@ -18,7 +18,7 @@ export const designBusinessCardGuide: Article = {
     image: "/images/business-card-design-sketches-process.webp",
     imageAlt: "عملية تصميم بطاقة عمل: اسكتشات على ورق شفاف، تابلت وموك أب مطبوع للمقارنة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "كيف تصمم بطاقة عمل احترافية",

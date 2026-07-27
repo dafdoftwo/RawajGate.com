@@ -18,7 +18,7 @@ export const brochureDesignGuide: Article = {
     image: "/images/brochure-layout-design-trifold-grid.webp",
     imageAlt: "تصميم بروشور ثلاثي الطي بشبكة تحريرية منظمة مع مسطرة وتابلت يعرض أعمدة التصميم",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "كيف تصمم بروشور احترافي",

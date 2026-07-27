@@ -18,7 +18,7 @@ export const promotionalGiftsGuide: Article = {
     image: "/images/corporate-promotional-gifts-jeddah-items.webp",
     imageAlt: "مجموعة هدايا دعائية للشركات في جدة",
 
-    readTime: "10 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "اختيار الهدايا الدعائية للشركات",

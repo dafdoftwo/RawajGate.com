@@ -18,7 +18,7 @@ export const rollUpStandPriceJeddah: Article = {
     image: "/images/roll-up-stand-banner-85x200.webp",
     imageAlt: "رول أب ستاند بمقاس 85×200 سم جاهز للمعرض",
 
-    readTime: "8 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "أسعار رول أب ستاند في جدة",

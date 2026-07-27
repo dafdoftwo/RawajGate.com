@@ -18,7 +18,7 @@ export const coatedVsLinenPaper: Article = {
     image: "/images/coated-vs-linen-paper-texture-macro.webp",
     imageAlt: "مقارنة ماكرو بين ورق كوشيه ناعم وورق كتان بملمس منسوج تحت ضوء جانبي",
 
-    readTime: "8 دقائق",
+    readTime: "3 دقائق",
 
     keywords: {
         primary: "ورق كوشيه أم كتان لبطاقات العمل",

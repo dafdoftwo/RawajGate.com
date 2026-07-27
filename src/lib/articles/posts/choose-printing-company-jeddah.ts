@@ -18,7 +18,7 @@ export const choosePrintingCompanyJeddah: Article = {
     image: "/images/rawaj-gate-printing-workshop-team-at-work.webp",
     imageAlt: "ورشة طباعة في جدة أثناء العمل",
 
-    readTime: "11 دقيقة",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "كيف تختار مطبعة في جدة",

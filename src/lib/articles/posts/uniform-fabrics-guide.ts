@@ -18,7 +18,7 @@ export const uniformFabricsGuide: Article = {
     image: "/images/uniform-fabric-swatch-comparison.webp",
     imageAlt: "عيّنات أقمشة الزي الموحد: بيكيه، بوبلين، تويل، مِش بوليستر وفليس",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "أقمشة الزي الموحد",

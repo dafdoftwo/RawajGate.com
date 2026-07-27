@@ -18,7 +18,7 @@ export const exhibitionBoothCostSaudi: Article = {
     image: "/images/custom-wooden-stand-jeddah-super-dome.webp",
     imageAlt: "جناح معرض خشبي مخصص في جدة سوبر دوم",
 
-    readTime: "12 دقيقة",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "تكلفة تجهيز جناح معرض في السعودية",

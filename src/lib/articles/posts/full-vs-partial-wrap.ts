@@ -18,7 +18,7 @@ export const fullVsPartialWrap: Article = {
     image: "/images/vehicle-wrap-vinyl-installation-squeegee.webp",
     imageAlt: "تركيب فينيل تغليف السيارة بالسكويجي مع ظهور خط الفصل بين الجزء المغلّف والأصلي",
 
-    readTime: "10 دقائق",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "تغليف كامل أم جزئي",

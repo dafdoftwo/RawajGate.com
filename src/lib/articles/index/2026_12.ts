@@ -35,7 +35,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم اللافتات والمطبوعات التشغيلية",
         image: "/images/gym-fitness-branding-apparel-interior.webp",
         imageAlt: "صالة رياضية: تيشرتات تدريب مطوية، مناشف، زجاجة ماء ولوحة جدارية تحفيزية",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "مطبوعات الصالات الرياضية",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة",
         image: "/images/vector-file-formats-print-workflow.webp",
         imageAlt: "ملف فيكتور على الشاشة بنقاط تحكم ومنحنيات بيزييه مع وسائط تخزين وبروفات مطبوعة",
-        readTime: "12 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "صيغ ملفات الطباعة",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم الملابس الدعائية والزي الموحد",
         image: "/images/uniform-fabric-swatch-comparison.webp",
         imageAlt: "عيّنات أقمشة الزي الموحد: بيكيه، بوبلين، تويل، مِش بوليستر وفليس",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "أقمشة الزي الموحد",
     },
     {
@@ -147,7 +147,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم اللافتات وهوية المحال",
         image: "/images/jeddah-commercial-district-aerial-golden-hour.webp",
         imageAlt: "منظر جوي لحي تجاري في جدة وقت الغروب: شوارع نخيل ومبانٍ حديثة والبحر الأحمر",
-        readTime: "13 دقيقة",
+        readTime: "12 دقيقة",
         primaryKeyword: "أحياء جدة التجارية",
     },
     {
@@ -163,7 +163,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/event-stage-backdrop-production-jeddah.webp",
         imageAlt: "تجهيز خلفية مسرح مطبوعة على هيكل تراس داخل قاعة فعاليات في جدة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تجهيز خلفية مسرح",
     },
     {
@@ -179,7 +179,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم التخطيط وإدارة الحسابات",
         image: "/images/annual-print-budget-planning-desk.webp",
         imageAlt: "تخطيط ميزانية المطبوعات: جدول أرقام مطبوع، آلة حاسبة ورسم بياني وعيّنات مصنّفة",
-        readTime: "14 دقيقة",
+        readTime: "13 دقيقة",
         primaryKeyword: "ميزانية المطبوعات السنوية",
     },
     {
@@ -195,7 +195,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم التصميم والهوية البصرية",
         image: "/images/arabic-calligraphy-typography-craft.webp",
         imageAlt: "الخط العربي: أقلام قصب، محبرة نحاسية وأوراق بضربات خطية زخرفية بجوار تابلت",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "الخط العربي في التصميم",
     },
     {
@@ -211,7 +211,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم الهوية البصرية والتصميم",
         image: "/images/color-psychology-branding-palette-cards.webp",
         imageAlt: "بطاقات ألوان كبيرة بقوس متدرّج مع مطبوعات هوية موضوعة على الألوان المطابقة",
-        readTime: "13 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "سيكولوجيا الألوان في الهوية",
     },
     {
@@ -227,7 +227,7 @@ export const META_2026_12: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/promotion-counter-table-portable-kiosk.webp",
         imageAlt: "كاونتر ترويجي متنقل داخل جناح معرض في جدة، يمثّل نقطة عمل فريق الاستقبال",
-        readTime: "12 دقيقة",
+        readTime: "14 دقيقة",
         primaryKeyword: "تدريب فريق جناح المعرض",
     },
 ];

@@ -18,7 +18,7 @@ export const rollupVsXbanner: Article = {
     image: "/images/rollup-vs-xbanner-stand-comparison.webp",
     imageAlt: "مقارنة رول أب ستاند بقاعدة ألومنيوم مع إكس بانر بقوائم متقاطعة",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "رول أب أم إكس بانر",

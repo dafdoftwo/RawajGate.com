@@ -18,7 +18,7 @@ export const ramadanCorporateGifts: Article = {
     image: "/images/ramadan-corporate-gifts-lantern-dates.webp",
     imageAlt: "هدايا رمضان للشركات: فانوس نحاسي، علبة تمر فاخرة، دلة قهوة وسجادة صلاة",
 
-    readTime: "12 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "هدايا رمضان للشركات",

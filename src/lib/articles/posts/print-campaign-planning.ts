@@ -19,7 +19,7 @@ export const printCampaignPlanning: Article = {
     imageAlt:
         "مطبوعات دعائية متكاملة لحملة تسويقية واحدة معروضة داخل مطبعة في جدة",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تخطيط حملة مطبوعات",

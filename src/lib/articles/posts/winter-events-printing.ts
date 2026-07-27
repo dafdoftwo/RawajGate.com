@@ -18,7 +18,7 @@ export const winterEventsPrinting: Article = {
     image: "/images/winter-outdoor-event-stage-signage-dusk.webp",
     imageAlt: "فعالية شتوية مسائية: مسرح بخلفية قماشية، إنارة معلّقة ولوحات إرشادية",
 
-    readTime: "13 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "مطبوعات الفعاليات الموسمية",

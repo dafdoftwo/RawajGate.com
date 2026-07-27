@@ -18,7 +18,7 @@ export const octanormVsCustomBooth: Article = {
     image: "/images/octanorm-system-booth-shell-scheme.webp",
     imageAlt: "جناح أوكتانورم نظامي في معرض بجدة",
 
-    readTime: "10 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "أوكتانورم أم جناح مخصص",

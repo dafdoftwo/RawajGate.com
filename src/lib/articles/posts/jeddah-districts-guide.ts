@@ -18,7 +18,7 @@ export const jeddahDistrictsGuide: Article = {
     image: "/images/jeddah-commercial-district-aerial-golden-hour.webp",
     imageAlt: "منظر جوي لحي تجاري في جدة وقت الغروب: شوارع نخيل ومبانٍ حديثة والبحر الأحمر",
 
-    readTime: "13 دقيقة",
+    readTime: "12 دقيقة",
 
     keywords: {
         primary: "أحياء جدة التجارية",

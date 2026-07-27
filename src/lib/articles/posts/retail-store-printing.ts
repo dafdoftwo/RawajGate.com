@@ -18,7 +18,7 @@ export const retailStorePrinting: Article = {
     image: "/images/retail-boutique-counter-print-materials.webp",
     imageAlt: "كاونتر متجر تجزئة بأكياس مطوية، بكرة تكتات أسعار، ستيكرات ختم وبطاقات رفوف",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "مطبوعات محلات التجزئة",

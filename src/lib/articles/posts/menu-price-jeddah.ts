@@ -18,7 +18,7 @@ export const menuPriceJeddah: Article = {
     image: "/images/restaurant-menu-formats-comparison.webp",
     imageAlt: "مقارنة صيغ المنيو: غلاف جلدي، كرت مغلّف، ثلاثي الطي، كليب بورد وتنت كارد",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "سعر طباعة منيو مطعم في جدة",

@@ -18,7 +18,7 @@ export const inhouseVsOutsourceDesign: Article = {
     image: "/images/creative-agency-team-design-review.webp",
     imageAlt: "فريق وكالة إبداعية يراجع تصاميم مطبوعة وشرائح ألوان حول طاولة عمل",
 
-    readTime: "12 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "فريق تصميم داخلي أم وكالة",

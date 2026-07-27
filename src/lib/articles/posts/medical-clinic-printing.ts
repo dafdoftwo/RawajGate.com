@@ -18,7 +18,7 @@ export const medicalClinicPrinting: Article = {
     image: "/images/medical-clinic-reception-print-materials.webp",
     imageAlt: "استقبال عيادة: بطاقات مواعيد، وصفات، منشورات توعوية وبطاقات تعريف",
 
-    readTime: "12 دقيقة",
+    readTime: "13 دقيقة",
 
     keywords: {
         primary: "مطبوعات العيادات الطبية",

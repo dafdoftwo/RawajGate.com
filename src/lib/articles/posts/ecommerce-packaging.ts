@@ -18,7 +18,7 @@ export const ecommercePackaging: Article = {
     image: "/images/ecommerce-unboxing-branded-packaging.webp",
     imageAlt: "تجربة فتح طرد متجر إلكتروني: صندوق شحن، ورق حريري، بطاقة شكر وستيكر ختم",
 
-    readTime: "13 دقيقة",
+    readTime: "14 دقيقة",
 
     keywords: {
         primary: "تغليف المتاجر الإلكترونية",

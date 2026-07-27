@@ -18,7 +18,7 @@ export const signageMaterialsReference: Article = {
     image: "/images/signage-material-swatch-library-board.webp",
     imageAlt: "لوحة عيّنات خامات اللافتات: ستانلس مصقول ومفروش، أكريليك، ألوكوبوند ومعدن مطلي",
 
-    readTime: "16 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "دليل خامات اللافتات",

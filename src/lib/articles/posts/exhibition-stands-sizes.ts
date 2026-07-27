@@ -18,7 +18,7 @@ export const exhibitionStandsSizes: Article = {
     image: "/images/exhibition-display-sizes-lineup.webp",
     imageAlt: "تدرّج مقاسات معدات العرض: ستاند طاولة، رول أب، بوب أب منحنٍ وميديا وول",
 
-    readTime: "12 دقيقة",
+    readTime: "15 دقيقة",
 
     keywords: {
         primary: "مقاسات ستاندات المعارض",
