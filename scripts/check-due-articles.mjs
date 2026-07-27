@@ -24,22 +24,49 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(fileURLToPath(import.meta.url), "../..");
-const META = path.join(ROOT, "src/lib/articles/meta.ts");
+/**
+ * ⚠️ يقرأ شظايا الفهرس لا meta.ts.
+ *
+ * كان يقرأ meta.ts مباشرة. حين شُظّي الفهرس إلى ملف لكل شهر لم يعد
+ * meta.ts يحوي سطور publishAt، فصار السكربت يجد **صفر مقالات** ويخرج
+ * بـ«لا مقال مستحق» — أي أن النشر التلقائي يتوقّف نهائياً بلا رسالة
+ * خطأ ولا تشغيل فاشل. لهذا أُضيف حارس الصفر أدناه.
+ */
+const INDEX_DIR = path.join(ROOT, "src/lib/articles/index");
 
 // نافذة الفحص بالساعات (يجب أن تطابق تكرار الـ cron)
 const windowArg = process.argv.indexOf("--window");
 const WINDOW_HOURS = windowArg > -1 ? Number(process.argv[windowArg + 1]) : 2;
 
-const src = fs.readFileSync(META, "utf8");
+if (!fs.existsSync(INDEX_DIR)) {
+    console.error(`❌ مجلد الفهرس غير موجود: ${INDEX_DIR}`);
+    console.error("   شغّل: node scripts/generate-article-registry.mjs");
+    process.exit(2);
+}
 
 const articles = [];
-const re = /slug: "([^"]+)",[\s\S]*?publishAt: "([^"]+)",[\s\S]*?title/g;
-// نمط أبسط وأدق: التقط أزواج slug/publishAt بالترتيب
-const slugs = [...src.matchAll(/^        slug: "([^"]+)",$/gm)].map((m) => m[1]);
-const dates = [...src.matchAll(/^        publishAt: "([^"]+)",$/gm)].map((m) => m[1]);
+for (const file of fs.readdirSync(INDEX_DIR).filter((f) => f.endsWith(".ts"))) {
+    const src = fs.readFileSync(path.join(INDEX_DIR, file), "utf8");
+    const slugs = [...src.matchAll(/^        slug: "([^"]+)",$/gm)].map((m) => m[1]);
+    const dates = [...src.matchAll(/^        publishAt: "([^"]+)",$/gm)].map((m) => m[1]);
+    for (let i = 0; i < Math.min(slugs.length, dates.length); i++) {
+        articles.push({ slug: slugs[i], publishAt: dates[i] });
+    }
+}
 
-for (let i = 0; i < Math.min(slugs.length, dates.length); i++) {
-    articles.push({ slug: slugs[i], publishAt: dates[i] });
+/*
+  حارس الصفر — لا يُحذف.
+
+  صفر مقالات لا يعني «لا شيء مستحق»؛ يعني أن القراءة نفسها فشلت:
+  تغيّر مسار أو صيغة أو لم يُشغَّل المولّد. الخروج بـ 1 هنا كان يبدو
+  نجاحاً هادئاً بينما المدونة متوقّفة. الخروج بـ 2 يُفشل خطوة الـ
+  workflow فيصل تنبيه فوراً.
+*/
+if (articles.length === 0) {
+    console.error("❌ لم يُقرأ أي مقال من شظايا الفهرس.");
+    console.error("   هذا خلل في القراءة لا غياب مقالات مستحقة.");
+    console.error(`   افحص: ${INDEX_DIR}/*.ts وصيغة حقلَي slug و publishAt.`);
+    process.exit(2);
 }
 
 const now = Date.now();

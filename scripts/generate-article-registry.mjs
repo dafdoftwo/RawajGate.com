@@ -23,6 +23,8 @@ const ROOT = path.resolve(fileURLToPath(import.meta.url), "../..");
 const POSTS_DIR = path.join(ROOT, "src/lib/articles/posts");
 const META_FILE = path.join(ROOT, "src/lib/articles/meta.ts");
 const LOADER_FILE = path.join(ROOT, "src/lib/articles/loader.ts");
+/** شظايا الفهرس، ملف لكل شهر نشر */
+const INDEX_DIR = path.join(ROOT, "src/lib/articles/index");
 
 /** الحقول الخفيفة التي تدخل meta.ts */
 const META_FIELDS = [
@@ -86,21 +88,76 @@ articles.sort(
         new Date(JSON.parse(a.meta.publishAt)).getTime()
 );
 
-/* ── 1) توليد meta.ts ─────────────────────────────────────── */
-const metaEntries = articles
-    .map((a) => {
-        const lines = META_FIELDS.filter((f) => a.meta[f]).map(
-            (f) => `        ${f}: ${a.meta[f]},`
-        );
-        lines.push(`        primaryKeyword: ${a.meta.primaryKeyword},`);
-        return `    {\n${lines.join("\n")}\n    },`;
-    })
+/* ── 1) توليد شظايا الفهرس + meta.ts ──────────────────────── */
+
+/*
+  ⚠️ لماذا تُشظّى البيانات بدل ملف واحد؟
+
+  كان meta.ts ملفاً واحداً بلغ ١٠٥ KB عند تسعين مقالاً — أي ~٨٦٢ بايت
+  لكل مقال. بثلاثمئة مقال يصير ٢٥٣ KB، وبخمسمئة ٤٢٠ KB. ملف مصدر واحد
+  بهذا الحجم يُبطئ المحرّر والفحص النوعي، ويجعل كل commit يلمس ملفاً
+  ضخماً فتصير مراجعة الفروق شبه مستحيلة.
+
+  التشظية حسب **شهر النشر**: إضافة مقال جديد تلمس شظية شهره وحدها،
+  وشظايا الشهور الماضية لا تتغيّر أبداً بعد انقضائها. بمعدّل مقال كل
+  يومين تبقى كل شظية ~١٥ KB مهما بلغ عمر المدونة.
+
+  الأهم: meta.ts يبقى الواجهة الوحيدة. كل من يستورده — الصفحات،
+  الـ sitemap، المكوّنات — لا يعلم بوجود الشظايا ولا يحتاج تعديلاً.
+*/
+const byMonth = new Map();
+for (const a of articles) {
+    const month = JSON.parse(a.meta.publishAt).slice(0, 7).replace("-", "_");
+    if (!byMonth.has(month)) byMonth.set(month, []);
+    byMonth.get(month).push(a);
+}
+const months = [...byMonth.keys()].sort();
+
+const renderEntry = (a) => {
+    const lines = META_FIELDS.filter((f) => a.meta[f]).map(
+        (f) => `        ${f}: ${a.meta[f]},`
+    );
+    lines.push(`        primaryKeyword: ${a.meta.primaryKeyword},`);
+    return `    {\n${lines.join("\n")}\n    },`;
+};
+
+fs.mkdirSync(INDEX_DIR, { recursive: true });
+
+// احذف شظايا شهور لم يعد لها مقالات (بعد إعادة جدولة مثلاً)
+for (const f of fs.readdirSync(INDEX_DIR)) {
+    const y = f.replace(/\.ts$/, "");
+    if (/^\d{4}_\d{2}$/.test(y) && !byMonth.has(y)) {
+        fs.unlinkSync(path.join(INDEX_DIR, f));
+    }
+}
+
+for (const month of months) {
+    const entries = byMonth.get(month).map(renderEntry).join("\n");
+    const src =
+        `/* ⚠️ ملف مولَّد — لا تُعدّله يدوياً.\n` +
+        `   المصدر: src/lib/articles/posts/*.ts\n` +
+        `   التوليد: node scripts/generate-article-registry.mjs\n` +
+        `   يضمّ مقالات ${month.replace("_", "-")} فقط — انظر meta.ts للسبب. */\n\n` +
+        `import type { ArticleMeta } from "../meta";\n\n` +
+        `export const META_${month}: ArticleMeta[] = [\n${entries}\n];\n`;
+    fs.writeFileSync(path.join(INDEX_DIR, `${month}.ts`), src, "utf8");
+}
+
+const imports = months
+    .map((m) => `import { META_${m} } from "./index/${m}";`)
     .join("\n");
+const concat = months.map((m) => `    ...META_${m},`).join("\n");
 
 let metaSrc = fs.readFileSync(META_FILE, "utf8");
 metaSrc = metaSrc.replace(
     /\/\* ⬇️ AUTO-GENERATED — start \*\/[\s\S]*?\/\* ⬆️ AUTO-GENERATED — end \*\//,
-    `/* ⬇️ AUTO-GENERATED — start */\nexport const ARTICLE_META: ArticleMeta[] = [\n${metaEntries}\n];\n/* ⬆️ AUTO-GENERATED — end */`
+    `/* ⬇️ AUTO-GENERATED — start */\n${imports}\n\n` +
+        `/**\n * كل المقالات، مرتّبة من الأحدث إلى الأقدم.\n` +
+        ` * مجمَّعة من شظايا index/ — راجع رأس هذا الملف.\n */\n` +
+        `export const ARTICLE_META: ArticleMeta[] = [\n${concat}\n]\n` +
+        `    .slice()\n` +
+        `    .sort((a, b) => +new Date(b.publishAt) - +new Date(a.publishAt));\n` +
+        `/* ⬆️ AUTO-GENERATED — end */`
 );
 fs.writeFileSync(META_FILE, metaSrc, "utf8");
 

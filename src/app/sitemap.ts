@@ -8,6 +8,8 @@ export const dynamic = "force-static";
 import { BUSINESS } from "@/lib/business";
 import { SILOS, STANDALONE_ROUTES } from "@/lib/routes";
 import { getPublishedMeta } from "@/lib/articles/meta";
+import { extraPageParams } from "@/lib/articles/pagination";
+import { ALL_CATEGORY_SLUGS, SLUG_TO_CATEGORY } from "@/lib/articles/categories";
 import { PRICING_BLOCKS } from "@/lib/pricing";
 
 const BASE = BUSINESS.url;
@@ -98,6 +100,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.85,
     }));
 
+    /*
+      صفحات المدونة المقسّمة (٢..N) وصفحات التصنيفات.
+
+      ⚠️ إدراجها ليس ترفاً.
+      بعد التقسيم، المقال الحادي عشر فصاعداً لم يعد مرتبطاً من /blog
+      مباشرة — طريقه الوحيد صفحة ٢ أو ٣ أو تصنيفه. لو غابت هذه الصفحات
+      عن الـ sitemap لصار اكتشاف المقالات القديمة معتمداً على تتبّع
+      الزاحف لسلسلة روابط «التالي»، وهو أبطأ وأقل موثوقية بكثير.
+
+      الأولوية ٠.٤ — أقل من المقالات نفسها: هذه صفحات تنقّل لا وجهات.
+    */
+    const publishedMeta = getPublishedMeta();
+
+    const blogPages: MetadataRoute.Sitemap = extraPageParams(
+        publishedMeta.length
+    ).map((p) => ({
+        url: url(`blog/page/${p}`),
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: 0.4,
+    }));
+
+    const categoryPages: MetadataRoute.Sitemap = ALL_CATEGORY_SLUGS.flatMap(
+        (slug) => {
+            const category = SLUG_TO_CATEGORY[slug];
+            const count = publishedMeta.filter((p) => p.category === category).length;
+            // تصنيف بلا مقالات منشورة لا يدخل الـ sitemap — صفحته فارغة
+            if (count === 0) return [];
+
+            const first: MetadataRoute.Sitemap[number] = {
+                url: url(`blog/category/${slug}`),
+                lastModified: now,
+                changeFrequency: "weekly",
+                priority: 0.5,
+            };
+            const rest: MetadataRoute.Sitemap = extraPageParams(count).map((p) => ({
+                url: url(`blog/category/${slug}/page/${p}`),
+                lastModified: now,
+                changeFrequency: "weekly" as const,
+                priority: 0.4,
+            }));
+            return [first, ...rest];
+        }
+    );
+
     return [
         ...home,
         ...pillars,
@@ -105,5 +152,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...standalone,
         ...pricePages,
         ...blogPosts,
+        ...categoryPages,
+        ...blogPages,
     ];
 }
