@@ -35,7 +35,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتغليف",
         image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
         imageAlt: "سيارة تجارية مغلّفة بالفينيل في جدة",
-        readTime: "4 دقائق",
+        readTime: "7 دقائق",
         primaryKeyword: "أسعار تغليف السيارات في جدة",
     },
     {
@@ -51,7 +51,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/custom-wooden-stand-jeddah-super-dome.webp",
         imageAlt: "جناح معرض خشبي مخصص في جدة سوبر دوم",
-        readTime: "4 دقائق",
+        readTime: "7 دقائق",
         primaryKeyword: "تكلفة تجهيز جناح معرض في السعودية",
     },
     {
@@ -83,7 +83,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/roll-up-stand-banner-85x200.webp",
         imageAlt: "رول أب ستاند بمقاس 85×200 سم جاهز للمعرض",
-        readTime: "4 دقائق",
+        readTime: "7 دقائق",
         primaryKeyword: "أسعار رول أب ستاند في جدة",
     },
     {
