@@ -251,7 +251,7 @@ export default function OutdoorBannersPage() {
                                     className="rounded-xl shadow-lg"
                                 />
                                 <GeoImage
-                                    src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
+                                    src="/images/outdoor-flex-banner-printing-large-format.webp"
                                     alt="بنرات للفعاليات والمعارض في جدة"
                                     
                                     

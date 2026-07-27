@@ -240,7 +240,7 @@ export default function WearablesPage() {
 
                             <div className="my-8 grid md:grid-cols-2 gap-6">
                                 <GeoImage
-                                    src="/images/promotional-gifts-corporate-giveaways.webp"
+                                    src="/images/logo-printed-tshirts-embroidery-polo.webp"
                                     alt="ملابس دعائية للشركات"
                                     
                                     

@@ -222,7 +222,7 @@ export default function TechGadgetsPage() {
 
                             <div className="my-8 grid md:grid-cols-2 gap-6">
                                 <GeoImage
-                                    src="/images/promotional-gifts-corporate-giveaways.webp"
+                                    src="/images/tech-gifts-powerbank-usb-branding.webp"
                                     alt="هدايا دعائية للشركات"
                                     
                                     

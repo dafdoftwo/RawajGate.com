@@ -212,8 +212,8 @@ export default function LogoDesignPage() {
 
                             <div className="my-8 grid md:grid-cols-2 gap-6">
                                 <GeoImage
-                                    src="/images/design-team-creative-studio-jeddah.webp"
-                                    alt="فريق تصميم الشعارات في جدة"
+                                    src="/images/corporate-letterhead-envelope-branding.webp"
+                                    alt="تطبيق الشعار على الهوية المطبوعة — ورق رسمي وظرف بشعار الشركة، تصميم بوابة الرواج في جدة"
                                     
                                     
                                     className="rounded-xl shadow-lg"

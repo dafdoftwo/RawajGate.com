@@ -18,6 +18,9 @@
 /** يجب أن تطابق WIDTHS في scripts/generate-image-variants.mjs */
 const VARIANT_WIDTHS = [640, 828, 1200, 1920];
 
+/** الامتدادات التي يعالجها المولّد فعلاً — أي شيء آخر يمرّ كما هو */
+const PROCESSED = /\.(webp|png|jpe?g)$/i;
+
 export default function cloudflareImageLoader({
     src,
     width,
@@ -26,13 +29,15 @@ export default function cloudflareImageLoader({
     width: number;
     quality?: number;
 }): string {
-    // روابط خارجية تُترك كما هي
-    if (src.startsWith("http://") || src.startsWith("https://")) {
-        return src;
-    }
+    /*
+      ⚠️ لا تُعِد كتابة أي مسار لسنا **متأكدين** أن له مقاساً مولَّداً.
+      المحمّل لا يستطيع فحص القرص، فأي تخمين خاطئ يعني 404 صامتاً في
+      srcset — لا يظهر في البناء ولا في الـ lint، بل عند الزائر فقط.
 
-    // ملفات غير قابلة للتحويل (SVG متجهي أصلاً)
-    if (src.endsWith(".svg")) {
+      لذلك: نعيد الكتابة **فقط** لما هو داخل /images/ وبامتداد يعالجه
+      scripts/generate-image-variants.mjs. كل ما عداه يمرّ كما هو.
+    */
+    if (!src.startsWith("/images/") || !PROCESSED.test(src)) {
         return src;
     }
 
@@ -42,8 +47,8 @@ export default function cloudflareImageLoader({
         VARIANT_WIDTHS[VARIANT_WIDTHS.length - 1];
 
     // /images/reviews/ahmed.webp → reviews__ahmed
-    const withoutPrefix = src.replace(/^\/images\//, "");
-    const baseName = withoutPrefix
+    const baseName = src
+        .replace(/^\/images\//, "")
         .replace(/\.[^.]+$/, "")
         .replace(/\//g, "__");
 

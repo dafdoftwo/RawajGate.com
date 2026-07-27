@@ -239,7 +239,7 @@ export default function PopUpDisplaysPage() {
 
                             <div className="my-8 grid md:grid-cols-2 gap-6">
                                 <GeoImage
-                                    src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
+                                    src="/images/pop-up-display-media-wall-background.webp"
                                     alt="Pop-up Display في معرض تجاري بجدة"
                                     
                                     

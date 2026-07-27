@@ -240,7 +240,7 @@ export default function PrePressPage() {
 
                             <div className="my-8 grid md:grid-cols-2 gap-6">
                                 <GeoImage
-                                    src="/images/design-team-creative-studio-jeddah.webp"
+                                    src="/images/printing-machines-digital-offset-equipment.webp"
                                     alt="فريق تجهيز الملفات للطباعة"
                                     
                                     

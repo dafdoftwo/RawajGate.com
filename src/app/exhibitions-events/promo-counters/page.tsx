@@ -220,7 +220,7 @@ export default function PromoCountersPage() {
 
                             <div className="my-8 grid md:grid-cols-2 gap-6">
                                 <GeoImage
-                                    src="/images/exhibition-booth-custom-wood-shell-scheme.webp"
+                                    src="/images/promotion-counter-table-portable-kiosk.webp"
                                     alt="كاونتر ترويجي في معرض تجاري"
                                     
                                     

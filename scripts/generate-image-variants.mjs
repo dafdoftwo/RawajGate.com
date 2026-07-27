@@ -66,7 +66,8 @@ function collectImages(dir, base = "") {
 }
 
 const images = collectImages(SRC_DIR);
-let generated = 0;
+let encoded = 0;
+let copied = 0;
 let skipped = 0;
 let totalBytes = 0;
 
@@ -74,36 +75,73 @@ console.log(`🖼️  معالجة ${images.length} صورة × ${WIDTHS.length}
 
 for (const { abs, rel } of images) {
     const meta = await sharp(abs).metadata();
-    const srcWidth = meta.width ?? 0;
+    const srcWidth = meta.width || WIDTHS[WIDTHS.length - 1];
     const baseName = rel.replace(/\.[^.]+$/, "").replace(/[\\/]/g, "__");
+    const srcTime = fs.statSync(abs).mtimeMs;
+
+    /*
+      ⚠️ قاعدة حاسمة: **كل مقاس في WIDTHS يجب أن يُنتج ملفاً**، بلا استثناء.
+
+      السبب: المحمّل (src/lib/image-loader.ts) لا يعرف أبعاد المصدر — يبني
+      اسم الملف من العرض المطلوب وحده. و`next/image` يضع كل المقاسات في
+      srcset. فلو تخطّينا مقاساً لأن المصدر أصغر منه، طلبه المتصفح ورجع 404.
+
+      هذا بالضبط ما كسر اللوجو (512px) وصور المحتوى (≤800px) في أول نشر:
+      srcset كان يشير إلى -828 و-1200 و-1920 وهي غير موجودة.
+
+      الحل: نُرمّز فعلياً حتى عرض المصدر، ثم نَنسخ أكبر ملف حقيقي إلى
+      أسماء المقاسات الأكبر. البكسلات نفسها (لا تكبير مصطنع)، لكن كل اسم
+      يطلبه المتصفح موجود. تكلفة النسخ: كيلوبايتات معدودة.
+    */
+    let largestReal = null; // أكبر ملف رُمِّز فعلياً حتى الآن
+    let nativeEmitted = false; // هل أخرجنا نسخة بعرض المصدر الكامل؟
 
     for (const w of WIDTHS) {
-        // لا تُكبّر الصورة فوق حجمها الأصلي — تكبير بلا فائدة يزيد الحجم فقط
-        if (srcWidth && w > srcWidth) continue;
-
         const outPath = path.join(OUT_DIR, `${baseName}-${w}.webp`);
 
-        // تخطَّ إن كان الملف موجوداً وأحدث من المصدر (بناء تدريجي)
-        if (fs.existsSync(outPath)) {
-            const srcTime = fs.statSync(abs).mtimeMs;
-            const outTime = fs.statSync(outPath).mtimeMs;
-            if (outTime >= srcTime) {
-                skipped++;
-                totalBytes += fs.statSync(outPath).size;
-                continue;
-            }
+        // نُرمّز ما دام المقاس ضمن حدود المصدر، وأيضاً أول مقاس يتجاوزه
+        // (فينتج نسخة بعرض المصدر الكامل بفضل withoutEnlargement)
+        const needsRealEncode = w <= srcWidth || !nativeEmitted;
+
+        // بناء تدريجي: تخطَّ الملف الموجود الأحدث من المصدر
+        const upToDate =
+            fs.existsSync(outPath) && fs.statSync(outPath).mtimeMs >= srcTime;
+
+        if (upToDate) {
+            skipped++;
+        } else if (needsRealEncode) {
+            await sharp(abs)
+                .resize(w, null, { withoutEnlargement: true })
+                .webp({ quality: QUALITY, effort: 5 })
+                .toFile(outPath);
+            encoded++;
+        } else {
+            fs.copyFileSync(largestReal, outPath);
+            copied++;
         }
 
-        await sharp(abs)
-            .resize(w, null, { withoutEnlargement: true })
-            .webp({ quality: QUALITY, effort: 5 })
-            .toFile(outPath);
+        if (needsRealEncode) {
+            largestReal = outPath;
+            if (w >= srcWidth) nativeEmitted = true;
+        }
 
-        generated++;
         totalBytes += fs.statSync(outPath).size;
     }
 }
 
-console.log(`✓ وُلّد: ${generated} · مُتخطّى (محدّث): ${skipped}`);
-console.log(`✓ الحجم الكلي للمقاسات: ${(totalBytes / 1024 / 1024).toFixed(1)} MB`);
+const expected = images.length * WIDTHS.length;
+const actual = fs.readdirSync(OUT_DIR).filter((f) => f.endsWith(".webp")).length;
+
+console.log(`✓ رُمِّز: ${encoded} · نُسخ: ${copied} · مُتخطّى: ${skipped}`);
+console.log(`✓ الحجم الكلي: ${(totalBytes / 1024 / 1024).toFixed(1)} MB`);
 console.log(`✓ المسار: public/images/_variants/`);
+
+// حارس: أي نقص هنا يعني صوراً مكسورة في الإنتاج — أوقف البناء
+if (actual < expected) {
+    console.error(
+        `\n❌ نقص في المقاسات: متوقّع ${expected} · موجود ${actual}\n` +
+        `   كل صورة يجب أن تملك المقاسات الأربعة وإلا كسر srcset.`
+    );
+    process.exit(1);
+}
+console.log(`✓ الحارس: ${actual}/${expected} مقاساً — لا صور مكسورة`);

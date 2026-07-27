@@ -1,50 +1,62 @@
-name: نشر إلى Cloudflare Pages
+name: جدولة نشر المقالات
 
 # ═══════════════════════════════════════════════════════════
-#  استراتيجية النشر — مصمّمة للبقاء داخل الحد المجاني
-# ═══════════════════════════════════════════════════════════
+#  ⚠️ هذا الملف لا يبني الموقع ولا ينشره.
 #
-#  الحدود المجانية المعنية:
-#    • Cloudflare Pages : 500 بناء / شهر
-#    • GitHub Actions   : 2,000 دقيقة / شهر (مستودع خاص) · غير محدود (عام)
+#  البناء والنشر تتولاهما Cloudflare Pages مباشرة عبر ربط Git:
+#      أي دفعة إلى main  ←  Cloudflare يبني وينشر تلقائياً
 #
-#  لماذا لا نبني كل ساعة؟
-#    24 × 30 = 720 بناءً شهرياً — يتجاوز حد Cloudflare.
+#  فلماذا يوجد هذا الملف إذن؟
+#  ────────────────────────────────────────────────────────
+#  الموقع ثابت (output:"export") — يعني أن المقال المجدول
+#  لـ 15 سبتمبر لن يظهر من تلقاء نفسه؛ يحتاج بناءً جديداً
+#  في ذلك اليوم. لا يوجد خادم يفحص الوقت.
 #
-#  الحل: نفحص كل ساعتين، ونبني **فقط** إن استحقّ مقال فعلاً.
-#    • فحص بلا بناء ≈ 20 ثانية، لا يستهلك حصة Pages إطلاقاً
-#    • مع 90 مقالاً على 8 أشهر ← ~12 بناءً شهرياً
-#    • أقصى تأخير في ظهور المقال: ساعتان
+#  فوظيفة هذا الملف الوحيدة: أن يستيقظ كل ساعتين، ويسأل
+#  «هل استحقّ مقال؟»، وإن كانت الإجابة نعم يدفع commit فارغاً
+#  إلى main — فيلتقطه Cloudflare ويبني.
+#
+#  🔐 لماذا هذا التصميم؟
+#  ────────────────────────────────────────────────────────
+#  لا يحتاج CLOUDFLARE_API_TOKEN ولا CLOUDFLARE_ACCOUNT_ID
+#  ولا أي سرّ خارجي على الإطلاق. يستخدم GITHUB_TOKEN المدمج
+#  الذي تولّده GitHub لكل تشغيل ويُبطله بعده. صفر أسرار
+#  لتسريبها، وصفر أسرار لتدويرها.
+#
+#  💰 الحدود المجانية
+#  ────────────────────────────────────────────────────────
+#  • Cloudflare Pages : 500 بناء / شهر
+#    ← 90 مقالاً موزّعة على 8 أشهر = ~12 بناءً شهرياً (2.4%)
+#  • GitHub Actions   : 2,000 دقيقة / شهر
+#    ← الفحص ~25 ثانية × 360 مرة شهرياً = ~150 دقيقة (7.5%)
+#
+#  أقصى تأخير بين موعد المقال وظهوره فعلياً: ساعتان.
 # ═══════════════════════════════════════════════════════════
 
 on:
-  # 1) عند أي دفعة إلى main — نشر فوري للتغييرات
-  push:
-    branches: [main]
-
-  # 2) كل ساعتين — فحص المقالات المستحقة
+  # كل ساعتين — الفحص رخيص، والبناء وحده هو المكلف
   schedule:
     - cron: "0 */2 * * *"
 
-  # 3) تشغيل يدوي من واجهة GitHub
+  # تشغيل يدوي من تبويب Actions
   workflow_dispatch:
     inputs:
       force:
-        description: "ابنِ حتى لو لم يستحق مقال"
+        description: "ادفع بناءً حتى لو لم يستحق أي مقال"
         type: boolean
         default: false
 
+# لا تتراكم عمليتان معاً لو تأخّر تشغيل سابق
 concurrency:
-  group: deploy-${{ github.ref }}
-  cancel-in-progress: true
+  group: article-scheduler
+  cancel-in-progress: false
+
+permissions:
+  contents: write # لدفع الـ commit الفارغ فقط — لا شيء غير ذلك
 
 jobs:
-  # ── وظيفة 1: هل نحتاج البناء أصلاً؟ ──────────────────────
-  check:
+  publish-due-articles:
     runs-on: ubuntu-latest
-    outputs:
-      should_build: ${{ steps.due.outputs.should_build || steps.reason.outputs.always }}
-      due_slugs: ${{ steps.due.outputs.due_slugs }}
     steps:
       - uses: actions/checkout@v4
 
@@ -52,69 +64,34 @@ jobs:
         with:
           node-version: "22"
 
-      # الدفع اليدوي أو المباشر يبني دائماً
-      - id: reason
-        if: github.event_name != 'schedule'
-        run: echo "always=true" >> "$GITHUB_OUTPUT"
-
-      # الجدولة تبني فقط عند استحقاق مقال
+      # ── هل استحقّ مقال في آخر ساعتين؟ ──────────────────
+      # السكربت يخرج بـ 0 (نعم) أو 1 (لا)، ويكتب should_build
+      # و due_slugs في GITHUB_OUTPUT.
       - id: due
-        if: github.event_name == 'schedule'
         continue-on-error: true
         run: node scripts/check-due-articles.mjs --window 2
 
-  # ── وظيفة 2: البناء والنشر ───────────────────────────────
-  deploy:
-    needs: check
-    if: needs.check.outputs.should_build == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-
-      - name: تثبيت الاعتماديات
-        run: npm ci
-
-      # كاش مقاسات الصور — يوفّر دقائق في كل بناء
-      - name: استرجاع كاش الصور
-        uses: actions/cache@v4
-        with:
-          path: public/images/_variants
-          key: img-variants-${{ hashFiles('public/images/**/*.webp', 'public/images/**/*.png', 'public/images/**/*.jpg') }}
-
-      - name: توليد مقاسات الصور
-        run: node scripts/generate-image-variants.mjs
-
-      - name: توليد سجل المقالات
-        run: node scripts/generate-article-registry.mjs
-
-      - name: البناء
-        run: npm run build
-        env:
-          NEXT_PUBLIC_GA4_ID: ${{ secrets.NEXT_PUBLIC_GA4_ID }}
-          NEXT_PUBLIC_GSC_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GSC_VERIFICATION }}
-          NEXT_PUBLIC_BING_VERIFICATION: ${{ secrets.NEXT_PUBLIC_BING_VERIFICATION }}
-
-      - name: النشر إلى Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name=rawajgate --branch=main
-
-      - name: ملخص النشر
+      # ── نعم: ادفع commit فارغاً ليلتقطه Cloudflare ──────
+      - name: إطلاق بناء Cloudflare
+        if: steps.due.outputs.should_build == 'true' || inputs.force
         run: |
-          echo "### ✅ تم النشر" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**السبب:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
-          if [ -n "${{ needs.check.outputs.due_slugs }}" ]; then
-            echo "**مقالات نُشرت:** ${{ needs.check.outputs.due_slugs }}" >> $GITHUB_STEP_SUMMARY
+          git config user.name  "rawajgate-scheduler[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore(نشر): إطلاق بناء للمقالات المستحقة — ${{ steps.due.outputs.due_slugs || 'تشغيل يدوي' }}"
+          git push
+
+      # ── ملخّص يظهر في واجهة Actions ─────────────────────
+      - name: الملخّص
+        if: always()
+        run: |
+          if [ "${{ steps.due.outputs.should_build }}" = "true" ] || [ "${{ inputs.force }}" = "true" ]; then
+            echo "### 🚀 أُطلق بناء Cloudflare" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**المقالات المستحقة:** ${{ steps.due.outputs.due_slugs || 'تشغيل يدوي' }}" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "تابع البناء في لوحة Cloudflare ← Workers & Pages ← rawajgate" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### 😴 لا مقال مستحقاً" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "لم يُستهلك أي بناء من حصة Cloudflare." >> "$GITHUB_STEP_SUMMARY"
           fi
