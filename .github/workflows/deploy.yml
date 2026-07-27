@@ -73,25 +73,50 @@ jobs:
 
       # ── نعم: ادفع commit فارغاً ليلتقطه Cloudflare ──────
       - name: إطلاق بناء Cloudflare
+        id: trigger
         if: steps.due.outputs.should_build == 'true' || inputs.force
         run: |
           git config user.name  "rawajgate-scheduler[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit --allow-empty -m "chore(نشر): إطلاق بناء للمقالات المستحقة — ${{ steps.due.outputs.due_slugs || 'تشغيل يدوي' }}"
-          git push
+
+          # ⚠️ الفشل الوحيد المتوقّع هنا هو 403 عند الدفع، وسببه دائماً
+          # إعداد واحد: Settings ← Actions ← General ← Workflow permissions
+          # مضبوط على «Read repository contents». يجب أن يكون
+          # «Read and write permissions» وإلا لن يُنشر أي مقال أبداً —
+          # بصمت، لأن الفحص ينجح والدفع وحده يفشل.
+          if ! git push; then
+            echo "::error title=فشل دفع الـ commit::تعذّر على GITHUB_TOKEN الكتابة. اضبط Settings ← Actions ← General ← Workflow permissions على «Read and write permissions»."
+            exit 1
+          fi
 
       # ── ملخّص يظهر في واجهة Actions ─────────────────────
+      # ⚠️ يعتمد على نتيجة خطوة الدفع نفسها لا على «هل استحقّ مقال».
+      # لو اعتمد على الثانية فقط لأعلن النجاح حتى حين يفشل الدفع —
+      # وهو أسوأ أنواع الأعطال: يبدو كل شيء سليماً والموقع لا يتحدّث.
       - name: الملخّص
         if: always()
         run: |
-          if [ "${{ steps.due.outputs.should_build }}" = "true" ] || [ "${{ inputs.force }}" = "true" ]; then
-            echo "### 🚀 أُطلق بناء Cloudflare" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "**المقالات المستحقة:** ${{ steps.due.outputs.due_slugs || 'تشغيل يدوي' }}" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "تابع البناء في لوحة Cloudflare ← Workers & Pages ← rawajgate" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "### 😴 لا مقال مستحقاً" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "لم يُستهلك أي بناء من حصة Cloudflare." >> "$GITHUB_STEP_SUMMARY"
-          fi
+          DUE="${{ steps.due.outputs.due_slugs || 'تشغيل يدوي' }}"
+          case "${{ steps.trigger.outcome }}" in
+            success)
+              echo "### 🚀 أُطلق بناء Cloudflare" >> "$GITHUB_STEP_SUMMARY"
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "**المقالات المستحقة:** $DUE" >> "$GITHUB_STEP_SUMMARY"
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "تابع البناء في لوحة Cloudflare ← Workers & Pages ← rawajgate" >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            failure)
+              echo "### ❌ استحقّ مقال لكن تعذّر إطلاق البناء" >> "$GITHUB_STEP_SUMMARY"
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "**المقالات العالقة:** $DUE" >> "$GITHUB_STEP_SUMMARY"
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "السبب شبه المؤكّد: صلاحية الكتابة." >> "$GITHUB_STEP_SUMMARY"
+              echo "Settings ← Actions ← General ← Workflow permissions ← **Read and write permissions**" >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            *)
+              echo "### 😴 لا مقال مستحقاً" >> "$GITHUB_STEP_SUMMARY"
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "لم يُستهلك أي بناء من حصة Cloudflare." >> "$GITHUB_STEP_SUMMARY"
+              ;;
+          esac
