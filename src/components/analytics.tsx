@@ -8,12 +8,22 @@ import Script from "next/script";
  * ⚠️ الوضع قبل هذا المكوّن: حسابا Google Ads فقط، بلا GA4 ولا تتبع تحويلات.
  *    أي إنفاق إعلاني بلا قياس عائد.
  *
- * الإعداد المطلوب في ملف .env.local:
- *   NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
+ * تحويلات Google Ads (اختياري) تُضبط في .env.local أو في متغيّرات
+ * بيئة مشروع Cloudflare Pages:
  *   NEXT_PUBLIC_ADS_CONVERSION_LABEL=AW-933899057/xxxxxxxxxxxx
  */
 
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
+/**
+ * مُعرِّف قياس GA4 — Property «RawajGate.com» على حساب senatorever@gmail.com
+ * (Property ID 547263199 · Stream ID 15332858832 · توقيت الرياض · ريال سعودي)
+ *
+ * ⚠️ مكتوب في الكود عمداً لا في متغيّر بيئة.
+ * السبب: الموقع يُبنى على Cloudflare Pages من مستودع Git. متغيّر بيئة ناقص
+ * لا يُفشل البناء — بل يُنتج موقعاً بلا تتبّع إطلاقاً، ولا يُكتشف ذلك إلا
+ * بعد أسابيع من فقدان البيانات. المُعرِّف ليس سرّاً؛ هو ظاهر في HTML كل
+ * صفحة لأي زائر. فالمخاطرة كلها في نسيانه، لا في كشفه.
+ */
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "G-4JSVDS7JSZ";
 
 /** حسابات Google Ads القائمة */
 export const ADS_IDS = ["AW-933899057", "AW-862403831"] as const;
