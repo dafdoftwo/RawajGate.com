@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { canLinkTo } from "@/lib/articles/meta";
+
 /**
  * عارض Markdown مبسّط — Server Component (صفر JavaScript للمتصفح)
  * ================================================================
@@ -16,6 +18,7 @@ import Link from "next/link";
  * لأنها تضيف ~40 KB وتحتاج معالجة إضافية للـ RTL. هذا المعالج يكفي
  * لبنية مقالاتنا ويعمل بالكامل على السيرفر.
  */
+
 
 /** يحوّل **عريض** و[نص](/رابط) داخل السطر */
 function parseInline(text: string, key: string): React.ReactNode {
@@ -39,6 +42,18 @@ function parseInline(text: string, key: string): React.ReactNode {
             if (link) {
                 const href = link[2];
                 const external = href.startsWith("http");
+
+                // مقال لم يُنشر بعد → نصّ عادي بدل رابط إلى 404
+                if (!external && !canLinkTo(href)) {
+                    parts.push(
+                        <span key={`${key}-t-${m.index}`} className="font-medium text-gray-700">
+                            {link[1]}
+                        </span>
+                    );
+                    last = regex.lastIndex;
+                    continue;
+                }
+
                 parts.push(
                     external ? (
                         <a

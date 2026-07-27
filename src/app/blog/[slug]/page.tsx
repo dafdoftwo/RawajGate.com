@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { canLinkTo } from "@/lib/articles/meta";
 import { Calendar, Clock, User, ArrowLeft, List } from "lucide-react";
 
 import { GeoImage } from "@/components/geo-image";
@@ -85,6 +86,14 @@ export default async function ArticlePage({
     // ⏰ يُرجع null إن لم يحن موعد النشر بعد → 404
     const article = await loadArticle(slug);
     if (!article) notFound();
+
+    /*
+      ⚠️ تُفلتر روابط المقالات غير المنشورة.
+      صفحة المقال المجدول لا تُولَّد قبل موعدها، فإدراج رابط إليها في
+      كتلة «روابط مفيدة» يعني إرسال القارئ ومحرك البحث إلى 404.
+      الرابط يظهر تلقائياً في أول بناء بعد نشر هدفه.
+    */
+    const linkableInternal = article.internalLinks.filter((l) => canLinkTo(l.href));
 
     const related = getRelatedMeta(slug, 3);
     const headings = extractHeadings(article.content);
@@ -235,13 +244,13 @@ export default async function ArticlePage({
                         <MarkdownRenderer content={article.content} />
 
                         {/* الروابط الداخلية السياقية */}
-                        {article.internalLinks.length > 0 && (
+                        {linkableInternal.length > 0 && (
                             <section className="mt-12 bg-gray-50 rounded-2xl border border-gray-200 p-6">
                                 <h2 className="font-bold text-gray-900 mb-5 text-lg">
                                     روابط مفيدة ذات صلة
                                 </h2>
                                 <ul className="space-y-3">
-                                    {article.internalLinks.map((link) => (
+                                    {linkableInternal.map((link) => (
                                         <li key={link.href}>
                                             <Link
                                                 href={link.href}
