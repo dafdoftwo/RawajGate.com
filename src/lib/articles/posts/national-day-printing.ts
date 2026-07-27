@@ -9,8 +9,8 @@ export const nationalDayPrinting: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2026-11-17T12:22:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-24T17:17:00+03:00",
+    dateModified: "2026-10-24",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الحملات الموسمية والهدايا الدعائية",

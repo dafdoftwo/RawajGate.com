@@ -9,8 +9,8 @@ export const pantoneColorsGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2026-10-29T11:13:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-06T19:50:00+03:00",
+    dateModified: "2026-10-06",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التجهيز قبل الطباعة وإدارة الألوان",

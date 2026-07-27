@@ -9,8 +9,8 @@ export const rollVsSheetLabels: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-15T14:44:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-20T20:31:00+03:00",
+    dateModified: "2026-11-20",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الملصقات والستيكرات",

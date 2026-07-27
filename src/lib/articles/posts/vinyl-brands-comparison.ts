@@ -9,8 +9,8 @@ export const vinylBrandsComparison: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-10-01T10:27:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-12T20:41:00+03:00",
+    dateModified: "2026-09-12",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والتغليف",

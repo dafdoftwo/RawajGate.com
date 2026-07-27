@@ -9,8 +9,8 @@ export const contractingCompanyPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-06T21:33:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-05T08:52:00+03:00",
+    dateModified: "2027-01-05",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم مطبوعات المشاريع واللافتات الخارجية",

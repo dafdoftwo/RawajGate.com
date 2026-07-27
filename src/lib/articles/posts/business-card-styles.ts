@@ -9,8 +9,8 @@ export const businessCardStyles: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-25T18:55:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-25T12:08:00+03:00",
+    dateModified: "2026-12-25",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",

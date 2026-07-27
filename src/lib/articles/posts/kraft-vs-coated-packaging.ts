@@ -9,8 +9,8 @@ export const kraftVsCoatedPackaging: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-10-06T19:58:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-16T21:17:00+03:00",
+    dateModified: "2026-09-16",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والتغليف",

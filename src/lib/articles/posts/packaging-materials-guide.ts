@@ -9,8 +9,8 @@ export const packagingMaterialsGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-11T17:55:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-14T19:41:00+03:00",
+    dateModified: "2026-12-14",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التغليف والهدايا الدعائية",

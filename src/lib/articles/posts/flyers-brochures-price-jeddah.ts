@@ -9,8 +9,8 @@ export const flyersBrochuresPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-09-08T18:53:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-22T20:46:00+03:00",
+    dateModified: "2026-08-22",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",

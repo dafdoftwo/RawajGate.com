@@ -9,8 +9,8 @@ export const colorPsychologyBranding: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-12-30T16:44:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-04T17:06:00+03:00",
+    dateModified: "2026-12-04",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهوية البصرية والتصميم",

@@ -9,8 +9,8 @@ export const ledVsNeonSignage: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-10T11:33:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-16T09:14:00+03:00",
+    dateModified: "2026-11-16",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",

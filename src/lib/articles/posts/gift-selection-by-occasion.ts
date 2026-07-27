@@ -9,8 +9,8 @@ export const giftSelectionByOccasion: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-10-12T13:27:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-21T17:27:00+03:00",
+    dateModified: "2026-09-21",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمناسبات",

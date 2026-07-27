@@ -9,8 +9,8 @@ export const brochureDesignGuide: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-12-22T11:11:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-26T19:48:00+03:00",
+    dateModified: "2026-11-26",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والمطبوعات التجارية",

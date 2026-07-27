@@ -9,8 +9,8 @@ export const paperWeightSizeGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2026-08-16T15:27:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-05T16:00:00+03:00",
+    dateModified: "2026-08-05",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",

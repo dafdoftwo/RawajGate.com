@@ -9,8 +9,8 @@ export const outdoorBannersPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-09-17T19:31:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-31T09:55:00+03:00",
+    dateModified: "2026-08-31",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الطباعة الكبيرة واللافتات الخارجية",

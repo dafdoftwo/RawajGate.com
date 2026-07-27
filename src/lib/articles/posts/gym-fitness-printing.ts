@@ -9,8 +9,8 @@ export const gymFitnessPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-01-27T18:33:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-28T14:06:00+03:00",
+    dateModified: "2026-12-28",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والمطبوعات التشغيلية",

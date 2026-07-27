@@ -9,8 +9,8 @@ export const signageMaterialsComparison: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-09-28T20:58:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-10T09:56:00+03:00",
+    dateModified: "2026-09-10",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",

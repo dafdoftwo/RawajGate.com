@@ -9,8 +9,8 @@ export const promotionalGiftsCatalog: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-14T15:26:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-16T12:55:00+03:00",
+    dateModified: "2026-12-16",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمشتريات",

@@ -9,8 +9,8 @@ export const exhibitionStandsSizes: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2026-11-01T15:22:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-08T12:19:00+03:00",
+    dateModified: "2026-10-08",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

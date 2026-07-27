@@ -9,8 +9,8 @@ export const printCampaignPlanning: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-10-22T17:58:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-29T10:44:00+03:00",
+    dateModified: "2026-09-29",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم إدارة المشاريع",

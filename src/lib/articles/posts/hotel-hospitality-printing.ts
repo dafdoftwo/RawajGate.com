@@ -9,8 +9,8 @@ export const hotelHospitalityPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-10T08:49:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-11T15:54:00+03:00",
+    dateModified: "2027-01-11",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم مطبوعات الضيافة والمنشآت",

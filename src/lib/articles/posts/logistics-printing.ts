@@ -9,8 +9,8 @@ export const logisticsPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-08T08:55:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-08T09:52:00+03:00",
+    dateModified: "2027-01-08",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التشغيلية وهوية الأساطيل",

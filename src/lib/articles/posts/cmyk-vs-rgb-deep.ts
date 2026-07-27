@@ -9,8 +9,8 @@ export const cmykVsRgbDeep: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-03-01T16:05:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-28T08:08:00+03:00",
+    dateModified: "2027-01-28",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التجهيز قبل الطباعة وإدارة الألوان",

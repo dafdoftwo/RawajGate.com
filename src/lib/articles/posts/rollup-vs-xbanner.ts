@@ -9,8 +9,8 @@ export const rollupVsXbanner: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-03T20:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-10T15:14:00+03:00",
+    dateModified: "2026-11-10",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

@@ -9,8 +9,8 @@ export const choosePrintingCompanyJeddah: Article = {
     category: "أدلة إرشادية",
     intent: "commercial",
 
-    publishAt: "2026-08-24T12:18:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-11T11:10:00+03:00",
+    dateModified: "2026-08-11",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم خدمة العملاء",

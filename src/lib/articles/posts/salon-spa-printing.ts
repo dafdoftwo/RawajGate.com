@@ -9,8 +9,8 @@ export const salonSpaPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-01-29T19:26:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-30T13:43:00+03:00",
+    dateModified: "2026-12-30",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية وملصقات المنتجات",

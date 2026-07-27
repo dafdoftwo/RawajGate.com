@@ -9,8 +9,8 @@ export const boothStaffTraining: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-12-27T19:49:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-02T10:21:00+03:00",
+    dateModified: "2026-12-02",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

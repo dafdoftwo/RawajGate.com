@@ -9,8 +9,8 @@ export const fileFormatsGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-19T13:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-21T08:13:00+03:00",
+    dateModified: "2026-12-21",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",

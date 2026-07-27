@@ -9,8 +9,8 @@ export const retailStorePrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-04T19:49:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-03T21:35:00+03:00",
+    dateModified: "2027-01-03",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية واللافتات",

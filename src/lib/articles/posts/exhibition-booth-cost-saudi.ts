@@ -9,8 +9,8 @@ export const exhibitionBoothCostSaudi: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-08-06T10:27:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-07-27T16:21:00+03:00",
+    dateModified: "2026-07-27",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

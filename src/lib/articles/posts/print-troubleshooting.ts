@@ -9,8 +9,8 @@ export const printTroubleshooting: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2027-03-04T15:38:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-30T11:34:00+03:00",
+    dateModified: "2027-01-30",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة وضبط الجودة",

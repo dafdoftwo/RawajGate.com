@@ -9,8 +9,8 @@ export const ecommercePackaging: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-16T17:05:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-15T17:09:00+03:00",
+    dateModified: "2027-01-15",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التغليف والمطبوعات التجارية",

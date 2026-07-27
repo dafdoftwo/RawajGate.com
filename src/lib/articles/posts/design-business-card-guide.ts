@@ -9,8 +9,8 @@ export const designBusinessCardGuide: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-10-09T08:18:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-19T15:52:00+03:00",
+    dateModified: "2026-09-19",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والتجهيز الطباعي",

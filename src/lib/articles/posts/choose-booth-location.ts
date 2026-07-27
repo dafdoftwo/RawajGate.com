@@ -9,8 +9,8 @@ export const chooseBoothLocation: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-12-20T20:11:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-24T15:55:00+03:00",
+    dateModified: "2026-11-24",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

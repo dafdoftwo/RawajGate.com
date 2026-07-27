@@ -9,8 +9,8 @@ export const cafeRestaurantPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2026-11-08T11:18:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-14T09:46:00+03:00",
+    dateModified: "2026-10-14",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والتغليف",

@@ -9,8 +9,8 @@ export const promotionalGiftsGuide: Article = {
     category: "هدايا",
     intent: "commercial",
 
-    publishAt: "2026-08-30T18:23:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-15T17:06:00+03:00",
+    dateModified: "2026-08-15",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية",

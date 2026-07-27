@@ -9,8 +9,8 @@ export const summerOutdoorSignage: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2027-02-23T18:11:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-21T11:48:00+03:00",
+    dateModified: "2027-01-21",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والطباعة الخارجية",

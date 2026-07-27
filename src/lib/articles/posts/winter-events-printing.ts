@@ -9,8 +9,8 @@ export const winterEventsPrinting: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2027-02-25T16:44:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-24T08:16:00+03:00",
+    dateModified: "2027-01-24",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

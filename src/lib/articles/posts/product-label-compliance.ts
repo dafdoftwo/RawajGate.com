@@ -9,8 +9,8 @@ export const productLabelCompliance: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-12-25T08:33:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-29T16:56:00+03:00",
+    dateModified: "2026-11-29",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الملصقات والتغليف",

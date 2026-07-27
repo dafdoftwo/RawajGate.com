@@ -9,8 +9,8 @@ export const saudiExhibitionsCalendar: Article = {
     category: "معارض",
     intent: "reference",
 
-    publishAt: "2026-08-27T09:07:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-13T15:17:00+03:00",
+    dateModified: "2026-08-13",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

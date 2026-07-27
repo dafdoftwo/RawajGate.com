@@ -9,8 +9,8 @@ export const brandIdentityGuide: Article = {
     category: "تصميم",
     intent: "informational",
 
-    publishAt: "2026-09-02T11:41:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-17T11:07:00+03:00",
+    dateModified: "2026-08-17",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم",

@@ -9,8 +9,8 @@ export const eidCorporateGifts: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2027-02-21T09:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-19T12:34:00+03:00",
+    dateModified: "2027-01-19",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمناسبات",

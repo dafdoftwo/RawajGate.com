@@ -9,8 +9,8 @@ export const fullVsPartialWrap: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-13T13:16:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-18T20:28:00+03:00",
+    dateModified: "2026-11-18",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات وبراندينج المركبات",

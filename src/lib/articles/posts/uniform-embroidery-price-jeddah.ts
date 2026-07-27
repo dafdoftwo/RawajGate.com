@@ -9,8 +9,8 @@ export const uniformEmbroideryPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-09-12T15:31:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-26T13:38:00+03:00",
+    dateModified: "2026-08-26",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والملابس",

@@ -9,8 +9,8 @@ export const realEstatePrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2026-11-10T08:04:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-16T12:06:00+03:00",
+    dateModified: "2026-10-16",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",

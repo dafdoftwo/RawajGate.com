@@ -9,8 +9,8 @@ export const vehicleWrappingPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-08-09T19:03:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-07-29T09:01:00+03:00",
+    dateModified: "2026-07-29",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والتغليف",

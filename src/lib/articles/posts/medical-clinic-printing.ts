@@ -9,8 +9,8 @@ export const medicalClinicPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2026-11-05T08:09:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-12T10:38:00+03:00",
+    dateModified: "2026-10-12",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والمؤسسية",

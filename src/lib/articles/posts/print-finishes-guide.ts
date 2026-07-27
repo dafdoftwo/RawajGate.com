@@ -9,8 +9,8 @@ export const printFinishesGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2026-11-03T10:58:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-10T08:00:00+03:00",
+    dateModified: "2026-10-10",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما بعد الطباعة والتشطيبات",

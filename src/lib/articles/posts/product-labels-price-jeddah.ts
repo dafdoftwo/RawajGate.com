@@ -9,8 +9,8 @@ export const productLabelsPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-09-14T19:31:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-28T15:17:00+03:00",
+    dateModified: "2026-08-28",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الملصقات والتغليف",

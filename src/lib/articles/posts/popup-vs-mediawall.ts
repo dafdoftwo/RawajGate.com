@@ -9,8 +9,8 @@ export const popupVsMediawall: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-09-22T20:22:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-06T09:10:00+03:00",
+    dateModified: "2026-09-06",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

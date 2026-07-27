@@ -9,8 +9,8 @@ export const lawFirmPrinting: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-01T14:38:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-01T16:31:00+03:00",
+    dateModified: "2027-01-01",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات المؤسسية والهوية البصرية",

@@ -9,8 +9,8 @@ export const ramadanCorporateGifts: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2026-11-14T09:42:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-21T18:33:00+03:00",
+    dateModified: "2026-10-21",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمناسبات",

@@ -9,8 +9,8 @@ export const coatedVsLinenPaper: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-08-14T08:12:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-03T16:04:00+03:00",
+    dateModified: "2026-08-03",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",

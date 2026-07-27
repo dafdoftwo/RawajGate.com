@@ -9,8 +9,8 @@ export const letterheadPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-11-24T13:55:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-31T11:45:00+03:00",
+    dateModified: "2026-10-31",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والإدارية",

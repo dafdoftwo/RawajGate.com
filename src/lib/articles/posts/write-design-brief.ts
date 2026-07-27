@@ -9,8 +9,8 @@ export const writeDesignBrief: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-10-16T11:53:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-25T18:41:00+03:00",
+    dateModified: "2026-09-25",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",

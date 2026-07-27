@@ -9,8 +9,8 @@ export const restaurantMenuGuide: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2026-09-05T16:12:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-20T09:01:00+03:00",
+    dateModified: "2026-08-20",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",

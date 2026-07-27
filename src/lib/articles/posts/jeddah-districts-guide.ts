@@ -9,8 +9,8 @@ export const jeddahDistrictsGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-08T21:05:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-12T12:10:00+03:00",
+    dateModified: "2026-12-12",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات وهوية المحال",

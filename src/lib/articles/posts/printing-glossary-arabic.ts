@@ -9,8 +9,8 @@ export const printingGlossaryArabic: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2026-10-27T10:47:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-03T18:11:00+03:00",
+    dateModified: "2026-10-03",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",

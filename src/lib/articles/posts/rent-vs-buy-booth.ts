@@ -9,8 +9,8 @@ export const rentVsBuyBooth: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-10-04T10:47:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-14T18:49:00+03:00",
+    dateModified: "2026-09-14",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

@@ -9,8 +9,8 @@ export const logoDesignPriceSaudi: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-09-20T09:53:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-03T09:54:00+03:00",
+    dateModified: "2026-09-03",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",

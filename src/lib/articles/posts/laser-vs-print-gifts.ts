@@ -9,8 +9,8 @@ export const laserVsPrintGifts: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-05T20:16:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-12T20:26:00+03:00",
+    dateModified: "2026-11-12",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الترويجية والتخصيص",

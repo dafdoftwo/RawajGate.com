@@ -9,8 +9,8 @@ export const wallDecalsPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-12-01T10:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-08T12:51:00+03:00",
+    dateModified: "2026-11-08",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والملصقات",

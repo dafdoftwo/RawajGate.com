@@ -9,8 +9,8 @@ export const sustainablePrinting: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-03-06T21:38:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-02-01T14:53:00+03:00",
+    dateModified: "2027-02-01",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والتغليف",

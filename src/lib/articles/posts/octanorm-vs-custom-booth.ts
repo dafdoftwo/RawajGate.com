@@ -9,8 +9,8 @@ export const octanormVsCustomBooth: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-08-21T17:34:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-09T13:05:00+03:00",
+    dateModified: "2026-08-09",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

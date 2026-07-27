@@ -9,8 +9,8 @@ export const signageMaintenanceGuide: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-10-19T10:13:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-27T10:40:00+03:00",
+    dateModified: "2026-09-27",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",

@@ -9,8 +9,8 @@ export const uniformFabricsGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-16T10:11:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-18T15:28:00+03:00",
+    dateModified: "2026-12-18",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الملابس الدعائية والزي الموحد",

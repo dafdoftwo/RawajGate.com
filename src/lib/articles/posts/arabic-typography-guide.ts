@@ -9,8 +9,8 @@ export const arabicTypographyGuide: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2027-01-01T09:55:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-06T20:16:00+03:00",
+    dateModified: "2026-12-06",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",

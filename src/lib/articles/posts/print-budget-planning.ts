@@ -9,8 +9,8 @@ export const printBudgetPlanning: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2027-01-03T14:05:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-08T15:07:00+03:00",
+    dateModified: "2026-12-08",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التخطيط وإدارة الحسابات",

@@ -9,8 +9,8 @@ export const graduationPrinting: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2027-02-27T18:11:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-26T10:09:00+03:00",
+    dateModified: "2027-01-26",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الحملات الموسمية والهدايا التذكارية",

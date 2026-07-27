@@ -9,8 +9,8 @@ export const vehicleWrapDesignGuide: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2026-10-14T08:27:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-23T10:33:00+03:00",
+    dateModified: "2026-09-23",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم وبراندينج المركبات",

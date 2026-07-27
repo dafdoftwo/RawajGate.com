@@ -9,8 +9,8 @@ export const bannerSizesGuide: Article = {
     category: "مرجعي",
     intent: "reference",
 
-    publishAt: "2027-01-22T16:49:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-23T20:54:00+03:00",
+    dateModified: "2026-12-23",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الطباعة كبيرة المقاس واللافتات",

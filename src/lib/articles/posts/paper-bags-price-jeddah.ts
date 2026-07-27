@@ -9,8 +9,8 @@ export const paperBagsPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-11-29T17:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-06T19:38:00+03:00",
+    dateModified: "2026-11-06",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والتغليف",

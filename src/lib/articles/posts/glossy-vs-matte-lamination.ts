@@ -9,8 +9,8 @@ export const glossyVsMatteLamination: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-07T17:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-14T17:11:00+03:00",
+    dateModified: "2026-11-14",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",

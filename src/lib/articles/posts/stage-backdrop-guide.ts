@@ -9,8 +9,8 @@ export const stageBackdropGuide: Article = {
     category: "أدلة إرشادية",
     intent: "informational",
 
-    publishAt: "2027-01-06T14:11:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-12-10T21:20:00+03:00",
+    dateModified: "2026-12-10",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",

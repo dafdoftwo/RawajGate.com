@@ -9,8 +9,8 @@ export const menuPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-11-26T11:21:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-03T19:36:00+03:00",
+    dateModified: "2026-11-03",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية وخدمة المطاعم",

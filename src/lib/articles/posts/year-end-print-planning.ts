@@ -9,8 +9,8 @@ export const yearEndPrintPlanning: Article = {
     category: "موسمي",
     intent: "commercial",
 
-    publishAt: "2026-11-19T17:09:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-10-27T13:08:00+03:00",
+    dateModified: "2026-10-27",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الطباعة التجارية والهدايا المؤسسية",

@@ -9,8 +9,8 @@ export const inhouseVsOutsourceDesign: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-12-17T09:44:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-11-22T14:07:00+03:00",
+    dateModified: "2026-11-22",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",

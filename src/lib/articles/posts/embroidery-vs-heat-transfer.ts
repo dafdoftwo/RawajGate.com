@@ -9,8 +9,8 @@ export const embroideryVsHeatTransfer: Article = {
     category: "مقارنات",
     intent: "commercial",
 
-    publishAt: "2026-09-25T09:58:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-09-08T10:51:00+03:00",
+    dateModified: "2026-09-08",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الترويجية والملابس",

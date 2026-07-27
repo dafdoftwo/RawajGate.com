@@ -9,8 +9,8 @@ export const ncrBooksPriceJeddah: Article = {
     category: "أسعار",
     intent: "transactional",
 
-    publishAt: "2026-09-10T19:31:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2026-08-24T13:48:00+03:00",
+    dateModified: "2026-08-24",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والإدارية",

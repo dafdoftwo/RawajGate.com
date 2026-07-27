@@ -9,8 +9,8 @@ export const startupBrandingKit: Article = {
     category: "مطبوعات",
     intent: "commercial",
 
-    publishAt: "2027-02-13T21:05:00+03:00",
-    dateModified: "2026-07-26",
+    publishAt: "2027-01-13T14:03:00+03:00",
+    dateModified: "2027-01-13",
 
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية",
