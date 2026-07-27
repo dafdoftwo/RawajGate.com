@@ -15,9 +15,8 @@ export const retailStorePrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية واللافتات",
 
-    image: "/images/custom-paper-bags-shopping-packaging.webp",
-    imageAlt:
-        "أكياس تسوق ورقية مطبوعة بالشعار ضمن حزمة مطبوعات محل تجزئة منفّذة في جدة",
+    image: "/images/retail-boutique-counter-print-materials.webp",
+    imageAlt: "كاونتر متجر تجزئة بأكياس مطوية، بكرة تكتات أسعار، ستيكرات ختم وبطاقات رفوف",
 
     readTime: "13 دقيقة",
 

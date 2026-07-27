@@ -15,9 +15,8 @@ export const winterEventsPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",
 
-    image: "/images/event-stage-backdrop-production-jeddah.webp",
-    imageAlt:
-        "إنتاج خلفية مسرح مطبوعة لفعالية موسمية داخل ورشة تجهيز معارض وفعاليات في جدة",
+    image: "/images/winter-outdoor-event-stage-signage-dusk.webp",
+    imageAlt: "فعالية شتوية مسائية: مسرح بخلفية قماشية، إنارة معلّقة ولوحات إرشادية",
 
     readTime: "13 دقيقة",
 

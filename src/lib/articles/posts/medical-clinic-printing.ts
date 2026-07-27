@@ -15,9 +15,8 @@ export const medicalClinicPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والمؤسسية",
 
-    image: "/images/corporate-letterhead-envelope-branding.webp",
-    imageAlt:
-        "أوراق رسمية وظروف بهوية بصرية موحّدة لمركز طبي في جدة",
+    image: "/images/medical-clinic-reception-print-materials.webp",
+    imageAlt: "استقبال عيادة: بطاقات مواعيد، وصفات، منشورات توعوية وبطاقات تعريف",
 
     readTime: "12 دقيقة",
 

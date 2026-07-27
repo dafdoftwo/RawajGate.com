@@ -15,9 +15,8 @@ export const eidCorporateGifts: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمناسبات",
 
-    image: "/images/corporate-promotional-gifts-jeddah-items.webp",
-    imageAlt:
-        "هدايا عيد للشركات تشمل علباً مطبوعة ومظاريف عيدية وأصنافاً معدنية محفورة بالليزر داخل مطبعة في حي الروضة بجدة",
+    image: "/images/eid-corporate-gift-box-luxury.webp",
+    imageAlt: "صندوق هدايا العيد للشركات: كوب مذهّب، دفتر جلدي، تمر وبطاقة بشريط على مخمل أخضر",
 
     readTime: "13 دقيقة",
 

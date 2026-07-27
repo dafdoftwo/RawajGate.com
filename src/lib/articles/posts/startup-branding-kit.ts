@@ -15,9 +15,8 @@ export const startupBrandingKit: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية",
 
-    image: "/images/luxury-business-cards-printing-jeddah.webp",
-    imageAlt:
-        "بطاقات عمل فاخرة ضمن حزمة هوية لمشروع ناشئ مطبوعة في جدة",
+    image: "/images/startup-brandit-identity-starter-kit.webp",
+    imageAlt: "حزمة هوية بصرية للمشاريع الناشئة: كروت، ورق رسمي، مغلف، حقيبة قماش ودفتر بلوحة ألوان موحدة",
 
     readTime: "13 دقيقة",
 

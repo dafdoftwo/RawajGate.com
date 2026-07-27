@@ -15,8 +15,8 @@ export const preparePrintFileGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt: "تجهيز ملفات الطباعة في قسم ما قبل الطباعة بجدة",
+    image: "/images/print-file-prep-bleed-trim-marks.webp",
+    imageAlt: "تجهيز ملف الطباعة على الشاشة مع خطوط الحد الآمن وعلامات القص والـ bleed",
 
     readTime: "10 دقائق",
 

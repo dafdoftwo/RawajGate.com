@@ -15,9 +15,8 @@ export const gymFitnessPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والمطبوعات التشغيلية",
 
-    image: "/images/logo-printed-tshirts-embroidery-polo.webp",
-    imageAlt:
-        "تيشيرتات وبولو بشعار ناد رياضي بالتطريز والطباعة الحرارية، منفَّذة في جدة",
+    image: "/images/gym-fitness-branding-apparel-interior.webp",
+    imageAlt: "صالة رياضية: تيشرتات تدريب مطوية، مناشف، زجاجة ماء ولوحة جدارية تحفيزية",
 
     readTime: "13 دقيقة",
 

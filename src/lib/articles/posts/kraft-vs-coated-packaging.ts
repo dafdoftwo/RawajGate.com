@@ -15,9 +15,8 @@ export const kraftVsCoatedPackaging: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والتغليف",
 
-    image: "/images/custom-paper-bags-shopping-packaging.webp",
-    imageAlt:
-        "أكياس ورقية مخصصة للتغليف بخامتي الكرافت والكوشيه مطبوعة بشعارات تجارية في جدة",
+    image: "/images/kraft-vs-coated-paper-bag-comparison.webp",
+    imageAlt: "مقارنة كيس ورقي كرافت بني بمقبض مجدول وكيس كوشيه أبيض لامع بشريط ساتان",
 
     readTime: "11 دقيقة",
 

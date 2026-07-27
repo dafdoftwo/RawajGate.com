@@ -15,9 +15,8 @@ export const logisticsPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التشغيلية وهوية الأساطيل",
 
-    image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-    imageAlt:
-        "مركبة تجارية مغلّفة بهوية شركة شحن بفينيل مطبوع ولامينيشن واقٍ في جدة",
+    image: "/images/logistics-fleet-vans-warehouse-branding.webp",
+    imageAlt: "أسطول شاحنات وسيارات توزيع بيضاء جاهزة للتغليف الدعائي أمام مستودع لوجستي",
 
     readTime: "14 دقيقة",
 

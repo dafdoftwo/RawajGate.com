@@ -15,9 +15,8 @@ export const cafeRestaurantPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والتغليف",
 
-    image: "/images/restaurant-menu-design-leather-cover.webp",
-    imageAlt:
-        "منيو مطعم بغلاف جلدي ضمن حزمة مطبوعات مقهى ومطعم منفّذة في جدة",
+    image: "/images/cafe-counter-cups-loyalty-cards.webp",
+    imageAlt: "كاونتر مقهى: أكواب بأكمام كرافت، كيس ورقي، بطاقات ولاء وتنت كارد",
 
     readTime: "13 دقيقة",
 

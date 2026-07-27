@@ -15,9 +15,8 @@ export const realEstatePrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",
 
-    image: "/images/presentation-folder-files-holder.webp",
-    imageAlt:
-        "ملف عرض تقديمي لشركة عقارية مع أوراق الوحدات السكنية داخل مطبعة في جدة",
+    image: "/images/real-estate-brochure-floorplan-model.webp",
+    imageAlt: "مطبوعات عقارية: بروشور مفتوح على مخطط، فولدر عرض ومجسم فيلا معماري",
 
     readTime: "14 دقيقة",
 

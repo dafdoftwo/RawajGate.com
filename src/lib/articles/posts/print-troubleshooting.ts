@@ -15,9 +15,8 @@ export const printTroubleshooting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة وضبط الجودة",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt:
-        "ماكينات طباعة أوفست ورقمية داخل مطبعة في جدة أثناء فحص ورقة اختبار لضبط الألوان",
+    image: "/images/print-quality-control-loupe-cmyk-inspection.webp",
+    imageAlt: "فحص جودة الطباعة بعدسة مكبرة على شريط ألوان CMYK وعلامات التسجيل فوق طاولة إضاءة",
 
     readTime: "12 دقيقة",
 

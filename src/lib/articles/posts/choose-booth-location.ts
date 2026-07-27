@@ -15,9 +15,8 @@ export const chooseBoothLocation: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",
 
-    image: "/images/exhibition-booth-fabrication-design-jeddah.webp",
-    imageAlt:
-        "جناح معرض قيد التنفيذ داخل ورشة تجهيز الأجنحة في جدة قبل نقله إلى صالة العرض",
+    image: "/images/exhibition-floor-plan-booth-selection.webp",
+    imageAlt: "اختيار موقع الجناح على مخطط أرضية معرض تجاري بوضع علامة على جناح ركني",
 
     readTime: "12 دقيقة",
 

@@ -15,9 +15,8 @@ export const backToSchoolPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الحملات الموسمية والمطبوعات التجارية",
 
-    image: "/images/branded-notebooks-diaries-calendar-gift-sets.webp",
-    imageAlt:
-        "دفاتر ومفكرات وأطقم هدايا بشعار متجر ضمن تجهيزات موسم العودة للمدارس في جدة",
+    image: "/images/back-to-school-notebooks-supplies.webp",
+    imageAlt: "مستلزمات العودة للمدارس: دفاتر ملوّنة، حقيبة، مقلمة وكراسات مطبوعة",
 
     readTime: "14 دقيقة",
 

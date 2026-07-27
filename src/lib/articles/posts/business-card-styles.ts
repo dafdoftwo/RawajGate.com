@@ -15,9 +15,8 @@ export const businessCardStyles: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",
 
-    image: "/images/luxury-business-cards-printing-jeddah.webp",
-    imageAlt:
-        "نماذج بطاقات عمل بأنماط ومقاسات عالمية متنوعة معروضة على طاولة داخل مطبعة في جدة",
+    image: "/images/business-card-shapes-finishes-variety.webp",
+    imageAlt: "بطاقات أعمال بأشكال وتشطيبات متنوعة: مربعة، عمودية، ثلاثية الطبقات بحافة ملوّنة وقص خاص",
 
     readTime: "13 دقيقة",
 

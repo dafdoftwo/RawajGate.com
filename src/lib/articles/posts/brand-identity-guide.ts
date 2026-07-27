@@ -15,8 +15,8 @@ export const brandIdentityGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم",
 
-    image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
-    imageAlt: "جلسة تصميم هوية بصرية في مكتب بجدة",
+    image: "/images/complete-brand-identity-system-spread.webp",
+    imageAlt: "نظام هوية بصرية متكامل: دليل الهوية مفتوحاً مع مطبوعات ومنتجات موحّدة اللون",
 
     readTime: "11 دقيقة",
 

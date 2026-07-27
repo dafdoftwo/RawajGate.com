@@ -15,9 +15,8 @@ export const cmykVsRgbDeep: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التجهيز قبل الطباعة وإدارة الألوان",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt:
-        "ماكينة طباعة أوفست ورقمية داخل مطبعة في جدة أثناء ضبط ألوان CMYK ومطابقتها على شريط التحكم اللوني",
+    image: "/images/color-management-calibrated-monitor-print-proof.webp",
+    imageAlt: "إدارة الألوان: شاشة معايَرة بجهاز قياس طيفي بجوار بروفة مطبوعة لنفس الصورة",
 
     readTime: "14 دقيقة",
 

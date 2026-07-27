@@ -15,9 +15,8 @@ export const jeddahDistrictsGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات وهوية المحال",
 
-    image: "/images/print-shop-exhibition-services-saudi-arabia.webp",
-    imageAlt:
-        "مطبوعات ولافتات تعريفية لمحل تجاري جديد معروضة داخل مطبعة في جدة",
+    image: "/images/jeddah-commercial-district-aerial-golden-hour.webp",
+    imageAlt: "منظر جوي لحي تجاري في جدة وقت الغروب: شوارع نخيل ومبانٍ حديثة والبحر الأحمر",
 
     readTime: "13 دقيقة",
 

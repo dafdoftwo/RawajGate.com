@@ -15,9 +15,8 @@ export const signageMaintenanceGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",
 
-    image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
-    imageAlt:
-        "حروف أكريليك بارزة مضاءة على واجهة محل في جدة تظهر حالة الإنارة والخلفية بعد الصيانة",
+    image: "/images/signage-maintenance-cleaning-led-service.webp",
+    imageAlt: "صيانة لافتة محل: تنظيف اللوحة واستبدال وحدة LED من فتحة الصيانة",
 
     readTime: "13 دقيقة",
 

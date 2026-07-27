@@ -15,9 +15,8 @@ export const ramadanCorporateGifts: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمناسبات",
 
-    image: "/images/corporate-promotional-gifts-jeddah-items.webp",
-    imageAlt:
-        "مجموعة هدايا رمضانية للشركات مع علب تمور ومستلزمات ضيافة جاهزة للتغليف داخل مطبعة في حي الروضة بجدة",
+    image: "/images/ramadan-corporate-gifts-lantern-dates.webp",
+    imageAlt: "هدايا رمضان للشركات: فانوس نحاسي، علبة تمر فاخرة، دلة قهوة وسجادة صلاة",
 
     readTime: "12 دقيقة",
 

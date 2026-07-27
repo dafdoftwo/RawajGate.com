@@ -15,9 +15,8 @@ export const ledVsNeonSignage: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",
 
-    image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
-    imageAlt:
-        "حروف بارزة من الأكريليك مضاءة بوحدات LED على واجهة محل في جدة",
+    image: "/images/led-backlit-vs-neon-flex-signage-dusk.webp",
+    imageAlt: "مقارنة إضاءة LED الخلفية الهالة وأنبوب النيون فلكس على واجهة محل وقت الغروب",
 
     readTime: "13 دقيقة",
 

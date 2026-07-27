@@ -15,9 +15,8 @@ export const packagingMaterialsGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التغليف والهدايا الدعائية",
 
-    image: "/images/custom-paper-bags-shopping-packaging.webp",
-    imageAlt:
-        "أكياس ورقية مخصصة وخامات تغليف متنوعة مطبوعة بالشعار لمتاجر في جدة",
+    image: "/images/packaging-material-samples-comparison.webp",
+    imageAlt: "عيّنات خامات التغليف: كرتون مضلّع، دوبلكس، كرافت، بلاستيك شفاف وكرتون مطلي",
 
     readTime: "13 دقيقة",
 

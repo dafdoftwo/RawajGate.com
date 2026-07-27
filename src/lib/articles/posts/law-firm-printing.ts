@@ -15,9 +15,8 @@ export const lawFirmPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات المؤسسية والهوية البصرية",
 
-    image: "/images/corporate-letterhead-envelope-branding.webp",
-    imageAlt:
-        "ورق رسمي وظروف بهوية بصرية موحّدة لمكتب محاماة واستشارات في جدة",
+    image: "/images/law-firm-letterhead-folder-desk.webp",
+    imageAlt: "مكتب محاماة: فولدر بارز، ورق رسمي قطني، قلم حبر ومحفظة جلدية",
 
     readTime: "12 دقيقة",
 

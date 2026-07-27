@@ -15,8 +15,8 @@ export const paperWeightSizeGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt: "أنواع وأوزان الورق في مطبعة بجدة",
+    image: "/images/paper-stock-weights-sizes-samples.webp",
+    imageAlt: "عيّنات ورق بأوزان وملامس مختلفة مع مقاسات متدرجة من البوستر إلى الكرت",
 
     readTime: "11 دقيقة",
 

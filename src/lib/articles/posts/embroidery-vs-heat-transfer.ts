@@ -15,9 +15,8 @@ export const embroideryVsHeatTransfer: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الترويجية والملابس",
 
-    image: "/images/logo-printed-tshirts-embroidery-polo.webp",
-    imageAlt:
-        "قمصان بولو وتيشيرتات بشعارات شركات منفّذة بالتطريز والطباعة الحرارية في مطبعة بجدة",
+    image: "/images/embroidery-vs-heat-transfer-machines.webp",
+    imageAlt: "مقارنة التطريز الآلي والطباعة الحرارية على بولو وتيشرت داخل ورشة إنتاج",
 
     readTime: "10 دقائق",
 

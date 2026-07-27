@@ -15,9 +15,8 @@ export const giftSelectionByOccasion: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمناسبات",
 
-    image: "/images/corporate-promotional-gifts-jeddah-items.webp",
-    imageAlt:
-        "تشكيلة هدايا دعائية للشركات معدّة لمناسبات مختلفة داخل مطبعة في جدة",
+    image: "/images/corporate-gift-selection-consultation.webp",
+    imageAlt: "اختيار الهدية الدعائية من صينية عيّنات على طاولة اجتماعات مع عرض خيارات على تابلت",
 
     readTime: "11 دقيقة",
 

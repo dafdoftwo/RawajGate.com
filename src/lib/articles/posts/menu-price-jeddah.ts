@@ -15,9 +15,8 @@ export const menuPriceJeddah: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية وخدمة المطاعم",
 
-    image: "/images/restaurant-menu-design-leather-cover.webp",
-    imageAlt:
-        "منيو مطعم بغلاف جلدي وصفحات داخلية قابلة للاستبدال مطبوع في جدة",
+    image: "/images/restaurant-menu-formats-comparison.webp",
+    imageAlt: "مقارنة صيغ المنيو: غلاف جلدي، كرت مغلّف، ثلاثي الطي، كليب بورد وتنت كارد",
 
     readTime: "12 دقيقة",
 

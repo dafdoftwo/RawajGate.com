@@ -15,9 +15,8 @@ export const exhibitionStandsSizes: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",
 
-    image: "/images/roll-up-stand-banner-85x200.webp",
-    imageAlt:
-        "ستاند رول أب بمقاس 85×200 سم جاهز للعرض ضمن تجهيزات معرض في جدة",
+    image: "/images/exhibition-display-sizes-lineup.webp",
+    imageAlt: "تدرّج مقاسات معدات العرض: ستاند طاولة، رول أب، بوب أب منحنٍ وميديا وول",
 
     readTime: "12 دقيقة",
 

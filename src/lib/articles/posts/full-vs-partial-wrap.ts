@@ -15,9 +15,8 @@ export const fullVsPartialWrap: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات وبراندينج المركبات",
 
-    image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-    imageAlt:
-        "سيارة تجارية مغلّفة بالفينيل بتغطية جزئية على الأبواب والجزء الخلفي في جدة",
+    image: "/images/vehicle-wrap-vinyl-installation-squeegee.webp",
+    imageAlt: "تركيب فينيل تغليف السيارة بالسكويجي مع ظهور خط الفصل بين الجزء المغلّف والأصلي",
 
     readTime: "10 دقائق",
 

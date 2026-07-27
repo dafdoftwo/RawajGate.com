@@ -15,9 +15,8 @@ export const printFinishesGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما بعد الطباعة والتشطيبات",
 
-    image: "/images/luxury-business-cards-printing-jeddah.webp",
-    imageAlt:
-        "بطاقات عمل بتشطيبات ختم حراري ذهبي وسبوت UV وسلوفان مخملي منفّذة في مطبعة بجدة",
+    image: "/images/foil-stamping-deboss-spot-uv-finishes.webp",
+    imageAlt: "تشطيبات فاخرة: ختم ذهبي حراري، غائر أعمى، سبوت يو في بارز وطلاء حواف",
 
     readTime: "12 دقيقة",
 

@@ -15,9 +15,8 @@ export const arabicTypographyGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",
 
-    image: "/images/corporate-letterhead-envelope-branding.webp",
-    imageAlt:
-        "ورق رسمي ومظروف بهوية بصرية عربية لشركة في جدة يوضح اختيار الخط والتسلسل الهرمي للنص",
+    image: "/images/arabic-calligraphy-typography-craft.webp",
+    imageAlt: "الخط العربي: أقلام قصب، محبرة نحاسية وأوراق بضربات خطية زخرفية بجوار تابلت",
 
     readTime: "13 دقيقة",
 

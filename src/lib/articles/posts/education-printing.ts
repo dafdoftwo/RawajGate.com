@@ -15,9 +15,8 @@ export const educationPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والمؤسسية",
 
-    image: "/images/branded-notebooks-diaries-calendar-gift-sets.webp",
-    imageAlt:
-        "دفاتر ومفكرات وتقويم بشعار مؤسسة تعليمية ضمن مجموعة مطبوعات معدّة في جدة",
+    image: "/images/school-administration-print-materials.webp",
+    imageAlt: "مطبوعات إدارة مدرسية: بطاقات طلاب، شهادات، بروشورات ولوحات إرشادية",
 
     readTime: "13 دقيقة",
 

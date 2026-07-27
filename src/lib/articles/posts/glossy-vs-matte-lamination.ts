@@ -15,9 +15,8 @@ export const glossyVsMatteLamination: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",
 
-    image: "/images/luxury-business-cards-printing-jeddah.webp",
-    imageAlt:
-        "بطاقات عمل مطبوعة بتشطيب سلوفان لامع ومطفي معروضة جنباً إلى جنب في مطبعة بجدة",
+    image: "/images/glossy-vs-matte-lamination-comparison.webp",
+    imageAlt: "مقارنة السلوفان اللامع والمطفي على بطاقتين متطابقتين تحت إضاءة جانبية",
 
     readTime: "13 دقيقة",
 

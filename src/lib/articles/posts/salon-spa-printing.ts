@@ -15,9 +15,8 @@ export const salonSpaPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية وملصقات المنتجات",
 
-    image: "/images/custom-product-labels-roll-stickers.webp",
-    imageAlt:
-        "ملصقات منتجات مطبوعة بالرول لزجاجات عناية في صالون تجميل بجدة",
+    image: "/images/salon-spa-reception-print-collateral.webp",
+    imageAlt: "استقبال صالون وسبا: بطاقات مواعيد، كرت أسعار، مغلفات قسائم هدايا وملصقات منتجات",
 
     readTime: "13 دقيقة",
 

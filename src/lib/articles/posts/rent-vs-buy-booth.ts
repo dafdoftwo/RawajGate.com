@@ -15,9 +15,8 @@ export const rentVsBuyBooth: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",
 
-    image: "/images/octanorm-system-booth-shell-scheme.webp",
-    imageAlt:
-        "جناح معرض نظامي مركّب داخل قاعة معارض في جدة يوضّح الفرق بين الجناح المستأجر والمملوك",
+    image: "/images/exhibition-booth-storage-warehouse-modular.webp",
+    imageAlt: "تخزين مكوّنات جناح معرض معياري في مستودع مقابل فريق يركّب الجناح",
 
     readTime: "12 دقيقة",
 

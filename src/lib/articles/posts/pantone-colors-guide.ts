@@ -15,9 +15,8 @@ export const pantoneColorsGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التجهيز قبل الطباعة وإدارة الألوان",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt:
-        "ماكينات طباعة أوفست ورقمية داخل مطبعة في جدة أثناء ضبط الألوان ومطابقتها",
+    image: "/images/pantone-color-swatch-fan-deck-selection.webp",
+    imageAlt: "مروحة عيّنات ألوان بانتون مفتوحة على مكتب مصمم واختيار شريحة لون",
 
     readTime: "12 دقيقة",
 

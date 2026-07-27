@@ -15,8 +15,8 @@ export const signageMaterialsComparison: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",
 
-    image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
-    imageAlt: "حروف بارزة من الأكريليك مضاءة على واجهة محل في جدة",
+    image: "/images/acrylic-steel-aluminium-3d-letters-comparison.webp",
+    imageAlt: "مقارنة حروف بارزة بثلاث خامات: أكريليك شفاف سميك، ستانلس مشكّل وألوكوبوند خفيف",
 
     readTime: "12 دقيقة",
 

@@ -15,9 +15,8 @@ export const colorPsychologyBranding: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهوية البصرية والتصميم",
 
-    image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
-    imageAlt:
-        "اجتماع عميل مع فريق التصميم في مكتب بجدة لمراجعة لوحة ألوان الهوية التجارية",
+    image: "/images/color-psychology-branding-palette-cards.webp",
+    imageAlt: "بطاقات ألوان كبيرة بقوس متدرّج مع مطبوعات هوية موضوعة على الألوان المطابقة",
 
     readTime: "13 دقيقة",
 

@@ -15,9 +15,8 @@ export const hotelHospitalityPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم مطبوعات الضيافة والمنشآت",
 
-    image: "/images/restaurant-menu-design-leather-cover.webp",
-    imageAlt:
-        "منيو بغلاف جلدي ضمن حزمة مطبوعات فندق وضيافة منفّذة في جدة",
+    image: "/images/hotel-guest-room-print-collateral.webp",
+    imageAlt: "مطبوعات غرفة فندقية: دليل النزيل الجلدي، معلّقة الباب، غلاف بطاقة الغرفة وبطاقة السبا",
 
     readTime: "13 دقيقة",
 

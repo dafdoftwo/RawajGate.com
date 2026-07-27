@@ -15,9 +15,8 @@ export const productLabelCompliance: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الملصقات والتغليف",
 
-    image: "/images/custom-product-labels-roll-stickers-jeddah.webp",
-    imageAlt:
-        "ملصقات منتجات مطبوعة على رول تحمل بيانات إلزامية وباركود بالعربية في مطبعة بجدة",
+    image: "/images/product-label-compliance-inspection.webp",
+    imageAlt: "فحص مطابقة ملصق منتج بعدسة مكبرة على برطمان مع باركود وجدول بيانات",
 
     readTime: "13 دقيقة",
 

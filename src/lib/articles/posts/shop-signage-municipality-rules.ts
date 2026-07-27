@@ -15,8 +15,8 @@ export const shopSignageMunicipalityRules: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والتركيب",
 
-    image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
-    imageAlt: "لافتة محل ثلاثية الأبعاد مركّبة على واجهة في جدة",
+    image: "/images/jeddah-commercial-street-uniform-shopfronts.webp",
+    imageAlt: "شارع تجاري في جدة بواجهات محلات ولوحات موحّدة وفق اشتراطات الأمانة",
 
     readTime: "11 دقيقة",
 

@@ -15,9 +15,8 @@ export const brochureDesignGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والمطبوعات التجارية",
 
-    image: "/images/advertising-flyers-brochures-tri-fold.webp",
-    imageAlt:
-        "بروشور دعائي ثلاثي الطي مفتوح بجانب نسخ مطوية على طاولة تجهيز داخل مطبعة في جدة",
+    image: "/images/brochure-layout-design-trifold-grid.webp",
+    imageAlt: "تصميم بروشور ثلاثي الطي بشبكة تحريرية منظمة مع مسطرة وتابلت يعرض أعمدة التصميم",
 
     readTime: "13 دقيقة",
 

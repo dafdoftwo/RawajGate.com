@@ -15,9 +15,8 @@ export const ecommercePackaging: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التغليف والمطبوعات التجارية",
 
-    image: "/images/custom-paper-bags-shopping-packaging.webp",
-    imageAlt:
-        "أكياس وصناديق تغليف مطبوعة بالشعار لطلبات المتاجر الإلكترونية في جدة",
+    image: "/images/ecommerce-unboxing-branded-packaging.webp",
+    imageAlt: "تجربة فتح طرد متجر إلكتروني: صندوق شحن، ورق حريري، بطاقة شكر وستيكر ختم",
 
     readTime: "13 دقيقة",
 

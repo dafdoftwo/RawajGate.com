@@ -15,9 +15,8 @@ export const contractingCompanyPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم مطبوعات المشاريع واللافتات الخارجية",
 
-    image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-    imageAlt:
-        "سيارة عمل لشركة مقاولات مغلّفة بهوية بصرية كاملة في أحد مواقع المشاريع بجدة",
+    image: "/images/construction-site-blueprints-signage.webp",
+    imageAlt: "مكتب موقع إنشائي: مخططات معمارية ملفوفة، خوذة، سترة أمان ولوحة موقع",
 
     readTime: "13 دقيقة",
 

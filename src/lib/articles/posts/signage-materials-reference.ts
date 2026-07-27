@@ -15,9 +15,8 @@ export const signageMaterialsReference: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والواجهات",
 
-    image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
-    imageAlt:
-        "حروف بارزة من الأكريليك على خلفية ألمنيوم مركّب في واجهة محل بجدة",
+    image: "/images/signage-material-swatch-library-board.webp",
+    imageAlt: "لوحة عيّنات خامات اللافتات: ستانلس مصقول ومفروش، أكريليك، ألوكوبوند ومعدن مطلي",
 
     readTime: "16 دقيقة",
 

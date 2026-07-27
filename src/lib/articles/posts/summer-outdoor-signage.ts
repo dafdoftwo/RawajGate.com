@@ -15,9 +15,8 @@ export const summerOutdoorSignage: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والطباعة الخارجية",
 
-    image: "/images/outdoor-flex-banner-printing-large-format.webp",
-    imageAlt:
-        "طباعة بنر مشمع خارجي بمقاس كبير لتجهيز لافتات صيفية مقاومة للشمس في جدة",
+    image: "/images/summer-outdoor-mesh-banner-sun.webp",
+    imageAlt: "بنر ميش خارجي مشدود على هيكل معدني تحت شمس الصيف وسماء صافية",
 
     readTime: "13 دقيقة",
 

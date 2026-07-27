@@ -15,8 +15,8 @@ export const promotionalGiftsCatalog: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الهدايا الدعائية والمشتريات",
 
-    image: "/images/corporate-promotional-gifts-jeddah-items.webp",
-    imageAlt: "أصناف متنوعة من الهدايا الدعائية للشركات معروضة في جدة",
+    image: "/images/promotional-gifts-catalog-overhead-range.webp",
+    imageAlt: "كتالوج هدايا دعائية: أقلام، باور بانك، فلاشات، أكواب، حقائب، كابات وميداليات",
 
     readTime: "13 دقيقة",
 

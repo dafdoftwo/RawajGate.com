@@ -15,8 +15,8 @@ export const coatedVsLinenPaper: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية",
 
-    image: "/images/luxury-business-cards-printing-jeddah.webp",
-    imageAlt: "أنواع مختلفة من ورق بطاقات العمل",
+    image: "/images/coated-vs-linen-paper-texture-macro.webp",
+    imageAlt: "مقارنة ماكرو بين ورق كوشيه ناعم وورق كتان بملمس منسوج تحت ضوء جانبي",
 
     readTime: "8 دقائق",
 

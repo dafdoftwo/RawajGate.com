@@ -15,8 +15,8 @@ export const inhouseVsOutsourceDesign: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",
 
-    image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
-    imageAlt: "اجتماع مناقشة تصاميم مطبوعة على طاولة مكتب في جدة",
+    image: "/images/creative-agency-team-design-review.webp",
+    imageAlt: "فريق وكالة إبداعية يراجع تصاميم مطبوعة وشرائح ألوان حول طاولة عمل",
 
     readTime: "12 دقيقة",
 

@@ -15,8 +15,8 @@ export const vinylBrandsComparison: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم اللافتات والتغليف",
 
-    image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-    imageAlt: "سيارة تجارية مغلّفة بفينيل لاصق أثناء التركيب في ورشة بجدة",
+    image: "/images/cast-vinyl-film-rolls-swatches.webp",
+    imageAlt: "بكرات فينيل مصبوب بألوان وتشطيبات مختلفة مع مروحة عيّنات لامع ومطفي وملمسي",
 
     readTime: "12 دقيقة",
 

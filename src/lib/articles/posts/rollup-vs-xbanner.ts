@@ -15,9 +15,8 @@ export const rollupVsXbanner: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المعارض والفعاليات",
 
-    image: "/images/roll-up-stand-banner-85x200.webp",
-    imageAlt:
-        "ستاند رول أب مقاس 85 × 200 سم بجانب إكس بانر داخل معرض في جدة",
+    image: "/images/rollup-vs-xbanner-stand-comparison.webp",
+    imageAlt: "مقارنة رول أب ستاند بقاعدة ألومنيوم مع إكس بانر بقوائم متقاطعة",
 
     readTime: "12 دقيقة",
 

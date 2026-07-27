@@ -15,9 +15,8 @@ export const vehicleWrapDesignGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم وبراندينج المركبات",
 
-    image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
-    imageAlt:
-        "سيارة تجارية مغلّفة بالفينيل بتصميم هوية واضح على الجانب في جدة",
+    image: "/images/vehicle-wrap-design-template-workstation.webp",
+    imageAlt: "تصميم تغليف سيارة على قالب جانبي ثلاثي الأبعاد مع خطوط إرشاد للأبواب وأقواس العجلات",
 
     readTime: "12 دقيقة",
 

@@ -15,9 +15,8 @@ export const fileFormatsGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt:
-        "ماكينات الطباعة الرقمية والأوفست في مطبعة بحي الروضة بجدة أثناء معالجة ملفات الإنتاج",
+    image: "/images/vector-file-formats-print-workflow.webp",
+    imageAlt: "ملف فيكتور على الشاشة بنقاط تحكم ومنحنيات بيزييه مع وسائط تخزين وبروفات مطبوعة",
 
     readTime: "12 دقيقة",
 

@@ -15,9 +15,8 @@ export const uniformFabricsGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الملابس الدعائية والزي الموحد",
 
-    image: "/images/logo-printed-tshirts-embroidery-polo.webp",
-    imageAlt:
-        "قمصان بولو وتيشيرتات زي موحد بأقمشة وأوزان مختلفة تحمل شعار شركة منفّذاً بالتطريز في جدة",
+    image: "/images/uniform-fabric-swatch-comparison.webp",
+    imageAlt: "عيّنات أقمشة الزي الموحد: بيكيه، بوبلين، تويل، مِش بوليستر وفليس",
 
     readTime: "12 دقيقة",
 

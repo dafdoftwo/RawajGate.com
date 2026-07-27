@@ -15,9 +15,8 @@ export const nationalDayPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الحملات الموسمية والهدايا الدعائية",
 
-    image: "/images/custom-printed-metal-plastic-pens.webp",
-    imageAlt:
-        "أقلام معدنية وبلاستيكية مطبوعة بالشعار ضمن تجهيزات اليوم الوطني داخل مطبعة في جدة",
+    image: "/images/saudi-national-day-merchandise.webp",
+    imageAlt: "مطبوعات وهدايا اليوم الوطني السعودي بالأخضر والأبيض: كابات، أوشحة، تيشرتات وأعلام",
 
     readTime: "12 دقيقة",
 

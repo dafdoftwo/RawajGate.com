@@ -15,9 +15,8 @@ export const bannerSizesGuide: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الطباعة كبيرة المقاس واللافتات",
 
-    image: "/images/outdoor-flex-banner-printing-large-format.webp",
-    imageAlt:
-        "بنر فليكس خارجي كبير المقاس أثناء الطباعة الرقمية داخل مطبعة في جدة",
+    image: "/images/banner-size-measuring-wide-format-workshop.webp",
+    imageAlt: "قياس بنر مطبوع بشريط قياس في ورشة طباعة عريضة مع عيّنات بمقاسات متدرجة",
 
     readTime: "14 دقيقة",
 

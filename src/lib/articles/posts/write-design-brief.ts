@@ -15,8 +15,8 @@ export const writeDesignBrief: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التصميم والهوية البصرية",
 
-    image: "/images/client-meeting-office-al-rawaj-jeddah.webp",
-    imageAlt: "اجتماع بين عميل وفريق التصميم لمناقشة بريف مشروع في مكتب بجدة",
+    image: "/images/writing-design-brief-form-moodboard.webp",
+    imageAlt: "تعبئة نموذج بريف تصميم بقلم حبر مع مود بورد قصاصات ألوان وبطاقات مرجعية",
 
     readTime: "12 دقيقة",
 

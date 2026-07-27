@@ -15,9 +15,8 @@ export const sustainablePrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم المطبوعات التجارية والتغليف",
 
-    image: "/images/custom-paper-bags-shopping-packaging.webp",
-    imageAlt:
-        "أكياس ورقية مطبوعة من ورق كرافت غير مبيّض كبديل مستدام للأكياس البلاستيكية في جدة",
+    image: "/images/eco-recycled-kraft-sustainable-printing.webp",
+    imageAlt: "مطبوعات صديقة للبيئة من ورق كرافت معاد تدويره مع أوراق بذور ومغلف قابل للتحلل",
 
     readTime: "13 دقيقة",
 

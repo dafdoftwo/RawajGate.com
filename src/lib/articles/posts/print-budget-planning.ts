@@ -15,9 +15,8 @@ export const printBudgetPlanning: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم التخطيط وإدارة الحسابات",
 
-    image: "/images/print-shop-exhibition-services-saudi-arabia.webp",
-    imageAlt:
-        "مطبوعات شركة متنوعة مرتّبة لمراجعة الميزانية السنوية داخل مطبعة في جدة",
+    image: "/images/annual-print-budget-planning-desk.webp",
+    imageAlt: "تخطيط ميزانية المطبوعات: جدول أرقام مطبوع، آلة حاسبة ورسم بياني وعيّنات مصنّفة",
 
     readTime: "14 دقيقة",
 

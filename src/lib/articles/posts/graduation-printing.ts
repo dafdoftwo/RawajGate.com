@@ -15,9 +15,8 @@ export const graduationPrinting: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم الحملات الموسمية والهدايا التذكارية",
 
-    image: "/images/branded-notebooks-diaries-calendar-gift-sets.webp",
-    imageAlt:
-        "أطقم دفاتر وأجندات وهدايا مكتبية مطبوعة بالهوية ضمن تجهيزات حفل تخرج داخل مطبعة في جدة",
+    image: "/images/graduation-diploma-cap-invitations.webp",
+    imageAlt: "مطبوعات التخرج: شهادة ملفوفة بشريط ذهبي، قبعة تخرج، دعوات وميدالية",
 
     readTime: "12 دقيقة",
 

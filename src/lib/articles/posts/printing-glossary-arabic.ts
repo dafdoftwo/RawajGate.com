@@ -15,9 +15,8 @@ export const printingGlossaryArabic: Article = {
     author: "فريق بوابة الرواج",
     authorRole: "قسم ما قبل الطباعة",
 
-    image: "/images/printing-machines-digital-offset-equipment.webp",
-    imageAlt:
-        "ماكينات طباعة أوفست ورقمية داخل مطبعة في جدة مع مصطلحات التشغيل الفنية",
+    image: "/images/print-production-tools-flat-lay.webp",
+    imageAlt: "أدوات الإنتاج الطباعي: عدسة، مسطرة، ميكرومتر ورق، شرائح ألوان وعيّنات مطبوعة",
 
     readTime: "13 دقيقة",
 
