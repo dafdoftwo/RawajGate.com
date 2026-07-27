@@ -227,7 +227,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/coated-vs-linen-paper-texture-macro.webp",
         imageAlt: "مقارنة ماكرو بين ورق كوشيه ناعم وورق كتان بملمس منسوج تحت ضوء جانبي",
-        readTime: "3 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "ورق كوشيه أم كتان لبطاقات العمل",
     },
 ];

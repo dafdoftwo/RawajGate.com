@@ -35,7 +35,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتغليف",
         image: "/images/commercial-vehicle-branding-car-wrapping-jeddah.webp",
         imageAlt: "سيارة تجارية مغلّفة بالفينيل في جدة",
-        readTime: "3 دقائق",
+        readTime: "4 دقائق",
         primaryKeyword: "أسعار تغليف السيارات في جدة",
     },
     {
@@ -115,7 +115,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم المطبوعات التجارية",
         image: "/images/luxury-business-cards-printing-jeddah.webp",
         imageAlt: "بطاقات عمل مطبوعة بتشطيبات مختلفة في جدة",
-        readTime: "4 دقائق",
+        readTime: "10 دقائق",
         primaryKeyword: "سعر طباعة كروت شخصية في جدة",
     },
 ];

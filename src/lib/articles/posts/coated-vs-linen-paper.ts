@@ -18,7 +18,7 @@ export const coatedVsLinenPaper: Article = {
     image: "/images/coated-vs-linen-paper-texture-macro.webp",
     imageAlt: "مقارنة ماكرو بين ورق كوشيه ناعم وورق كتان بملمس منسوج تحت ضوء جانبي",
 
-    readTime: "3 دقائق",
+    readTime: "4 دقائق",
 
     keywords: {
         primary: "ورق كوشيه أم كتان لبطاقات العمل",
@@ -207,6 +207,14 @@ export const coatedVsLinenPaper: Article = {
 2. جرام مناسب (350)
 3. خامة تناسب قطاعك
 4. تشطيب مميز — إن بقيت ميزانية
+
+## الخامة ليست القرار الوحيد
+
+بعد اختيار نوع الورق يبقى **الوزن** — وهو العامل الأكبر في الإحساس بالجودة، والمرجع الكامل في [دليل أوزان ومقاسات الورق](/blog/paper-weight-size-guide).
+
+ثم **التشطيب**، وهو ما يقفز بالسعر ويغيّر الانطباع أكثر من أي عنصر آخر: المخملي والسبوت يو في والختم الذهبي، مفصّلة في [دليل تشطيبات الطباعة](/blog/print-finishes-guide).
+
+للأسعار الفعلية حسب كل تركيبة راجع [أسعار بطاقات العمل في جدة](/blog/business-cards-price-jeddah)، وللخامات المتاحة [صفحة طباعة بطاقات العمل](/commercial-printing/business-cards).
 
 ## الخلاصة
 
