@@ -12,6 +12,25 @@ import { PRICING_BLOCKS } from "@/lib/pricing";
 
 const BASE = BUSINESS.url;
 
+/**
+ * يبني رابطاً بشرطة مائلة في نهايته — **إلزامي**.
+ *
+ * ⚠️ السبب (خلل حقيقي رُصد على الإنتاج):
+ * `next.config.ts` يضبط `trailingSlash: true`، فالمسار الحقيقي هو
+ * `/commercial-printing/` بشرطة. الـ sitemap كان يبني `${BASE}/${slug}`
+ * بلا شرطة، فكانت **٤٥ من ٤٦ رابطاً تُرجع 308 redirect**.
+ *
+ * الأثر: جوجل يُبلّغ عن «Sitemap contains URLs that redirect»، ويُهدر
+ * ميزانية الزحف على قفزة لكل صفحة، والأسوأ أن رابط الـ sitemap يخالف
+ * وسم canonical في الصفحة نفسها (الذي يحمل الشرطة) — إشارتان متناقضتان.
+ *
+ * كل رابط هنا يمرّ عبر هذه الدالة. لا استثناء.
+ */
+function url(path = ""): string {
+    const clean = path.replace(/^\/+|\/+$/g, "");
+    return clean ? `${BASE}/${clean}/` : `${BASE}/`;
+}
+
 
 /**
  * خريطة الموقع الديناميكية.
@@ -26,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // الصفحة الرئيسية
     const home: MetadataRoute.Sitemap = [
         {
-            url: BASE,
+            url: url(),
             lastModified: now,
             changeFrequency: "weekly",
             priority: 1.0,
@@ -35,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // صفحات الأقسام (Pillar) — أولوية عالية
     const pillars: MetadataRoute.Sitemap = SILOS.map((silo) => ({
-        url: `${BASE}/${silo.slug}`,
+        url: url(silo.slug),
         lastModified: now,
         changeFrequency: "weekly" as const,
         priority: 0.9,
@@ -44,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // صفحات الخدمات (Spokes) — صفحات المال
     const spokes: MetadataRoute.Sitemap = SILOS.flatMap((silo) =>
         silo.spokes.map((spoke) => ({
-            url: `${BASE}/${silo.slug}/${spoke.slug}`,
+            url: url(`${silo.slug}/${spoke.slug}`),
             lastModified: now,
             changeFrequency: "monthly" as const,
             priority: 0.8,
@@ -53,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // الصفحات المستقلة
     const standalone: MetadataRoute.Sitemap = STANDALONE_ROUTES.map((route) => ({
-        url: `${BASE}/${route.slug}`,
+        url: url(route.slug),
         lastModified: now,
         changeFrequency: route.changeFrequency,
         priority: route.priority,
@@ -65,7 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       Google إلى صفحة تُرجع 404.
     */
     const blogPosts: MetadataRoute.Sitemap = getPublishedMeta().map((post) => ({
-        url: `${BASE}/blog/${post.slug}`,
+        url: url(`blog/${post.slug}`),
         lastModified: new Date(post.dateModified),
         changeFrequency: "monthly" as const,
         priority: 0.6,
@@ -73,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // صفحات الأسعار الفرعية — نية بحث تجارية عالية
     const pricePages: MetadataRoute.Sitemap = PRICING_BLOCKS.map((block) => ({
-        url: `${BASE}/prices/${block.slug}`,
+        url: url(`prices/${block.slug}`),
         lastModified: now,
         changeFrequency: "monthly" as const,
         priority: 0.85,
