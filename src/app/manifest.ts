@@ -22,9 +22,29 @@ export default function manifest(): MetadataRoute.Manifest {
         dir: "rtl",
         orientation: "portrait-primary",
         categories: ["business", "shopping", "productivity"],
+        /*
+          ⚠️ لا تستخدم BUSINESS.logo هنا.
+
+          BUSINESS.logo يشير إلى logo-rg.png الأصلي (٣٣٣ KB) — وهو مقصود
+          لبيانات JSON-LD حيث يريد جوجل رابط الشعار الحقيقي بأعلى جودة،
+          ولا يُنزّله متصفح الزائر إطلاقاً.
+
+          لكن الـ manifest **يُنزّله المتصفح فعلاً**. حين كان يشير إلى الملف
+          الأصلي كان اللوجو أثقل مورد في الصفحة كلها — ٣٣٣ KB لأيقونة
+          تُعرض بحجم ٦٤px. رصدته Lighthouse كأكبر ملف على الجوال.
+
+          النسخ أدناه مولَّدة بـ sharp (palette + ضغط أقصى) وتُغطي المقاسين
+          اللذين تطلبهما مواصفة PWA.
+        */
         icons: [
             {
-                src: BUSINESS.logo,
+                src: "/images/logo-rg-192.png",
+                sizes: "192x192",
+                type: "image/png",
+                purpose: "any",
+            },
+            {
+                src: "/images/logo-rg-512.png",
                 sizes: "512x512",
                 type: "image/png",
                 purpose: "any",

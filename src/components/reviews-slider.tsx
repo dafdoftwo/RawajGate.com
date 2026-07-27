@@ -65,7 +65,16 @@ export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
                                     <span className="text-lg font-bold text-gray-900">
                                         {review.rating.toFixed(1)}
                                     </span>
-                                    <div className="flex items-center gap-1" aria-label={`تقييم ${review.rating} من 5`}>
+                                    {/*
+                                      role="img" إلزامي: aria-label على div بلا role
+                                      يتجاهله قارئ الشاشة تماماً (قاعدة aria-prohibited-attr).
+                                      بدونه كان التقييم بالنجوم صامتاً كلياً.
+                                    */}
+                                    <div
+                                        role="img"
+                                        className="flex items-center gap-1"
+                                        aria-label={`تقييم ${review.rating} من 5`}
+                                    >
                                         {Array.from({ length: 5 }).map((_, i) => (
                                             <svg
                                                 key={i}
@@ -109,11 +118,16 @@ export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
                                 </div>
                                 <p className="font-bold text-gray-900 text-lg">{review.name}</p>
                                 <p className="text-sm text-gray-500 mb-3">{review.role}</p>
-                                <span className="inline-flex items-center gap-1 text-gray-400 text-xs mb-1">
+                                {/*
+                                  text-gray-500 لا text-gray-400: عند 12px على خلفية
+                                  بيضاء كان التباين 2.6:1 — دون حد WCAG AA (4.5:1).
+                                  gray-500 يعطي 4.9:1.
+                                */}
+                                <span className="inline-flex items-center gap-1 text-gray-500 text-xs mb-1">
                                     <MapPin className="w-4 h-4" aria-hidden="true" />
                                     {review.location}
                                 </span>
-                                <span className="inline-flex items-center gap-1 text-gray-400 text-xs mb-3">
+                                <span className="inline-flex items-center gap-1 text-gray-500 text-xs mb-3">
                                     <Calendar className="w-4 h-4" aria-hidden="true" />
                                     {review.date}
                                 </span>
@@ -127,17 +141,31 @@ export function ReviewsSlider({ reviews }: { reviews: Review[] }) {
                 ))}
             </div>
 
-            <div className="flex justify-center gap-2 mb-16">
+            {/*
+              ⚠️ الزر ٤٤×٤٤px والنقطة المرئية بداخله.
+              كانت النقطة نفسها هي الزر (١٢×١٢px) — أصغر من حد اللمس الذي
+              تفرضه إرشادات WCAG (٢٤px) وApple/Google (٤٤px). على الجوال
+              كان الضغط عليها شبه مستحيل، وهو ما رصدته Lighthouse.
+              الحجم البصري لم يتغيّر — تغيّرت مساحة اللمس فقط.
+            */}
+            <div className="flex justify-center mb-16">
                 {reviews.map((review, i) => (
                     <button
                         key={review.id}
                         onClick={() => setCurrent(i)}
                         aria-label={`اذهب إلى التقييم ${i + 1}`}
                         aria-current={i === current}
-                        className={`h-3 rounded-full transition-all ${
-                            i === current ? "bg-amber-500 w-6" : "bg-gray-300 hover:bg-gray-400 w-3"
-                        }`}
-                    />
+                        className="grid place-items-center w-11 h-11 group"
+                    >
+                        <span
+                            aria-hidden="true"
+                            className={`h-3 rounded-full transition-all ${
+                                i === current
+                                    ? "bg-amber-500 w-6"
+                                    : "bg-gray-300 group-hover:bg-gray-400 w-3"
+                            }`}
+                        />
+                    </button>
                 ))}
             </div>
         </>

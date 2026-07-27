@@ -338,11 +338,16 @@ export function Header() {
         >
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16 lg:h-20">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-3"
-                        aria-label="بوابة الرواج - الصفحة الرئيسية"
-                    >
+                    {/*
+                      لا aria-label هنا عمداً.
+                      كان `aria-label="بوابة الرواج - الصفحة الرئيسية"` يحجب النص
+                      المرئي داخل الرابط («بوابة الرواج» و«Rawaj Gate»)، فالاسم
+                      المُتاح لم يعد يحتوي ما يراه المستخدم — وهو ما ترصده قاعدة
+                      label-content-name-mismatch. الأثر عملي لا نظري: من يستخدم
+                      التحكّم الصوتي يقول «اضغط Rawaj Gate» فلا يستجيب شيء.
+                      بحذفه يُبنى الاسم من المحتوى نفسه: نص الشعار البديل + النصّان.
+                    */}
+                    <Link href="/" className="flex items-center gap-3">
                         <div className="w-16 h-16 rounded-xl overflow-hidden border border-white/10 shadow-lg transition-transform hover:scale-105">
                             <Image
                                 src="/images/logo-rg.png"

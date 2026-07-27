@@ -37,11 +37,26 @@ export function Analytics() {
 
   return (
     <>
+      {/*
+        ⚡ lazyOnload لا afterInteractive.
+
+        القياس على الجوال (Lighthouse · 4G مُقيّد) أظهر أن gtag يُنزّل ثلاث
+        حِزم منفصلة — واحدة لكل مُعرِّف (GA4 + حسابا Ads) — بمجموع ٤٥٧ KB
+        و~٤١٠ms على الخيط الرئيسي. كانت أكبر كتلة طرف ثالث على الصفحة.
+
+        الفرق بين الاستراتيجيتين:
+          afterInteractive → يبدأ التحميل فور ترطيب الصفحة، فيزاحم عمل React
+          lazyOnload       → ينتظر حدث load، أي بعد أن يصبح الموقع مستخدَماً
+
+        ما لا نخسره: زيارات الصفحة والتحويلات تُسجَّل كاملة — التأخير جزء من
+        الثانية ولا يفوت أي حدث، لأن dataLayer يتراكم قبل تحميل السكربت.
+        ما نكسبه: TTI أسرع بوضوح، وهو ما يقيسه جوجل في تقييم الصفحة.
+      */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${PRIMARY_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="gtag-init" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
