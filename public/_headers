@@ -1,0 +1,48 @@
+# ═══════════════════════════════════════════════════════════
+#  ترويسات Cloudflare Pages
+#  تقرأها Pages تلقائياً — بديل headers() في next.config
+#  الذي لا يعمل مع output:"export"
+# ═══════════════════════════════════════════════════════════
+
+# ── الأمان: يُطبَّق على كل المسارات ──────────────────────────
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()
+  X-DNS-Prefetch-Control: on
+
+# ── الصور: كاش دائم ─────────────────────────────────────────
+# الملفات لا تتغيّر (اسم الملف يحمل المقاس)، فالكاش سنة آمن تماماً
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/_variants/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── أصول Next.js: أسماء ملفات بصمة (hash) ───────────────────
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── الفيديو ─────────────────────────────────────────────────
+/Digital-printing-video.mp4
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── الخطوط ──────────────────────────────────────────────────
+/_next/static/media/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# ── ملفات SEO: كاش قصير لتظهر التحديثات سريعاً ──────────────
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+
+/llms.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8

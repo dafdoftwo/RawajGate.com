@@ -1,0 +1,120 @@
+name: نشر إلى Cloudflare Pages
+
+# ═══════════════════════════════════════════════════════════
+#  استراتيجية النشر — مصمّمة للبقاء داخل الحد المجاني
+# ═══════════════════════════════════════════════════════════
+#
+#  الحدود المجانية المعنية:
+#    • Cloudflare Pages : 500 بناء / شهر
+#    • GitHub Actions   : 2,000 دقيقة / شهر (مستودع خاص) · غير محدود (عام)
+#
+#  لماذا لا نبني كل ساعة؟
+#    24 × 30 = 720 بناءً شهرياً — يتجاوز حد Cloudflare.
+#
+#  الحل: نفحص كل ساعتين، ونبني **فقط** إن استحقّ مقال فعلاً.
+#    • فحص بلا بناء ≈ 20 ثانية، لا يستهلك حصة Pages إطلاقاً
+#    • مع 90 مقالاً على 8 أشهر ← ~12 بناءً شهرياً
+#    • أقصى تأخير في ظهور المقال: ساعتان
+# ═══════════════════════════════════════════════════════════
+
+on:
+  # 1) عند أي دفعة إلى main — نشر فوري للتغييرات
+  push:
+    branches: [main]
+
+  # 2) كل ساعتين — فحص المقالات المستحقة
+  schedule:
+    - cron: "0 */2 * * *"
+
+  # 3) تشغيل يدوي من واجهة GitHub
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "ابنِ حتى لو لم يستحق مقال"
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── وظيفة 1: هل نحتاج البناء أصلاً؟ ──────────────────────
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      should_build: ${{ steps.due.outputs.should_build || steps.reason.outputs.always }}
+      due_slugs: ${{ steps.due.outputs.due_slugs }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # الدفع اليدوي أو المباشر يبني دائماً
+      - id: reason
+        if: github.event_name != 'schedule'
+        run: echo "always=true" >> "$GITHUB_OUTPUT"
+
+      # الجدولة تبني فقط عند استحقاق مقال
+      - id: due
+        if: github.event_name == 'schedule'
+        continue-on-error: true
+        run: node scripts/check-due-articles.mjs --window 2
+
+  # ── وظيفة 2: البناء والنشر ───────────────────────────────
+  deploy:
+    needs: check
+    if: needs.check.outputs.should_build == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: تثبيت الاعتماديات
+        run: npm ci
+
+      # كاش مقاسات الصور — يوفّر دقائق في كل بناء
+      - name: استرجاع كاش الصور
+        uses: actions/cache@v4
+        with:
+          path: public/images/_variants
+          key: img-variants-${{ hashFiles('public/images/**/*.webp', 'public/images/**/*.png', 'public/images/**/*.jpg') }}
+
+      - name: توليد مقاسات الصور
+        run: node scripts/generate-image-variants.mjs
+
+      - name: توليد سجل المقالات
+        run: node scripts/generate-article-registry.mjs
+
+      - name: البناء
+        run: npm run build
+        env:
+          NEXT_PUBLIC_GA4_ID: ${{ secrets.NEXT_PUBLIC_GA4_ID }}
+          NEXT_PUBLIC_GSC_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GSC_VERIFICATION }}
+          NEXT_PUBLIC_BING_VERIFICATION: ${{ secrets.NEXT_PUBLIC_BING_VERIFICATION }}
+
+      - name: النشر إلى Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy out --project-name=rawajgate --branch=main
+
+      - name: ملخص النشر
+        run: |
+          echo "### ✅ تم النشر" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**السبب:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          if [ -n "${{ needs.check.outputs.due_slugs }}" ]; then
+            echo "**مقالات نُشرت:** ${{ needs.check.outputs.due_slugs }}" >> $GITHUB_STEP_SUMMARY
+          fi

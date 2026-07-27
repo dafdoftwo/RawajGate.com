@@ -1,4 +1,10 @@
 import type { MetadataRoute } from "next";
+
+/**
+ * مطلوب مع output:"export" — يُخبر Next.js أن يولّد هذا المسار كملف ثابت
+ * وقت البناء بدل محاولة تصييره عند الطلب (لا خادم في النشر الثابت).
+ */
+export const dynamic = "force-static";
 import { BUSINESS } from "@/lib/business";
 
 /**

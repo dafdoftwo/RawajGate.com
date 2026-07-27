@@ -10,6 +10,7 @@ import {
     getBlogStats,
 } from "@/lib/articles/meta";
 import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
+import { CATEGORY_SLUGS } from "./category/[slug]/page";
 
 /**
  * ⚡ هذه الصفحة تستورد meta.ts فقط — بيانات خفيفة بلا أي محتوى مقالات.
@@ -17,7 +18,6 @@ import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
  *
  * revalidate كل ساعة حتى تظهر المقالات المجدولة في موعدها.
  */
-export const revalidate = 3600;
 
 export const metadata: Metadata = {
     title: "مدونة الطباعة والتصميم وتجهيز المعارض",
@@ -56,23 +56,11 @@ const arDate = (iso: string) =>
         day: "numeric",
     });
 
-export default async function BlogPage({
-    searchParams,
-}: {
-    searchParams: Promise<{ category?: string }>;
-}) {
-    const { category } = await searchParams;
-
+export default function BlogPage() {
     const all = getPublishedMeta();
     const categories = getActiveCategories();
     const stats = getBlogStats();
-
-    const active =
-        category && categories.some((c) => c.category === category)
-            ? category
-            : null;
-
-    const posts = active ? all.filter((p) => p.category === active) : all;
+    const posts = all;
 
     const breadcrumbSchema = generateBreadcrumbSchema([
         { name: "الرئيسية", url: BUSINESS.url },
@@ -137,30 +125,25 @@ export default async function BlogPage({
                         >
                             <Link
                                 href="/blog"
-                                aria-current={!active ? "page" : undefined}
-                                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                                    !active
-                                        ? "bg-amber-500 text-white"
-                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                }`}
+                                aria-current="page"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-amber-500 text-white"
                             >
                                 <BookOpen className="w-4 h-4" aria-hidden="true" />
                                 الكل ({all.length})
                             </Link>
-                            {categories.map((c) => (
-                                <Link
-                                    key={c.category}
-                                    href={`/blog?category=${encodeURIComponent(c.category)}`}
-                                    aria-current={active === c.category ? "page" : undefined}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                                        active === c.category
-                                            ? "bg-amber-500 text-white"
-                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                    }`}
-                                >
-                                    {c.category} ({c.count})
-                                </Link>
-                            ))}
+                            {categories.map((c) => {
+                                const slug = CATEGORY_SLUGS[c.category];
+                                if (!slug) return null;
+                                return (
+                                    <Link
+                                        key={c.category}
+                                        href={`/blog/category/${slug}`}
+                                        className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                                    >
+                                        {c.category} ({c.count})
+                                    </Link>
+                                );
+                            })}
                         </nav>
                     </div>
                 </section>

@@ -26,7 +26,6 @@ import {
  *
  * إعادة التحقق كل ساعة (ISR) حتى تظهر المقالات المجدولة في موعدها.
  */
-export const revalidate = 3600;
 
 export function generateStaticParams() {
     return getAllSlugs().map((slug) => ({ slug }));

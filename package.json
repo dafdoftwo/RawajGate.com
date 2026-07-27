@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "node scripts/generate-image-variants.mjs && node scripts/generate-article-registry.mjs",
+    "check:due": "node scripts/check-due-articles.mjs --window 2"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -25,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

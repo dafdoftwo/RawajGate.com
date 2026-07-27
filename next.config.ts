@@ -1,77 +1,59 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // ── تحسين الصور ───────────────────────────────────────────
+  /**
+   * ☁️ النشر الثابت — Cloudflare Pages (الحد المجاني)
+   *
+   * كل الموقع يُولَّد كملفات HTML/CSS/JS ثابتة تُخدَم من CDN كلاود فلير
+   * مباشرة. النتيجة:
+   *   • استجابة لحظية — لا خادم ولا cold start
+   *   • طلبات وباندويث غير محدودة على الخطة المجانية
+   *   • صفر تكلفة تشغيل
+   *
+   * النشر المجدول للمقالات يتم عبر GitHub Actions (.github/workflows/deploy.yml)
+   * الذي يفحص كل ساعتين ويعيد البناء **فقط** عند استحقاق مقال — فيبقى
+   * الاستهلاك ~12 بناءً شهرياً من أصل 500 مسموحة.
+   */
+  output: "export",
+
+  /**
+   * ── الصور: محمّل مخصص بدل مُحسِّن Next.js ──
+   *
+   * مُحسِّن Next.js يحتاج خادم Node غير متاح في النشر الثابت،
+   * وبدائل كلاود فلير (Images / Image Resizing) ليست ضمن الخطة المجانية.
+   *
+   * الحل: مقاسات مولَّدة وقت البناء + محمّل يختار الأنسب.
+   * انظر: scripts/generate-image-variants.mjs · src/lib/image-loader.ts
+   */
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // سنة
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
+    deviceSizes: [640, 828, 1200, 1920],
+    imageSizes: [64, 128, 256, 384],
   },
 
-  // ⚡ tree-shake حزم كبيرة تُستورد جزئياً
-  // lucide-react = 44MB على القرص، لكن نستخدم 46 أيقونة فقط.
-  // هذا يستورد الأيقونات المطلوبة تلقائياً بدل الحزمة كاملة.
+  /**
+   * شرطة مائلة في نهاية المسارات.
+   * الاستضافة الثابتة تخدم /blog/ كملف /blog/index.html — بدون هذا
+   * تحدث إعادة توجيهات غير متوقعة وأحياناً 404.
+   */
+  trailingSlash: true,
+
+  /**
+   * ⚠️ headers() و redirects() لا تعملان مع output:"export"
+   * لأنهما تحتاجان خادماً. انتقلتا إلى:
+   *   • public/_headers   — ترويسات الأمان والكاش
+   *   • public/_redirects — إعادة التوجيه
+   * وكلاهما تقرؤه Cloudflare Pages أصلاً بنفس النتيجة وبلا خادم.
+   */
+
+  // tree-shake: نستخدم 46 أيقونة فقط من lucide-react (44MB على القرص)
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
 
-  compress: true,
-  poweredByHeader: false, // إخفاء X-Powered-By
+  poweredByHeader: false,
   reactStrictMode: true,
-
-  // ── ترويسات الأمان والكاش ─────────────────────────────────
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          { key: "X-DNS-Prefetch-Control", value: "on" },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
-          },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()",
-          },
-        ],
-      },
-      {
-        // أصول ثابتة — كاش دائم
-        source: "/images/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
-      {
-        source: "/Digital-printing-video.mp4",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
-    ];
-  },
-
-  // ── إعادة التوجيه ─────────────────────────────────────────
-  async redirects() {
-    return [
-      // /quote هي فعلياً صفحة "تواصل معنا" — الفوتر كان يشير إلى /contact (404)
-      { source: "/contact", destination: "/quote", permanent: true },
-      { source: "/contact-us", destination: "/quote", permanent: true },
-
-      // مسارات شائعة قد ترد في backlinks قديمة أو يجربها الزوار
-      { source: "/services", destination: "/commercial-printing", permanent: true },
-      { source: "/printing", destination: "/commercial-printing", permanent: true },
-      { source: "/exhibitions", destination: "/exhibitions-events", permanent: true },
-      { source: "/gifts", destination: "/promotional-gifts", permanent: true },
-      { source: "/signage", destination: "/signage-stickers", permanent: true },
-      { source: "/design", destination: "/design-services", permanent: true },
-    ];
-  },
 };
 
 export default nextConfig;

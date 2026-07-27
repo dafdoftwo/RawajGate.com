@@ -1,0 +1,24 @@
+# ═══════════════════════════════════════════════════════════
+#  إعادة التوجيه — Cloudflare Pages
+#  بديل redirects() في next.config الذي لا يعمل مع output:"export"
+#
+#  الصيغة:  المصدر  الوجهة  رمز الحالة
+#  301 = دائم (ينقل قوة الروابط) · 302 = مؤقت
+# ═══════════════════════════════════════════════════════════
+
+# ── مسارات كانت مكسورة في الفوتر ────────────────────────────
+/contact      /quote/      301
+/contact-us   /quote/      301
+
+# ── اختصارات شائعة قد ترد في backlinks قديمة ────────────────
+/services     /commercial-printing/    301
+/printing     /commercial-printing/    301
+/exhibitions  /exhibitions-events/     301
+/gifts        /promotional-gifts/      301
+/signage      /signage-stickers/       301
+/design       /design-services/        301
+
+# ── فلترة قديمة بمعاملات → مسارات ثابتة ─────────────────────
+# (احتياط لو كانت روابط ?category= مفهرسة)
+/blog?category=*       /blog/    301
+/portfolio?category=*  /portfolio/    301

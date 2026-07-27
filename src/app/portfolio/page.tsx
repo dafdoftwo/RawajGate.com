@@ -43,13 +43,8 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function PortfolioPage({
-    searchParams,
-}: {
-    searchParams: Promise<{ category?: string }>;
-}) {
-    const { category } = await searchParams;
-    const activeCategory = category ?? "all";
+export default function PortfolioPage() {
+    const activeCategory = "all";
     const projects = getProjects(activeCategory);
     const counts = getCategoryCounts();
 
@@ -132,7 +127,7 @@ export default async function PortfolioPage({
                             .filter((cat) => cat.id === "all" || (counts[cat.id] ?? 0) > 0)
                             .map((cat) => {
                             const isActive = activeCategory === cat.id;
-                            const href = cat.id === "all" ? "/portfolio" : `/portfolio?category=${cat.id}`;
+                            const href = cat.id === "all" ? "/portfolio" : `/portfolio/${cat.id}`;
                             const count = counts[cat.id] ?? 0;
                             return (
                                 <Link

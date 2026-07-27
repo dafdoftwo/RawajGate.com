@@ -1,4 +1,10 @@
 import type { MetadataRoute } from "next";
+
+/**
+ * مطلوب مع output:"export" — يُخبر Next.js أن يولّد هذا المسار كملف ثابت
+ * وقت البناء بدل محاولة تصييره عند الطلب (لا خادم في النشر الثابت).
+ */
+export const dynamic = "force-static";
 import { BUSINESS } from "@/lib/business";
 import { SILOS, STANDALONE_ROUTES } from "@/lib/routes";
 import { getPublishedMeta } from "@/lib/articles/meta";
@@ -6,16 +12,6 @@ import { PRICING_BLOCKS } from "@/lib/pricing";
 
 const BASE = BUSINESS.url;
 
-/**
- * ⏰ إعادة التحقق كل ساعة — ضرورية للنشر المجدول.
- *
- * بدونها يُولَّد sitemap.xml مرة واحدة وقت البناء ويتجمّد. النتيجة: مقال
- * يُنشر في موعده ويظهر في /blog، لكن Google لا يعرف بوجوده لأن الـ sitemap
- * ما زال يعرض القائمة القديمة — حتى إعادة البناء التالية.
- *
- * مع revalidate يُعاد توليده كل ساعة، فيلتقط كل مقال حان موعده.
- */
-export const revalidate = 3600;
 
 /**
  * خريطة الموقع الديناميكية.

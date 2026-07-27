@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# مقاسات الصور المولَّدة (تُبنى في CI)
+/public/images/_variants
+/out
+
+# ملفات بيانات الاعتماد — لا تُرفع أبداً
+info.md
+credentials*
+*secret*
+*.env.local
+.dev.vars
