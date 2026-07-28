@@ -88,11 +88,30 @@ function extractContent(src) {
 
 const articles = [];
 let retimed = 0;
+const syntaxErrors = [];
 
 for (const file of files) {
     let src = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
     const exportName = extractExportName(src);
     const slug = extractString(src, "slug");
+
+    /*
+      حارس الـ backtick — لا يُحذف.
+
+      حقل content هو template literal محاط بـ backtick. أي backtick داخله
+      يُنهيه فيفشل البناء بخطأ تحليل غامض («Expected ',', got ...») يشير
+      إلى منتصف نص عربي، ولا يوحي إطلاقاً بأن السبب علامة تنسيق.
+
+      وقعتُ فيه بنفسي عند كتابة اسم ملف بين backtick لتنسيقه ككود — وهو
+      تنسيق لا يدعمه العارض أصلاً. الحارس هنا يُسمّي الملف والسبب مباشرة.
+    */
+    const contentBody = extractContent(src);
+    if (contentBody.includes("`")) {
+        syntaxErrors.push(
+            `${file}: يحوي حقل content علامة backtick — تُنهي الـ template literal.\n` +
+            `      استخدم **عريض** أو «اقتباس» بدلاً منها.`
+        );
+    }
 
     /*
       يُصحَّح readTime في ملف المقال نفسه لا في الفهرس فقط.
@@ -129,6 +148,13 @@ for (const file of files) {
         slug: JSON.parse(slug),
         meta,
     });
+}
+
+/* أوقف كل شيء إن وُجد خطأ صياغي — البناء سيفشل لاحقاً برسالة أغمض */
+if (syntaxErrors.length) {
+    console.error("\n❌ أخطاء صياغية في ملفات المقالات:\n");
+    for (const e of syntaxErrors) console.error(`   • ${e}`);
+    process.exit(1);
 }
 
 // رتّب حسب تاريخ النشر (الأحدث أولاً) لسهولة القراءة
