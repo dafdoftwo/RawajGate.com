@@ -19,7 +19,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة",
         image: "/images/print-file-prep-bleed-trim-marks.webp",
         imageAlt: "تجهيز ملف الطباعة على الشاشة مع خطوط الحد الآمن وعلامات القص والـ bleed",
-        readTime: "4 دقائق",
+        readTime: "6 دقائق",
         primaryKeyword: "كيف أجهز ملف الطباعة",
     },
     {
@@ -99,7 +99,7 @@ export const META_2026_07: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتركيب",
         image: "/images/jeddah-commercial-street-uniform-shopfronts.webp",
         imageAlt: "شارع تجاري في جدة بواجهات محلات ولوحات موحّدة وفق اشتراطات الأمانة",
-        readTime: "4 دقائق",
+        readTime: "6 دقائق",
         primaryKeyword: "اشتراطات لوحات المحلات في جدة",
     },
     {
