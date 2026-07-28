@@ -102,6 +102,39 @@ export function generateLocalBusinessSchema() {
         url: BASE,
         telephone: BUSINESS.phone.e164,
         email: BUSINESS.email,
+
+        /*
+          ⚠️ إشارات الثقة على عقدة LocalBusiness تحديداً.
+
+          كانت foundingDate والاسم النظامي على عقدة Organization وحدها.
+          والعقدتان تخدمان قارئين مختلفين: Organization تصف الكيان
+          الاعتباري، وLocalBusiness تصف المحل الذي تزوره — وهي التي
+          تقرؤها الخرائط والوكلاء حين يسأل أحدهم «مطبعة موثوقة في جدة».
+
+          «تعمل منذ ٢٠٠٩» هي أقوى إشارة تمييز متاحة لنشاط محلي في سوق
+          مزدحم، وكانت غائبة عن العقدة التي تُقرأ فعلاً في هذا السياق.
+        */
+        legalName: BUSINESS.legalName,
+        foundingDate: BUSINESS.foundingDate,
+        ...(SAME_AS.length > 0 && { sameAs: SAME_AS }),
+
+        /*
+          السجل التجاري والرقم الضريبي — إشارة تحقّق قوية في السوق
+          السعودي. تُدرَج فقط عند تعبئتها في business.ts؛ حقل فارغ في
+          schema أسوأ من غيابه لأنه يُقرأ كبيانات ناقصة.
+        */
+        ...(BUSINESS.crNumber
+            ? {
+                  identifier: [
+                      {
+                          "@type": "PropertyValue",
+                          name: "السجل التجاري",
+                          value: BUSINESS.crNumber,
+                      },
+                  ],
+              }
+            : {}),
+        ...(BUSINESS.vatNumber ? { vatID: BUSINESS.vatNumber } : {}),
         priceRange: "SAR 150 - SAR 50000",
         currenciesAccepted: "SAR",
         paymentAccepted: "نقداً، تحويل بنكي، مدى، فيزا، ماستركارد",
