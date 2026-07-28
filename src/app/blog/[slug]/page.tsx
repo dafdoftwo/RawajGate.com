@@ -206,11 +206,20 @@ export default async function ArticlePage({
             <article className="py-12 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
-                        {/*
-                          🎯 الإجابة المباشرة — أول ما تقرأه محركات الإجابة.
-                          موضوعة قبل المحتوى عمداً لتكون أول فقرة نصية في الصفحة.
-                        */}
-                        <div className="bg-amber-50 border-r-4 border-amber-500 rounded-l-xl p-6 mb-10">
+                    {/*
+                      🎯 الإجابة المباشرة — أول ما تقرأه محركات الإجابة.
+                      موضوعة قبل المحتوى عمداً لتكون أول فقرة نصية في الصفحة.
+
+                      ⚠️ `data-speakable` ليس تزييناً.
+                      schema الـ speakable تُحدّد الفقرة المقروءة صوتياً بمحدِّد
+                      CSS. لو ربطناه بأصناف Tailwind (bg-amber-50 مثلاً) لانكسر
+                      الربط صامتاً عند أول تغيير في اللون — والبحث الصوتي وحده
+                      من يلاحظ، أي لا أحد. السمة الدلالية تبقى مهما تغيّر الشكل.
+                    */}
+                        <div
+                            data-speakable="answer"
+                            className="bg-amber-50 border-r-4 border-amber-500 rounded-l-xl p-6 mb-10"
+                        >
                             <p className="text-lg leading-8 text-gray-800">
                                 {article.directAnswer}
                             </p>
