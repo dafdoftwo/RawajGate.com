@@ -70,11 +70,52 @@ if (articles.length === 0) {
 }
 
 const now = Date.now();
-const windowStart = now - WINDOW_HOURS * 60 * 60 * 1000;
+
+/*
+  ══════════════════════════════════════════════════════════════
+   العلامة المائية — بديل النافذة المنزلقة
+  ══════════════════════════════════════════════════════════════
+
+  ⚠️ الثغرة التي أُغلقت هنا:
+
+  كان الفحص يسأل «هل استحقّ مقال في آخر ساعتين؟». وهذا يعمل ما دام
+  كل تشغيل يتمّ في موعده. لكن تشغيل ٦ أغسطس ٢٠٢٦ **أُلغي** بعد خمس
+  عشرة دقيقة (عطل بنية تحتية في GitHub، لا خطأ في الكود).
+
+  لو كان ذلك اليوم يحمل مقالاً موعده ١٥:٣٠، لحدث الآتي:
+      التشغيل ١٦:٠٠  ← أُلغي
+      التشغيل ١٨:٠٠  ← يفحص [١٦:٠٠–١٨:٠٠] · و١٥:٣٠ خارجها
+      النتيجة: المقال لا يُنشر، ولا رسالة خطأ، ولا تشغيل فاشل.
+
+  أي أن المقال يبقى مخفياً حتى يستحق مقال آخر بعد يومين أو ثلاثة —
+  ولا أحد يعلم. نجونا هذه المرة لأن ٦ أغسطس صادف يوماً بلا مقال.
+
+  البديل: علامة مائية محفوظة في الملف أدناه. السؤال يصير:
+      «هل استحقّ مقال **منذ آخر مرة أطلقنا فيها بناءً**؟»
+
+  هذا السؤال لا يفقد شيئاً مهما طال الانقطاع: تشغيل واحد ناجح بعد
+  أسبوع توقّف يلتقط كل ما فات دفعةً واحدة. والنافذة تبقى احتياطاً
+  فقط حين لا توجد علامة (أول تشغيل بعد إضافة هذا الملف).
+*/
+const MARK_FILE = path.join(ROOT, ".github/last-publish-mark");
+
+let since = now - WINDOW_HOURS * 60 * 60 * 1000;
+let markSource = `النافذة الاحتياطية (${WINDOW_HOURS} ساعة)`;
+
+if (fs.existsSync(MARK_FILE)) {
+    const raw = fs.readFileSync(MARK_FILE, "utf8").trim();
+    const t = new Date(raw).getTime();
+    if (Number.isFinite(t)) {
+        since = t;
+        markSource = `العلامة المائية (${raw})`;
+    } else {
+        console.warn(`⚠️ علامة غير صالحة في ${MARK_FILE}: «${raw}» — سقوط للنافذة`);
+    }
+}
 
 const due = articles.filter((a) => {
     const t = new Date(a.publishAt).getTime();
-    return t > windowStart && t <= now;
+    return t > since && t <= now;
 });
 
 const published = articles.filter((a) => new Date(a.publishAt).getTime() <= now);
@@ -89,7 +130,8 @@ if (upcoming) {
     console.log(`📅 النشر القادم     : ${upcoming.publishAt}`);
     console.log(`                     ${upcoming.slug}`);
 }
-console.log(`\n🔍 نافذة الفحص: آخر ${WINDOW_HOURS} ساعة`);
+console.log(`\n🔍 مرجع الفحص: ${markSource}`);
+console.log(`   يبحث عن مقالات بين ${new Date(since).toISOString()} و${new Date(now).toISOString()}`);
 
 if (due.length > 0) {
     console.log(`\n🚀 استحقّ ${due.length} مقالاً — البناء مطلوب:`);
@@ -104,6 +146,16 @@ if (due.length > 0) {
             `due_slugs=${due.map((a) => a.slug).join(", ")}\n`
         );
     }
+    /*
+      حدِّث العلامة **قبل** الخروج. الـ workflow يضمّ هذا الملف إلى
+      نفس الـ commit الذي يُطلق البناء، فتصير العلامة والبناء ذرّةً
+      واحدة: إن فشل الدفع لم تتقدّم العلامة، فيلتقط التشغيلُ التالي
+      نفسَ المقال بدل أن يتخطّاه.
+    */
+    fs.mkdirSync(path.dirname(MARK_FILE), { recursive: true });
+    fs.writeFileSync(MARK_FILE, new Date(now).toISOString() + "\n", "utf8");
+    console.log(`\n📌 حُدِّثت العلامة المائية → ${new Date(now).toISOString()}`);
+
     process.exit(0);
 }
 

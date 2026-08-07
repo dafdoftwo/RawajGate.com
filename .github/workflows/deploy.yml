@@ -78,6 +78,11 @@ jobs:
         run: |
           git config user.name  "rawajgate-scheduler[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # ⚠️ العلامة المائية تُضمّ إلى **نفس** الـ commit الذي يُطلق البناء.
+          # هذه ذرّية مقصودة: إن فشل الدفع لم تتقدّم العلامة على البعيد،
+          # فيلتقط التشغيلُ التالي نفسَ المقال بدل أن يتخطّاه صامتاً.
+          git add .github/last-publish-mark
           git commit --allow-empty -m "chore(نشر): إطلاق بناء للمقالات المستحقة — ${{ steps.due.outputs.due_slugs || 'تشغيل يدوي' }}"
 
           # ⚠️ الفشل الوحيد المتوقّع هنا هو 403 عند الدفع، وسببه دائماً
