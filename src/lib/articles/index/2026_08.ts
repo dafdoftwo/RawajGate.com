@@ -179,7 +179,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم المعارض والفعاليات",
         image: "/images/octanorm-system-booth-shell-scheme.webp",
         imageAlt: "جناح أوكتانورم نظامي في معرض بجدة",
-        readTime: "4 دقائق",
+        readTime: "5 دقائق",
         primaryKeyword: "أوكتانورم أم جناح مخصص",
     },
     {
@@ -195,7 +195,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم اللافتات والتركيب",
         image: "/images/3d-shop-signage-letters-acrylic-jeddah.webp",
         imageAlt: "لافتة محل بحروف أكريليك مضيئة في جدة",
-        readTime: "4 دقائق",
+        readTime: "7 دقائق",
         primaryKeyword: "سعر لافتة محل في جدة",
     },
     {
@@ -211,7 +211,7 @@ export const META_2026_08: ArticleMeta[] = [
         authorRole: "قسم ما قبل الطباعة",
         image: "/images/paper-stock-weights-sizes-samples.webp",
         imageAlt: "عيّنات ورق بأوزان وملامس مختلفة مع مقاسات متدرجة من البوستر إلى الكرت",
-        readTime: "4 دقائق",
+        readTime: "6 دقائق",
         primaryKeyword: "مقاسات الورق وأوزانه",
     },
     {
