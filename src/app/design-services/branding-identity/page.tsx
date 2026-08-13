@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { DesignServicesFaqs } from "@/lib/faqs/design-services";
 import {
@@ -114,6 +114,11 @@ const FAQS = DesignServicesFaqs["design-services/branding-identity"];
 
 export default function BrandingIdentityPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/design-services/branding-identity",
+            name: "تصميم هوية بصرية للشركات في جدة",
+            description: "تصميم هوية بصرية متكاملة للشركات في جدة: شعار، ألوان، خطوط، دليل الهوية، وتطبيقات على جميع المطبوعات. خبرة 15 عام مع +300 علامة تجارية.",
+        }),
         generateServiceSchema({
             name: "Brand Identity Design Jeddah",
             nameAr: "تصميم الهوية البصرية",
@@ -158,7 +163,7 @@ export default function BrandingIdentityPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الهوية البصرية (Visual Identity) هي المنظومة الكاملة التي تجعل علامتك التجارية
                                 مميزة ومتسقة: الشعار، الألوان، الخطوط، وأسلوب التواصل البصري الذي يظهر على <Link href="/commercial-printing/folders" className="text-amber-200 underline">الفولدرات والمطبوعات</Link>. في بوابة الرواج
                                 نصمم هويات بصرية تحكي قصة علامتك وتبني ثقة عملائك.

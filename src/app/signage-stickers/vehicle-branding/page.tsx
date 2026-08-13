@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
@@ -121,12 +121,18 @@ export default function VehicleBrandingPage() {
     ]);
 
     const faqSchema = generateFAQSchema(FAQS);
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/signage-stickers/vehicle-branding",
+        name: "تغليف سيارات في جدة | فينيل 3M أصلي",
+        description: "تغليف سيارات احترافي في جدة بفينيل 3M الأمريكي الأصلي. تغطية كاملة أو جزئية للسيارات والشاحنات وأساطيل الشركات. ضمان 3 سنوات، مقاوم لشمس جدة، تصميم 3D مجاني. خبرة 15 عام في براندينج المركبات.",
+    });
 
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
             {/* Hero Section */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-24">
@@ -151,7 +157,7 @@ export default function VehicleBrandingPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 تغليف السيارات (Car Wrapping) هو فن تحويل مركبتك للوحة إعلانية متحركة أو تغيير لونها بالكامل
                                 باستخدام فينيل عالي الجودة. في بوابة الرواج نستخدم حصرياً فينيل 3M الأمريكي الأصلي مع
                                 ضمان 3 سنوات وتصميم 3D مجاني.

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MapPin, ArrowLeft, Phone, CheckCircle, Truck, Users } from "lucide-react";
 import { GeoImage } from "@/components/geo-image";
 import { BUSINESS, telLink } from "@/lib/business";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateSpeakableWebPage } from "@/lib/schema";
 import {
     COVERAGE_DISTRICTS, NEARBY_CITIES, SECTORS, CAPABILITIES,
     PROCESS_STEPS, GUARANTEES, MILESTONES, CORE_VALUES,
@@ -44,6 +44,11 @@ export default function AboutPage() {
         { name: "الرئيسية", url: BUSINESS.url },
         { name: "من نحن", url: `${BUSINESS.url}/about` },
     ]);
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/about",
+        name: "من نحن — مطبعة في جدة منذ 2009",
+        description: "بوابة الرواج مطبعة وشركة خدمات دعاية وإعلان في جدة منذ عام 2009. تعرّف على قصتنا، فريقنا، ورشتنا، عمليتنا في تنفيذ المشاريع، والقطاعات التي نخدمها في المنطقة الغربية.",
+    });
 
     return (
         <>
@@ -51,6 +56,7 @@ export default function AboutPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-24">
                 <div className="container mx-auto px-4">
@@ -68,7 +74,7 @@ export default function AboutPage() {
                                 مطبعة وشركة دعاية في جدة منذ عام 2009
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed">
                                 <strong className="text-white">بوابة الرواج</strong> شركة متخصصة في الطباعة التجارية، تجهيز أجنحة المعارض، لافتات المحلات، الهدايا الدعائية، والتصميم الجرافيكي — بمنظومة إنتاج متكاملة تحت سقف واحد في حي الروضة بجدة.
                             </p>
 

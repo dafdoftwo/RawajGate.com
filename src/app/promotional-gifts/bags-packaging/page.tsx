@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
@@ -64,6 +64,11 @@ const FAQS = PromotionalGiftsFaqs["promotional-gifts/bags-packaging"];
 
 export default function BagsPackagingPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/promotional-gifts/bags-packaging",
+            name: "أكياس وتغليف دعائي بالشعار في جدة",
+            description: "أكياس ورقية وقماشية وعلب تغليف دعائية في جدة. طباعة شعار الشركة على الأكياس. مثالية للمحلات والهدايا والفعاليات. أحجام وخامات متنوعة.",
+        }),
         generateServiceSchema({
             name: "Branded Bags & Packaging Jeddah",
             nameAr: "أكياس وتغليف دعائي",
@@ -101,7 +106,7 @@ export default function BagsPackagingPage() {
                                 <span className="text-gradient">أكياس وتغليف</span> يميز منتجاتك
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 التغليف هو أول انطباع يراه عميلك! كيس أنيق بشعارك يرفع قيمة المنتج ويبقى
                                 معه كإعلان متنقل. نوفر أكياس ورقية فاخرة، شنط قماش صديقة للبيئة، وعلب
                                 هدايا أنيقة بتصاميم مخصصة.

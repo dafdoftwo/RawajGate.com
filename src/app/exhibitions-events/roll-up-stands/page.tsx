@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
@@ -100,6 +100,11 @@ const FAQS = ExhibitionsEventsFaqs["exhibitions-events/roll-up-stands"];
 
 export default function RollUpStandsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/exhibitions-events/roll-up-stands",
+            name: "رول أب ستاند في جدة | مقاسات وأسعار",
+            description: "رول أب ستاند Roll-up Stand بأحجام متعددة (85×200, 100×200, 120×200 سم) للمعارض والمؤتمرات في جدة. طباعة 1440 DPI، هيكل ألمنيوم متين، حقيبة حمل، ضمان سنة. التسليم خلال 24 ساعة.",
+        }),
         generateServiceSchema({
             name: "Roll-up Stands Jeddah",
             nameAr: "رول أب ستاند للمعارض",
@@ -144,7 +149,7 @@ export default function RollUpStandsPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 رول أب ستاند Roll-up Stand هو الحل الأمثل للمعارض والمؤتمرات والفعاليات. ستاند
                                 قابل للطي يركب في 30 ثانية بدون أدوات، خفيف الوزن (3 كجم)، ويأتي مع حقيبة حمل
                                 أنيقة. طباعة بدقة 1440 DPI بألوان ثابتة.

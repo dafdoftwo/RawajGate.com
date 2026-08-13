@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { AllSilosLinks } from "@/components/related-services";
 import {
     CalendarDays,
@@ -96,6 +96,12 @@ export default function ExhibitionsEventsPage() {
         { name: "معارض وفعاليات", url: "https://rawajgate.com/exhibitions-events" },
     ]);
 
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/exhibitions-events",
+        name: "تجهيز معارض وفعاليات في جدة",
+        description: "تجهيز أجنحة معارض مخصصة، أوكتانورم، رول أب، بوب أب، وكاونترات ترويجية في جدة والمملكة. تصميم 3D مجاني وتركيب وإشراف في الموقع.",
+    });
+
     return (
         <>
             <script
@@ -109,6 +115,10 @@ export default function ExhibitionsEventsPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
             />
 
             {/* Hero */}
@@ -128,7 +138,7 @@ export default function ExhibitionsEventsPage() {
                                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">
                                     معارض وفعاليات
                                 </h1>
-                                <p className="text-white/70">Exhibitions & Events Services</p>
+                                <p data-speakable="answer" className="text-white/70">Exhibitions & Events Services</p>
                             </div>
                         </div>
                         <p className="text-xl text-white/80 leading-relaxed">
@@ -355,5 +365,4 @@ export default function ExhibitionsEventsPage() {
             </section>
         <AllSilosLinks currentSilo="exhibitions-events" />
         </>
-    );
-}
+    );}

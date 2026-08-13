@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { DesignServicesFaqs } from "@/lib/faqs/design-services";
 import {
@@ -65,6 +65,11 @@ const FAQS = DesignServicesFaqs["design-services/pre-press"];
 
 export default function PrePressPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/design-services/pre-press",
+            name: "خدمات ما قبل الطباعة (Pre-Press) في جدة",
+            description: "خدمات ما قبل الطباعة (Pre-Press) في جدة: تحويل ألوان CMYK، فحص ملفات PDF، تجهيز Bleed، تصحيح الصور. ضمان طباعة مثالية بدون أخطاء.",
+        }),
         generateServiceSchema({
             name: "Pre-Press Services Jeddah",
             nameAr: "خدمات ما قبل الطباعة",
@@ -102,7 +107,7 @@ export default function PrePressPage() {
                                 <span className="text-gradient">Pre-Press</span> لطباعة مثالية
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 خدمات ما قبل الطباعة (Pre-Press) هي الخطوة الحاسمة بين التصميم والنتيجة
                                 النهائية لضمان جودة <Link href="/commercial-printing/flyers-brochures" className="text-sky-200 underline">البروشورات والمطبوعات</Link>. نفحص ملفاتك، نصحح الألوان، نضيف هوامش القص، ونضمن أن الطباعة
                                 ستكون مطابقة لتوقعاتك.

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HelpCircle, ArrowLeft } from "lucide-react";
 import { getFAQsBySilo, TOTAL_FAQS } from "@/lib/faqs";
 import { SILOS } from "@/lib/routes";
-import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { BUSINESS } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -54,6 +54,12 @@ export default function FAQPage() {
 
     // كل الأسئلة مرئية على هذه الصفحة — شرط Google للـ FAQPage schema
     const faqSchema = generateFAQSchema(allFaqs, `${BUSINESS.url}/faq`);
+  const speakableSchema = generateSpeakableWebPage({
+    url: "https://rawajgate.com/faq",
+    name: "الأسئلة الشائعة | بوابة الرواج",
+    description: "إجابات مباشرة عن الطباعة التجارية ولافتات المحلات وتجهيز المعارض والهدايا الدعائية والتصميم في جدة: المدد الزمنية والخامات والمقاسات وطريقة الطلب.",
+  });
+
 
     return (
         <>
@@ -65,6 +71,7 @@ export default function FAQPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
                 <div className="container mx-auto px-4 text-center">
@@ -89,7 +96,7 @@ export default function FAQPage() {
                     </h1>
 
                     {/* إجابة مباشرة أعلى الصفحة — الصيغة التي تقتبسها محركات الإجابة */}
-                    <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
+                    <p data-speakable="answer" className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
                         {TOTAL_FAQS} إجابة مباشرة عن الطباعة التجارية، لافتات المحلات، تجهيز
                         أجنحة المعارض، الهدايا الدعائية، والتصميم في جدة — المدد الزمنية،
                         الخامات، المقاسات، وطريقة الطلب.
@@ -207,5 +214,4 @@ export default function FAQPage() {
                 </div>
             </section>
         </>
-    );
-}
+    );}

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
@@ -70,6 +70,11 @@ const FAQS = ExhibitionsEventsFaqs["exhibitions-events/system-booths"];
 
 export default function SystemBoothsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/exhibitions-events/system-booths",
+            name: "أجنحة أوكتانورم وشل سكيم في جدة",
+            description: "تأجير أجنحة نظامية (أوكتانورم / شل سكيم) للمعارض في جدة. تركيب وتفكيك سريع، تكلفة اقتصادية، أحجام من 9 إلى 36 م². مثالية للمعارض قصيرة المدة.",
+        }),
         generateServiceSchema({
             name: "System Booths Octanorm Jeddah",
             nameAr: "أجنحة نظامية أوكتانورم",
@@ -107,7 +112,7 @@ export default function SystemBoothsPage() {
                                 <span className="text-gradient">أجنحة نظامية</span> سريعة واقتصادية
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الأجنحة النظامية (Shell Scheme / Octanorm) هي الحل الأسرع والأوفر للمعارض.
                                 هيكل ألمنيوم جاهز يُركب ويُفكك في ساعات. تكلفة أقل بكثير من الأجنحة المخصصة،
                                 مثالية للمشاركات قصيرة المدة. أما إذا كنت تبحث عن تميز أكبر، يمكنك الاطلاع على <Link href="/exhibitions-events/custom-wood-booths" className="text-emerald-200 underline">الأجنحة الخشبية المخصصة</Link>.

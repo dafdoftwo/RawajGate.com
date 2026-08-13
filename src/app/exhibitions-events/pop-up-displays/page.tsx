@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
@@ -64,6 +64,11 @@ const FAQS = ExhibitionsEventsFaqs["exhibitions-events/pop-up-displays"];
 
 export default function PopUpDisplaysPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/exhibitions-events/pop-up-displays",
+            name: "ستاند بوب أب للمعارض في جدة",
+            description: "ستاندات بوب أب (Pop-up Displays) للمعارض والفعاليات في جدة. خلفيات 3×3 و4×3 متر، تركيب سريع، جرافيك قابل للتغيير. مثالي للمؤتمرات والتصوير.",
+        }),
         generateServiceSchema({
             name: "Pop-up Displays Jeddah",
             nameAr: "ستاندات بوب أب",
@@ -101,7 +106,7 @@ export default function PopUpDisplaysPage() {
                                 <span className="text-gradient">ستاند بوب أب</span> خلفية مؤثرة
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 ستاندات بوب أب (Pop-up Displays) هي خلفيات كبيرة قابلة للطي للمعارض والمؤتمرات.
                                 تركيب في دقائق بدون أدوات، جرافيك عالي الجودة، هيكل خفيف قابل لإعادة الاستخدام.
                                 الحل المثالي للخلفيات المؤقتة والتصوير. تُستخدم غالباً مع <Link href="/exhibitions-events/roll-up-stands" className="text-indigo-200 underline">رول أب ستاند</Link> لتشكيل جناح متكامل وسهل النقل.

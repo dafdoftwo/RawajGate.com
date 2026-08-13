@@ -26,8 +26,7 @@ import { BUSINESS } from "@/lib/business";
 import {
   generateItemListSchema,
   generateVideoSchema,
-  generateFAQSchema,
-} from "@/lib/schema";
+  generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 
 /**
  * ✅ الصفحة الرئيسية أصبحت Server Component.
@@ -84,6 +83,12 @@ export default function HomePage() {
   });
 
   const faqSchema = generateFAQSchema(HOME_FAQS, BUSINESS.url);
+  const speakableSchema = generateSpeakableWebPage({
+    url: "https://rawajgate.com",
+    name: "مطبعة في جدة | طباعة تجارية وتجهيز معارض | بوابة الرواج",
+    description: "مطبعة وشركة دعاية وإعلان في جدة منذ 2009: طباعة تجارية، تجهيز أجنحة معارض، لافتات محلات 3D، هدايا دعائية، وتصميم هوية بصرية. تسليم عاجل خلال 24 ساعة.",
+  });
+
 
   return (
     <>
@@ -99,6 +104,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
       {/* ══════════════════ HERO ══════════════════ */}
       <section className="relative min-h-screen flex items-center bg-[#0a0f1c] overflow-hidden">
@@ -619,5 +625,4 @@ export default function HomePage() {
         </div>
       </section>
     </>
-  );
-}
+  );}

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { AllSilosLinks } from "@/components/related-services";
 import {
     Palette,
@@ -78,6 +78,12 @@ export default function DesignServicesPage() {
         { name: "خدمات التصميم", url: "https://rawajgate.com/design-services" },
     ]);
 
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/design-services",
+        name: "خدمات تصميم جرافيكي في جدة",
+        description: "تصميم هوية بصرية، شعارات، وتجهيز ملفات الطباعة بأيدي مصممين محترفين في جدة. استشارة تصميم مجانية مع كل مشروع.",
+    });
+
     return (
         <>
             <script
@@ -91,6 +97,10 @@ export default function DesignServicesPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
             />
 
             {/* Hero */}
@@ -110,7 +120,7 @@ export default function DesignServicesPage() {
                                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">
                                     خدمات التصميم
                                 </h1>
-                                <p className="text-white/70">Design Services</p>
+                                <p data-speakable="answer" className="text-white/70">Design Services</p>
                             </div>
                         </div>
                         <p className="text-xl text-white/80 leading-relaxed">
@@ -334,5 +344,4 @@ export default function DesignServicesPage() {
             </section>
         <AllSilosLinks currentSilo="design-services" />
         </>
-    );
-}
+    );}

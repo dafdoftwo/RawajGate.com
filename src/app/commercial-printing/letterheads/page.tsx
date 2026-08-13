@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
@@ -61,6 +61,11 @@ const FAQS = CommercialPrintingFaqs["commercial-printing/letterheads"];
 
 export default function LetterheadsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/commercial-printing/letterheads",
+            name: "طباعة ورق رسمي (ليترهيد) في جدة",
+            description: "طباعة ورق رسمي احترافي في جدة. ورق 100-120 جرام، ألوان زاهية، تصميم مجاني. ليترهيد للشركات والمؤسسات بأسعار منافسة وجودة عالية.",
+        }),
         generateServiceSchema({
             name: "Letterhead Printing Jeddah",
             nameAr: "طباعة ورق رسمي",
@@ -98,7 +103,7 @@ export default function LetterheadsPage() {
                                 <span className="text-gradient">ورق رسمي</span> يعكس احترافيتك
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الورق الرسمي (Letterhead) هو أساس مراسلات شركتك. كل خطاب، عقد، أو فاتورة
                                 على ورقك الرسمي يعكس هويتك، خاصة عند تقديمه داخل <Link href="/commercial-printing/folders" className="text-white hover:text-amber-200 underline">ملفات عروض</Link> فاخرة. في بوابة الرواج نطبع على ورق عالي الجودة
                                 بألوان ثابتة لسنوات.

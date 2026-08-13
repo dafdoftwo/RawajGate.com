@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { AllSilosLinks } from "@/components/related-services";
 import {
     Signpost,
@@ -96,6 +96,12 @@ export default function SignageStickersPage() {
         { name: "لوحات وملصقات", url: "https://rawajgate.com/signage-stickers" },
     ]);
 
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/signage-stickers",
+        name: "لافتات وملصقات إعلانية في جدة",
+        description: "تصميم وتنفيذ لافتات المحلات 3D، تغليف السيارات، ملصقات المنتجات، وبانرات خارجية في جدة. خامات مقاومة لمناخ جدة وتركيب احترافي.",
+    });
+
     return (
         <>
             <script
@@ -109,6 +115,10 @@ export default function SignageStickersPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
             />
 
             {/* Hero */}
@@ -128,7 +138,7 @@ export default function SignageStickersPage() {
                                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">
                                     لوحات وملصقات
                                 </h1>
-                                <p className="text-white/70">Signage & Stickers Services</p>
+                                <p data-speakable="answer" className="text-white/70">Signage & Stickers Services</p>
                             </div>
                         </div>
                         <p className="text-xl text-white/80 leading-relaxed">
@@ -344,5 +354,4 @@ export default function SignageStickersPage() {
             </section>
         <AllSilosLinks currentSilo="signage-stickers" />
         </>
-    );
-}
+    );}

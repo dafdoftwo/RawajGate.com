@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
@@ -97,6 +97,11 @@ const FAQS = SignageStickersFaqs["signage-stickers/shop-signage-3d"];
 
 export default function ShopSignage3DPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/signage-stickers/shop-signage-3d",
+            name: "لافتات محلات 3D في جدة | ضمان 3 سنوات",
+            description: "تصميم وتنفيذ لافتات محلات ثلاثية الأبعاد وحروف بارزة مضيئة LED في جدة. أكريليك، ستانلس ستيل، نيون فلكس. ضمان 3 سنوات، تصميم 3D مجاني، تركيب احترافي. خبرة 15 عام.",
+        }),
         generateServiceSchema({
             name: "3D Shop Signage & LED Letters Jeddah",
             nameAr: "لافتات محلات 3D وحروف بارزة",
@@ -141,7 +146,7 @@ export default function ShopSignage3DPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 لافتات المحلات ثلاثية الأبعاد (3D Signage) هي الطريقة الأقوى لجذب العملاء من الشارع.
                                 حروف بارزة مضيئة بتقنية LED تعمل 24 ساعة، تبرز هوية محلك في الليل والنهار. في
                                 بوابة الرواج ننفذ جميع الأنواع: أكريليك، ستانلس ستيل، ونيون فلكس.

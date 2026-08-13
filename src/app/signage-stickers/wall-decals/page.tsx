@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
@@ -68,6 +68,11 @@ const FAQS = SignageStickersFaqs["signage-stickers/wall-decals"];
 
 export default function WallDecalsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/signage-stickers/wall-decals",
+            name: "ملصقات جدارية وستيكرات ديكور في جدة",
+            description: "ملصقات جدارية (Wall Decals) للمكاتب والمحلات في جدة. تصاميم مخصصة، سهلة التركيب والإزالة، لا تضر الدهان. مثالية للديكور الداخلي والشعارات.",
+        }),
         generateServiceSchema({
             name: "Wall Decals Printing Jeddah",
             nameAr: "ملصقات جدارية",
@@ -105,7 +110,7 @@ export default function WallDecalsPage() {
                                 <span className="text-gradient">ملصقات جدارية</span> تحوّل مكانك
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الملصقات الجدارية (Wall Decals) طريقة سريعة واقتصادية لتحويل أي جدار فارغ
                                 لدبكور مميز أو رسالة تسويقية. <Link href="/design-services/logo-design" className="text-white hover:text-amber-200 underline">شعار شركتك</Link> في الاستقبال، عبارة تحفيزية
                                 للموظفين، أو تصميم ديكوري للمطعم - كلها ممكنة!

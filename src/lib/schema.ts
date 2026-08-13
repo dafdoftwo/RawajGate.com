@@ -447,3 +447,45 @@ export function generateHowToSchema(howTo: {
         })),
     };
 }
+
+/* ══════════════════════════════════════════════════════════
+   12) WebPage + speakable — لصفحات لا تحمل BlogPosting
+   ══════════════════════════════════════════════════════════ */
+
+/**
+ * عقدة WebPage تحمل speakable للصفحات غير المقالية.
+ *
+ * ⚠️ لماذا لا تكفي BlogPosting؟
+ * speakable مُعرَّفة على WebPage و Article. مقالات المدونة تحملها ضمن
+ * BlogPosting، لكن **صفحات الأسعار والخدمات ليست مقالات** — وهي أعلى
+ * الصفحات نية شرائية، وبالضبط ما يُفترض أن يقتبسه مساعد صوتي حين
+ * يُسأل «كم سعر لافتة محل في جدة».
+ *
+ * كانت هذه الصفحات تعرض إجابة مباشرة مصوغة للاقتباس، بلا أي وسم يدلّ
+ * عليها. فيقرأ المساعد ما يختاره هو — وأول نص في الصفحة هو فتات
+ * التنقّل: «تخطَّ إلى المحتوى الرئيسي · بوابة الرواج · مطبوعات تجارية…».
+ *
+ * المحدِّد [data-speakable="answer"] سمة دلالية لا صنف تنسيق، فلا
+ * ينكسر الربط عند تغيير التصميم.
+ */
+export function generateSpeakableWebPage(page: {
+    url: string;
+    name: string;
+    description: string;
+}) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${page.url}#webpage`,
+        url: page.url,
+        name: page.name,
+        description: page.description,
+        inLanguage: "ar-SA",
+        isPartOf: { "@id": SITE_ID },
+        about: { "@id": LOCAL_ID },
+        speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ["h1", '[data-speakable="answer"]'],
+        },
+    };
+}

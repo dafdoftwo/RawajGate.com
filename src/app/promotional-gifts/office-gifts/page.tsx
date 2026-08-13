@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
@@ -94,6 +94,11 @@ const FAQS = PromotionalGiftsFaqs["promotional-gifts/office-gifts"];
 
 export default function OfficeGiftsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/promotional-gifts/office-gifts",
+            name: "هدايا مكتبية للشركات في جدة",
+            description: "هدايا مكتبية فاخرة للشركات في جدة: أقلام معدنية، دفاتر جلدية، أجندات، ومجموعات هدايا بشعار شركتك. طباعة ليزر وتطريز. خصومات الكميات.",
+        }),
         generateServiceSchema({
             name: "Corporate Office Gifts Jeddah",
             nameAr: "هدايا مكتبية للشركات",
@@ -138,7 +143,7 @@ export default function OfficeGiftsPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الهدايا المكتبية هي إعلان يومي على مكتب عميلك! أقلام، دفاتر، أجندات تحمل شعار
                                 شركتك وتراها العين كل يوم. ولتكتمل الهدية، يمكنك إرفاق <Link href="/promotional-gifts/tech-gadgets" className="text-amber-200 underline">فلاش ميموري</Link> يحمل ملف تعريف شركتك. في بوابة الرواج نوفر مئات الخيارات بأسعار تنافسية،
                                 مع طباعة ليزر عالية الجودة.

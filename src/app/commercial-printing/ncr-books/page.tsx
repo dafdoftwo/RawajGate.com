@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
@@ -68,6 +68,11 @@ const FAQS = CommercialPrintingFaqs["commercial-printing/ncr-books"];
 
 export default function NCRBooksPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/commercial-printing/ncr-books",
+            name: "طباعة دفاتر NCR وفواتير في جدة",
+            description: "طباعة دفاتر NCR كربونية (نسخ ذاتية) في جدة: فواتير، إيصالات، طلبات، وسندات قبض. 2-4 نسخ بألوان مختلفة. ترقيم وتثقيب.",
+        }),
         generateServiceSchema({
             name: "NCR Books Printing Jeddah",
             nameAr: "طباعة دفاتر NCR",
@@ -105,7 +110,7 @@ export default function NCRBooksPage() {
                                 <span className="text-gradient">دفاتر NCR</span> للفواتير والإيصالات
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 دفاتر NCR (النسخ الذاتية) هي الحل المثالي للفواتير والإيصالات. بدون كربون،
                                 بدون فوضى - اكتب على الورقة الأولى وتنتقل الكتابة تلقائياً للنسخ التالية.
                                 في بوابة الرواج نطبع دفاتر 2-4 نسخ بترقيم وتثقيب.

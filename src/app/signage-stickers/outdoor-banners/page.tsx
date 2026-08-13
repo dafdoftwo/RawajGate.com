@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
@@ -64,6 +64,11 @@ const FAQS = SignageStickersFaqs["signage-stickers/outdoor-banners"];
 
 export default function OutdoorBannersPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/signage-stickers/outdoor-banners",
+            name: "طباعة بنرات خارجية وفلكس في جدة",
+            description: "طباعة بنرات خارجية وفلكس في جدة. مقاومة للشمس والرياح، ألوان ثابتة، أحجام حتى 5 متر. مثالية للمحلات والفعاليات والإعلانات الخارجية.",
+        }),
         generateServiceSchema({
             name: "Outdoor Banners Printing Jeddah",
             nameAr: "طباعة بنرات خارجية",
@@ -106,7 +111,7 @@ export default function OutdoorBannersPage() {
                                 <span className="text-gradient">بنرات خارجية</span> تتحدى الطقس
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 البنرات الخارجية (Outdoor Banners) هي أقوى وسيلة إعلانية للمحلات و <Link href="/exhibitions-events" className="text-white hover:text-orange-200 underline">الفعاليات والمعارض</Link>.
                                 في بوابة الرواج نطبع على فلكس عالي الجودة بأحبار مقاومة للأشعة UV،
                                 تدوم لسنوات تحت شمس جدة الحارة.

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { SignageStickersFaqs } from "@/lib/faqs/signage-stickers";
 import {
@@ -68,6 +68,11 @@ const FAQS = SignageStickersFaqs["signage-stickers/product-labels"];
 
 export default function ProductLabelsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/signage-stickers/product-labels",
+            name: "طباعة ملصقات منتجات في جدة",
+            description: "طباعة ملصقات منتجات (Product Labels) في جدة. ملصقات غذائية، تجميلية، دوائية. مقاومة للماء، باركود، معلومات غذائية. أحجام وأشكال مخصصة.",
+        }),
         generateServiceSchema({
             name: "Product Labels Printing Jeddah",
             nameAr: "طباعة ملصقات منتجات",
@@ -105,7 +110,7 @@ export default function ProductLabelsPage() {
                                 <span className="text-gradient">ملصقات منتجات</span> احترافية
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 ملصق المنتج (Product Label) هو وجه منتجك على الرف! ملصق جذاب يبيع أكثر.
                                 في بوابة الرواج نطبع ملصقات بجودة عالية. إذا احتجت مساعدة في التصميم، فريقنا يقدم <Link href="/design-services" className="text-white hover:text-amber-200 underline">خدمات تصميم</Link> احترافية.
                                 خامات متنوعة: ورقية، مقاومة للماء، شفافة. مع باركود وجدول قيم غذائية.

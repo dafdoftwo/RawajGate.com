@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
@@ -92,6 +92,11 @@ const FAQS = ExhibitionsEventsFaqs["exhibitions-events/custom-wood-booths"];
 
 export default function CustomWoodBoothsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/exhibitions-events/custom-wood-booths",
+            name: "تجهيز أجنحة معارض خشبية في جدة",
+            description: "تصميم وتنفيذ أجنحة معارض خشبية مخصصة في جدة. ستاندات فاخرة للمعارض الكبرى في سوبر دوم ومركز جدة للمناسبات. تصميم 3D مجاني، تنفيذ متكامل، وضمان الجودة. خبرة 15 عام.",
+        }),
         generateServiceSchema({
             name: "Custom Exhibition Booths Jeddah",
             nameAr: "أجنحة معارض خشبية مخصصة",
@@ -136,7 +141,7 @@ export default function CustomWoodBoothsPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 أجنحة المعارض الخشبية المخصصة هي الحل الأمثل للشركات التي تريد ترك انطباع لا يُنسى.
                                 في بوابة الرواج نصمم وننفذ أجنحة فريدة بالكامل - من الرسم الأولي حتى التركيب في
                                 سوبر دوم جدة ومراكز المعارض. ويمكننا أيضاً توفير <Link href="/exhibitions-events/roll-up-stands" className="text-emerald-200 underline">رول أب ستاند</Link> لإبراز العروض الخاصة داخل الجناح.

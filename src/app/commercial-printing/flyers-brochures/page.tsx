@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
@@ -91,6 +91,11 @@ const FAQS = CommercialPrintingFaqs["commercial-printing/flyers-brochures"];
 
 export default function FlyersBrochuresPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/commercial-printing/flyers-brochures",
+            name: "طباعة فلايرات وبروشورات في جدة",
+            description: "طباعة فلايرات وبروشورات احترافية في جدة. ورق كوشيه 130-200 جرام، طباعة أوفست ورقمية، تشطيب لامع ومطفي. تصميم مجاني، تسليم خلال 48 ساعة.",
+        }),
         generateServiceSchema({
             name: "Flyers & Brochures Printing Jeddah",
             nameAr: "طباعة فلايرات وبروشورات",
@@ -135,7 +140,7 @@ export default function FlyersBrochuresPage() {
                             </h1>
 
                             {/* AI Snippet */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الفلايرات والبروشورات هي أدوات التسويق المباشر الأكثر فعالية وتكلفة معقولة.
                                 في بوابة الرواج نطبع فلايراتك على ورق كوشيه عالي الجودة (130-200 جرام)
                                 بألوان CMYK حية، مع تصميم مجاني وتسليم خلال 48 ساعة في جدة.

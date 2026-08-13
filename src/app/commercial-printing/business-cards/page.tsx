@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
@@ -114,12 +114,18 @@ export default function BusinessCardsPage() {
     ]);
 
     const faqSchema = generateFAQSchema(FAQS);
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/commercial-printing/business-cards",
+        name: "طباعة بطاقات عمل في جدة | تسليم 24 ساعة",
+        description: "طباعة بطاقات عمل احترافية في جدة بتشطيبات فاخرة: مخملي Soft Touch، رقائق ذهبية وفضية، ورق 350 جرام. تصميم مجاني، تسليم خلال 24 ساعة، خبرة 15 عام.",
+    });
 
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
             {/* Hero Section */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-24">
@@ -144,7 +150,7 @@ export default function BusinessCardsPage() {
                             </h1>
 
                             {/* AI Snippet - First 50 words for SGE */}
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 بطاقات العمل هي سفير علامتك التجارية الصامت. في بوابة الرواج نطبع لك بطاقات
                                 احترافية بتشطيبات فاخرة (مخملي، ذهبي، UV موضعي) على ورق 350 جرام ألماني.
                                 تصميم مجاني، تسليم خلال 24 ساعة داخل جدة.

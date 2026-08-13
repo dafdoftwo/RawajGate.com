@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
-import { generateServiceSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { AllSilosLinks } from "@/components/related-services";
 import {
     Printer,
@@ -82,6 +82,12 @@ export default function CommercialPrintingPage() {
         { name: "مطبوعات تجارية", url: "https://rawajgate.com/commercial-printing" },
     ]);
 
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/commercial-printing",
+        name: "مطبوعات تجارية في جدة",
+        description: "طباعة بطاقات عمل، فلايرات، بروشورات، ملفات عروض، ورق رسمي، دفاتر NCR، وقوائم طعام في جدة. جودة عالية، تسليم سريع، وأسعار منافسة.",
+    });
+
     return (
         <>
             <script
@@ -91,6 +97,10 @@ export default function CommercialPrintingPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
             />
 
             {/* Hero */}
@@ -110,7 +120,7 @@ export default function CommercialPrintingPage() {
                                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">
                                     مطبوعات تجارية
                                 </h1>
-                                <p className="text-white/70">Commercial Printing Services</p>
+                                <p data-speakable="answer" className="text-white/70">Commercial Printing Services</p>
                             </div>
                         </div>
                         <p className="text-xl text-white/80 leading-relaxed">
@@ -302,5 +312,4 @@ export default function CommercialPrintingPage() {
             </section>
         <AllSilosLinks currentSilo="commercial-printing" />
         </>
-    );
-}
+    );}

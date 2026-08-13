@@ -9,8 +9,7 @@ import {
 } from "@/lib/pricing";
 import {
     generateBreadcrumbSchema,
-    generateItemListSchema,
-} from "@/lib/schema";
+    generateItemListSchema, generateSpeakableWebPage } from "@/lib/schema";
 
 /**
  * صفحة الأسعار الرئيسية (Pillar).
@@ -74,6 +73,12 @@ export default function PricesPage() {
         })),
         "أسعار خدمات بوابة الرواج في جدة"
     );
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/prices",
+        name: "أسعار الطباعة وتجهيز المعارض في جدة",
+        description: "نطاقات أسعار استرشادية شفافة لخدمات الطباعة التجارية ولافتات المحلات وتجهيز أجنحة المعارض وتغليف السيارات في جدة، مبنية على متوسطات السوق السعودي.",
+    });
+
 
     return (
         <>
@@ -85,6 +90,7 @@ export default function PricesPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
             />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
             {/* البطل */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
@@ -117,7 +123,7 @@ export default function PricesPage() {
                     </h1>
 
                     {/* بلوك الإجابة المباشرة — الصيغة التي تقتبسها محركات AI */}
-                    <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed mb-4">
+                    <p data-speakable="answer" className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed mb-4">
                         نطاقات أسعار استرشادية شفافة لخدماتنا في جدة، مبنية على متوسطات
                         السوق السعودي في {arReviewed}. لكل خدمة عدة فئات (قياسي، فاخر،
                         بريميوم) مع بيان صريح لما يشمله السعر وما لا يشمله، والعوامل التي

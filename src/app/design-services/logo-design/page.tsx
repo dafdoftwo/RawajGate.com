@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { DesignServicesFaqs } from "@/lib/faqs/design-services";
 import {
@@ -62,6 +62,11 @@ const FAQS = DesignServicesFaqs["design-services/logo-design"];
 
 export default function LogoDesignPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/design-services/logo-design",
+            name: "تصميم شعار احترافي في جدة | تسليم 5 أيام",
+            description: "تصميم شعار احترافي للشركات والمشاريع في جدة. شعارات فريدة، ملفات مصدرية، تسليم خلال 5 أيام. +500 شعار تم تصميمه.",
+        }),
         generateServiceSchema({
             name: "Logo Design Jeddah",
             nameAr: "تصميم شعار",
@@ -99,7 +104,7 @@ export default function LogoDesignPage() {
                                 <span className="text-gradient">شعار فريد</span> يميز علامتك
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الشعار هو الرمز البصري الذي يعرّف علامتك في ثوانٍ. نضمن ظهوره بشكل مثالي سواء على <Link href="/signage-stickers/shop-signage-3d" className="text-rose-200 underline">لوحات المحلات</Link> أو في المطبوعات الصغيرة. في بوابة الرواج نصمم
                                 شعارات فريدة، لا نستخدم قوالب جاهزة. كل شعار مصمم خصيصاً ليعكس قيم
                                 ورسالة عملك.

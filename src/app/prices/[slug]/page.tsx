@@ -10,6 +10,7 @@ import {
     generateBreadcrumbSchema,
     generateFAQSchema,
     generateServiceSchema,
+    generateSpeakableWebPage,
 } from "@/lib/schema";
 
 /**
@@ -111,6 +112,11 @@ export default async function PriceDetailPage({
             priceTo: Math.max(...block.tiers.map((t) => t.priceTo)),
         }),
         generateFAQSchema(priceFaqs, url),
+        generateSpeakableWebPage({
+            url,
+            name: `أسعار ${block.serviceName} في جدة`,
+            description: block.directAnswer,
+        }),
     ];
 
     // spokes أخرى للتنقل داخل /prices
@@ -160,7 +166,10 @@ export default async function PriceDetailPage({
                           الإجابة المباشرة — أول 60 كلمة مصوغة للاقتباس في
                           Featured Snippets وChatGPT وPerplexity.
                         */}
-                        <div className="bg-white/5 backdrop-blur-sm border-r-4 border-amber-500 rounded-lg p-6 mb-8">
+                        <div
+                            data-speakable="answer"
+                            className="bg-white/5 backdrop-blur-sm border-r-4 border-amber-500 rounded-lg p-6 mb-8"
+                        >
                             <p className="text-lg md:text-xl text-white leading-relaxed">
                                 {block.directAnswer}
                             </p>

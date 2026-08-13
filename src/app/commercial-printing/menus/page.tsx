@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
@@ -96,6 +96,11 @@ const FAQS = CommercialPrintingFaqs["commercial-printing/menus"];
 
 export default function MenusPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/commercial-printing/menus",
+            name: "طباعة منيو مطعم في جدة | مقاوم للماء",
+            description: "تصميم وطباعة منيوهات مطاعم احترافية في جدة. ورق مقاوم للماء، تغليف حراري، تصميم مجاني. منيوهات جلدية فاخرة وأخرى اقتصادية. تسليم خلال 48 ساعة.",
+        }),
         generateServiceSchema({
             name: "Restaurant Menu Printing Jeddah",
             nameAr: "طباعة منيوهات مطاعم",
@@ -138,7 +143,7 @@ export default function MenusPage() {
                                 <span className="text-gradient">منيوهات مطاعم</span> تفتح الشهية
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 المنيو هو أول ما يراه ضيفك! منيو احترافي بصور شهية وترتيب ذكي يزيد مبيعاتك.
                                 كما أن استخدام <Link href="/commercial-printing/flyers-brochures" className="text-white hover:text-amber-200 underline">فلايرات العروض</Link> يساعد في جذب المزيد من الزوار.
                                 في بوابة الرواج نصمم ونطبع منيوهات مقاومة للماء والبقع، من الكافيهات الصغيرة

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { sectionMetadata } from "@/lib/seo";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { AllSilosLinks } from "@/components/related-services";
 import {
     Gift,
@@ -87,6 +87,12 @@ export default function PromotionalGiftsPage() {
         { name: "هدايا دعائية", url: "https://rawajgate.com/promotional-gifts" },
     ]);
 
+    const speakableSchema = generateSpeakableWebPage({
+        url: "https://rawajgate.com/promotional-gifts",
+        name: "هدايا دعائية للشركات في جدة",
+        description: "أقلام، دفاتر، أجندات، هدايا تقنية، أكياس، وملابس مطبوعة بشعار شركتك في جدة. كميات بالجملة وأسعار خاصة للشركات.",
+    });
+
     return (
         <>
             <script
@@ -100,6 +106,10 @@ export default function PromotionalGiftsPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
             />
 
             {/* Hero */}
@@ -119,7 +129,7 @@ export default function PromotionalGiftsPage() {
                                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">
                                     هدايا دعائية
                                 </h1>
-                                <p className="text-white/70">Promotional Gifts</p>
+                                <p data-speakable="answer" className="text-white/70">Promotional Gifts</p>
                             </div>
                         </div>
                         <p className="text-xl text-white/80 leading-relaxed">
@@ -356,5 +366,4 @@ export default function PromotionalGiftsPage() {
             </section>
         <AllSilosLinks currentSilo="promotional-gifts" />
         </>
-    );
-}
+    );}

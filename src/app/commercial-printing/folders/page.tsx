@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { CommercialPrintingFaqs } from "@/lib/faqs/commercial-printing";
 import {
@@ -77,6 +77,11 @@ const FAQS = CommercialPrintingFaqs["commercial-printing/folders"];
 
 export default function FoldersPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/commercial-printing/folders",
+            name: "طباعة ملفات عروض وفولدرات في جدة",
+            description: "طباعة ملفات عروض وفولدرات احترافية في جدة. ورق 350 جرام، جيوب داخلية، تشطيب مخملي أو لامع. مثالية لاجتماعات العملاء والعروض التقديمية.",
+        }),
         generateServiceSchema({
             name: "Presentation Folders Printing Jeddah",
             nameAr: "طباعة ملفات العروض",
@@ -114,7 +119,7 @@ export default function FoldersPage() {
                                 <span className="text-gradient">ملفات عروض</span> تبهر عملاءك
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 ملف العرض (Presentation Folder) هو أول ما يفتحه عميلك في الاجتماع. ملف
                                 احترافي بتصميم أنيق يعطي انطباعاً بالاحترافية والاهتمام بالتفاصيل.
                                 في بوابة الرواج نطبع ملفات بأعلى جودة على ورق 350 جرام.

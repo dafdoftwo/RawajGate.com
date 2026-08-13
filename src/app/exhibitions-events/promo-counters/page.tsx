@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { ExhibitionsEventsFaqs } from "@/lib/faqs/exhibitions-events";
 import {
@@ -63,6 +63,11 @@ const FAQS = ExhibitionsEventsFaqs["exhibitions-events/promo-counters"];
 
 export default function PromoCountersPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/exhibitions-events/promo-counters",
+            name: "كاونترات ترويجية للمعارض في جدة",
+            description: "كاونترات ترويجية (Promo Counters) للمعارض والتذوق في جدة. قابلة للطي، خفيفة، جرافيك قابل للتغيير. مثالية للتسويق المباشر وتوزيع العينات.",
+        }),
         generateServiceSchema({
             name: "Promo Counters Jeddah",
             nameAr: "كاونترات ترويجية",
@@ -100,7 +105,7 @@ export default function PromoCountersPage() {
                                 <span className="text-gradient">كاونترات ترويجية</span> تجذب الزوار
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الكاونترات الترويجية (Promo Counters) أداة أساسية للتسويق المباشر. توزيع
                                 عينات في المولات، تذوق منتجات في السوبرماركت، استقبال في المعارض. لا تنسى تجهيز <Link href="/commercial-printing/flyers-brochures" className="text-white hover:text-amber-200 underline">فلايرات وبروشورات</Link> لتوزيعها مع العينات.
                                 خفيفة، قابلة للطي، بتصميم جذاب يحمل شعارك.

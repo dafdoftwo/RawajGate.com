@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
@@ -65,6 +65,11 @@ const FAQS = PromotionalGiftsFaqs["promotional-gifts/tech-gadgets"];
 
 export default function TechGadgetsPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/promotional-gifts/tech-gadgets",
+            name: "هدايا تقنية دعائية بالشعار في جدة",
+            description: "هدايا تقنية دعائية في جدة: فلاشات USB، باور بانك، سماعات، حوامل جوال بشعار شركتك. طباعة ليزر وحفر. هدايا عملية تبقى مستخدمة يومياً.",
+        }),
         generateServiceSchema({
             name: "Branded Tech Gadgets Jeddah",
             nameAr: "هدايا تقنية دعائية",
@@ -102,7 +107,7 @@ export default function TechGadgetsPage() {
                                 <span className="text-gradient">هدايا تقنية</span> عملية ومميزة
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الهدايا التقنية من أذكى أنواع الهدايا الترويجية! USB يُستخدم يومياً،
                                 باور بانك ينقذ البطارية، سماعات ترافق العميل أينما ذهب. كلها تحمل شعارك
                                 وتبقى أمام عينه باستمرار.

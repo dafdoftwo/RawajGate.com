@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { PromotionalGiftsFaqs } from "@/lib/faqs/promotional-gifts";
 import {
@@ -68,6 +68,11 @@ const FAQS = PromotionalGiftsFaqs["promotional-gifts/wearables"];
 
 export default function WearablesPage() {
     const schemas = [
+        generateSpeakableWebPage({
+            url: "https://rawajgate.com/promotional-gifts/wearables",
+            name: "ملابس دعائية وتيشرتات بالشعار في جدة",
+            description: "ملابس دعائية موحدة في جدة: تيشرتات، بولو، كابات، جاكيتات بشعار شركتك. تطريز وطباعة حرارية. زي موحد للموظفين وهدايا للفعاليات.",
+        }),
         generateServiceSchema({
             name: "Branded Wearables Jeddah",
             nameAr: "ملابس دعائية",
@@ -105,7 +110,7 @@ export default function WearablesPage() {
                                 <span className="text-gradient">ملابس موحدة</span> تعزز هويتك
                             </h1>
 
-                            <p className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
+                            <p data-speakable="answer" className="text-xl text-white/90 mb-6 leading-relaxed font-medium">
                                 الملابس الموحدة تخلق انطباعاً احترافياً وتعزز روح الفريق. تيشرتات للموظفين،
                                 كابات للفعاليات، جاكيتات للتوزيع - مثالية لفرق العمل في <Link href="/exhibitions-events/system-booths" className="text-violet-200 underline">أجنحة المعارض</Link> والفعاليات الخارجية.
                             </p>
