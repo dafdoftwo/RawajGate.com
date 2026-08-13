@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
@@ -173,7 +174,7 @@ export default function BrandingIdentityPage() {
                                     احجز استشارة مجانية
                                     <ArrowLeft className="inline-block mr-2 w-5 h-5" />
                                 </Link>
-                                <a href="tel:+966548923300" className="btn-secondary text-center">
+                                <a href={`tel:${BUSINESS.phone.e164}`} className="btn-secondary text-center">
                                     <Phone className="w-5 h-5 ml-2" />
                                     اتصل الآن
                                 </a>
@@ -385,7 +386,7 @@ export default function BrandingIdentityPage() {
                             <ArrowLeft className="mr-2 w-5 h-5" />
                         </Link>
                         <a
-                            href="https://wa.me/966548923300?text=أريد تصميم هوية بصرية"
+                            href={`https://wa.me/${BUSINESS.phone.whatsapp}?text=أريد تصميم هوية بصرية`}
                             className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg inline-flex items-center justify-center"
                         >
                             واتساب الآن

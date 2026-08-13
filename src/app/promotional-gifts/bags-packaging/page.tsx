@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
@@ -286,7 +287,7 @@ export default function BagsPackagingPage() {
                             اطلب عرض سعر <ArrowLeft className="mr-2 w-5 h-5" />
                         </Link>
                         <a
-                            href="https://wa.me/966548923300?text=أريد أكياس بشعار شركتي"
+                            href={`https://wa.me/${BUSINESS.phone.whatsapp}?text=أريد أكياس بشعار شركتي`}
                             className="px-8 py-4 bg-gray-900 text-white font-bold rounded-lg inline-flex items-center justify-center hover:bg-gray-800 transition-all"
                         >
                             واتساب الآن

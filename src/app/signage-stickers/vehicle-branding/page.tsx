@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
@@ -166,7 +167,7 @@ export default function VehicleBrandingPage() {
                                     احصل على تصميم 3D مجاني
                                     <ArrowLeft className="inline-block mr-2 w-5 h-5" />
                                 </Link>
-                                <a href="tel:+966548923300" className="btn-secondary text-center">
+                                <a href={`tel:${BUSINESS.phone.e164}`} className="btn-secondary text-center">
                                     <Phone className="w-5 h-5 ml-2" />
                                     استشارة مجانية
                                 </a>
@@ -454,7 +455,7 @@ export default function VehicleBrandingPage() {
                             <ArrowLeft className="mr-2 w-5 h-5" />
                         </Link>
                         <a
-                            href="https://wa.me/966548923300?text=أريد تغليف سيارة"
+                            href={`https://wa.me/${BUSINESS.phone.whatsapp}?text=أريد تغليف سيارة`}
                             className="px-8 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition-all shadow-lg inline-flex items-center justify-center"
                         >
                             واتساب الآن

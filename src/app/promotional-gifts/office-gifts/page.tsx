@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { BUSINESS } from "@/lib/business";
 import Link from "next/link";
 import { GeoImage } from "@/components/geo-image";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
@@ -153,7 +154,7 @@ export default function OfficeGiftsPage() {
                                     اطلب كتالوج مجاني
                                     <ArrowLeft className="inline-block mr-2 w-5 h-5" />
                                 </Link>
-                                <a href="tel:+966548923300" className="btn-secondary text-center">
+                                <a href={`tel:${BUSINESS.phone.e164}`} className="btn-secondary text-center">
                                     <Phone className="w-5 h-5 ml-2" />
                                     استشارة مجانية
                                 </a>
@@ -366,7 +367,7 @@ export default function OfficeGiftsPage() {
                             <ArrowLeft className="mr-2 w-5 h-5" />
                         </Link>
                         <a
-                            href="https://wa.me/966548923300?text=أريد هدايا مكتبية للشركة"
+                            href={`https://wa.me/${BUSINESS.phone.whatsapp}?text=أريد هدايا مكتبية للشركة`}
                             className="px-8 py-4 bg-white text-gray-900 font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg inline-flex items-center justify-center"
                         >
                             واتساب الآن

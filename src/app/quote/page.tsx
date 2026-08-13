@@ -74,8 +74,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-gray-900 mb-1">الهاتف</div>
-                                        <a href="tel:+966548923300" className="text-gray-600 hover:text-amber-600" dir="ltr">
-                                            +966 54 892 3300
+                                        <a href={`tel:${BUSINESS.phone.e164}`} className="text-gray-600 hover:text-amber-600" dir="ltr">
+                                            {BUSINESS.phone.display}
                                         </a>
                                     </div>
                                 </div>
@@ -86,8 +86,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-gray-900 mb-1">واتساب</div>
-                                        <a href="https://wa.me/966548923300" className="text-gray-600 hover:text-green-600" dir="ltr">
-                                            +966 54 892 3300
+                                        <a href={`https://wa.me/${BUSINESS.phone.whatsapp}`} className="text-gray-600 hover:text-green-600" dir="ltr">
+                                            {BUSINESS.phone.display}
                                         </a>
                                     </div>
                                 </div>
@@ -98,8 +98,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-gray-900 mb-1">البريد الإلكتروني</div>
-                                        <a href="mailto:info@rawajgate.com" className="text-gray-600 hover:text-blue-600">
-                                            info@rawajgate.com
+                                        <a href={`mailto:${BUSINESS.email}`} className="text-gray-600 hover:text-blue-600">
+                                            {BUSINESS.email}
                                         </a>
                                     </div>
                                 </div>

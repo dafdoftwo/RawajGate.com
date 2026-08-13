@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "node scripts/generate-image-variants.mjs && node scripts/generate-article-registry.mjs",
+    "prebuild": "node scripts/check-hardcoded-contact.mjs && node scripts/generate-image-variants.mjs && node scripts/generate-article-registry.mjs",
     "check:due": "node scripts/check-due-articles.mjs --window 2"
   },
   "dependencies": {
