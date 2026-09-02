@@ -15,7 +15,8 @@
 | **مهام اليوم** | كل المتابعات المستحقة اليوم (تذكيرات، ترقيات، إعادة حجز، استرجاع) كقائمة "افعل الآن" | كول سنتر |
 | **الحضور والدفع** | تسجيل الحضور، المبلغ المحصّل، طريقة الدفع، الترقية المعروضة وردها | استقبال |
 | **لوحة المؤشرات** | KPIs القسم 7 من الاستراتيجية، يومي/أسبوعي/شهري، حسب القناة والحملة | المالك |
-| **الإعدادات** | الخدمات والباقات والأسعار، المختصون وجداولهم، أرقام الدفع، قوالب الرسائل | المالك |
+| **الشركاء والعمولات** | قائمة الشركاء وأكوادهم، عملاء كل شريك وحالتهم، العمولات المستحقة/المدفوعة، لوحة ترتيب المدربين، زر "توليد كشف الشهر" | المالك (قراءة محدودة للمدرب على نفسه) |
+| **الإعدادات** | الخدمات والباقات والأسعار وفئة العمولة، المختصون، الفترات، جدول العمولات، أرقام الدفع، قوالب الرسائل | المالك |
 
 خارج النسخة الأولى (لاحقاً): إرسال واتساب تلقائي عبر API رسمي، حجز ذاتي للعميل من رابط، تطبيق موبايل، نقاط ولاء.
 
@@ -128,8 +129,37 @@
 ```
 (`"25:00"` = 1 صباح اليوم التالي.) تغيير المواعيد يتم هنا فقط، وتنعكس فوراً في التقويم وقواعد الحجز وحساب الذروة.
 
-### `partners` (شركاء الإحالة — كوافير، أتيليه، مصوّر، صالة أفراح، مدرب)
-`id`, `nameAr`, `type` (`salon`/`atelier`/`photographer`/`venue`/`planner`/`trainer`/`other`), `phone`, `referralCode`, `commissionRate` (0.10) أو `commissionFixed` (50 للمدرب), `referralsCount`, `commissionDue`, `active`.
+### `partners` (كل من يُحضر عميلاً: مدرب، صالون حلاقة، بيوتي سنتر/كوافير، أتيليه، مصوّر، صالة، سفير فرد، موظف)
+`id`, `nameAr`, `type` (`trainer`/`barber`/`beauty_center`/`salon`/`atelier`/`photographer`/`venue`/`planner`/`individual`/`staff`), `phone`, `referralCode` (فريد، يُطبع على كارت الشريك), `payoutMethod` (`instapay`/`vodafone_cash`/`spa_credit`), `payoutDetails`, `renewalCommissionEligible` (true للمدربين فقط), `referralsCount`, `commissionEarned`, `commissionPaid`, `commissionDue`, `spaCreditBalance`, `active`.
+
+### `settings/global.commissions` — جدول النسب (مصدر الحقيقة، التفصيل في `05-referral-commissions.md`)
+```json
+"commissions": {
+  "classA": { "tiers": [ {"minNew": 1, "rate": 0.10}, {"minNew": 5, "rate": 0.12}, {"minNew": 10, "rate": 0.15} ] },
+  "classB": { "tiers": [ {"minNew": 1, "rate": 0.10} ] },
+  "singleBelow500Fixed": 25,
+  "trialOffersCommissionable": false,
+  "renewalRate": 0.05, "renewalMaxCount": 5,
+  "spaCreditMultiplier": 2,
+  "minPayout": 300, "payoutDay": 5,
+  "newCustomerWindowDays": 180, "clawbackDays": 7,
+  "staff": { "receptionUpsellRate": 0.05, "receptionRenewalRate": 0.02, "callCenterRate": 0.03, "therapistCourseBonus": 100 },
+  "bridalSeasonBonus": { "every": 5, "amount": 500, "months": [6,7,8,9] }
+}
+```
+كل `package` و`service` يحمل `commissionClass` (`A` / `B` / `none`). عروض التعارف = `none`.
+
+### `commissions` (سجل العمولات — يُنشأ آلياً ولا يُعدَّل يدوياً)
+`id`, `partnerId`, `customerId`, `purchaseId` أو `appointmentId`, `kind` (`first_purchase`/`renewal`/`fixed_single`/`bonus`/`clawback`), `baseAmount` (المدفوع فعلاً), `rate`, `amount`, `tierAtCalc`, `status` (`pending` → `earned` بعد `showed` والدفع → `paid` / `voided`), `periodMonth` (YYYY-MM), `paidAt`, `payoutBatchId`.
+
+**قواعد الإسناد (Attribution):**
+1. الكود يُسجَّل في `lead.referralCode` عند أول تواصل؛ إضافته بعد `booked` تتطلب دور `owner`.
+2. عميل جديد = لا يوجد `customer` بنفس الهاتف زار خلال `newCustomerWindowDays`؛ وإلا لا تُنشأ عمولة (إلا `renewal` للمدرب).
+3. `partnerId` = هاتف العميل نفسه أو هاتف مسجَّل باسم الشريك → مرفوض.
+4. عند `appointment.status = showed` و`amountCollected > 0` أو `purchase.paidAt` → إنشاء `commission` بحالة `earned` على `baseAmount` = المدفوع الفعلي.
+5. نهاية الشهر: إعادة حساب `rate` لكل شريك رجعياً حسب عدد `earned` من الفئة A في الشهر (الشريحة الرجعية)، ثم تجميع الكشف وإرساله واتساب، والدفع يوم `payoutDay`.
+6. `refund` أو `no_show` بعد الاحتساب خلال `clawbackDays` → `clawback` بنفس المبلغ سالباً في الشهر التالي.
+7. `renewal`: للمدرب فقط، عند تجديد `purchase` من نوع اشتراك لعميل `partnerId` هو مدرب، حتى `renewalMaxCount`.
 
 ### `campaigns`
 `id`, `nameAr`, `channel`, `offerPackageId`, `startAt`, `endAt`, `budget`, `spend` (يُدخل يدوياً أسبوعياً)، `utmCampaign`, `active`. تُستخدم لحساب CPL وCAC في اللوحة.
@@ -193,7 +223,9 @@ new ──(أول رد)──► contacted ──(تم التأهيل)──► 
 | إنشاء/تعديل `appointment` | **تحقق الفترة:** يُحسب `shiftGender` من `startAt` عبر `settings.shifts`؛ لو لا توجد فترة أو جنسها ≠ جنس العميل → رفض مع رسالة "خارج فترة {السيدات/الرجال}". لو `package.requiresBridalWindow` والموعد خارج `bridalWindow` → رفض. لو داخل `shiftChangeoverMin` → رفض. |
 | شراء باقة `segment in (bride, groom, couple, party, program)` | حفظ `customer.eventDate`، وإن كانت برنامج 3 زيارات: إنشاء 3 مواعيد مبدئية عند T−21 / T−7 / T−2 يوماً من الفرح داخل `bridalWindow` (مع `programVisitNo`)، و`followUp` للتأكيد لكل زيارة قبلها بـ 48 س |
 | `customer.eventDate` + 30 يوم | `followUp` نوع `post_event_offer` ("مبروك، عرض أول شهر بعد الزواج": اشتراك الحمام للعروسة / ريكفري للعريس) |
-| شراء بـ `partnerId` | `partners.referralsCount++`، وإضافة العمولة إلى `commissionDue`؛ تقرير شهري بالعمولات المستحقة |
+| شراء بـ `partnerId` (أو حضور مدفوع) | إنشاء `commission` بحالة `earned` وفق `settings.commissions` (الفئة، الشريحة المؤقتة، أول شراء/تجديد)، `partners.referralsCount++`، وتحديث `commissionDue` |
+| يوم 1 من كل شهر | إعادة احتساب الشرائح رجعياً للشهر السابق، توليد كشف لكل شريك (PDF/رسالة واتساب) بقائمة العملاء والمبالغ، وبونص العرسان الموسمي، ومهمة `payout` للمالك بتاريخ `payoutDay` |
+| `commission.status` → `paid` | تحديث `commissionPaid`/`commissionDue`، أو إضافة `amount × spaCreditMultiplier` إلى `spaCreditBalance` إن اختار الشريك الرصيد |
 | إنشاء `purchase` بـ `tier == gift` | إنشاء `giftVoucher` برمز فريد وقيمة ورصيد، يُصرف على باقات العرسان فقط، صلاحية 180 يوماً |
 
 ---
