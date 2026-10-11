@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { BlogCategoryView } from "@/components/blog/blog-category-view";
 import { BUSINESS } from "@/lib/business";
+import { getPublishedMeta } from "@/lib/articles/meta";
 import {
     CATEGORY_SLUGS,
     SLUG_TO_CATEGORY,
@@ -38,10 +39,17 @@ export async function generateMetadata({
     const { slug } = await params;
     const category = SLUG_TO_CATEGORY[slug];
     if (!category) return { title: "التصنيف غير موجود" };
+    const count = getPublishedMeta().filter((p) => p.category === category).length;
 
     return {
         title: `مقالات ${category}`,
         description: `كل مقالات قسم «${category}» في مدونة بوابة الرواج — أدلة عملية بأرقام حقيقية من سوق جدة.`,
+        /*
+          تصنيف بلا مقالات منشورة صفحته «لا توجد مقالات بعد» — محتوى رقيق.
+          مستبعد من الـ sitemap أصلاً، وهنا يُمنع من الفهرسة حتى يُنشر أول مقال
+          (يُعاد البناء مع كل نشر، فترتفع noindex تلقائياً).
+        */
+        ...(count === 0 && { robots: { index: false, follow: true } }),
         alternates: { canonical: `/blog/category/${slug}` },
         openGraph: {
             title: `مقالات ${category} | مدونة بوابة الرواج`,

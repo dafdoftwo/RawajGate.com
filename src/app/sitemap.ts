@@ -11,6 +11,7 @@ import { getPublishedMeta } from "@/lib/articles/meta";
 import { extraPageParams } from "@/lib/articles/pagination";
 import { ALL_CATEGORY_SLUGS, SLUG_TO_CATEGORY } from "@/lib/articles/categories";
 import { PRICING_BLOCKS } from "@/lib/pricing";
+import { PORTFOLIO_CATEGORIES, getCategoryCounts } from "@/lib/portfolio-data";
 
 const BASE = BUSINESS.url;
 
@@ -145,12 +146,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }
     );
 
+    /*
+      تصنيفات الأعمال — صفحات قابلة للفهرسة بـ canonical ذاتي، لكنها كانت
+      غائبة عن الـ sitemap. التصنيف بلا مشاريع مستبعد (وصفحته noindex).
+    */
+    const portfolioCounts = getCategoryCounts();
+    const portfolioPages: MetadataRoute.Sitemap = PORTFOLIO_CATEGORIES.filter(
+        (c) => c.id !== "all" && (portfolioCounts[c.id] ?? 0) > 0
+    ).map((c) => ({
+        url: url(`portfolio/${c.id}`),
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.5,
+    }));
+
     return [
         ...home,
         ...pillars,
         ...spokes,
         ...standalone,
         ...pricePages,
+        ...portfolioPages,
         ...blogPosts,
         ...categoryPages,
         ...blogPages,

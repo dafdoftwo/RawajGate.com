@@ -27,10 +27,13 @@ export async function generateMetadata({
     const { category } = await params;
     const cat = PORTFOLIO_CATEGORIES.find((c) => c.id === category);
     if (!cat) return { title: "التصنيف غير موجود" };
+    const count = getCategoryCounts()[category] ?? 0;
 
     return {
         title: `أعمالنا في ${cat.label}`,
-        description: `نماذج من مشاريع ${cat.label} التي نفّذناها في جدة والمنطقة الغربية.`,
+        description: `${count} من مشاريع ${cat.label} التي نفّذتها بوابة الرواج في جدة والمنطقة الغربية — صور حقيقية وتفاصيل التنفيذ والخامات المستخدمة.`,
+        // تصنيف بلا مشاريع صفحة فارغة — لا تُفهرس حتى يُضاف إليها عمل
+        ...(count === 0 && { robots: { index: false, follow: true } }),
         alternates: { canonical: `/portfolio/${category}` },
         openGraph: {
             title: `أعمالنا في ${cat.label} | بوابة الرواج`,

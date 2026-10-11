@@ -22,3 +22,11 @@
 # (احتياط لو كانت روابط ?category= مفهرسة)
 /blog?category=*       /blog/    301
 /portfolio?category=*  /portfolio/    301
+
+# ── الصفحة ١ من القوائم المرقّمة → المسار الأساس ───────────────
+# تُولَّد إجبارياً (output:export يرفض generateStaticParams فارغة) وتحمل
+# canonical إلى الأصل؛ الـ 301 يحسم التكرار نهائياً لأي رابط خارجي إليها.
+/blog/page/1                    /blog/                    301
+/blog/page/1/                   /blog/                    301
+/blog/category/:slug/page/1     /blog/category/:slug/     301
+/blog/category/:slug/page/1/    /blog/category/:slug/     301

@@ -60,6 +60,8 @@ export async function generateMetadata({
         openGraph: {
             title: `مقالات ${category} — صفحة ${n}`,
             url: `${BUSINESS.url}/blog/category/${slug}/page/${n}`,
+            // تعريف openGraph هنا يُلغي صورة التخطيط الموروثة — فتُعاد صراحةً
+            images: [{ url: BUSINESS.ogImage, width: 1200, height: 630, alt: BUSINESS.fullNameAr }],
             locale: "ar_SA",
             type: "website",
         },
