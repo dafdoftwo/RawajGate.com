@@ -66,11 +66,11 @@ export const BUSINESS = {
     */
     phone: {
         /** صيغة E.164 — للـ schema و tel: */
-        e164: "+966564612017",
+        e164: "+966502980652",
         /** للعرض للمستخدم */
-        display: "+966 56 461 2017",
+        display: "+966 50 298 0652",
         /** بدون + للـ wa.me */
-        whatsapp: "966564612017",
+        whatsapp: "966502980652",
     },
     email: "info@rawajgate.com",
 
