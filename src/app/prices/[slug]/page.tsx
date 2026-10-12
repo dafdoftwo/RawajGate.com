@@ -11,6 +11,7 @@ import {
     generateFAQSchema,
     generateServiceSchema,
     generateSpeakableWebPage,
+    toJsonLd,
 } from "@/lib/schema";
 
 /**
@@ -128,7 +129,7 @@ export default async function PriceDetailPage({
                 <script
                     key={i}
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+                    dangerouslySetInnerHTML={{ __html: toJsonLd(s) }}
                 />
             ))}
 

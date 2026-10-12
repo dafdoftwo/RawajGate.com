@@ -26,7 +26,7 @@ import { BUSINESS } from "@/lib/business";
 import {
   generateItemListSchema,
   generateVideoSchema,
-  generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
+  generateFAQSchema, generateSpeakableWebPage, toJsonLd } from "@/lib/schema";
 
 /**
  * ✅ الصفحة الرئيسية أصبحت Server Component.
@@ -94,17 +94,17 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesListSchema) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(servicesListSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(videoSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(faqSchema) }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(speakableSchema) }} />
 
       {/* ══════════════════ HERO ══════════════════ */}
       <section className="relative min-h-screen flex items-center bg-[#0a0f1c] overflow-hidden">

@@ -9,7 +9,7 @@ import {
 } from "@/lib/pricing";
 import {
     generateBreadcrumbSchema,
-    generateItemListSchema, generateSpeakableWebPage } from "@/lib/schema";
+    generateItemListSchema, generateSpeakableWebPage, toJsonLd } from "@/lib/schema";
 
 /**
  * صفحة الأسعار الرئيسية (Pillar).
@@ -84,13 +84,13 @@ export default function PricesPage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(listSchema) }}
             />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(speakableSchema) }} />
 
             {/* البطل */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">

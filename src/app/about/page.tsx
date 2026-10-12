@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MapPin, ArrowLeft, Phone, CheckCircle, Truck, Users } from "lucide-react";
 import { GeoImage } from "@/components/geo-image";
 import { BUSINESS, telLink } from "@/lib/business";
-import { generateBreadcrumbSchema, generateSpeakableWebPage } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateSpeakableWebPage, toJsonLd } from "@/lib/schema";
 import {
     COVERAGE_DISTRICTS, NEARBY_CITIES, SECTORS, CAPABILITIES,
     PROCESS_STEPS, GUARANTEES, MILESTONES, CORE_VALUES,
@@ -54,9 +54,9 @@ export default function AboutPage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
             />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(speakableSchema) }} />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-24">
                 <div className="container mx-auto px-4">

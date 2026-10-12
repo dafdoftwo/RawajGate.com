@@ -8,7 +8,7 @@ import {
     getBlogStats,
 } from "@/lib/articles/meta";
 import { paginate, pageHref } from "@/lib/articles/pagination";
-import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateItemListSchema, toJsonLd } from "@/lib/schema";
 import { CATEGORY_SLUGS } from "@/lib/articles/categories";
 
 /**
@@ -59,7 +59,7 @@ export function BlogIndexView({ page: pageNum }: { page: number }) {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(generateBreadcrumbSchema(crumbs)),
+                    __html: toJsonLd(generateBreadcrumbSchema(crumbs)),
                 }}
             />
             {/*
@@ -69,7 +69,7 @@ export function BlogIndexView({ page: pageNum }: { page: number }) {
             */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(buildListSchema(page.items)) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(buildListSchema(page.items)) }}
             />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">

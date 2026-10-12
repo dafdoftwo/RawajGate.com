@@ -6,7 +6,8 @@ import { BUSINESS } from "@/lib/business";
  * روابط مشاركة عادية تعمل بدون أي حزمة عميل.
  */
 export function ArticleShare({ slug, title }: { slug: string; title: string }) {
-    const url = `${BUSINESS.url}/blog/${slug}`;
+    // بالشرطة الختامية — الرابط المُشارَك بدونها يمر بتحويل 308 قبل الصفحة
+    const url = `${BUSINESS.url}/blog/${slug}/`;
     const encodedUrl = encodeURIComponent(url);
     const encodedTitle = encodeURIComponent(title);
 

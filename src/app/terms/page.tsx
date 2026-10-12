@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BUSINESS, telLink } from "@/lib/business";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
     title: "الشروط والأحكام",
@@ -28,7 +28,7 @@ export default function TermsPage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
             />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16">

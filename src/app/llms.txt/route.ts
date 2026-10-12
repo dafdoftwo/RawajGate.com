@@ -1,4 +1,5 @@
 import { BUSINESS } from "@/lib/business";
+import { withTrailingSlash } from "@/lib/schema";
 import { getPublishedMeta, getBlogStats } from "@/lib/articles/meta";
 import { getActiveCategories } from "@/lib/articles/meta";
 import { SILOS, STANDALONE_ROUTES } from "@/lib/routes";
@@ -28,7 +29,8 @@ import { CATEGORY_SLUGS } from "@/lib/articles/categories";
 
 export const dynamic = "force-static";
 
-const U = (p = "") => `${BUSINESS.url}${p}`;
+// بالشرطة الختامية — الرابط بدونها يُحوَّل بـ 308 (انظر withTrailingSlash)
+const U = (p = "") => withTrailingSlash(`${BUSINESS.url}${p}`);
 
 /** يقصّ الوصف حتى لا يطغى سطر واحد على الملف */
 const trim = (s: string, n = 150) =>

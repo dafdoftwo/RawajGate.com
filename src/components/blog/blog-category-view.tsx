@@ -4,7 +4,7 @@ import { BlogListing, type CategoryLink } from "@/components/blog/blog-listing";
 import { BUSINESS } from "@/lib/business";
 import { getPublishedMeta, getActiveCategories } from "@/lib/articles/meta";
 import { paginate, pageHref } from "@/lib/articles/pagination";
-import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateItemListSchema, toJsonLd } from "@/lib/schema";
 import { CATEGORY_SLUGS } from "@/lib/articles/categories";
 
 /**
@@ -51,14 +51,14 @@ export function BlogCategoryView({
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(generateBreadcrumbSchema(crumbs)),
+                    __html: toJsonLd(generateBreadcrumbSchema(crumbs)),
                 }}
             />
             {/* ItemList لعناصر هذه الصفحة فقط — لا لكل التصنيف */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(
+                    __html: toJsonLd(
                         generateItemListSchema(
                             page.items.map((p) => ({
                                 name: p.title,

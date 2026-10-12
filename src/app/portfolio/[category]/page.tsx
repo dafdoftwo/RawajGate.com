@@ -10,7 +10,7 @@ import {
     getProjects,
     getCategoryCounts,
 } from "@/lib/portfolio-data";
-import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateItemListSchema, toJsonLd } from "@/lib/schema";
 
 /** مسارات ثابتة لتصنيفات الأعمال — بديل ?category= */
 export function generateStaticParams() {
@@ -85,11 +85,11 @@ export default async function PortfolioCategoryPage({
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(listSchema) }}
             />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16">

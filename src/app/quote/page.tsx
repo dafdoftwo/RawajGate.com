@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowLeft } from "lucide-react";
 import { QuoteForm } from "@/components/quote-form";
 import { BUSINESS } from "@/lib/business";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
     openGraph: {
@@ -36,7 +36,7 @@ export default function ContactPage() {
         <>
         <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
         />
             {/* Hero Section */}
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">

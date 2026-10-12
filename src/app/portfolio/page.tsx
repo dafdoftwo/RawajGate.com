@@ -12,6 +12,7 @@ import {
 import {
     generateBreadcrumbSchema,
     generateItemListSchema,
+    toJsonLd,
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -68,11 +69,11 @@ export default function PortfolioPage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(listSchema) }}
             />
 
             {/* البطل */}

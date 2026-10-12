@@ -15,6 +15,7 @@ import {
     generateBlogPostingSchema,
     generateFAQSchema,
     generateHowToSchema,
+    toJsonLd,
 } from "@/lib/schema";
 
 /**
@@ -139,7 +140,7 @@ export default async function ArticlePage({
                 <script
                     key={i}
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+                    dangerouslySetInnerHTML={{ __html: toJsonLd(s) }}
                 />
             ))}
 

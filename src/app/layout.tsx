@@ -3,7 +3,7 @@ import { IBM_Plex_Sans_Arabic, Cairo } from "next/font/google";
 import { Header } from "@/components/mega-menu";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@/components/analytics";
-import { generateSiteGraph } from "@/lib/schema";
+import { generateSiteGraph, toJsonLd } from "@/lib/schema";
 import { BUSINESS } from "@/lib/business";
 import "./globals.css";
 
@@ -141,7 +141,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph) }}
+          dangerouslySetInnerHTML={{ __html: toJsonLd(siteGraph) }}
         />
       </head>
       <body className="font-body antialiased bg-white text-gray-900">

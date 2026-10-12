@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HelpCircle, ArrowLeft } from "lucide-react";
 import { getFAQsBySilo, TOTAL_FAQS } from "@/lib/faqs";
 import { SILOS } from "@/lib/routes";
-import { generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateFAQSchema, generateSpeakableWebPage, toJsonLd } from "@/lib/schema";
 import { BUSINESS } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -65,13 +65,13 @@ export default function FAQPage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                dangerouslySetInnerHTML={{ __html: toJsonLd(faqSchema) }}
             />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(speakableSchema) }} />
 
             <section className="bg-gradient-to-bl from-[#1a365d] via-[#2d4a7c] to-[#1a365d] py-16 lg:py-20">
                 <div className="container mx-auto px-4 text-center">

@@ -21,6 +21,41 @@ export const LOCAL_ID = `${BASE}/#localbusiness`;
 const LOGO_ID = `${BASE}/#logo`;
 const LOGO_URL = `${BASE}${BUSINESS.logo}`;
 
+/**
+ * يضيف الشرطة الختامية لأي رابط صفحة على نطاقنا، ويترك ما عداه كما هو.
+ *
+ * ⚠️ الموقع يُبنى بـ trailingSlash: true — كل صفحة تعيش على /path/ و/path
+ * تُحوَّل إليها بـ 308. روابط الـ schema كانت تُكتب بلا شرطة، فيكتشفها
+ * Google من كل صفحة ويزحف إلى التحويل بدل الصفحة: ظهرت ٢٩ منها في تقرير
+ * «Page with redirect» في Search Console (أكتوبر ٢٠٢٦).
+ *
+ * الملفات (logo.png، sitemap.xml) والنطاقات الأخرى تمر دون تغيير،
+ * و#المعرّف أو ?الاستعلام يبقى بعد الشرطة: /blog/x#article ← /blog/x/#article
+ */
+export function withTrailingSlash(value: string): string {
+    if (!value.startsWith(BASE)) return value;
+    const rest = value.slice(BASE.length);
+    // نطاق آخر يبدأ بنفس الحروف (rawajgate.com.sa مثلاً)
+    if (rest && !/^[/?#]/.test(rest)) return value;
+    const [, path = "", tail = ""] = rest.match(/^([^?#]*)(.*)$/) ?? [];
+    const last = path.slice(path.lastIndexOf("/") + 1);
+    if (path.endsWith("/") || last.includes(".")) return value;
+    return `${BASE}${path}/${tail}`;
+}
+
+/**
+ * يحوّل كائن schema إلى نص JSON-LD — نقطة الإخراج الوحيدة لكل وسوم
+ * application/ld+json في الموقع.
+ *
+ * التوحيد هنا لا في كل صفحة: عشرات الروابط مكتوبة يدوياً في الصفحات،
+ * وملاحقتها واحداً واحداً تترك دائماً رابطاً منسياً.
+ */
+export function toJsonLd(data: unknown): string {
+    return JSON.stringify(data, (_key, value) =>
+        typeof value === "string" ? withTrailingSlash(value) : value
+    );
+}
+
 /** عنوان بريدي مُعاد استخدامه في كل الكيانات — يضمن اتساق NAP */
 const postalAddress = {
     "@type": "PostalAddress",
